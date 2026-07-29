@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SikcaSorulanSorularRouteImport } from './routes/sikca-sorulan-sorular'
 import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
@@ -26,6 +27,11 @@ import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.ka
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SikcaSorulanSorularRoute = SikcaSorulanSorularRouteImport.update({
+  id: '/sikca-sorulan-sorular',
+  path: '/sikca-sorulan-sorular',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KvkkRoute = KvkkRouteImport.update({
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
+  '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
+  '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
+  '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
+    | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
+    | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
@@ -175,6 +186,7 @@ export interface FileRouteTypes {
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
+    | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
@@ -191,6 +203,7 @@ export interface RootRouteChildren {
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
   KvkkRoute: typeof KvkkRoute
+  SikcaSorulanSorularRoute: typeof SikcaSorulanSorularRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   MakalelerSlugRoute: typeof MakalelerSlugRoute
@@ -206,6 +219,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sikca-sorulan-sorular': {
+      id: '/sikca-sorulan-sorular'
+      path: '/sikca-sorulan-sorular'
+      fullPath: '/sikca-sorulan-sorular'
+      preLoaderRoute: typeof SikcaSorulanSorularRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kvkk': {
@@ -303,6 +323,7 @@ const rootRouteChildren: RootRouteChildren = {
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
   KvkkRoute: KvkkRoute,
+  SikcaSorulanSorularRoute: SikcaSorulanSorularRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   MakalelerSlugRoute: MakalelerSlugRoute,
