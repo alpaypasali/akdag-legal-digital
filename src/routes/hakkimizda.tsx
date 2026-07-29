@@ -98,7 +98,7 @@ function AboutPage() {
 
       <section
         aria-labelledby="ilkeler"
-        className="relative isolate overflow-hidden border-b border-border py-16 md:py-24"
+        className="relative isolate overflow-hidden border-b border-border bg-background py-16 md:py-24"
       >
         <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
@@ -122,6 +122,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
 
 
 
