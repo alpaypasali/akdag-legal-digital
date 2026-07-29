@@ -381,8 +381,6 @@ function Home() {
           </dl>
         </div>
       </section>
-        </div>
-      </section>
 
 
       {/* 6 — Son makaleler */}
