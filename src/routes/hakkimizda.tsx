@@ -40,12 +40,12 @@ export const Route = createFileRoute("/hakkimizda")({
 });
 
 const values = [
-  { t: "Gizlilik", d: "Müvekkil bilgileri meslek sırrı kapsamında korunur; üçüncü kişilerle paylaşılmaz." },
-  { t: "Şeffaflık", d: "Sürecin aşamaları, olası riskler ve masraf kalemleri baştan açıklanır." },
-  { t: "Bağımsızlık", d: "Hukuki değerlendirme, dış etkiden bağımsız biçimde yapılır." },
-  { t: "Dürüstlük", d: "Gerçekleşmesi öngörülmeyen sonuçlar için beklenti oluşturulmaz." },
-  { t: "Özen", d: "Belge, süre ve usul koşulları dosya boyunca takip edilir." },
-  { t: "Saygı", d: "Tüm taraflarla ölçülü ve mesleki bir iletişim kurulur." },
+  { t: "Gizlilik", d: "Paylaşılan her bilgi meslek sırrı kapsamında korunur." },
+  { t: "Şeffaflık", d: "Sürecin aşamaları ve olası sonuçları açıkça aktarılır." },
+  { t: "Bağımsızlık", d: "Değerlendirme yalnızca hukuki ölçütlere göre yapılır." },
+  { t: "Dürüstlük", d: "Beklenti oluşturmadan, gerçekçi bir çerçeve sunulur." },
+  { t: "Özen", d: "Dosya, belgeler ve süreler ayrıntılı biçimde takip edilir." },
+  { t: "Saygı", d: "Karşı taraf dâhil tüm süjelerle ölçülü iletişim kurulur." },
 ];
 
 function AboutPage() {
