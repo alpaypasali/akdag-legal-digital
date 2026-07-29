@@ -460,7 +460,7 @@ function Home() {
 
           <div className="lg:col-span-7">
             <dl className="grid gap-px border border-border bg-border sm:grid-cols-2">
-              <div className="p-6">
+              <div className="bg-card/85 p-6">
                 <dt className="eyebrow">Adres</dt>
                 <dd className="mt-2">
                   {site.contact.addressLine}
@@ -468,15 +468,15 @@ function Home() {
                   {site.contact.district} / {site.contact.city}
                 </dd>
               </div>
-              <div className="p-6">
+              <div className="bg-card/85 p-6">
                 <dt className="eyebrow">Çalışma Saatleri</dt>
                 <dd className="mt-2">{site.contact.hours}</dd>
               </div>
-              <div className="p-6">
+              <div className="bg-card/85 p-6">
                 <dt className="eyebrow">Telefon</dt>
                 <dd className="mt-2">{site.contact.phoneLabel}</dd>
               </div>
-              <div className="p-6">
+              <div className="bg-card/85 p-6">
                 <dt className="eyebrow">E-posta</dt>
                 <dd className="mt-2">
                   <a
@@ -500,7 +500,7 @@ function Home() {
               </a>
               <Link
                 to="/iletisim"
-                className="inline-flex min-h-12 items-center border border-foreground bg-foreground px-6 text-sm text-primary-foreground transition-colors hover:bg-transparent hover:text-foreground"
+                className="inline-flex min-h-12 items-center border border-gold bg-gold px-6 text-sm text-ink transition-colors hover:bg-gold-soft"
               >
                 Randevu talebi
               </Link>
