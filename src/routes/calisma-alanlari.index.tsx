@@ -65,11 +65,12 @@ function AreasPage() {
           <h2 id="oncelikli" className="eyebrow">
             Öne Çıkan Alanlar
           </h2>
-          <ul className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {featuredAreas.map((area, i) => {
-              const img = getAreaImage(area.slug);
-              return (
-                <li key={area.slug} className="bg-background">
+            <ul className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+              {featuredAreas.map((area, i) => {
+                const img = getAreaImage(area.slug);
+                const isFirst = i === 0;
+                return (
+                  <li key={area.slug} className={`bg-background ${isFirst ? "lg:col-span-2" : ""}`}>
                   <Link
                     to="/calisma-alanlari/$slug"
                     params={{ slug: area.slug }}
