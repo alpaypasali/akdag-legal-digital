@@ -61,7 +61,11 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {open ? <MobileMenu onClose={() => setOpen(false)} /> : null}
+      {/* Portal: header uses backdrop-blur, which creates a containing block
+          and would trap a `fixed inset-0` overlay inside the header box. */}
+      {open && mounted
+        ? createPortal(<MobileMenu onClose={() => setOpen(false)} />, document.body)
+        : null}
     </header>
   );
 }
