@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Wordmark } from "@/components/brand";
+import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
 import { site } from "@/data/site";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 
