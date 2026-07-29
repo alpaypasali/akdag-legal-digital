@@ -6,8 +6,8 @@ export function Wordmark({ tone = "ink" }: { tone?: "ink" | "invert" }) {
     <img
       src={logoAsset.url}
       alt="Akdağ Hukuk ve Danışmanlık — Av. Kutay Onat Akdağ"
-      width={800}
-      height={286}
+      width={560}
+      height={200}
       className={`h-10 w-auto md:h-12 ${tone === "invert" ? "" : ""}`}
       loading="eager"
       decoding="async"
