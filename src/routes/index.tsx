@@ -113,6 +113,8 @@ function Home() {
 
   return (
     <>
+      <div className="home-arch" aria-hidden="true" hidden />
+      <ArchBackdrop />
       {/* 1 — Hero */}
       <section className="relative overflow-hidden border-b border-hairline-invert bg-ink text-ink-foreground">
         <HeroBackdrop />
