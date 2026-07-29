@@ -4,6 +4,7 @@ import { PageHeader, LegalDisclaimer } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
 import { site } from "@/data/site";
+import headerAsset from "@/assets/hero-iletisim.png.asset.json";
 
 const title = "İletişim | Akdağ Hukuk ve Danışmanlık — Bursa";
 const description =
@@ -55,6 +56,9 @@ function ContactPage() {
       <PageHeader
         eyebrow="İletişim"
         title="Görüşme talebi ve büro bilgileri"
+        image={headerAsset.url}
+        imageAlt="Adalet heykeli, defterler ve dolma kalemin bulunduğu koyu tonlu büro masası"
+        imagePosition="78% center"
         intro="Aşağıdaki formu doldurarak ya da e-posta yoluyla büroya ulaşabilirsiniz. Talebiniz incelendikten sonra tarafınıza dönüş yapılır."
       >
         <Breadcrumbs items={[{ label: "İletişim" }]} />

@@ -4,13 +4,14 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { LogoLink } from "@/components/brand";
 import { mainNav } from "@/data/site";
+import { isOverlayRoute } from "@/lib/hero-overlay";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const overlay = pathname === "/";
+  const overlay = isOverlayRoute(pathname);
 
   useEffect(() => {
     setMounted(true);

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, LegalDisclaimer, SectionLabel } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
-import headerAsset from "@/assets/banner-inside-b.jpg.asset.json";
+import headerAsset from "@/assets/hero-hakkimizda.png.asset.json";
 
 const title = "Hakkımızda | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -46,7 +46,8 @@ function AboutPage() {
         eyebrow="Hakkımızda"
         title="Bursa'da bireyler ve kurumlar için hukuki süreç yönetimi"
         image={headerAsset.url}
-        imageAlt="Toplantı masasında belge ve raporları inceleyen danışmanlar"
+        imageAlt="Klasik büst, hukuk kitabı ve mimari sütunlarla düzenlenmiş sakin bir büro köşesi"
+        imagePosition="72% center"
         intro="Akdağ Hukuk ve Danışmanlık, dava ve danışmanlık dosyalarını düzenli bir çalışma yöntemiyle yürütür. Amaç, müvekkilin süreci anlaması ve her aşamada nerede durduğunu bilmesidir."
       >
         <Breadcrumbs items={[{ label: "Hakkımızda" }]} />
