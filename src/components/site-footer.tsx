@@ -14,7 +14,9 @@ const quickLinks = [
   { label: "Av. Kutay Onat Akdağ", to: "/avukat-kutay-onat-akdag" as const },
   { label: "Çalışma Alanları", to: "/calisma-alanlari" as const },
   { label: "Makaleler", to: "/makaleler" as const },
+  { label: "Sıkça Sorulan Sorular", to: "/sikca-sorulan-sorular" as const },
   { label: "İletişim", to: "/iletisim" as const },
+
 ];
 
 export function SiteFooter() {

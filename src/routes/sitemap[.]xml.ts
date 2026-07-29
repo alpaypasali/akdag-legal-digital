@@ -50,7 +50,13 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "yearly",
             priority: "0.7",
           })),
+          {
+            path: "/sikca-sorulan-sorular",
+            changefreq: "monthly",
+            priority: "0.7",
+          },
           { path: "/iletisim", changefreq: "yearly", priority: "0.9" },
+
           { path: "/kvkk", changefreq: "yearly", priority: "0.3" },
           { path: "/gizlilik", changefreq: "yearly", priority: "0.3" },
           { path: "/cerez-politikasi", changefreq: "yearly", priority: "0.3" },

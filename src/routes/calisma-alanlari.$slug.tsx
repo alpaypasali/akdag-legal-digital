@@ -2,9 +2,12 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { LegalDisclaimer } from "@/components/section";
+import { FaqList } from "@/components/faq-list";
+import { areaFaqs, faqJsonLd } from "@/data/faqs";
 import { getArea, practiceAreas, type PracticeArea } from "@/data/practice-areas";
 import { articlesForArea, formatDate } from "@/data/articles";
 import { site } from "@/data/site";
+
 
 export const Route = createFileRoute("/calisma-alanlari/$slug")({
   loader: ({ params }): { area: PracticeArea } => {
@@ -30,6 +33,7 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
         { property: "og:title", content: area.metaTitle },
         { property: "og:description", content: area.metaDescription },
         { property: "og:url", content: url },
+        { property: "og:type", content: "article" },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -42,7 +46,16 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
             ]),
           ),
         },
+        ...(areaFaqs[params.slug]?.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify(faqJsonLd(areaFaqs[params.slug])),
+              },
+            ]
+          : []),
       ],
+
     };
   },
   component: AreaDetail,
@@ -51,6 +64,8 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
 function AreaDetail() {
   const { area } = Route.useLoaderData() as { area: PracticeArea };
   const related = articlesForArea(area.slug);
+  const faqs = areaFaqs[area.slug] ?? [];
+
   const others = practiceAreas.filter((a) => a.slug !== area.slug).slice(0, 6);
 
   return (
@@ -124,6 +139,24 @@ function AreaDetail() {
             </h2>
             <p className="measure mt-5 text-muted-foreground">{area.processNote}</p>
           </section>
+
+          {faqs.length > 0 ? (
+            <section aria-labelledby="sss" className="mt-14">
+              <h2 id="sss" className="font-serif text-2xl sm:text-3xl">
+                {area.title} — sıkça sorulan sorular
+              </h2>
+              <FaqList items={faqs} headingId="sss" />
+              <p className="mt-6 text-xs text-muted-foreground">
+                Diğer sorular için{" "}
+                <Link to="/sikca-sorulan-sorular" className="underline">
+                  sıkça sorulan sorular
+                </Link>{" "}
+                sayfasına göz atabilirsiniz.
+              </p>
+            </section>
+          ) : null}
+
+
 
           {related.length > 0 ? (
             <section aria-labelledby="ilgili-makaleler" className="mt-14">
