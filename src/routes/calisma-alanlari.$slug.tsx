@@ -76,7 +76,7 @@ function AreaDetail() {
 
   return (
     <>
-      <div className="relative overflow-hidden border-b border-hairline-invert bg-ink py-14 text-ink-foreground md:py-20">
+      <div className="relative overflow-hidden border-b border-hairline-invert bg-ink pb-14 pt-28 text-ink-foreground md:pb-20 md:pt-40">
         {heroImg ? (
           <>
             <div className="absolute inset-y-0 right-0 w-full lg:w-2/3">

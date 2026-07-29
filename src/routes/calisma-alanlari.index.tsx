@@ -45,6 +45,7 @@ function AreasPage() {
         title="Takip edilen hukuk alanları ve dosya grupları"
         image={headerAsset.url}
         imageAlt="Ahşap raflarla çevrili klasik bir hukuk kütüphanesi"
+        imagePosition="65% center"
         intro="Aşağıdaki başlıklar, büro tarafından yürütülen dosya gruplarını gösterir. Her alanda sürecin kapsamı, izlenen aşamalar ve sık karşılaşılan durumlar ilgili sayfada ayrıca açıklanmıştır."
       >
         <Breadcrumbs items={[{ label: "Çalışma Alanları" }]} />

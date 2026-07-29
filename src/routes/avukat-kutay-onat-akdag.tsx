@@ -65,6 +65,7 @@ function LawyerPage() {
         eyebrow="Avukat"
         title="Av. Kutay Onat Akdağ"
         image={headerAsset.url}
+        imagePosition="70% center"
         imageAlt="Ciltli hukuk kitaplarının bulunduğu çalışma kütüphanesi"
         intro="Dosyaların hazırlığı, dilekçelerin yazımı ve duruşma takibi doğrudan yürütülür. Amaç, sürecin müvekkil tarafından anlaşılabilir biçimde ilerlemesidir."
       >
