@@ -345,7 +345,7 @@ function Home() {
 
           <ol className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
             {approach.map((step, i) => (
-              <li key={step.title} className="border-t border-border pt-5">
+              <li key={step.title} className="border-t border-hairline pt-5">
                 <span className="rule-number">
                   {String(i + 1).padStart(2, "0")}
                 </span>
