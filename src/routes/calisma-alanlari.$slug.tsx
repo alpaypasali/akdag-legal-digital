@@ -246,13 +246,17 @@ function AreaDetail() {
             <h2 id="durumlar" className="font-serif text-2xl sm:text-3xl">
               Sık karşılaşılan durumlar
             </h2>
-            <div className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2">
+            <div className="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-2">
               {area.situations.map((item) => (
-                <p key={item} className="bg-background p-5 text-sm text-muted-foreground">
+                <p
+                  key={item}
+                  className="border-t border-hairline pt-4 text-sm text-muted-foreground"
+                >
                   {item}
                 </p>
               ))}
             </div>
+
           </section>
 
           <section aria-labelledby="bilgilendirme" className="mt-14">

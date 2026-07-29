@@ -73,8 +73,14 @@
   --color-hairline: var(--hairline);
   --color-hairline-invert: var(--hairline-invert);
 
+  /* Üç seviyeli yüzey sistemi */
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+
   --tracking-label: 0.18em;
 }
+
 
 :root {
   --radius: 0.25rem;
@@ -88,10 +94,14 @@
   /* Açık zeminde WCAG AA sağlayan koyu altın */
   --gold-ink: oklch(0.505 0.098 68);
   --rule-gold: var(--gold-ink);
-  --stone: oklch(0.62 0.012 80);
-  --paper: oklch(0.975 0.009 85);
-  --paper-deep: oklch(0.945 0.014 84);
-  --hairline: oklch(0.865 0.014 84);
+  --stone: oklch(0.60 0.016 72);
+  /* Sıcak kırık parşömen / taş / taupe — saf beyaz yok */
+  --paper: oklch(0.948 0.0135 78);
+  --paper-deep: oklch(0.912 0.017 74);
+  --surface-1: oklch(0.948 0.0135 78);
+  --surface-2: oklch(0.905 0.019 72);
+  --surface-3: oklch(0.255 0.016 60);
+  --hairline: oklch(0.815 0.019 70);
   --hairline-invert: oklch(0.35 0.018 72);
   --gradient-gold: linear-gradient(
     100deg,
@@ -101,18 +111,19 @@
     oklch(0.85 0.08 88)
   );
 
-  --background: var(--paper);
-  --foreground: var(--ink);
-  --card: oklch(0.99 0.006 85);
-  --card-foreground: var(--ink);
-  --popover: oklch(0.99 0.006 85);
-  --popover-foreground: var(--ink);
+  --background: var(--surface-1);
+  --foreground: oklch(0.185 0.012 62);
+  --card: oklch(0.935 0.015 76);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.955 0.012 78);
+  --popover-foreground: var(--foreground);
   --primary: var(--ink);
   --primary-foreground: var(--ink-foreground);
-  --secondary: var(--paper-deep);
+  --secondary: var(--surface-2);
   --secondary-foreground: var(--ink);
-  --muted: var(--paper-deep);
-  --muted-foreground: oklch(0.475 0.012 74);
+  --muted: var(--surface-2);
+  --muted-foreground: oklch(0.405 0.017 66);
+
   --accent: oklch(0.53 0.086 74);
   --accent-foreground: var(--ink-foreground);
   --destructive: oklch(0.52 0.18 27);
@@ -319,4 +330,79 @@
     opacity: 1;
     transition: none;
   }
+}
+
+/* --- Açık yüzey sistemi: doku ve derinlik --- */
+
+/* Çok düşük yoğunluklu kâğıt dokusu + sıcak radial derinlik (görselsiz) */
+@utility paper-grain {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(
+        90% 60% at 12% 0%,
+        color-mix(in oklab, var(--color-gold) 7%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        70% 55% at 100% 100%,
+        color-mix(in oklab, var(--ink) 7%, transparent),
+        transparent 60%
+      );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--ink) 4%, transparent) 0 1px,
+        transparent 1px 3px
+      );
+    mask-image: radial-gradient(80% 70% at 50% 40%, black, transparent 85%);
+    -webkit-mask-image: radial-gradient(80% 70% at 50% 40%, black, transparent 85%);
+  }
+}
+
+/* Seyrek mimari dikey çizgiler */
+@utility arch-lines {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--ink) 8%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 25% 100%;
+}
+
+/* Dekoratif, silik büyük bölüm numarası */
+@utility ghost-numeral {
+  font-family: var(--font-serif);
+  line-height: 0.78;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--ink) 14%, transparent);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Editoryal dipnot bandı */
+@utility footnote-band {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  background: var(--color-surface-3);
+  color: color-mix(in oklab, var(--ink-foreground) 88%, transparent);
+  border-left: 2px solid var(--color-gold);
+  padding: 1rem 1.25rem;
 }
