@@ -2,9 +2,12 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { LegalDisclaimer } from "@/components/section";
+import { FaqList } from "@/components/faq-list";
+import { areaFaqs, faqJsonLd } from "@/data/faqs";
 import { getArea, practiceAreas, type PracticeArea } from "@/data/practice-areas";
 import { articlesForArea, formatDate } from "@/data/articles";
 import { site } from "@/data/site";
+
 
 export const Route = createFileRoute("/calisma-alanlari/$slug")({
   loader: ({ params }): { area: PracticeArea } => {
