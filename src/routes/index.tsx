@@ -507,55 +507,74 @@ function Home() {
 
 
       {/* 6 — Son makaleler */}
-      <section aria-labelledby="makaleler-baslik" className="border-b border-border py-16 md:py-24">
-        <div className="container-editorial">
-          <SectionLabel index="05">Makaleler</SectionLabel>
-          <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
+      <section
+        aria-labelledby="makaleler-baslik"
+        className="paper-grain relative overflow-hidden bg-surface-1 py-16 md:py-24"
+      >
+        <div className="container-editorial relative grid gap-y-10 lg:grid-cols-12 lg:gap-x-16">
+          <div className="lg:col-span-4">
+            <SectionLabel index="05">Makaleler</SectionLabel>
             <h2
               id="makaleler-baslik"
-              className="max-w-2xl font-serif text-2xl sm:text-3xl lg:text-4xl"
+              className="mt-6 max-w-[14ch] font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.9rem]"
             >
               Güncel hukuki bilgilendirme yazıları
             </h2>
-            <Link to="/makaleler" className="link-underline text-sm">
+            <Link
+              to="/makaleler"
+              className="link-underline mt-8 min-h-11 text-sm"
+            >
               Tüm makaleler
-              <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+              <ArrowUpRight className="size-4 text-gold" aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-10 md:grid-cols-3">
-            {latest.map((article) => (
-              <article key={article.slug} className="border-t border-border pt-5">
-                <p className="eyebrow">
-                  {getCategory(article.categorySlug)?.title}
-                </p>
-                <h3 className="mt-3 font-serif text-xl leading-snug">
+          <div className="lg:col-span-8">
+            {latest.map((article, i) => (
+              <article
+                key={article.slug}
+                className={`grid gap-x-8 gap-y-2 border-b border-hairline py-7 first:pt-0 sm:grid-cols-[minmax(0,11rem)_1fr] ${
+                  i === 0 ? "" : ""
+                }`}
+              >
+                <div>
+                  <p className="eyebrow">
+                    {getCategory(article.categorySlug)?.title}
+                  </p>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    <time dateTime={article.updatedAt ?? article.publishedAt}>
+                      {formatDate(article.updatedAt ?? article.publishedAt)}
+                    </time>
+                    <span aria-hidden="true"> · </span>
+                    {article.readingMinutes} dk okuma
+                  </p>
+                </div>
+                <div>
+                  <h3
+                    className={`font-serif leading-snug ${
+                      i === 0 ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
+                    }`}
+                  >
+                    <Link
+                      to="/makaleler/$slug"
+                      params={{ slug: article.slug }}
+                      className="transition-colors hover:text-accent"
+                    >
+                      {article.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-3 max-w-[62ch] text-sm text-muted-foreground">
+                    {article.excerpt}
+                  </p>
                   <Link
                     to="/makaleler/$slug"
                     params={{ slug: article.slug }}
-                    className="transition-colors hover:text-accent"
+                    className="link-underline mt-5 min-h-11 text-sm"
                   >
-                    {article.title}
+                    Makaleyi oku
+                    <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
                   </Link>
-                </h3>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {article.excerpt}
-                </p>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  <time dateTime={article.updatedAt ?? article.publishedAt}>
-                    {formatDate(article.updatedAt ?? article.publishedAt)}
-                  </time>
-                  <span aria-hidden="true"> · </span>
-                  {article.readingMinutes} dk okuma
-                </p>
-                <Link
-                  to="/makaleler/$slug"
-                  params={{ slug: article.slug }}
-                  className="link-underline mt-5 text-sm"
-                >
-                  Makaleyi oku
-                  <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
-                </Link>
+                </div>
               </article>
             ))}
           </div>
@@ -563,73 +582,80 @@ function Home() {
       </section>
 
       {/* 7 — Bursa yerel bağlantı */}
-      <section aria-labelledby="bursa-baslik" className="py-16 md:py-24">
-        <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <section
+        aria-labelledby="bursa-baslik"
+        className="paper-grain relative overflow-hidden bg-surface-2 py-16 md:py-24"
+      >
+        <div className="container-editorial relative grid gap-y-12 lg:grid-cols-12 lg:gap-x-16">
           <div className="lg:col-span-5">
             <SectionLabel index="06">Büro</SectionLabel>
             <h2
               id="bursa-baslik"
-              className="mt-6 font-serif text-2xl sm:text-3xl lg:text-4xl"
+              className="mt-6 max-w-[14ch] font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.9rem]"
             >
               Osmangazi'deki büromuzda görüşme
             </h2>
-            <p className="measure mt-5 text-muted-foreground">
+            <p className="mt-6 max-w-[46ch] text-muted-foreground">
               Görüşmeler randevu ile yapılır. Bursa merkez ilçeleri ve çevre
               yerleşimlerdeki adliye ve icra dairelerindeki işlemler büro
               tarafından takip edilir.
             </p>
-          </div>
 
-          <div className="lg:col-span-7">
-            <dl className="grid gap-px border border-border bg-border sm:grid-cols-2">
-              <div className="bg-background p-6">
-                <dt className="eyebrow">Adres</dt>
-                <dd className="mt-2">
-                  {site.contact.addressLine}
-                  <br />
-                  {site.contact.district} / {site.contact.city}
-                </dd>
-              </div>
-              <div className="bg-background p-6">
-                <dt className="eyebrow">Çalışma Saatleri</dt>
-                <dd className="mt-2">{site.contact.hours}</dd>
-              </div>
-              <div className="bg-background p-6">
-                <dt className="eyebrow">Telefon</dt>
-                <dd className="mt-2">{site.contact.phoneLabel}</dd>
-              </div>
-              <div className="bg-background p-6">
-                <dt className="eyebrow">E-posta</dt>
-                <dd className="mt-2">
-                  <a
-                    href={`mailto:${site.contact.email}`}
-                    className="link-underline text-base"
-                  >
-                    {site.contact.email}
-                  </a>
-                </dd>
-              </div>
-            </dl>
-
-            <div className="mt-6 flex flex-wrap gap-4">
-              <a
-                href={site.contact.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center border border-foreground px-6 text-sm transition-colors hover:bg-secondary"
-              >
-                Haritada göster
-              </a>
+            <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 to="/iletisim"
                 className="inline-flex min-h-12 items-center border border-foreground bg-foreground px-6 text-sm text-primary-foreground transition-colors hover:bg-transparent hover:text-foreground"
               >
                 Randevu talebi
               </Link>
+              <a
+                href={site.contact.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center border border-foreground/40 px-6 text-sm transition-colors hover:border-foreground"
+              >
+                Haritada göster
+              </a>
             </div>
+          </div>
+
+          <div className="lg:col-span-6 lg:col-start-7">
+            <dl className="grid gap-x-10 gap-y-7 sm:grid-cols-2">
+              {[
+                {
+                  t: "Adres",
+                  d: (
+                    <>
+                      {site.contact.addressLine}
+                      <br />
+                      {site.contact.district} / {site.contact.city}
+                    </>
+                  ),
+                },
+                { t: "Çalışma Saatleri", d: site.contact.hours },
+                { t: "Telefon", d: site.contact.phoneLabel },
+                {
+                  t: "E-posta",
+                  d: (
+                    <a
+                      href={`mailto:${site.contact.email}`}
+                      className="link-underline min-h-11 text-base"
+                    >
+                      {site.contact.email}
+                    </a>
+                  ),
+                },
+              ].map((item) => (
+                <div key={item.t} className="border-t border-hairline pt-4">
+                  <dt className="eyebrow">{item.t}</dt>
+                  <dd className="mt-2">{item.d}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
+
     </>
   );
 }
