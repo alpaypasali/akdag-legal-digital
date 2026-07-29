@@ -192,67 +192,136 @@ function Home() {
 
 
       {/* 2 — Öne çıkan çalışma alanları */}
-      <section aria-labelledby="alanlar-baslik" className="border-b border-border py-16 md:py-24">
-        <div className="container-editorial">
-          <SectionLabel index="01">Çalışma Alanları</SectionLabel>
-          <h2
-            id="alanlar-baslik"
-            className="mt-6 max-w-2xl font-serif text-2xl sm:text-3xl lg:text-4xl"
-          >
-            Öncelikli olarak takip edilen dosya grupları
-          </h2>
+      <section
+        aria-labelledby="alanlar-baslik"
+        className="paper-grain relative overflow-hidden bg-surface-1 py-16 md:py-24"
+      >
+        {/* Koyu hero'nun açık bölüme kontrollü taşması */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--color-ink)_18%,transparent),transparent)]"
+        />
+        <div className="container-editorial relative grid gap-y-12 lg:grid-cols-12 lg:gap-x-16">
+          <div className="lg:col-span-4">
+            <SectionLabel index="01">Çalışma Alanları</SectionLabel>
+            <h2
+              id="alanlar-baslik"
+              className="mt-6 max-w-[15ch] font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.9rem]"
+            >
+              Öncelikli olarak takip edilen dosya grupları
+            </h2>
+            <p className="mt-6 max-w-[42ch] text-sm text-muted-foreground sm:text-base">
+              Her alan; dosyanın kapsamı, izlenen aşamalar ve sık karşılaşılan
+              durumlar başlıklarıyla ayrı olarak açıklanır.
+            </p>
+            <Link
+              to="/calisma-alanlari"
+              className="link-underline mt-8 min-h-11 text-sm"
+            >
+              Tüm çalışma alanları
+              <ArrowUpRight className="size-4 text-gold" aria-hidden="true" />
+            </Link>
+          </div>
 
-          <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {featuredAreas.map((area, i) => (
-              <Link
-                key={area.slug}
-                to="/calisma-alanlari/$slug"
-                params={{ slug: area.slug }}
-                className={`group flex flex-col justify-between bg-background p-7 transition-colors hover:bg-secondary ${
-                  i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
-                }`}
-              >
-                <div>
-                  <span className="rule-number">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3
-                    className={`mt-5 font-serif ${
-                      i === 0 ? "text-2xl lg:text-3xl" : "text-xl"
-                    }`}
+          <div className="lg:col-span-8">
+            {/* Öne çıkan ilk alan — koyu yüzey, çerçevesiz */}
+            {featuredAreas.slice(0, 1).map((area) => {
+              const img = getAreaImage(area.slug);
+              return (
+                <Link
+                  key={area.slug}
+                  to="/calisma-alanlari/$slug"
+                  params={{ slug: area.slug }}
+                  className="group relative isolate block overflow-hidden bg-ink px-7 py-10 text-ink-foreground sm:px-10 sm:py-12"
+                >
+                  {img ? (
+                    <img
+                      src={img.url}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 -z-20 size-full object-cover opacity-45 transition-transform duration-700 [filter:grayscale(0.8)_sepia(0.3)_saturate(0.8)_brightness(0.65)] group-hover:scale-105"
+                    />
+                  ) : null}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--color-ink)_92%,transparent),color-mix(in_oklab,var(--color-ink)_58%,transparent))]"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="ghost-numeral absolute -right-2 -top-4 text-[7rem] sm:text-[9rem]"
+                    style={{
+                      WebkitTextStroke:
+                        "1px color-mix(in oklab, var(--color-gold) 30%, transparent)",
+                    }}
                   >
+                    01
+                  </span>
+                  <span className="rule-number">01</span>
+                  <h3 className="mt-4 max-w-[16ch] font-serif text-3xl leading-tight transition-colors group-hover:text-gold sm:text-4xl">
                     {area.title}
                   </h3>
-                  <p className="measure mt-3 text-sm text-muted-foreground">
+                  <span className="mt-4 block max-w-[46ch] text-sm text-ink-foreground/75">
                     {area.summary}
-                  </p>
-                </div>
-                <span className="link-underline mt-8 self-start text-sm">
-                  Alanı incele
-                  <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
-                </span>
-              </Link>
-            ))}
+                  </span>
+                  <span className="link-underline mt-7 inline-flex min-h-11 text-sm text-gold">
+                    Alanı incele
+                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                  </span>
+                </Link>
+              );
+            })}
 
-            <div className="bg-background p-7">
-              <span className="eyebrow">Diğer Alanlar</span>
-              <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
-                {secondaryAreas.map((area) => (
-                  <li key={area.slug}>
-                    <Link
-                      to="/calisma-alanlari/$slug"
-                      params={{ slug: area.slug }}
-                      className="py-1 transition-colors hover:text-foreground"
-                    >
+            {/* Diğer öncelikli alanlar — numaralı satırlar, kutu yok */}
+            <ul className="mt-2">
+              {featuredAreas.slice(1).map((area, i) => (
+                <li key={area.slug}>
+                  <Link
+                    to="/calisma-alanlari/$slug"
+                    params={{ slug: area.slug }}
+                    className="group grid min-h-14 grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1 border-b border-hairline py-6 transition-[padding] duration-300 focus-visible:pl-2 hover:pl-2 sm:grid-cols-[auto_minmax(0,15rem)_1fr]"
+                  >
+                    <span className="rule-number">
+                      {String(i + 2).padStart(2, "0")}
+                    </span>
+                    <span className="font-serif text-xl transition-colors group-focus-visible:text-accent group-hover:text-accent sm:text-2xl">
                       {area.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                    </span>
+                    <span className="col-start-2 text-sm text-muted-foreground sm:col-start-3">
+                      {area.summary}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Diğer alanlar — koyu yatay bağlantı bandı */}
+        <div className="relative mt-16 bg-surface-3 py-8 text-ink-foreground md:mt-20">
+          <div className="container-editorial">
+            <p className="eyebrow text-gold">Diğer Alanlar</p>
+            <ul className="mt-5 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+              {secondaryAreas.map((area, i) => (
+                <li key={area.slug}>
+                  <Link
+                    to="/calisma-alanlari/$slug"
+                    params={{ slug: area.slug }}
+                    className="group flex min-h-11 items-baseline gap-4 text-sm text-ink-foreground/80 transition-colors hover:text-gold focus-visible:text-gold"
+                  >
+                    <span className="rule-number text-gold">
+                      {String(i + 6).padStart(2, "0")}
+                    </span>
+                    {area.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
+
 
       {/* 3 — Avukat tanıtımı */}
       <section
