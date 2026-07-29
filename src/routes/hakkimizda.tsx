@@ -99,28 +99,41 @@ function AboutPage() {
 
       <section
         aria-labelledby="ilkeler"
-        className="relative isolate overflow-hidden border-b border-border py-16 md:py-24"
+        className="relative isolate overflow-hidden border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
       >
-        <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
+        <img
+          src={archAsset.url}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center opacity-45 [filter:grayscale(1)_contrast(1.05)_brightness(0.9)]"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--ink)_88%,transparent),color-mix(in_oklab,var(--ink)_58%,transparent))]"
+        />
+        <div className="container-editorial grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="flex items-center gap-4">
               <span className="rule-number">02</span>
               <span className="eyebrow">Mesleki İlkeler</span>
             </div>
-            <h2 id="ilkeler" className="mt-6 font-serif text-2xl sm:text-3xl">
+            <h2
+              id="ilkeler"
+              className="mt-6 font-serif text-2xl sm:text-3xl lg:text-4xl"
+            >
               Çalışmanın dayandığı altı ilke
             </h2>
           </div>
-          <div className="lg:col-span-8">
-            <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-              {values.map((v) => (
-                <div key={v.t} className="border-t border-border pt-4">
-                  <dt className="font-serif text-lg text-foreground">{v.t}</dt>
-                  <dd className="mt-2 text-base text-muted-foreground sm:text-sm">{v.d}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">
+            {values.map((v) => (
+              <div key={v.t} className="border-t border-hairline-invert pt-4">
+                <dt className="font-serif text-lg text-ink-foreground">{v.t}</dt>
+                <dd className="mt-2 text-sm text-ink-foreground/75">{v.d}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
