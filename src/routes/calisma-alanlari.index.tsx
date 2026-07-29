@@ -51,30 +51,46 @@ function AreasPage() {
           <h2 id="oncelikli" className="eyebrow">
             Öne Çıkan Alanlar
           </h2>
-          <ul className="mt-8 border-t border-border">
-            {featuredAreas.map((area, i) => (
-              <li key={area.slug} className="border-b border-border">
-                <Link
-                  to="/calisma-alanlari/$slug"
-                  params={{ slug: area.slug }}
-                  className="group grid gap-3 py-7 md:grid-cols-12 md:items-baseline md:gap-8"
-                >
-                  <span className="rule-number md:col-span-1">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-serif text-2xl transition-colors group-hover:text-accent md:col-span-4 lg:text-3xl">
-                    {area.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground md:col-span-6">
-                    {area.summary}
-                  </p>
-                  <ArrowUpRight
-                    className="size-4 text-gold md:col-span-1 md:justify-self-end"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </li>
-            ))}
+          <ul className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {featuredAreas.map((area, i) => {
+              const img = getAreaImage(area.slug);
+              return (
+                <li key={area.slug} className="bg-background">
+                  <Link
+                    to="/calisma-alanlari/$slug"
+                    params={{ slug: area.slug }}
+                    className="group flex h-full flex-col"
+                  >
+                    {img ? (
+                      <span className="relative block aspect-[16/10] overflow-hidden bg-ink">
+                        <img
+                          src={img.url}
+                          alt={img.alt}
+                          loading={i < 3 ? "eager" : "lazy"}
+                          decoding="async"
+                          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </span>
+                    ) : null}
+                    <span className="flex flex-1 flex-col p-6">
+                      <span className="rule-number">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="mt-2 font-serif text-xl transition-colors group-hover:text-accent">
+                        {area.title}
+                      </h3>
+                      <span className="mt-3 block text-sm text-muted-foreground">
+                        {area.summary}
+                      </span>
+                      <span className="link-underline mt-5 self-start text-sm">
+                        Alanı incele
+                        <ArrowUpRight className="size-4 text-gold" aria-hidden="true" />
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -85,20 +101,37 @@ function AreasPage() {
             Diğer Çalışma Alanları
           </h2>
           <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {secondaryAreas.map((area) => (
-              <Link
-                key={area.slug}
-                to="/calisma-alanlari/$slug"
-                params={{ slug: area.slug }}
-                className="bg-background p-6 transition-colors hover:bg-secondary"
-              >
-                <h3 className="font-serif text-xl">{area.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {area.summary}
-                </p>
-              </Link>
-            ))}
+            {secondaryAreas.map((area) => {
+              const img = getAreaImage(area.slug);
+              return (
+                <Link
+                  key={area.slug}
+                  to="/calisma-alanlari/$slug"
+                  params={{ slug: area.slug }}
+                  className="group flex flex-col bg-background transition-colors hover:bg-secondary"
+                >
+                  {img ? (
+                    <span className="relative block aspect-[16/9] overflow-hidden bg-ink">
+                      <img
+                        src={img.url}
+                        alt={img.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </span>
+                  ) : null}
+                  <span className="block p-6">
+                    <h3 className="font-serif text-xl">{area.title}</h3>
+                    <span className="mt-3 block text-sm text-muted-foreground">
+                      {area.summary}
+                    </span>
+                  </span>
+                </Link>
+              );
+            })}
           </div>
+
 
           <div className="mt-14">
             <LegalDisclaimer />
