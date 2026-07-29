@@ -15,7 +15,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { site } from "@/data/site";
 import faviconAsset from "@/assets/favicon.png.asset.json";
-import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
+import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
 
 function NotFoundComponent() {
   return (

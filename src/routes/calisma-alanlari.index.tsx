@@ -7,7 +7,7 @@ import {
   secondaryAreas,
   getAreaImage,
 } from "@/data/practice-areas";
-import headerAsset from "@/assets/calisma-header.png.asset.json";
+import headerAsset from "@/assets/calisma-header.webp.asset.json";
 
 const title = "Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
 const description =
