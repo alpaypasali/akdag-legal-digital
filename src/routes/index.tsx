@@ -312,7 +312,7 @@ function Home() {
       </section>
 
       {/* 4 — Çalışma yaklaşımı */}
-      <section aria-labelledby="yaklasim-baslik" className="border-b border-border py-16 md:py-24">
+      <section aria-labelledby="yaklasim-baslik" className="border-b border-border bg-paper-deep/70 py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="03">Çalışma Yaklaşımı</SectionLabel>
           <h2
