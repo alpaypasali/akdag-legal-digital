@@ -138,6 +138,24 @@ function AreaDetail() {
             <p className="measure mt-5 text-muted-foreground">{area.processNote}</p>
           </section>
 
+          {faqs.length > 0 ? (
+            <section aria-labelledby="sss" className="mt-14">
+              <h2 id="sss" className="font-serif text-2xl sm:text-3xl">
+                {area.title} — sıkça sorulan sorular
+              </h2>
+              <FaqList items={faqs} headingId="sss" />
+              <p className="mt-6 text-xs text-muted-foreground">
+                Diğer sorular için{" "}
+                <Link to="/sikca-sorulan-sorular" className="underline">
+                  sıkça sorulan sorular
+                </Link>{" "}
+                sayfasına göz atabilirsiniz.
+              </p>
+            </section>
+          ) : null}
+
+
+
           {related.length > 0 ? (
             <section aria-labelledby="ilgili-makaleler" className="mt-14">
               <h2 id="ilgili-makaleler" className="font-serif text-2xl sm:text-3xl">
