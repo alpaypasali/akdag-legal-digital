@@ -19,7 +19,15 @@ export const Route = createFileRoute("/iletisim")({
       { property: "og:description", content: description },
       { property: "og:url", content: "/iletisim" },
     ],
-    links: [{ rel: "canonical", href: "/iletisim" }],
+    links: [
+      { rel: "canonical", href: "/iletisim" },
+      {
+        rel: "preload",
+        as: "image",
+        href: headerAsset.url,
+        fetchpriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
