@@ -22,7 +22,15 @@ export const Route = createFileRoute("/calisma-alanlari/")({
       { property: "og:description", content: description },
       { property: "og:url", content: "/calisma-alanlari" },
     ],
-    links: [{ rel: "canonical", href: "/calisma-alanlari" }],
+    links: [
+      { rel: "canonical", href: "/calisma-alanlari" },
+      {
+        rel: "preload",
+        as: "image",
+        href: headerAsset.url,
+        fetchpriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
