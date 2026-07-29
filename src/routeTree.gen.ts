@@ -9,38 +9,247 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as KvkkRouteImport } from './routes/kvkk'
+import { Route as IletisimRouteImport } from './routes/iletisim'
+import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
+import { Route as GizlilikRouteImport } from './routes/gizlilik'
+import { Route as CerezPolitikasiRouteImport } from './routes/cerez-politikasi'
+import { Route as AvukatKutayOnatAkdagRouteImport } from './routes/avukat-kutay-onat-akdag'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MakalelerIndexRouteImport } from './routes/makaleler.index'
+import { Route as CalismaAlanlariIndexRouteImport } from './routes/calisma-alanlari.index'
+import { Route as MakalelerSlugRouteImport } from './routes/makaleler.$slug'
+import { Route as CalismaAlanlariSlugRouteImport } from './routes/calisma-alanlari.$slug'
+import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KvkkRoute = KvkkRouteImport.update({
+  id: '/kvkk',
+  path: '/kvkk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IletisimRoute = IletisimRouteImport.update({
+  id: '/iletisim',
+  path: '/iletisim',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HakkimizdaRoute = HakkimizdaRouteImport.update({
+  id: '/hakkimizda',
+  path: '/hakkimizda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GizlilikRoute = GizlilikRouteImport.update({
+  id: '/gizlilik',
+  path: '/gizlilik',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CerezPolitikasiRoute = CerezPolitikasiRouteImport.update({
+  id: '/cerez-politikasi',
+  path: '/cerez-politikasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvukatKutayOnatAkdagRoute = AvukatKutayOnatAkdagRouteImport.update({
+  id: '/avukat-kutay-onat-akdag',
+  path: '/avukat-kutay-onat-akdag',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MakalelerIndexRoute = MakalelerIndexRouteImport.update({
+  id: '/makaleler/',
+  path: '/makaleler/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalismaAlanlariIndexRoute = CalismaAlanlariIndexRouteImport.update({
+  id: '/calisma-alanlari/',
+  path: '/calisma-alanlari/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MakalelerSlugRoute = MakalelerSlugRouteImport.update({
+  id: '/makaleler/$slug',
+  path: '/makaleler/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalismaAlanlariSlugRoute = CalismaAlanlariSlugRouteImport.update({
+  id: '/calisma-alanlari/$slug',
+  path: '/calisma-alanlari/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MakalelerKategoriSlugRoute = MakalelerKategoriSlugRouteImport.update({
+  id: '/makaleler/kategori/$slug',
+  path: '/makaleler/kategori/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/cerez-politikasi': typeof CerezPolitikasiRoute
+  '/gizlilik': typeof GizlilikRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
+  '/kvkk': typeof KvkkRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
+  '/makaleler/$slug': typeof MakalelerSlugRoute
+  '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
+  '/makaleler/': typeof MakalelerIndexRoute
+  '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/cerez-politikasi': typeof CerezPolitikasiRoute
+  '/gizlilik': typeof GizlilikRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
+  '/kvkk': typeof KvkkRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
+  '/makaleler/$slug': typeof MakalelerSlugRoute
+  '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
+  '/makaleler': typeof MakalelerIndexRoute
+  '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/cerez-politikasi': typeof CerezPolitikasiRoute
+  '/gizlilik': typeof GizlilikRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
+  '/kvkk': typeof KvkkRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
+  '/makaleler/$slug': typeof MakalelerSlugRoute
+  '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
+  '/makaleler/': typeof MakalelerIndexRoute
+  '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/avukat-kutay-onat-akdag'
+    | '/cerez-politikasi'
+    | '/gizlilik'
+    | '/hakkimizda'
+    | '/iletisim'
+    | '/kvkk'
+    | '/sitemap.xml'
+    | '/calisma-alanlari/$slug'
+    | '/makaleler/$slug'
+    | '/calisma-alanlari/'
+    | '/makaleler/'
+    | '/makaleler/kategori/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/avukat-kutay-onat-akdag'
+    | '/cerez-politikasi'
+    | '/gizlilik'
+    | '/hakkimizda'
+    | '/iletisim'
+    | '/kvkk'
+    | '/sitemap.xml'
+    | '/calisma-alanlari/$slug'
+    | '/makaleler/$slug'
+    | '/calisma-alanlari'
+    | '/makaleler'
+    | '/makaleler/kategori/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/avukat-kutay-onat-akdag'
+    | '/cerez-politikasi'
+    | '/gizlilik'
+    | '/hakkimizda'
+    | '/iletisim'
+    | '/kvkk'
+    | '/sitemap.xml'
+    | '/calisma-alanlari/$slug'
+    | '/makaleler/$slug'
+    | '/calisma-alanlari/'
+    | '/makaleler/'
+    | '/makaleler/kategori/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvukatKutayOnatAkdagRoute: typeof AvukatKutayOnatAkdagRoute
+  CerezPolitikasiRoute: typeof CerezPolitikasiRoute
+  GizlilikRoute: typeof GizlilikRoute
+  HakkimizdaRoute: typeof HakkimizdaRoute
+  IletisimRoute: typeof IletisimRoute
+  KvkkRoute: typeof KvkkRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
+  MakalelerSlugRoute: typeof MakalelerSlugRoute
+  CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
+  MakalelerIndexRoute: typeof MakalelerIndexRoute
+  MakalelerKategoriSlugRoute: typeof MakalelerKategoriSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kvkk': {
+      id: '/kvkk'
+      path: '/kvkk'
+      fullPath: '/kvkk'
+      preLoaderRoute: typeof KvkkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/iletisim': {
+      id: '/iletisim'
+      path: '/iletisim'
+      fullPath: '/iletisim'
+      preLoaderRoute: typeof IletisimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hakkimizda': {
+      id: '/hakkimizda'
+      path: '/hakkimizda'
+      fullPath: '/hakkimizda'
+      preLoaderRoute: typeof HakkimizdaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gizlilik': {
+      id: '/gizlilik'
+      path: '/gizlilik'
+      fullPath: '/gizlilik'
+      preLoaderRoute: typeof GizlilikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cerez-politikasi': {
+      id: '/cerez-politikasi'
+      path: '/cerez-politikasi'
+      fullPath: '/cerez-politikasi'
+      preLoaderRoute: typeof CerezPolitikasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/avukat-kutay-onat-akdag': {
+      id: '/avukat-kutay-onat-akdag'
+      path: '/avukat-kutay-onat-akdag'
+      fullPath: '/avukat-kutay-onat-akdag'
+      preLoaderRoute: typeof AvukatKutayOnatAkdagRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +257,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/makaleler/': {
+      id: '/makaleler/'
+      path: '/makaleler'
+      fullPath: '/makaleler/'
+      preLoaderRoute: typeof MakalelerIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calisma-alanlari/': {
+      id: '/calisma-alanlari/'
+      path: '/calisma-alanlari'
+      fullPath: '/calisma-alanlari/'
+      preLoaderRoute: typeof CalismaAlanlariIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/makaleler/$slug': {
+      id: '/makaleler/$slug'
+      path: '/makaleler/$slug'
+      fullPath: '/makaleler/$slug'
+      preLoaderRoute: typeof MakalelerSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calisma-alanlari/$slug': {
+      id: '/calisma-alanlari/$slug'
+      path: '/calisma-alanlari/$slug'
+      fullPath: '/calisma-alanlari/$slug'
+      preLoaderRoute: typeof CalismaAlanlariSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/makaleler/kategori/$slug': {
+      id: '/makaleler/kategori/$slug'
+      path: '/makaleler/kategori/$slug'
+      fullPath: '/makaleler/kategori/$slug'
+      preLoaderRoute: typeof MakalelerKategoriSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvukatKutayOnatAkdagRoute: AvukatKutayOnatAkdagRoute,
+  CerezPolitikasiRoute: CerezPolitikasiRoute,
+  GizlilikRoute: GizlilikRoute,
+  HakkimizdaRoute: HakkimizdaRoute,
+  IletisimRoute: IletisimRoute,
+  KvkkRoute: KvkkRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
+  MakalelerSlugRoute: MakalelerSlugRoute,
+  CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
+  MakalelerIndexRoute: MakalelerIndexRoute,
+  MakalelerKategoriSlugRoute: MakalelerKategoriSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
