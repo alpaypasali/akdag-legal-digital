@@ -166,31 +166,8 @@ function AreaDetail() {
             </ul>
           </div>
 
-          {heroImg ? (
-            <div className="hidden lg:col-span-5 lg:block">
-              <div className="relative p-10">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 translate-x-5 translate-y-5 border border-gold/40"
-                />
-                <div className="relative aspect-[4/5] overflow-hidden bg-ink">
-                  <img
-                    src={heroImg.url}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                    className="size-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -left-4 flex size-32 items-center justify-center border-r border-t border-gold/30 bg-ink p-6">
-                  <span className="flex size-full items-center justify-center border border-gold/20 font-serif text-3xl italic text-gold">
-                    A
-                  </span>
-                </div>
-              </div>
-            </div>
           ) : null}
+
         </div>
 
         <span
