@@ -98,25 +98,13 @@ function AboutPage() {
 
       <section
         aria-labelledby="ilkeler"
-        className="relative isolate overflow-hidden border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
+        className="relative isolate overflow-hidden border-b border-border py-16 md:py-24"
       >
-        <img
-          src={ilkelerAsset.url}
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-center [filter:saturate(0.45)_contrast(0.95)_brightness(0.7)_sepia(0.2)]"
-        />
-        <span
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-ink)_88%,transparent),color-mix(in_oklab,var(--color-ink)_78%,transparent))]"
-        />
         <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <div className="flex items-center gap-4">
               <span className="rule-number">02</span>
-              <span className="eyebrow text-ink-foreground/50">Mesleki İlkeler</span>
+              <span className="eyebrow">Mesleki İlkeler</span>
             </div>
             <h2 id="ilkeler" className="mt-6 font-serif text-2xl sm:text-3xl">
               Çalışmanın dayandığı altı ilke
@@ -125,9 +113,9 @@ function AboutPage() {
           <div className="lg:col-span-8">
             <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
               {values.map((v) => (
-                <div key={v.t} className="border-t border-hairline-invert pt-4">
-                  <dt className="font-serif text-lg text-gold">{v.t}</dt>
-                  <dd className="mt-2 text-base text-ink-foreground/75 sm:text-sm">{v.d}</dd>
+                <div key={v.t} className="border-t border-border pt-4">
+                  <dt className="font-serif text-lg text-accent">{v.t}</dt>
+                  <dd className="mt-2 text-base text-muted-foreground sm:text-sm">{v.d}</dd>
                 </div>
               ))}
             </dl>
