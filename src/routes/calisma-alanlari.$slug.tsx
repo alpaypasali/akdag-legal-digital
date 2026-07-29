@@ -218,7 +218,7 @@ function AreaDetail() {
             </h2>
             <ul className="mt-6 space-y-3">
               {area.scope.map((item) => (
-                <li key={item} className="flex gap-4 border-b border-border pb-3">
+                <li key={item} className="flex gap-4 border-b border-hairline pb-3">
                   <span aria-hidden="true" className="mt-2.5 h-px w-4 shrink-0 bg-gold" />
                   <span className="text-muted-foreground">{item}</span>
                 </li>
@@ -246,9 +246,9 @@ function AreaDetail() {
             <h2 id="durumlar" className="font-serif text-2xl sm:text-3xl">
               Sık karşılaşılan durumlar
             </h2>
-            <div className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2">
+            <div className="mt-6 grid gap-x-10 sm:grid-cols-2">
               {area.situations.map((item) => (
-                <p key={item} className="bg-background p-5 text-sm text-muted-foreground">
+                <p key={item} className="border-t border-hairline py-4 text-sm text-muted-foreground">
                   {item}
                 </p>
               ))}
@@ -285,9 +285,9 @@ function AreaDetail() {
               <h2 id="ilgili-makaleler" className="font-serif text-2xl sm:text-3xl">
                 İlgili makaleler
               </h2>
-              <ul className="mt-6 border-t border-border">
+              <ul className="mt-6 border-t border-hairline">
                 {related.map((a) => (
-                  <li key={a.slug} className="border-b border-border">
+                  <li key={a.slug} className="border-b border-hairline">
                     <Link
                       to="/makaleler/$slug"
                       params={{ slug: a.slug }}
@@ -316,7 +316,7 @@ function AreaDetail() {
 
         <aside className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">
-            <div className="border border-border bg-secondary p-6">
+            <div className="border-l-2 border-hairline-gold bg-paper-stone p-6">
               <h2 className="font-serif text-xl">Görüşme talebi</h2>
               <p className="mt-3 text-sm text-muted-foreground">
                 Dosyanızın kapsamını değerlendirmek için büroyla iletişime
@@ -336,9 +336,9 @@ function AreaDetail() {
 
             <nav aria-label="Diğer çalışma alanları" className="mt-10">
               <h2 className="eyebrow">Diğer Çalışma Alanları</h2>
-              <ul className="mt-4 border-t border-border">
+              <ul className="mt-4 border-t border-hairline">
                 {others.map((a) => (
-                  <li key={a.slug} className="border-b border-border">
+                  <li key={a.slug} className="border-b border-hairline">
                     <Link
                       to="/calisma-alanlari/$slug"
                       params={{ slug: a.slug }}

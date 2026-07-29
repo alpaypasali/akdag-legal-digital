@@ -90,7 +90,7 @@ function ArticleDetail() {
 
   return (
     <>
-      <div className="border-b border-border py-12 md:py-16">
+      <div className="border-b border-hairline py-12 md:py-16">
         <div className="container-editorial">
           <Breadcrumbs
             items={[
@@ -118,7 +118,7 @@ function ArticleDetail() {
             {article.excerpt}
           </p>
 
-          <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4 border-t border-border pt-6 text-sm">
+          <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4 border-t border-hairline pt-6 text-sm">
             <div>
               <dt className="eyebrow">Yazar</dt>
               <dd className="mt-1">{article.author}</dd>
@@ -152,7 +152,7 @@ function ArticleDetail() {
       <div className="container-editorial grid gap-14 py-12 md:py-16 lg:grid-cols-12 lg:gap-16">
         <aside className="lg:col-span-4 lg:order-2">
           <div className="lg:sticky lg:top-28">
-            <details className="border border-border p-5 lg:hidden" name="icindekiler">
+            <details className="border border-hairline p-5 lg:hidden" name="icindekiler">
               <summary className="eyebrow cursor-pointer">İçindekiler</summary>
               <TocList items={toc} />
             </details>
@@ -163,7 +163,7 @@ function ArticleDetail() {
             </nav>
 
             {area ? (
-              <div className="mt-10 border border-border bg-secondary p-6">
+              <div className="mt-10 border-l-2 border-hairline-gold bg-paper-stone p-6">
                 <h2 className="eyebrow">İlgili Çalışma Alanı</h2>
                 <Link
                   to="/calisma-alanlari/$slug"
@@ -216,7 +216,7 @@ function ArticleDetail() {
           })}
 
           {article.sources.length > 0 ? (
-            <section aria-labelledby="kaynaklar" className="mt-12 border-t border-border pt-8">
+            <section aria-labelledby="kaynaklar" className="mt-12 border-t border-hairline pt-8">
               <h2 id="kaynaklar" className="font-serif text-xl">
                 İlgili mevzuat ve kaynaklar
               </h2>
@@ -228,7 +228,7 @@ function ArticleDetail() {
             </section>
           ) : null}
 
-          <section aria-labelledby="yazar" className="mt-12 border border-border p-6">
+          <section aria-labelledby="yazar" className="mt-12 border-t border-hairline-gold pt-6">
             <h2 id="yazar" className="eyebrow">
               Yazar
             </h2>
@@ -253,14 +253,14 @@ function ArticleDetail() {
       </div>
 
       {related.length > 0 ? (
-        <section aria-labelledby="ilgili" className="border-t border-border py-14">
+        <section aria-labelledby="ilgili" className="border-t border-hairline py-14">
           <div className="container-editorial">
             <h2 id="ilgili" className="eyebrow">
               İlgili Makaleler
             </h2>
             <ul className="mt-8 grid gap-10 md:grid-cols-3">
               {related.map((a) => (
-                <li key={a.slug} className="border-t border-border pt-5">
+                <li key={a.slug} className="border-t border-hairline pt-5">
                   <h3 className="font-serif text-lg leading-snug">
                     <Link
                       to="/makaleler/$slug"
