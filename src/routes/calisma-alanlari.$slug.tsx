@@ -76,35 +76,129 @@ function AreaDetail() {
 
   return (
     <>
-      <div className="relative overflow-hidden border-b border-hairline-invert bg-ink py-12 text-ink-foreground md:py-16">
+      <div className="relative overflow-hidden border-b border-hairline-invert bg-ink py-14 text-ink-foreground md:py-20">
         {heroImg ? (
           <>
-            <img
-              src={heroImg.url}
-              alt={heroImg.alt}
-              fetchPriority="high"
-              decoding="async"
-              className="absolute inset-0 size-full object-cover"
+            <div className="absolute inset-y-0 right-0 w-full lg:w-2/3">
+              <img
+                src={heroImg.url}
+                alt={heroImg.alt}
+                fetchPriority="high"
+                decoding="async"
+                className="size-full object-cover"
+              />
+            </div>
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30"
             />
-            <div aria-hidden="true" className="ink-veil" />
           </>
         ) : null}
-        <div className="container-editorial relative [&_a:hover]:text-gold [&_ol]:text-ink-foreground/70">
-          <Breadcrumbs
-            items={[
-              { label: "Çalışma Alanları", to: "/calisma-alanlari" },
-              { label: area.title },
-            ]}
-          />
-          <p className="eyebrow mt-6 text-gold">Çalışma Alanı</p>
-          <h1 className="mt-4 max-w-4xl font-serif text-3xl leading-[1.15] sm:text-4xl lg:text-5xl">
-            {area.heading}
-          </h1>
-          <p className="measure mt-6 text-base text-ink-foreground/75 sm:text-lg">
-            {area.intro}
-          </p>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(currentColor_0.5px,transparent_0.5px)] [background-size:20px_20px]"
+        />
+
+        <div className="container-editorial relative grid items-center gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7 [&_a:hover]:text-gold [&_ol]:text-ink-foreground/70">
+            <Breadcrumbs
+              items={[
+                { label: "Çalışma Alanları", to: "/calisma-alanlari" },
+                { label: area.title },
+              ]}
+            />
+
+            <div className="mt-8 flex items-center gap-4">
+              <span aria-hidden="true" className="h-px w-8 bg-gold" />
+              <p className="eyebrow text-gold">Çalışma Alanı</p>
+            </div>
+
+            <div className="relative mt-5 pl-6">
+              <span
+                aria-hidden="true"
+                className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-gold via-gold/25 to-transparent"
+              />
+              <h1 className="max-w-3xl font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">
+                {area.heading}
+              </h1>
+            </div>
+
+            <p className="measure mt-7 border-l border-gold/30 pl-6 text-base text-ink-foreground/70 sm:text-lg">
+              {area.intro}
+            </p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5">
+              <Link
+                to="/iletisim"
+                className="group relative inline-flex min-h-12 items-center overflow-hidden border border-gold px-8 py-4"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-y-full bg-gold transition-transform duration-500 ease-out group-hover:translate-y-0"
+                />
+                <span className="relative text-[11px] font-semibold uppercase tracking-[0.3em] text-ink-foreground transition-colors duration-500 group-hover:text-ink">
+                  Bize Ulaşın
+                </span>
+              </Link>
+              <div className="flex flex-col">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-ink-foreground/50">
+                  Büro
+                </span>
+                <span className="mt-1 font-serif text-lg">
+                  {site.contact.district} / {site.contact.city}
+                </span>
+              </div>
+            </div>
+
+            <ul className="mt-9 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.18em] text-ink-foreground/55">
+              <li className="flex items-center gap-2">
+                <span aria-hidden="true" className="size-1 bg-gold" />
+                Dosya sürecinde düzenli bilgilendirme
+              </li>
+              <li className="flex items-center gap-2">
+                <span aria-hidden="true" className="size-1 bg-gold" />
+                Mesleki sır ve gizlilik
+              </li>
+              <li className="flex items-center gap-2">
+                <span aria-hidden="true" className="size-1 bg-gold" />
+                {site.contact.hours}
+              </li>
+            </ul>
+          </div>
+
+          {heroImg ? (
+            <div className="hidden lg:col-span-5 lg:block">
+              <div className="relative p-10">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-5 translate-y-5 border border-gold/40"
+                />
+                <div className="relative aspect-[4/5] overflow-hidden bg-ink">
+                  <img
+                    src={heroImg.url}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    className="size-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -left-4 flex size-32 items-center justify-center border-r border-t border-gold/30 bg-ink p-6">
+                  <span className="flex size-full items-center justify-center border border-gold/20 font-serif text-3xl italic text-gold">
+                    A
+                  </span>
+                </div>
+              </div>
+            </div>
+          ) : null}
         </div>
+
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent"
+        />
       </div>
+
 
       <div className="container-editorial grid gap-14 py-14 md:py-20 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-8">
