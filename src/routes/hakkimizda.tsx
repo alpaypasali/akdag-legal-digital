@@ -114,7 +114,7 @@ function AboutPage() {
             <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
               {values.map((v) => (
                 <div key={v.t} className="border-t border-border pt-4">
-                  <dt className="font-serif text-lg text-accent">{v.t}</dt>
+                  <dt className="font-serif text-lg text-foreground">{v.t}</dt>
                   <dd className="mt-2 text-base text-muted-foreground sm:text-sm">{v.d}</dd>
                 </div>
               ))}

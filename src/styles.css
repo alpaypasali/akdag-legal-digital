@@ -103,9 +103,9 @@
   );
 
   /* Yüzeyler yarı saydam koyu: sütun fotoğrafı arkada net kalır */
-  --background: oklch(0.16 0.008 62 / 0.58);
+  --background: oklch(0.16 0.008 62 / 0.5);
   --foreground: oklch(0.955 0.012 85);
-  --card: oklch(0.16 0.008 62 / 0.5);
+  --card: oklch(0.16 0.008 62 / 0.44);
   --card-foreground: var(--foreground);
   --popover: oklch(0.19 0.009 64);
   --popover-foreground: var(--foreground);
@@ -355,8 +355,8 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(10, 9, 8, 0.42),
-    rgba(14, 12, 10, 0.5)
+    rgba(10, 9, 8, 0.34),
+    rgba(14, 12, 10, 0.42)
   );
   pointer-events: none;
 }
