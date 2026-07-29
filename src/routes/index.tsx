@@ -399,35 +399,73 @@ function Home() {
       </section>
 
       {/* 4 — Çalışma yaklaşımı */}
-      <section aria-labelledby="yaklasim-baslik" className="border-b border-border py-16 md:py-24">
-        <div className="container-editorial">
-          <SectionLabel index="03">Çalışma Yaklaşımı</SectionLabel>
-          <h2
-            id="yaklasim-baslik"
-            className="mt-6 max-w-2xl font-serif text-2xl sm:text-3xl lg:text-4xl"
-          >
-            Dosyanın ilk günden itibaren izlediği yol
-          </h2>
+      <section
+        aria-labelledby="yaklasim-baslik"
+        className="paper-grain relative overflow-hidden bg-surface-2 py-16 md:py-24"
+      >
+        <span
+          aria-hidden="true"
+          className="arch-lines pointer-events-none absolute inset-0 opacity-40"
+        />
+        <div className="container-editorial relative grid gap-y-12 lg:grid-cols-12 lg:gap-x-16">
+          <div className="lg:col-span-4">
+            <SectionLabel index="03">Çalışma Yaklaşımı</SectionLabel>
+            <h2
+              id="yaklasim-baslik"
+              className="mt-6 max-w-[14ch] font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.9rem]"
+            >
+              Dosyanın ilk günden itibaren izlediği yol
+            </h2>
+            <span aria-hidden="true" className="rule-gold mt-8 block" />
+          </div>
 
-          <ol className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
+          <ol className="lg:col-span-8 lg:grid lg:grid-cols-4 lg:gap-x-8">
             {approach.map((step, i) => (
-              <li key={step.title} className="border-t border-border pt-5">
-                <span className="rule-number">
+              <li
+                key={step.title}
+                className={`relative grid grid-cols-[auto_1fr] gap-x-5 pb-10 pl-1 last:pb-0 lg:block lg:pb-0 lg:pl-0 ${
+                  i % 2 === 1 ? "lg:mt-16" : "lg:mt-0"
+                }`}
+              >
+                {/* Mobil dikey altın çizgi */}
+                <span
+                  aria-hidden="true"
+                  className="absolute bottom-0 left-[0.85rem] top-9 w-px bg-gradient-to-b from-gold/60 to-transparent lg:hidden"
+                />
+                <span className="ghost-numeral relative z-10 text-[2rem] leading-none [-webkit-text-stroke:1px_color-mix(in_oklab,var(--color-gold-ink)_60%,transparent)] lg:mb-4 lg:block lg:text-[3.5rem]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 font-serif text-xl">{step.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{step.text}</p>
+                <div>
+                  {/* Masaüstünde adımları bağlayan ince çizgi */}
+                  <span
+                    aria-hidden="true"
+                    className="mb-5 hidden h-px w-full bg-gradient-to-r from-gold-ink/50 to-transparent lg:block"
+                  />
+                  <h3 className="font-serif text-xl leading-snug">{step.title}</h3>
+                  <p className="mt-3 max-w-[34ch] text-sm text-muted-foreground">
+                    {step.text}
+                  </p>
+                </div>
               </li>
             ))}
           </ol>
 
-          <p className="measure mt-12 text-sm text-muted-foreground">
-            Hukuki süreçlerin sonucu, dosyanın koşullarına ve yargı merciinin
-            değerlendirmesine bağlıdır; belirli bir sonuç taahhüdünde
-            bulunulmaz.
-          </p>
+          <div className="lg:col-span-12">
+            <div className="footnote-band max-w-[76ch]">
+              <span
+                aria-hidden="true"
+                className="mt-2 h-px w-6 shrink-0 bg-gold"
+              />
+              <p className="text-sm leading-relaxed">
+                Hukuki süreçlerin sonucu, dosyanın koşullarına ve yargı
+                merciinin değerlendirmesine bağlıdır; belirli bir sonuç
+                taahhüdünde bulunulmaz.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* 5 — Mesleki ilkeler */}
       <section
