@@ -331,3 +331,78 @@
     transition: none;
   }
 }
+
+/* --- Açık yüzey sistemi: doku ve derinlik --- */
+
+/* Çok düşük yoğunluklu kâğıt dokusu + sıcak radial derinlik (görselsiz) */
+@utility paper-grain {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(
+        90% 60% at 12% 0%,
+        color-mix(in oklab, var(--color-gold) 7%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        70% 55% at 100% 100%,
+        color-mix(in oklab, var(--ink) 7%, transparent),
+        transparent 60%
+      );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--ink) 4%, transparent) 0 1px,
+        transparent 1px 3px
+      );
+    mask-image: radial-gradient(80% 70% at 50% 40%, black, transparent 85%);
+    -webkit-mask-image: radial-gradient(80% 70% at 50% 40%, black, transparent 85%);
+  }
+}
+
+/* Seyrek mimari dikey çizgiler */
+@utility arch-lines {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--ink) 8%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 25% 100%;
+}
+
+/* Dekoratif, silik büyük bölüm numarası */
+@utility ghost-numeral {
+  font-family: var(--font-serif);
+  line-height: 0.78;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--ink) 14%, transparent);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Editoryal dipnot bandı */
+@utility footnote-band {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  background: var(--color-surface-3);
+  color: color-mix(in oklab, var(--ink-foreground) 88%, transparent);
+  border-left: 2px solid var(--color-gold);
+  padding: 1rem 1.25rem;
+}
