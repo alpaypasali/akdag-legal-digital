@@ -4,12 +4,12 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import {
-import headerAsset from "@/assets/photo-pt-d.jpg.asset.json";
   publishedArticles,
   articleCategories,
   getCategory,
   formatDate,
 } from "@/data/articles";
+import headerAsset from "@/assets/photo-pt-d.jpg.asset.json";
 
 const title = "Makaleler | Akdağ Hukuk ve Danışmanlık";
 const description =
