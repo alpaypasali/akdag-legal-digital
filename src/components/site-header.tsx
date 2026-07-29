@@ -8,16 +8,24 @@ import { mainNav } from "@/data/site";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const overlay = pathname === "/";
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -32,9 +40,27 @@ export function SiteHeader() {
     };
   }, [open]);
 
+  const transparent = overlay && !scrolled;
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/92 backdrop-blur-sm">
-      <div className="container-editorial grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 md:h-20">
+    <header
+      className={`z-50 transition-[background-color,border-color,box-shadow] duration-500 ease-out ${
+        overlay
+          ? "fixed inset-x-0 top-0"
+          : "sticky top-0 border-b border-border bg-background/92 backdrop-blur-sm"
+      } ${
+        overlay
+          ? transparent
+            ? "border-b border-transparent bg-transparent"
+            : "border-b border-hairline-invert bg-ink/80 backdrop-blur-md"
+          : ""
+      }`}
+    >
+      <div
+        className={`container-editorial grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 transition-[height] duration-500 ${
+          transparent ? "h-20 md:h-24" : "h-16 md:h-20"
+        }`}
+      >
         <LogoLink />
 
         <nav aria-label="Ana menü" className="hidden items-center gap-8 lg:flex">
@@ -43,14 +69,22 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="relative py-1 text-sm text-muted-foreground transition-colors hover:text-foreground data-[status=active]:text-foreground data-[status=active]:after:absolute data-[status=active]:after:inset-x-0 data-[status=active]:after:-bottom-0.5 data-[status=active]:after:h-px data-[status=active]:after:bg-gold"
+              className={`relative py-1 text-sm transition-colors data-[status=active]:after:absolute data-[status=active]:after:inset-x-0 data-[status=active]:after:-bottom-0.5 data-[status=active]:after:h-px data-[status=active]:after:bg-gold ${
+                overlay
+                  ? "text-ink-foreground/75 hover:text-ink-foreground data-[status=active]:text-gold"
+                  : "text-muted-foreground hover:text-foreground data-[status=active]:text-foreground"
+              }`}
             >
               {item.label}
             </Link>
           ))}
           <Link
             to="/iletisim"
-            className="inline-flex min-h-11 items-center border border-foreground px-5 text-sm text-foreground transition-colors hover:bg-foreground hover:text-primary-foreground"
+            className={`inline-flex min-h-11 items-center border px-5 text-sm transition-colors ${
+              overlay
+                ? "border-gold/70 text-gold hover:bg-gold hover:text-ink"
+                : "border-foreground text-foreground hover:bg-foreground hover:text-primary-foreground"
+            }`}
           >
             Randevu ve İletişim
           </Link>
@@ -62,11 +96,16 @@ export function SiteHeader() {
           aria-label="Menüyü aç"
           aria-expanded={open}
           aria-controls="mobil-menu"
-          className="inline-flex size-11 items-center justify-center border border-border lg:hidden"
+          className={`inline-flex size-11 items-center justify-center border lg:hidden ${
+            overlay
+              ? "border-hairline-invert text-ink-foreground"
+              : "border-border"
+          }`}
         >
           <Menu className="size-5" aria-hidden="true" />
         </button>
       </div>
+
 
       {/* Portal: header uses backdrop-blur, which creates a containing block
           and would trap a `fixed inset-0` overlay inside the header box. */}
