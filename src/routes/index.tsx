@@ -1,11 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { site } from "@/data/site";
-import {
-  featuredAreas,
-  secondaryAreas,
-  getAreaImage,
-} from "@/data/practice-areas";
+import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
@@ -196,136 +192,67 @@ function Home() {
 
 
       {/* 2 — Öne çıkan çalışma alanları */}
-      <section
-        aria-labelledby="alanlar-baslik"
-        className="paper-grain relative overflow-hidden bg-surface-1 pt-16 md:pt-24"
-      >
-        {/* Koyu hero'nun açık bölüme kontrollü taşması */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--color-ink)_18%,transparent),transparent)]"
-        />
-        <div className="container-editorial relative grid gap-y-12 lg:grid-cols-12 lg:gap-x-16">
-          <div className="lg:col-span-4">
-            <SectionLabel index="01">Çalışma Alanları</SectionLabel>
-            <h2
-              id="alanlar-baslik"
-              className="mt-6 max-w-[15ch] font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.9rem]"
-            >
-              Öncelikli olarak takip edilen dosya grupları
-            </h2>
-            <p className="mt-6 max-w-[42ch] text-sm text-muted-foreground sm:text-base">
-              Her alan; dosyanın kapsamı, izlenen aşamalar ve sık karşılaşılan
-              durumlar başlıklarıyla ayrı olarak açıklanır.
-            </p>
-            <Link
-              to="/calisma-alanlari"
-              className="link-underline mt-8 min-h-11 text-sm"
-            >
-              Tüm çalışma alanları
-              <ArrowUpRight className="size-4 text-gold" aria-hidden="true" />
-            </Link>
-          </div>
+      <section aria-labelledby="alanlar-baslik" className="border-b border-border py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionLabel index="01">Çalışma Alanları</SectionLabel>
+          <h2
+            id="alanlar-baslik"
+            className="mt-6 max-w-2xl font-serif text-2xl sm:text-3xl lg:text-4xl"
+          >
+            Öncelikli olarak takip edilen dosya grupları
+          </h2>
 
-          <div className="lg:col-span-8">
-            {/* Öne çıkan ilk alan — koyu yüzey, çerçevesiz */}
-            {featuredAreas.slice(0, 1).map((area) => {
-              const img = getAreaImage(area.slug);
-              return (
-                <Link
-                  key={area.slug}
-                  to="/calisma-alanlari/$slug"
-                  params={{ slug: area.slug }}
-                  className="group relative isolate block overflow-hidden bg-ink px-7 py-10 text-ink-foreground sm:px-10 sm:py-12"
-                >
-                  {img ? (
-                    <img
-                      src={img.url}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      decoding="async"
-                      className="absolute inset-0 -z-20 size-full object-cover opacity-45 transition-transform duration-700 [filter:grayscale(0.8)_sepia(0.3)_saturate(0.8)_brightness(0.65)] group-hover:scale-105"
-                    />
-                  ) : null}
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--color-ink)_92%,transparent),color-mix(in_oklab,var(--color-ink)_58%,transparent))]"
-                  />
-                  <span
-                    aria-hidden="true"
-                    className="ghost-numeral absolute -right-2 -top-4 text-[7rem] sm:text-[9rem]"
-                    style={{
-                      WebkitTextStroke:
-                        "1px color-mix(in oklab, var(--color-gold) 30%, transparent)",
-                    }}
-                  >
-                    01
+          <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {featuredAreas.map((area, i) => (
+              <Link
+                key={area.slug}
+                to="/calisma-alanlari/$slug"
+                params={{ slug: area.slug }}
+                className={`group flex flex-col justify-between bg-background p-7 transition-colors hover:bg-secondary ${
+                  i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
+                }`}
+              >
+                <div>
+                  <span className="rule-number">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="rule-number">01</span>
-                  <h3 className="mt-4 max-w-[16ch] font-serif text-3xl leading-tight transition-colors group-hover:text-gold sm:text-4xl">
+                  <h3
+                    className={`mt-5 font-serif ${
+                      i === 0 ? "text-2xl lg:text-3xl" : "text-xl"
+                    }`}
+                  >
                     {area.title}
                   </h3>
-                  <span className="mt-4 block max-w-[46ch] text-sm text-ink-foreground/75">
+                  <p className="measure mt-3 text-sm text-muted-foreground">
                     {area.summary}
-                  </span>
-                  <span className="link-underline mt-7 inline-flex min-h-11 text-sm text-gold">
-                    Alanı incele
-                    <ArrowUpRight className="size-4" aria-hidden="true" />
-                  </span>
-                </Link>
-              );
-            })}
+                  </p>
+                </div>
+                <span className="link-underline mt-8 self-start text-sm">
+                  Alanı incele
+                  <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
 
-            {/* Diğer öncelikli alanlar — numaralı satırlar, kutu yok */}
-            <ul className="mt-2">
-              {featuredAreas.slice(1).map((area, i) => (
-                <li key={area.slug}>
-                  <Link
-                    to="/calisma-alanlari/$slug"
-                    params={{ slug: area.slug }}
-                    className="group grid min-h-14 grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1 border-b border-hairline py-6 transition-[padding] duration-300 focus-visible:pl-2 hover:pl-2 sm:grid-cols-[auto_minmax(0,15rem)_1fr]"
-                  >
-                    <span className="rule-number">
-                      {String(i + 2).padStart(2, "0")}
-                    </span>
-                    <span className="font-serif text-xl transition-colors group-focus-visible:text-accent group-hover:text-accent sm:text-2xl">
+            <div className="bg-background p-7">
+              <span className="eyebrow">Diğer Alanlar</span>
+              <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                {secondaryAreas.map((area) => (
+                  <li key={area.slug}>
+                    <Link
+                      to="/calisma-alanlari/$slug"
+                      params={{ slug: area.slug }}
+                      className="py-1 transition-colors hover:text-foreground"
+                    >
                       {area.title}
-                    </span>
-                    <span className="col-start-2 text-sm text-muted-foreground sm:col-start-3">
-                      {area.summary}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Diğer alanlar — koyu yatay bağlantı bandı */}
-        <div className="relative mt-16 bg-surface-3 py-8 text-ink-foreground md:mt-20">
-          <div className="container-editorial">
-            <p className="eyebrow text-gold">Diğer Alanlar</p>
-            <ul className="mt-5 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-              {secondaryAreas.map((area, i) => (
-                <li key={area.slug}>
-                  <Link
-                    to="/calisma-alanlari/$slug"
-                    params={{ slug: area.slug }}
-                    className="group flex min-h-11 items-baseline gap-4 text-sm text-ink-foreground/80 transition-colors hover:text-gold focus-visible:text-gold"
-                  >
-                    <span className="rule-number text-gold">
-                      {String(i + 6).padStart(2, "0")}
-                    </span>
-                    {area.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
-
 
       {/* 3 — Avukat tanıtımı */}
       <section
@@ -399,73 +326,35 @@ function Home() {
       </section>
 
       {/* 4 — Çalışma yaklaşımı */}
-      <section
-        aria-labelledby="yaklasim-baslik"
-        className="paper-grain relative overflow-hidden bg-surface-2 py-16 md:py-24"
-      >
-        <span
-          aria-hidden="true"
-          className="arch-lines pointer-events-none absolute inset-0 opacity-40"
-        />
-        <div className="container-editorial relative grid gap-y-12 lg:grid-cols-12 lg:gap-x-16">
-          <div className="lg:col-span-4">
-            <SectionLabel index="03">Çalışma Yaklaşımı</SectionLabel>
-            <h2
-              id="yaklasim-baslik"
-              className="mt-6 max-w-[14ch] font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.9rem]"
-            >
-              Dosyanın ilk günden itibaren izlediği yol
-            </h2>
-            <span aria-hidden="true" className="rule-gold mt-8 block" />
-          </div>
+      <section aria-labelledby="yaklasim-baslik" className="border-b border-border py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionLabel index="03">Çalışma Yaklaşımı</SectionLabel>
+          <h2
+            id="yaklasim-baslik"
+            className="mt-6 max-w-2xl font-serif text-2xl sm:text-3xl lg:text-4xl"
+          >
+            Dosyanın ilk günden itibaren izlediği yol
+          </h2>
 
-          <ol className="lg:col-span-8 lg:grid lg:grid-cols-4 lg:gap-x-8">
+          <ol className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
             {approach.map((step, i) => (
-              <li
-                key={step.title}
-                className={`relative grid grid-cols-[auto_1fr] gap-x-5 pb-10 pl-1 last:pb-0 lg:block lg:pb-0 lg:pl-0 ${
-                  i % 2 === 1 ? "lg:mt-16" : "lg:mt-0"
-                }`}
-              >
-                {/* Mobil dikey altın çizgi */}
-                <span
-                  aria-hidden="true"
-                  className="absolute bottom-0 left-[0.85rem] top-9 w-px bg-gradient-to-b from-gold/60 to-transparent lg:hidden"
-                />
-                <span className="ghost-numeral relative z-10 text-[2rem] leading-none [-webkit-text-stroke:1px_color-mix(in_oklab,var(--color-gold-ink)_60%,transparent)] lg:mb-4 lg:block lg:text-[3.5rem]">
+              <li key={step.title} className="border-t border-border pt-5">
+                <span className="rule-number">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div>
-                  {/* Masaüstünde adımları bağlayan ince çizgi */}
-                  <span
-                    aria-hidden="true"
-                    className="mb-5 hidden h-px w-full bg-gradient-to-r from-gold-ink/50 to-transparent lg:block"
-                  />
-                  <h3 className="font-serif text-xl leading-snug">{step.title}</h3>
-                  <p className="mt-3 max-w-[34ch] text-sm text-muted-foreground">
-                    {step.text}
-                  </p>
-                </div>
+                <h3 className="mt-4 font-serif text-xl">{step.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{step.text}</p>
               </li>
             ))}
           </ol>
 
-          <div className="lg:col-span-12">
-            <div className="footnote-band max-w-[76ch]">
-              <span
-                aria-hidden="true"
-                className="mt-2 h-px w-6 shrink-0 bg-gold"
-              />
-              <p className="text-sm leading-relaxed">
-                Hukuki süreçlerin sonucu, dosyanın koşullarına ve yargı
-                merciinin değerlendirmesine bağlıdır; belirli bir sonuç
-                taahhüdünde bulunulmaz.
-              </p>
-            </div>
-          </div>
+          <p className="measure mt-12 text-sm text-muted-foreground">
+            Hukuki süreçlerin sonucu, dosyanın koşullarına ve yargı merciinin
+            değerlendirmesine bağlıdır; belirli bir sonuç taahhüdünde
+            bulunulmaz.
+          </p>
         </div>
       </section>
-
 
       {/* 5 — Mesleki ilkeler */}
       <section
@@ -507,74 +396,55 @@ function Home() {
 
 
       {/* 6 — Son makaleler */}
-      <section
-        aria-labelledby="makaleler-baslik"
-        className="paper-grain relative overflow-hidden bg-surface-1 py-16 md:py-24"
-      >
-        <div className="container-editorial relative grid gap-y-10 lg:grid-cols-12 lg:gap-x-16">
-          <div className="lg:col-span-4">
-            <SectionLabel index="05">Makaleler</SectionLabel>
+      <section aria-labelledby="makaleler-baslik" className="border-b border-border py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionLabel index="05">Makaleler</SectionLabel>
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
             <h2
               id="makaleler-baslik"
-              className="mt-6 max-w-[14ch] font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.9rem]"
+              className="max-w-2xl font-serif text-2xl sm:text-3xl lg:text-4xl"
             >
               Güncel hukuki bilgilendirme yazıları
             </h2>
-            <Link
-              to="/makaleler"
-              className="link-underline mt-8 min-h-11 text-sm"
-            >
+            <Link to="/makaleler" className="link-underline text-sm">
               Tüm makaleler
-              <ArrowUpRight className="size-4 text-gold" aria-hidden="true" />
+              <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="lg:col-span-8">
-            {latest.map((article, i) => (
-              <article
-                key={article.slug}
-                className={`grid gap-x-8 gap-y-2 border-b border-hairline py-7 first:pt-0 sm:grid-cols-[minmax(0,11rem)_1fr] ${
-                  i === 0 ? "" : ""
-                }`}
-              >
-                <div>
-                  <p className="eyebrow">
-                    {getCategory(article.categorySlug)?.title}
-                  </p>
-                  <p className="mt-2 text-xs text-muted-foreground">
-                    <time dateTime={article.updatedAt ?? article.publishedAt}>
-                      {formatDate(article.updatedAt ?? article.publishedAt)}
-                    </time>
-                    <span aria-hidden="true"> · </span>
-                    {article.readingMinutes} dk okuma
-                  </p>
-                </div>
-                <div>
-                  <h3
-                    className={`font-serif leading-snug ${
-                      i === 0 ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
-                    }`}
-                  >
-                    <Link
-                      to="/makaleler/$slug"
-                      params={{ slug: article.slug }}
-                      className="transition-colors hover:text-accent"
-                    >
-                      {article.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-3 max-w-[62ch] text-sm text-muted-foreground">
-                    {article.excerpt}
-                  </p>
+          <div className="mt-12 grid gap-10 md:grid-cols-3">
+            {latest.map((article) => (
+              <article key={article.slug} className="border-t border-border pt-5">
+                <p className="eyebrow">
+                  {getCategory(article.categorySlug)?.title}
+                </p>
+                <h3 className="mt-3 font-serif text-xl leading-snug">
                   <Link
                     to="/makaleler/$slug"
                     params={{ slug: article.slug }}
-                    className="link-underline mt-5 min-h-11 text-sm"
+                    className="transition-colors hover:text-accent"
                   >
-                    Makaleyi oku
-                    <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+                    {article.title}
                   </Link>
-                </div>
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  {article.excerpt}
+                </p>
+                <p className="mt-4 text-xs text-muted-foreground">
+                  <time dateTime={article.updatedAt ?? article.publishedAt}>
+                    {formatDate(article.updatedAt ?? article.publishedAt)}
+                  </time>
+                  <span aria-hidden="true"> · </span>
+                  {article.readingMinutes} dk okuma
+                </p>
+                <Link
+                  to="/makaleler/$slug"
+                  params={{ slug: article.slug }}
+                  className="link-underline mt-5 text-sm"
+                >
+                  Makaleyi oku
+                  <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+                </Link>
               </article>
             ))}
           </div>
@@ -582,80 +452,73 @@ function Home() {
       </section>
 
       {/* 7 — Bursa yerel bağlantı */}
-      <section
-        aria-labelledby="bursa-baslik"
-        className="paper-grain relative overflow-hidden bg-surface-2 py-16 md:py-24"
-      >
-        <div className="container-editorial relative grid gap-y-12 lg:grid-cols-12 lg:gap-x-16">
+      <section aria-labelledby="bursa-baslik" className="py-16 md:py-24">
+        <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionLabel index="06">Büro</SectionLabel>
             <h2
               id="bursa-baslik"
-              className="mt-6 max-w-[14ch] font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.9rem]"
+              className="mt-6 font-serif text-2xl sm:text-3xl lg:text-4xl"
             >
               Osmangazi'deki büromuzda görüşme
             </h2>
-            <p className="mt-6 max-w-[46ch] text-muted-foreground">
+            <p className="measure mt-5 text-muted-foreground">
               Görüşmeler randevu ile yapılır. Bursa merkez ilçeleri ve çevre
               yerleşimlerdeki adliye ve icra dairelerindeki işlemler büro
               tarafından takip edilir.
             </p>
+          </div>
 
-            <div className="mt-9 flex flex-wrap gap-4">
+          <div className="lg:col-span-7">
+            <dl className="grid gap-px border border-border bg-border sm:grid-cols-2">
+              <div className="bg-background p-6">
+                <dt className="eyebrow">Adres</dt>
+                <dd className="mt-2">
+                  {site.contact.addressLine}
+                  <br />
+                  {site.contact.district} / {site.contact.city}
+                </dd>
+              </div>
+              <div className="bg-background p-6">
+                <dt className="eyebrow">Çalışma Saatleri</dt>
+                <dd className="mt-2">{site.contact.hours}</dd>
+              </div>
+              <div className="bg-background p-6">
+                <dt className="eyebrow">Telefon</dt>
+                <dd className="mt-2">{site.contact.phoneLabel}</dd>
+              </div>
+              <div className="bg-background p-6">
+                <dt className="eyebrow">E-posta</dt>
+                <dd className="mt-2">
+                  <a
+                    href={`mailto:${site.contact.email}`}
+                    className="link-underline text-base"
+                  >
+                    {site.contact.email}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+
+            <div className="mt-6 flex flex-wrap gap-4">
+              <a
+                href={site.contact.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center border border-foreground px-6 text-sm transition-colors hover:bg-secondary"
+              >
+                Haritada göster
+              </a>
               <Link
                 to="/iletisim"
                 className="inline-flex min-h-12 items-center border border-foreground bg-foreground px-6 text-sm text-primary-foreground transition-colors hover:bg-transparent hover:text-foreground"
               >
                 Randevu talebi
               </Link>
-              <a
-                href={site.contact.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center border border-foreground/40 px-6 text-sm transition-colors hover:border-foreground"
-              >
-                Haritada göster
-              </a>
             </div>
-          </div>
-
-          <div className="lg:col-span-6 lg:col-start-7">
-            <dl className="grid gap-x-10 gap-y-7 sm:grid-cols-2">
-              {[
-                {
-                  t: "Adres",
-                  d: (
-                    <>
-                      {site.contact.addressLine}
-                      <br />
-                      {site.contact.district} / {site.contact.city}
-                    </>
-                  ),
-                },
-                { t: "Çalışma Saatleri", d: site.contact.hours },
-                { t: "Telefon", d: site.contact.phoneLabel },
-                {
-                  t: "E-posta",
-                  d: (
-                    <a
-                      href={`mailto:${site.contact.email}`}
-                      className="link-underline min-h-11 text-base"
-                    >
-                      {site.contact.email}
-                    </a>
-                  ),
-                },
-              ].map((item) => (
-                <div key={item.t} className="border-t border-hairline pt-4">
-                  <dt className="eyebrow">{item.t}</dt>
-                  <dd className="mt-2">{item.d}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
       </section>
-
     </>
   );
 }
