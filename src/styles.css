@@ -2,6 +2,26 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* Metrik uyumlu yedek fontlar — webfont yüklenirken düzen kaymasını (CLS) önler */
+@font-face {
+  font-family: "Fraunces Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  size-adjust: 103%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Source Sans Fallback";
+  src: local("Arial"), local("Helvetica");
+  size-adjust: 94%;
+  ascent-override: 105%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
+
+
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -11,8 +31,8 @@
  */
 
 @theme inline {
-  --font-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", "Fraunces Fallback", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Source Sans 3", "Source Sans Fallback", ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 3px);
   --radius-md: calc(var(--radius) - 1px);
