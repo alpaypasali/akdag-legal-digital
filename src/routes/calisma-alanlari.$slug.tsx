@@ -2,12 +2,12 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { LegalDisclaimer } from "@/components/section";
-import { getArea, practiceAreas } from "@/data/practice-areas";
+import { getArea, practiceAreas, type PracticeArea } from "@/data/practice-areas";
 import { articlesForArea, formatDate } from "@/data/articles";
 import { site } from "@/data/site";
 
 export const Route = createFileRoute("/calisma-alanlari/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { area: PracticeArea } => {
     const area = getArea(params.slug);
     if (!area) throw notFound();
     return { area };
