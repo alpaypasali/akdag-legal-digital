@@ -54,7 +54,13 @@ export function PageHeader({
         </>
       ) : null}
       <div className="container-editorial relative">
-        {children}
+        {dark ? (
+          <div className="[&_a:hover]:text-gold [&_a]:text-ink-foreground/70 [&_li]:text-ink-foreground/70 [&_ol]:text-ink-foreground/70 [&_span[aria-current]]:text-ink-foreground">
+            {children}
+          </div>
+        ) : (
+          children
+        )}
         <p className={`eyebrow mt-6 ${dark ? "text-gold" : ""}`}>{eyebrow}</p>
         <h1 className="mt-4 max-w-4xl font-serif text-3xl leading-[1.15] sm:text-4xl lg:text-5xl">
           {title}
