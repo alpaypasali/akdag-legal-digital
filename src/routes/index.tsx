@@ -8,7 +8,6 @@ import { HeroBackdrop } from "@/components/hero-backdrop";
 import heroBooksAsset from "@/assets/hero-books.webp.asset.json";
 import heroScalesAsset from "@/assets/hero-scales.webp.asset.json";
 import logoMarkAsset from "@/assets/logo-footer.webp.asset.json";
-import ilkelerAsset from "@/assets/ilkeler.webp.asset.json";
 
 const trustPoints: string[] = [
   "Bursa'da bireysel ve kurumsal danışmanlık",
@@ -359,20 +358,8 @@ function Home() {
       {/* 5 — Mesleki ilkeler */}
       <section
         aria-labelledby="ilkeler-baslik"
-        className="relative isolate overflow-hidden border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
+        className="relative isolate overflow-hidden border-b border-border py-16 md:py-24"
       >
-        <img
-          src={ilkelerAsset.url}
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-center [filter:saturate(0.45)_contrast(0.95)_brightness(0.7)_sepia(0.2)]"
-        />
-        <span
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-ink)_88%,transparent),color-mix(in_oklab,var(--color-ink)_78%,transparent))]"
-        />
         <div className="container-editorial grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <SectionLabel index="04">Mesleki İlkeler</SectionLabel>
@@ -385,9 +372,9 @@ function Home() {
           </div>
           <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">
             {principles.map((p) => (
-              <div key={p.title} className="border-t border-hairline-invert pt-4">
-                <dt className="font-serif text-lg text-gold">{p.title}</dt>
-                <dd className="mt-2 text-sm text-ink-foreground/75">{p.text}</dd>
+              <div key={p.title} className="border-t border-border pt-4">
+                <dt className="font-serif text-lg text-accent">{p.title}</dt>
+                <dd className="mt-2 text-sm text-muted-foreground">{p.text}</dd>
               </div>
             ))}
           </dl>

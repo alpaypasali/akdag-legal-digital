@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ArchBackdrop } from "@/components/arch-backdrop";
 import { site } from "@/data/site";
 import faviconAsset from "@/assets/favicon.png.asset.json";
 import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
@@ -164,6 +165,7 @@ function RootComponent() {
       >
         İçeriğe geç
       </a>
+      <ArchBackdrop />
       <SiteHeader />
       <main id="icerik">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
