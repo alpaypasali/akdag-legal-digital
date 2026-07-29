@@ -9,7 +9,7 @@ import {
   getCategory,
   formatDate,
 } from "@/data/articles";
-import headerAsset from "@/assets/hero-makaleler.png.asset.json";
+import headerAsset from "@/assets/hero-makaleler.webp.asset.json";
 
 const title = "Makaleler | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -24,7 +24,15 @@ export const Route = createFileRoute("/makaleler/")({
       { property: "og:description", content: description },
       { property: "og:url", content: "/makaleler" },
     ],
-    links: [{ rel: "canonical", href: "/makaleler" }],
+    links: [
+      { rel: "canonical", href: "/makaleler" },
+      {
+        rel: "preload",
+        as: "image",
+        href: headerAsset.url,
+        fetchpriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",

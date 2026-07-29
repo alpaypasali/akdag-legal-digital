@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
+import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
 import { site } from "@/data/site";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 

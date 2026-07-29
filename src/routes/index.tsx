@@ -5,7 +5,9 @@ import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
-import logoMarkAsset from "@/assets/logo-footer.png.asset.json";
+import heroBooksAsset from "@/assets/hero-books.jpg.asset.json";
+import heroScalesAsset from "@/assets/hero-scales.webp.asset.json";
+import logoMarkAsset from "@/assets/logo-footer.webp.asset.json";
 import ilkelerAsset from "@/assets/ilkeler.jpg.asset.json";
 
 const trustPoints: string[] = [
@@ -31,7 +33,21 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      {
+        rel: "preload",
+        as: "image",
+        href: heroBooksAsset.url,
+        fetchpriority: "high",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: heroScalesAsset.url,
+        fetchpriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
