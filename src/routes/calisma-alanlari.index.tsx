@@ -60,7 +60,7 @@ function AreasPage() {
         <Breadcrumbs items={[{ label: "Çalışma Alanları" }]} />
       </PageHeader>
 
-      <section aria-labelledby="oncelikli" className="border-b border-border py-14 md:py-20">
+      <section aria-labelledby="oncelikli" className="border-b border-border bg-background py-14 md:py-20">
         <div className="container-editorial">
           <h2 id="oncelikli" className="eyebrow">
             Öne Çıkan Alanlar
