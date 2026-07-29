@@ -8,7 +8,6 @@ import { HeroBackdrop } from "@/components/hero-backdrop";
 import heroBooksAsset from "@/assets/hero-books.webp.asset.json";
 import heroScalesAsset from "@/assets/hero-scales.webp.asset.json";
 import logoMarkAsset from "@/assets/logo-footer.webp.asset.json";
-import ilkelerAsset from "@/assets/ilkeler.webp.asset.json";
 
 const trustPoints: string[] = [
   "Bursa'da bireysel ve kurumsal danışmanlık",
