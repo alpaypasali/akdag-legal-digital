@@ -424,7 +424,7 @@ function Home() {
 
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {latest.map((article) => (
-              <article key={article.slug} className="border-t border-border pt-5">
+              <article key={article.slug} className="group border-t border-hairline pt-5">
                 <p className="eyebrow">
                   {getCategory(article.categorySlug)?.title}
                 </p>
