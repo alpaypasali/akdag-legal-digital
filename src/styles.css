@@ -63,6 +63,7 @@
   /* Marka tokenları */
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
+  --color-ink-deep: var(--ink-deep);
   --color-ink-foreground: var(--ink-foreground);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
@@ -70,11 +71,15 @@
   --color-stone: var(--stone);
   --color-paper: var(--paper);
   --color-paper-deep: var(--paper-deep);
+  --color-paper-stone: var(--paper-stone);
+  --color-paper-greige: var(--paper-greige);
   --color-hairline: var(--hairline);
+  --color-hairline-gold: var(--hairline-gold);
   --color-hairline-invert: var(--hairline-invert);
 
   --tracking-label: 0.18em;
 }
+
 
 :root {
   --radius: 0.25rem;
