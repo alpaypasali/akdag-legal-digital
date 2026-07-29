@@ -101,16 +101,16 @@
 .dark {
   --background: var(--ink);
   --foreground: var(--ink-foreground);
-  --card: oklch(0.23 0.008 260);
+  --card: oklch(0.225 0.011 70);
   --card-foreground: var(--ink-foreground);
-  --popover: oklch(0.23 0.008 260);
+  --popover: oklch(0.225 0.011 70);
   --popover-foreground: var(--ink-foreground);
   --primary: var(--ink-foreground);
   --primary-foreground: var(--ink);
-  --secondary: oklch(0.26 0.008 260);
+  --secondary: oklch(0.25 0.012 70);
   --secondary-foreground: var(--ink-foreground);
-  --muted: oklch(0.26 0.008 260);
-  --muted-foreground: oklch(0.74 0.008 260);
+  --muted: oklch(0.25 0.012 70);
+  --muted-foreground: oklch(0.74 0.012 74);
   --accent: var(--gold);
   --accent-foreground: var(--ink);
   --border: var(--hairline-invert);
