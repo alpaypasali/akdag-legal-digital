@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
@@ -22,6 +23,11 @@ import { Route as MakalelerSlugRouteImport } from './routes/makaleler.$slug'
 import { Route as CalismaAlanlariSlugRouteImport } from './routes/calisma-alanlari.$slug'
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KvkkRoute = KvkkRouteImport.update({
   id: '/kvkk',
   path: '/kvkk',
@@ -91,6 +97,7 @@ export interface FileRoutesByFullPath {
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
+    | '/sitemap.xml'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
+    | '/sitemap.xml'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari'
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
+    | '/sitemap.xml'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
@@ -179,6 +191,7 @@ export interface RootRouteChildren {
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
   KvkkRoute: typeof KvkkRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   MakalelerSlugRoute: typeof MakalelerSlugRoute
   CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
@@ -188,6 +201,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kvkk': {
       id: '/kvkk'
       path: '/kvkk'
@@ -283,6 +303,7 @@ const rootRouteChildren: RootRouteChildren = {
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
   KvkkRoute: KvkkRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   MakalelerSlugRoute: MakalelerSlugRoute,
   CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
