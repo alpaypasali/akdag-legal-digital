@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { site } from "@/data/site";
-import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
+import { featuredAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
@@ -233,22 +233,6 @@ function Home() {
               </Link>
             ))}
 
-            <div className="bg-background p-7">
-              <span className="eyebrow">Diğer Alanlar</span>
-              <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
-                {secondaryAreas.map((area) => (
-                  <li key={area.slug}>
-                    <Link
-                      to="/calisma-alanlari/$slug"
-                      params={{ slug: area.slug }}
-                      className="py-1 transition-colors hover:text-foreground"
-                    >
-                      {area.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </section>
