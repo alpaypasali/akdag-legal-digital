@@ -4,6 +4,7 @@ import { site } from "@/data/site";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
+import heroAsset from "@/assets/banner-inside-a.jpg.asset.json";
 
 const description =
   "Bursa'da avukatlık ve hukuki danışmanlık. Aile, ceza, iş, gayrimenkul ve ticaret hukuku alanlarında açık iletişim ve düzenli süreç takibi.";
