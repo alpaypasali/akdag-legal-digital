@@ -212,7 +212,7 @@ function Home() {
                 key={area.slug}
                 to="/calisma-alanlari/$slug"
                 params={{ slug: area.slug }}
-                className={`group flex flex-col justify-between p-7 transition-colors hover:bg-secondary ${
+                className={`group flex flex-col justify-between bg-card/85 p-7 transition-colors hover:bg-card ${
                   i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
                 }`}
               >
