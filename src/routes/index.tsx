@@ -403,7 +403,10 @@ function Home() {
 
 
       {/* 6 — Son makaleler */}
-      <section aria-labelledby="makaleler-baslik" className="border-b border-border py-16 md:py-24">
+      <section
+        aria-labelledby="makaleler-baslik"
+        className="surface-bone paper-grain surface-rise relative py-16 md:py-24"
+      >
         <div className="container-editorial">
           <SectionLabel index="05">Makaleler</SectionLabel>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
