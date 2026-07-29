@@ -122,7 +122,7 @@ function AreasPage() {
         </div>
       </section>
 
-      <section aria-labelledby="diger" className="py-14 md:py-20">
+      <section aria-labelledby="diger" className="bg-background py-14 md:py-20">
         <div className="container-editorial">
           <h2 id="diger" className="eyebrow">
             Diğer Çalışma Alanları
