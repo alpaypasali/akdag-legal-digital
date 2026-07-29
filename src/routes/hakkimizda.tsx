@@ -61,7 +61,7 @@ function AboutPage() {
         <Breadcrumbs items={[{ label: "Hakkımızda" }]} />
       </PageHeader>
 
-      <section className="border-b border-border py-14 md:py-20">
+      <section className="border-b border-border bg-background py-14 md:py-20">
         <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <SectionLabel index="01">Büro</SectionLabel>
@@ -94,6 +94,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
 
       <section
         aria-labelledby="ilkeler"
