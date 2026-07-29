@@ -191,7 +191,7 @@ function Home() {
 
 
       {/* 2 — Öne çıkan çalışma alanları */}
-      <section aria-labelledby="alanlar-baslik" className="border-b border-border py-16 md:py-24">
+      <section aria-labelledby="alanlar-baslik" className="border-b border-border bg-background py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="01">Çalışma Alanları</SectionLabel>
           <h2
@@ -325,7 +325,7 @@ function Home() {
       </section>
 
       {/* 4 — Çalışma yaklaşımı */}
-      <section aria-labelledby="yaklasim-baslik" className="border-b border-border py-16 md:py-24">
+      <section aria-labelledby="yaklasim-baslik" className="border-b border-border bg-background py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="03">Çalışma Yaklaşımı</SectionLabel>
           <h2
@@ -358,7 +358,7 @@ function Home() {
       {/* 5 — Mesleki ilkeler */}
       <section
         aria-labelledby="ilkeler-baslik"
-        className="relative isolate overflow-hidden border-b border-border py-16 md:py-24"
+        className="relative isolate overflow-hidden border-b border-border bg-background py-16 md:py-24"
       >
         <div className="container-editorial grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -383,7 +383,7 @@ function Home() {
 
 
       {/* 6 — Son makaleler */}
-      <section aria-labelledby="makaleler-baslik" className="border-b border-border py-16 md:py-24">
+      <section aria-labelledby="makaleler-baslik" className="border-b border-border bg-background py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="05">Makaleler</SectionLabel>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">

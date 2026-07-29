@@ -342,20 +342,25 @@
   height: 118%;
   object-fit: cover;
   object-position: center top;
-  /* siyah-beyaz fotoğrafa çok hafif sıcak ton */
-  filter: grayscale(1) sepia(0.28) contrast(1.02) brightness(1.04);
+  /* Sütun siluetini seçilebilir tut, fazla ısıtma verme */
+  filter: grayscale(1) sepia(0.12) contrast(1.08) brightness(0.98);
   opacity: 1;
   will-change: transform;
 }
 
-/* Arka plan görselinin tamamen görünmesi için perde kaldırıldı.
-   İçerik okunabilirliği bölümlerde kendi yarı saydam arka planları sağlar. */
+/* Koyu antrasit perde: görsel %25–35 görünürlükte, metinler öne çıkar.
+   Üst katmanda tek parça, sayfa boyunca sabit arka plan devam eder. */
 .arch-backdrop__veil {
   position: absolute;
   inset: 0;
-  background: transparent;
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 11, 9, 0.72),
+    rgba(18, 16, 13, 0.68)
+  );
   pointer-events: none;
 }
+
 
 
 @media (width < 48rem) {
