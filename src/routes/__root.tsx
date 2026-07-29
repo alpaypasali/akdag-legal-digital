@@ -164,6 +164,7 @@ function RootComponent() {
       >
         İçeriğe geç
       </a>
+      <ArchBackdrop />
       <SiteHeader />
       <main id="icerik">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
