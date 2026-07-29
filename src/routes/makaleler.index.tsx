@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import {
+import headerAsset from "@/assets/photo-pt-d.jpg.asset.json";
   publishedArticles,
   articleCategories,
   getCategory,
@@ -54,6 +55,8 @@ function ArticlesPage() {
       <PageHeader
         eyebrow="Makaleler"
         title="Hukuki süreçlere ilişkin bilgilendirme yazıları"
+        image={headerAsset.url}
+        imageAlt="Masada belgeler ve grafikler üzerinde çalışan iki kişi"
         intro="Bu bölümdeki yazılar genel bilgilendirme amacı taşır. Yazılarda anlatılan çerçeve, her uyuşmazlığın kendi koşullarına göre değişebilir."
       >
         <Breadcrumbs items={[{ label: "Makaleler" }]} />

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHeader, LegalDisclaimer } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
+import headerAsset from "@/assets/calisma-header.png.asset.json";
 
 const title = "Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -38,6 +39,8 @@ function AreasPage() {
       <PageHeader
         eyebrow="Çalışma Alanları"
         title="Takip edilen hukuk alanları ve dosya grupları"
+        image={headerAsset.url}
+        imageAlt="Ahşap raflarla çevrili klasik bir hukuk kütüphanesi"
         intro="Aşağıdaki başlıklar, büro tarafından yürütülen dosya gruplarını gösterir. Her alanda sürecin kapsamı, izlenen aşamalar ve sık karşılaşılan durumlar ilgili sayfada ayrıca açıklanmıştır."
       >
         <Breadcrumbs items={[{ label: "Çalışma Alanları" }]} />
