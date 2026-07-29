@@ -355,7 +355,7 @@ function Home() {
             ))}
           </ol>
 
-          <p className="measure mt-12 text-sm text-muted-foreground">
+          <p className="measure mt-12 border-t border-hairline-gold pt-5 text-xs leading-relaxed text-muted-foreground">
             Hukuki süreçlerin sonucu, dosyanın koşullarına ve yargı merciinin
             değerlendirmesine bağlıdır; belirli bir sonuç taahhüdünde
             bulunulmaz.
