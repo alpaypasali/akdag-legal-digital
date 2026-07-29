@@ -73,10 +73,19 @@ function AreasPage() {
                           alt={img.alt}
                           loading={i < 3 ? "eager" : "lazy"}
                           decoding="async"
-                          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="size-full object-cover opacity-90 transition-all duration-500 [filter:grayscale(0.85)_sepia(0.28)_saturate(0.85)_contrast(1.05)_brightness(0.82)] group-hover:scale-105 group-hover:opacity-100 group-hover:[filter:grayscale(0.6)_sepia(0.22)_saturate(1)_contrast(1.05)_brightness(0.9)]"
+                        />
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-ink)_25%,transparent),color-mix(in_oklab,var(--color-ink)_62%,transparent))]"
+                        />
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gold/50"
                         />
                       </span>
                     ) : null}
+
                     <span className="flex flex-1 flex-col p-6">
                       <span className="rule-number">
                         {String(i + 1).padStart(2, "0")}
@@ -122,10 +131,19 @@ function AreasPage() {
                         alt={img.alt}
                         loading="lazy"
                         decoding="async"
-                        className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="size-full object-cover opacity-90 transition-all duration-500 [filter:grayscale(0.85)_sepia(0.28)_saturate(0.85)_contrast(1.05)_brightness(0.82)] group-hover:scale-105 group-hover:opacity-100 group-hover:[filter:grayscale(0.6)_sepia(0.22)_saturate(1)_contrast(1.05)_brightness(0.9)]"
+                      />
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-ink)_25%,transparent),color-mix(in_oklab,var(--color-ink)_62%,transparent))]"
+                      />
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gold/50"
                       />
                     </span>
                   ) : null}
+
                   <span className="block p-6">
                     <h3 className="font-serif text-xl">{area.title}</h3>
                     <span className="mt-3 block text-sm text-muted-foreground">
