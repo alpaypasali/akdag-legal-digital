@@ -40,7 +40,19 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
         { property: "og:url", content: url },
         { property: "og:type", content: "article" },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [
+        { rel: "canonical", href: url },
+        ...(getAreaImage(params.slug)
+          ? [
+              {
+                rel: "preload",
+                as: "image",
+                href: getAreaImage(params.slug)!.url,
+                fetchpriority: "high",
+              },
+            ]
+          : []),
+      ],
       scripts: [
         {
           type: "application/ld+json",
@@ -85,7 +97,10 @@ function AreaDetail() {
                 alt={heroImg.alt}
                 fetchPriority="high"
                 decoding="async"
-                className="size-full object-cover"
+                width={1366}
+                height={768}
+                sizes="(min-width: 1024px) 67vw, 100vw"
+                className="size-full bg-ink object-cover"
               />
             </div>
             <div
