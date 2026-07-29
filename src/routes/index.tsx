@@ -31,7 +31,21 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      {
+        rel: "preload",
+        as: "image",
+        href: heroBooksAsset.url,
+        fetchpriority: "high",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: heroScalesAsset.url,
+        fetchpriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
