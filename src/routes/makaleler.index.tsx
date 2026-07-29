@@ -9,6 +9,7 @@ import {
   getCategory,
   formatDate,
 } from "@/data/articles";
+import headerAsset from "@/assets/photo-pt-d.jpg.asset.json";
 
 const title = "Makaleler | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -54,6 +55,8 @@ function ArticlesPage() {
       <PageHeader
         eyebrow="Makaleler"
         title="Hukuki süreçlere ilişkin bilgilendirme yazıları"
+        image={headerAsset.url}
+        imageAlt="Masada belgeler ve grafikler üzerinde çalışan iki kişi"
         intro="Bu bölümdeki yazılar genel bilgilendirme amacı taşır. Yazılarda anlatılan çerçeve, her uyuşmazlığın kendi koşullarına göre değişebilir."
       >
         <Breadcrumbs items={[{ label: "Makaleler" }]} />

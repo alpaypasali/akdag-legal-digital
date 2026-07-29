@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, LegalDisclaimer } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
+import headerAsset from "@/assets/banner-inside-a.jpg.asset.json";
 
 const title = "Av. Kutay Onat Akdağ | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -63,6 +64,8 @@ function LawyerPage() {
       <PageHeader
         eyebrow="Avukat"
         title="Av. Kutay Onat Akdağ"
+        image={headerAsset.url}
+        imageAlt="Ciltli hukuk kitaplarının bulunduğu çalışma kütüphanesi"
         intro="Dosyaların hazırlığı, dilekçelerin yazımı ve duruşma takibi doğrudan yürütülür. Amaç, sürecin müvekkil tarafından anlaşılabilir biçimde ilerlemesidir."
       >
         <Breadcrumbs items={[{ label: "Av. Kutay Onat Akdağ" }]} />

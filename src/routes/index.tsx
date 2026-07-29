@@ -4,6 +4,7 @@ import { site } from "@/data/site";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
+import heroAsset from "@/assets/banner-inside-a.jpg.asset.json";
 
 const description =
   "Bursa'da avukatlık ve hukuki danışmanlık. Aile, ceza, iş, gayrimenkul ve ticaret hukuku alanlarında açık iletişim ve düzenli süreç takibi.";
@@ -89,44 +90,52 @@ function Home() {
   return (
     <>
       {/* 1 — Hero */}
-      <section className="relative overflow-hidden border-b border-border">
-        <div
-          aria-hidden="true"
-          className="hairline-grid pointer-events-none absolute inset-0 opacity-40"
+      <section className="relative overflow-hidden border-b border-hairline-invert bg-ink text-ink-foreground">
+        <img
+          src={heroAsset.url}
+          alt="Ahşap raflarda ciltli hukuk kitapları bulunan bir çalışma kütüphanesi"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 size-full object-cover"
         />
+        <div aria-hidden="true" className="ink-veil" />
         <div className="container-editorial relative grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:gap-16 lg:py-28">
           <div className="lg:col-span-7">
-            <p className="eyebrow">{site.tagline}</p>
+            <p className="eyebrow text-gold">{site.tagline}</p>
             <h1 className="mt-6 font-serif text-[2.15rem] leading-[1.1] sm:text-5xl lg:text-[3.85rem]">
               Hukuki süreçlerde açık iletişim, özenli hazırlık ve kararlı
               temsil.
             </h1>
-            <p className="measure mt-7 text-base text-muted-foreground sm:text-lg">
+            <span aria-hidden="true" className="rule-gold mt-7 block" />
+            <p className="measure mt-6 text-base text-ink-foreground/75 sm:text-lg">
               {site.description}
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/calisma-alanlari"
-                className="inline-flex min-h-12 items-center justify-center gap-3 border border-foreground bg-foreground px-7 text-sm text-primary-foreground transition-colors hover:bg-transparent hover:text-foreground"
+                className="inline-flex min-h-12 items-center justify-center gap-3 border border-gold bg-gold px-7 text-sm text-ink transition-colors hover:bg-transparent hover:text-gold"
               >
                 Çalışma Alanlarını İncele
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <Link
                 to="/iletisim"
-                className="inline-flex min-h-12 items-center justify-center border border-foreground px-7 text-sm transition-colors hover:bg-secondary"
+                className="inline-flex min-h-12 items-center justify-center border border-ink-foreground/40 px-7 text-sm text-ink-foreground transition-colors hover:border-gold hover:text-gold"
               >
                 Randevu ve İletişim
               </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-5 lg:border-l lg:border-border lg:pl-10">
-            <p className="eyebrow">Öne Çıkan Alanlar</p>
+          <div className="lg:col-span-5 lg:border-l lg:border-hairline-invert lg:pl-10">
+            <p className="eyebrow text-ink-foreground/55">Öne Çıkan Alanlar</p>
             <ul className="mt-5">
               {featuredAreas.map((area, i) => (
-                <li key={area.slug} className="border-t border-border last:border-b">
+                <li
+                  key={area.slug}
+                  className="border-t border-hairline-invert last:border-b"
+                >
                   <Link
                     to="/calisma-alanlari/$slug"
                     params={{ slug: area.slug }}
@@ -135,7 +144,7 @@ function Home() {
                     <span className="rule-number">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-serif text-lg transition-colors group-hover:text-accent">
+                    <span className="font-serif text-lg transition-colors group-hover:text-gold">
                       {area.title}
                     </span>
                     <ArrowUpRight
@@ -149,6 +158,7 @@ function Home() {
           </div>
         </div>
       </section>
+
 
       {/* 2 — Öne çıkan çalışma alanları */}
       <section aria-labelledby="alanlar-baslik" className="border-b border-border py-16 md:py-24">

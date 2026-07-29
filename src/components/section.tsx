@@ -21,23 +21,56 @@ export function PageHeader({
   eyebrow,
   title,
   intro,
+  image,
+  imageAlt,
   children,
 }: {
   eyebrow: string;
   title: string;
   intro?: string;
+  image?: string;
+  imageAlt?: string;
   children?: ReactNode;
 }) {
+  const dark = Boolean(image);
   return (
-    <div className="border-b border-border py-12 md:py-16">
-      <div className="container-editorial">
-        {children}
-        <p className="eyebrow mt-6">{eyebrow}</p>
+    <div
+      className={`relative overflow-hidden border-b py-12 md:py-16 ${
+        dark
+          ? "border-hairline-invert bg-ink text-ink-foreground"
+          : "border-border"
+      }`}
+    >
+      {image ? (
+        <>
+          <img
+            src={image}
+            alt={imageAlt ?? ""}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
+          />
+          <div aria-hidden="true" className="ink-veil" />
+        </>
+      ) : null}
+      <div className="container-editorial relative">
+        {dark ? (
+          <div className="[&_a:hover]:text-gold [&_a]:text-ink-foreground/70 [&_li]:text-ink-foreground/70 [&_ol]:text-ink-foreground/70 [&_span[aria-current]]:text-ink-foreground">
+            {children}
+          </div>
+        ) : (
+          children
+        )}
+        <p className={`eyebrow mt-6 ${dark ? "text-gold" : ""}`}>{eyebrow}</p>
         <h1 className="mt-4 max-w-4xl font-serif text-3xl leading-[1.15] sm:text-4xl lg:text-5xl">
           {title}
         </h1>
         {intro ? (
-          <p className="measure mt-6 text-base text-muted-foreground sm:text-lg">
+          <p
+            className={`measure mt-6 text-base sm:text-lg ${
+              dark ? "text-ink-foreground/75" : "text-muted-foreground"
+            }`}
+          >
             {intro}
           </p>
         ) : null}

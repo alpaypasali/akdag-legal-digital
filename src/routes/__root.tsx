@@ -14,6 +14,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { site } from "@/data/site";
+import faviconAsset from "@/assets/favicon.png.asset.json";
+import logoFooterAsset from "@/assets/logo-footer.png.asset.json";
 
 function NotFoundComponent() {
   return (
@@ -96,7 +98,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: faviconAsset.url, type: "image/png" },
+      { rel: "apple-touch-icon", href: logoFooterAsset.url },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",

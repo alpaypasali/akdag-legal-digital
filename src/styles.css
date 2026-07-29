@@ -58,16 +58,24 @@
 :root {
   --radius: 0.25rem;
 
-  --ink: oklch(0.19 0.008 260);
-  --ink-soft: oklch(0.26 0.008 260);
-  --ink-foreground: oklch(0.95 0.008 85);
-  --gold: oklch(0.68 0.088 82);
-  --gold-soft: oklch(0.79 0.062 84);
-  --stone: oklch(0.62 0.008 260);
-  --paper: oklch(0.973 0.008 85);
-  --paper-deep: oklch(0.945 0.011 85);
-  --hairline: oklch(0.87 0.011 85);
-  --hairline-invert: oklch(0.38 0.012 260);
+  /* Logodan örneklenen metalik altın: #A6762E → #D9A94A */
+  --ink: oklch(0.175 0.009 70);
+  --ink-soft: oklch(0.245 0.011 70);
+  --ink-foreground: oklch(0.955 0.012 85);
+  --gold: oklch(0.665 0.098 76);
+  --gold-soft: oklch(0.795 0.086 84);
+  --stone: oklch(0.62 0.012 80);
+  --paper: oklch(0.975 0.009 85);
+  --paper-deep: oklch(0.945 0.014 84);
+  --hairline: oklch(0.865 0.014 84);
+  --hairline-invert: oklch(0.35 0.018 72);
+  --gradient-gold: linear-gradient(
+    100deg,
+    oklch(0.55 0.082 72),
+    oklch(0.8 0.09 86) 42%,
+    oklch(0.6 0.092 74) 72%,
+    oklch(0.85 0.08 88)
+  );
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -80,29 +88,29 @@
   --secondary: var(--paper-deep);
   --secondary-foreground: var(--ink);
   --muted: var(--paper-deep);
-  --muted-foreground: oklch(0.48 0.008 260);
-  --accent: oklch(0.52 0.075 82);
+  --muted-foreground: oklch(0.475 0.012 74);
+  --accent: oklch(0.53 0.086 74);
   --accent-foreground: var(--ink-foreground);
   --destructive: oklch(0.52 0.18 27);
   --destructive-foreground: oklch(0.98 0.005 85);
   --border: var(--hairline);
   --input: var(--hairline);
-  --ring: oklch(0.52 0.075 82);
+  --ring: oklch(0.53 0.086 74);
 }
 
 .dark {
   --background: var(--ink);
   --foreground: var(--ink-foreground);
-  --card: oklch(0.23 0.008 260);
+  --card: oklch(0.225 0.011 70);
   --card-foreground: var(--ink-foreground);
-  --popover: oklch(0.23 0.008 260);
+  --popover: oklch(0.225 0.011 70);
   --popover-foreground: var(--ink-foreground);
   --primary: var(--ink-foreground);
   --primary-foreground: var(--ink);
-  --secondary: oklch(0.26 0.008 260);
+  --secondary: oklch(0.25 0.012 70);
   --secondary-foreground: var(--ink-foreground);
-  --muted: oklch(0.26 0.008 260);
-  --muted-foreground: oklch(0.74 0.008 260);
+  --muted: oklch(0.25 0.012 70);
+  --muted-foreground: oklch(0.74 0.012 74);
   --accent: var(--gold);
   --accent-foreground: var(--ink);
   --border: var(--hairline-invert);
@@ -228,4 +236,30 @@
     linear-gradient(to right, var(--color-hairline) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-hairline) 1px, transparent 1px);
   background-size: 96px 96px;
+}
+
+@utility text-gold-gradient {
+  background-image: var(--gradient-gold);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility rule-gold {
+  height: 2px;
+  width: 4rem;
+  background-image: var(--gradient-gold);
+}
+
+/* Koyu görsel üstünde okunur metin için mürekkep perdesi */
+@utility ink-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-ink) 92%, transparent),
+      color-mix(in oklab, var(--color-ink) 72%, transparent) 55%,
+      color-mix(in oklab, var(--color-ink) 45%, transparent)
+    );
 }
