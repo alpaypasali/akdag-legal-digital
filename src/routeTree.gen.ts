@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
 import { Route as AvukatKutayOnatAkdagRouteImport } from './routes/avukat-kutay-onat-akdag'
@@ -19,6 +20,11 @@ import { Route as MakalelerSlugRouteImport } from './routes/makaleler.$slug'
 import { Route as CalismaAlanlariSlugRouteImport } from './routes/calisma-alanlari.$slug'
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
 
+const KvkkRoute = KvkkRouteImport.update({
+  id: '/kvkk',
+  path: '/kvkk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IletisimRoute = IletisimRouteImport.update({
   id: '/iletisim',
   path: '/iletisim',
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
+  '/kvkk': typeof KvkkRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
+  '/kvkk': typeof KvkkRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
+  '/kvkk': typeof KvkkRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
     | '/iletisim'
+    | '/kvkk'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
     | '/iletisim'
+    | '/kvkk'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
     | '/iletisim'
+    | '/kvkk'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AvukatKutayOnatAkdagRoute: typeof AvukatKutayOnatAkdagRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
+  KvkkRoute: typeof KvkkRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   MakalelerSlugRoute: typeof MakalelerSlugRoute
   CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
@@ -149,6 +162,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/kvkk': {
+      id: '/kvkk'
+      path: '/kvkk'
+      fullPath: '/kvkk'
+      preLoaderRoute: typeof KvkkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/iletisim': {
       id: '/iletisim'
       path: '/iletisim'
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AvukatKutayOnatAkdagRoute: AvukatKutayOnatAkdagRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
+  KvkkRoute: KvkkRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   MakalelerSlugRoute: MakalelerSlugRoute,
   CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
