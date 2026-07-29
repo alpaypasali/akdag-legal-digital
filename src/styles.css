@@ -344,7 +344,7 @@
   object-position: center top;
   /* siyah-beyaz fotoğrafa çok hafif sıcak ton */
   filter: grayscale(1) sepia(0.28) contrast(1.02) brightness(1.04);
-  opacity: 0.42;
+  opacity: 0.6;
   will-change: transform;
 }
 
@@ -355,21 +355,21 @@
   background:
     linear-gradient(
       to bottom,
-      color-mix(in oklab, var(--paper) 74%, transparent) 0%,
-      color-mix(in oklab, var(--paper) 84%, transparent) 45%,
-      color-mix(in oklab, var(--paper-deep) 90%, transparent) 100%
+      color-mix(in oklab, var(--paper) 62%, transparent) 0%,
+      color-mix(in oklab, var(--paper) 72%, transparent) 45%,
+      color-mix(in oklab, var(--paper-deep) 78%, transparent) 100%
     ),
     radial-gradient(
       120% 80% at 50% 12%,
       transparent 0%,
-      color-mix(in oklab, var(--paper) 55%, transparent) 100%
+      color-mix(in oklab, var(--paper) 45%, transparent) 100%
     );
 }
 
 @media (width < 48rem) {
   .arch-backdrop__img {
     height: 100%;
-    opacity: 0.34;
+    opacity: 0.5;
   }
 }
 
