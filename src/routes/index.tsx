@@ -5,6 +5,7 @@ import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
+import logoMarkAsset from "@/assets/logo-footer.png.asset.json";
 
 const trustPoints: string[] = [
   "Bursa'da bireysel ve kurumsal danışmanlık",
