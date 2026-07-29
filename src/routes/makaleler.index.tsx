@@ -9,7 +9,7 @@ import {
   getCategory,
   formatDate,
 } from "@/data/articles";
-import headerAsset from "@/assets/hero-makaleler.png.asset.json";
+import headerAsset from "@/assets/hero-makaleler.webp.asset.json";
 
 const title = "Makaleler | Akdağ Hukuk ve Danışmanlık";
 const description =

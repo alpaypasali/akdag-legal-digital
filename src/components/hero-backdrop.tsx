@@ -1,4 +1,4 @@
-import scalesAsset from "@/assets/hero-scales.png.asset.json";
+import scalesAsset from "@/assets/hero-scales.webp.asset.json";
 import booksAsset from "@/assets/hero-books.jpg.asset.json";
 
 /**

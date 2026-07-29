@@ -4,7 +4,7 @@ import { PageHeader, LegalDisclaimer } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
 import { site } from "@/data/site";
-import headerAsset from "@/assets/hero-iletisim.png.asset.json";
+import headerAsset from "@/assets/hero-iletisim.webp.asset.json";
 
 const title = "İletişim | Akdağ Hukuk ve Danışmanlık — Bursa";
 const description =

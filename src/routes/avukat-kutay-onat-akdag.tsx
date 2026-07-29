@@ -3,7 +3,7 @@ import { PageHeader, LegalDisclaimer } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
 import headerAsset from "@/assets/banner-inside-a.jpg.asset.json";
-import logoMarkAsset from "@/assets/logo-footer.png.asset.json";
+import logoMarkAsset from "@/assets/logo-footer.webp.asset.json";
 
 const title = "Av. Kutay Onat Akdağ | Akdağ Hukuk ve Danışmanlık";
 const description =
