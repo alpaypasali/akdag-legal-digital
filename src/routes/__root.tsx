@@ -107,8 +107,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         crossOrigin: "anonymous",
       },
       {
+        // display=optional: webfont ilk boyamaya yetişmezse yedek metrik font
+        // kullanılır; böylece geç gelen font düzen kaymasına (CLS) yol açmaz.
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Source+Sans+3:wght@400;500;600&display=swap&subset=latin,latin-ext",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Source+Sans+3:wght@400;500;600&display=optional&subset=latin,latin-ext",
       },
     ],
     scripts: [
