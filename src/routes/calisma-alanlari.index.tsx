@@ -129,14 +129,17 @@ function AreasPage() {
             Diğer Çalışma Alanları
           </h2>
           <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {secondaryAreas.map((area) => {
+            {secondaryAreas.map((area, i) => {
               const img = getAreaImage(area.slug);
+              const isFirst = i === 0;
               return (
                 <Link
                   key={area.slug}
                   to="/calisma-alanlari/$slug"
                   params={{ slug: area.slug }}
-                  className="group flex flex-col bg-background transition-colors hover:bg-secondary"
+                  className={`group flex flex-col bg-background transition-colors hover:bg-secondary ${
+                    isFirst ? "lg:col-span-2" : ""
+                  }`}
                 >
                   {img ? (
                     <span className="relative block aspect-[16/9] overflow-hidden bg-ink">
