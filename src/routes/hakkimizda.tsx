@@ -126,7 +126,7 @@ function AboutPage() {
 
 
 
-      <section className="py-14 md:py-20">
+      <section className="bg-background py-14 md:py-20">
         <div className="container-editorial grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <h2 className="font-serif text-2xl sm:text-3xl">
@@ -157,6 +157,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
     </>
   );
 }
