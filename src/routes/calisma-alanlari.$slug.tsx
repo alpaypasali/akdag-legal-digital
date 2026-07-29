@@ -64,6 +64,8 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
 function AreaDetail() {
   const { area } = Route.useLoaderData() as { area: PracticeArea };
   const related = articlesForArea(area.slug);
+  const faqs = areaFaqs[area.slug] ?? [];
+
   const others = practiceAreas.filter((a) => a.slug !== area.slug).slice(0, 6);
 
   return (
