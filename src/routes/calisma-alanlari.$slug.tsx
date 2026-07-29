@@ -4,7 +4,12 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { LegalDisclaimer } from "@/components/section";
 import { FaqList } from "@/components/faq-list";
 import { areaFaqs, faqJsonLd } from "@/data/faqs";
-import { getArea, practiceAreas, type PracticeArea } from "@/data/practice-areas";
+import {
+  getArea,
+  practiceAreas,
+  getAreaImage,
+  type PracticeArea,
+} from "@/data/practice-areas";
 import { articlesForArea, formatDate } from "@/data/articles";
 import { site } from "@/data/site";
 
@@ -65,24 +70,37 @@ function AreaDetail() {
   const { area } = Route.useLoaderData() as { area: PracticeArea };
   const related = articlesForArea(area.slug);
   const faqs = areaFaqs[area.slug] ?? [];
+  const heroImg = getAreaImage(area.slug);
 
   const others = practiceAreas.filter((a) => a.slug !== area.slug).slice(0, 6);
 
   return (
     <>
-      <div className="border-b border-border py-12 md:py-16">
-        <div className="container-editorial">
+      <div className="relative overflow-hidden border-b border-hairline-invert bg-ink py-12 text-ink-foreground md:py-16">
+        {heroImg ? (
+          <>
+            <img
+              src={heroImg.url}
+              alt={heroImg.alt}
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 size-full object-cover"
+            />
+            <div aria-hidden="true" className="ink-veil" />
+          </>
+        ) : null}
+        <div className="container-editorial relative [&_a:hover]:text-gold [&_ol]:text-ink-foreground/70">
           <Breadcrumbs
             items={[
               { label: "Çalışma Alanları", to: "/calisma-alanlari" },
               { label: area.title },
             ]}
           />
-          <p className="eyebrow mt-6">Çalışma Alanı</p>
+          <p className="eyebrow mt-6 text-gold">Çalışma Alanı</p>
           <h1 className="mt-4 max-w-4xl font-serif text-3xl leading-[1.15] sm:text-4xl lg:text-5xl">
             {area.heading}
           </h1>
-          <p className="measure mt-6 text-base text-muted-foreground sm:text-lg">
+          <p className="measure mt-6 text-base text-ink-foreground/75 sm:text-lg">
             {area.intro}
           </p>
         </div>
