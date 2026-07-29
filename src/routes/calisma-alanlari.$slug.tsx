@@ -33,6 +33,7 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
         { property: "og:title", content: area.metaTitle },
         { property: "og:description", content: area.metaDescription },
         { property: "og:url", content: url },
+        { property: "og:type", content: "article" },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -45,7 +46,16 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
             ]),
           ),
         },
+        ...(areaFaqs[params.slug]?.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify(faqJsonLd(areaFaqs[params.slug])),
+              },
+            ]
+          : []),
       ],
+
     };
   },
   component: AreaDetail,
