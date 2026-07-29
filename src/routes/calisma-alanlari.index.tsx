@@ -60,16 +60,19 @@ function AreasPage() {
         <Breadcrumbs items={[{ label: "Çalışma Alanları" }]} />
       </PageHeader>
 
-      <section aria-labelledby="oncelikli" className="border-b border-border py-14 md:py-20">
+      <section
+        aria-labelledby="oncelikli"
+        className="surface-stone paper-grain surface-rise relative py-14 md:py-20"
+      >
         <div className="container-editorial">
           <h2 id="oncelikli" className="eyebrow">
             Öne Çıkan Alanlar
           </h2>
-          <ul className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {featuredAreas.map((area, i) => {
               const img = getAreaImage(area.slug);
               return (
-                <li key={area.slug} className="bg-background">
+                <li key={area.slug}>
                   <Link
                     to="/calisma-alanlari/$slug"
                     params={{ slug: area.slug }}
