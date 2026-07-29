@@ -4,19 +4,7 @@ import { site } from "@/data/site";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
-import heroAsset from "@/assets/banner-inside-a.jpg.asset.json";
-import heroAsset2 from "@/assets/idare-hukuku.jpg.asset.json";
-import heroAsset3 from "@/assets/banner-inside-b.jpg.asset.json";
-import { HeroSlideshow } from "@/components/hero-slideshow";
-
-const heroSlides = [
-  {
-    url: heroAsset.url,
-    alt: "Ahşap raflarda ciltli hukuk kitapları bulunan bir çalışma kütüphanesi",
-  },
-  { url: heroAsset2.url, alt: "Altın adalet terazisi ve hakim tokmağı" },
-  { url: heroAsset3.url, alt: "Toplantı masasında dosya inceleyen iki kişi" },
-];
+import { HeroBackdrop } from "@/components/hero-backdrop";
 
 const trustPoints: string[] = [
   "Bursa'da bireysel ve kurumsal danışmanlık",
@@ -110,9 +98,8 @@ function Home() {
     <>
       {/* 1 — Hero */}
       <section className="relative overflow-hidden border-b border-hairline-invert bg-ink text-ink-foreground">
-        <HeroSlideshow slides={heroSlides} />
-        <div aria-hidden="true" className="ink-veil" />
-        <div className="container-editorial relative grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:gap-16 lg:py-28">
+        <HeroBackdrop />
+        <div className="container-editorial relative grid gap-12 pb-16 pt-28 md:pb-24 md:pt-36 lg:grid-cols-12 lg:gap-16 lg:pb-28 lg:pt-44">
           <div className="lg:col-span-7">
             <p className="eyebrow text-gold">{site.tagline}</p>
             <h1 className="mt-6 font-serif text-[2.15rem] leading-[1.1] sm:text-5xl lg:text-[3.85rem]">
