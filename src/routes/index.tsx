@@ -248,7 +248,11 @@ function Home() {
               <span className="rule-number">02</span>
               <span className="eyebrow text-ink-foreground/50">Büro ve Avukat</span>
             </div>
-            <div className="mt-8 grid min-h-[280px] place-items-center border border-hairline-invert px-10 py-14 transition-colors duration-500 hover:border-gold/50">
+            <div className="relative mt-10 flex justify-center py-6 lg:justify-start">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--color-gold)_14%,transparent),transparent_70%)] lg:left-[140px]"
+              />
               <img
                 src={logoMarkAsset.url}
                 alt="Akdağ Hukuk ve Danışmanlık logosu"
@@ -256,7 +260,7 @@ function Home() {
                 height={1215}
                 loading="lazy"
                 decoding="async"
-                className="h-auto w-full max-w-[220px] object-contain opacity-95 transition-opacity duration-500 hover:opacity-100"
+                className="relative h-auto w-full max-w-[220px] object-contain opacity-95 transition-opacity duration-500 hover:opacity-100"
               />
             </div>
           </div>
