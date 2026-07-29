@@ -52,7 +52,7 @@ export function SiteHeader() {
       className={`z-50 transition-[background-color,border-color,box-shadow] duration-500 ease-out ${
         overlay
           ? "fixed inset-x-0 top-0"
-          : "sticky top-0 border-b border-border bg-background/92 backdrop-blur-sm"
+          : "sticky top-0 border-b border-border bg-ink/85 backdrop-blur-sm"
       } ${
         overlay
           ? transparent

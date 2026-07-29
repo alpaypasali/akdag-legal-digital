@@ -248,7 +248,7 @@ function AreaDetail() {
             </h2>
             <div className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2">
               {area.situations.map((item) => (
-                <p key={item} className="bg-background p-5 text-sm text-muted-foreground">
+                <p key={item} className="p-5 text-sm text-muted-foreground">
                   {item}
                 </p>
               ))}
