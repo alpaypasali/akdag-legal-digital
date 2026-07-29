@@ -19,7 +19,7 @@ export function HeroBackdrop() {
         decoding="async"
         className="absolute inset-0 size-full object-cover object-left"
         style={{
-          filter: "saturate(0.62) contrast(1.02) brightness(0.72) sepia(0.12)",
+          filter: "saturate(0.78) contrast(1.04) brightness(0.9) sepia(0.06)",
           maskImage:
             "linear-gradient(100deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 34%, rgba(0,0,0,0.25) 58%, rgba(0,0,0,0) 78%)",
           WebkitMaskImage:
@@ -35,7 +35,7 @@ export function HeroBackdrop() {
         decoding="async"
         className="absolute inset-0 size-full object-cover object-[72%_center]"
         style={{
-          filter: "saturate(0.7) contrast(1.02) brightness(0.86)",
+          filter: "saturate(0.86) contrast(1.04) brightness(1.02)",
           maskImage:
             "linear-gradient(100deg, rgba(0,0,0,0) 12%, rgba(0,0,0,0.35) 38%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,1) 80%)",
           WebkitMaskImage:
@@ -48,7 +48,7 @@ export function HeroBackdrop() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(96deg, color-mix(in oklab, var(--ink) 92%, transparent) 0%, color-mix(in oklab, var(--ink) 78%, transparent) 42%, color-mix(in oklab, var(--ink) 34%, transparent) 70%, color-mix(in oklab, var(--ink) 52%, transparent) 100%)",
+            "linear-gradient(96deg, color-mix(in oklab, var(--ink) 80%, transparent) 0%, color-mix(in oklab, var(--ink) 58%, transparent) 42%, color-mix(in oklab, var(--ink) 16%, transparent) 70%, color-mix(in oklab, var(--ink) 30%, transparent) 100%)",
         }}
       />
       {/* Üst karartma: transparan header'ın okunabilirliği */}
@@ -56,7 +56,7 @@ export function HeroBackdrop() {
         className="absolute inset-x-0 top-0 h-40"
         style={{
           background:
-            "linear-gradient(to bottom, color-mix(in oklab, var(--ink) 82%, transparent), transparent)",
+            "linear-gradient(to bottom, color-mix(in oklab, var(--ink) 62%, transparent), transparent)",
         }}
       />
       {/* Vignette + alt bölüme kesintisiz geçiş */}
@@ -64,14 +64,14 @@ export function HeroBackdrop() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 50% 40%, transparent 40%, color-mix(in oklab, var(--ink) 55%, transparent) 100%)",
+            "radial-gradient(120% 90% at 50% 40%, transparent 46%, color-mix(in oklab, var(--ink) 38%, transparent) 100%)",
         }}
       />
       <div
         className="absolute inset-x-0 bottom-0 h-32"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, color-mix(in oklab, var(--ink) 90%, transparent))",
+            "linear-gradient(to bottom, transparent, color-mix(in oklab, var(--ink) 72%, transparent))",
         }}
       />
     </div>
