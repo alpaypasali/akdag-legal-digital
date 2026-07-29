@@ -18,7 +18,15 @@ export const Route = createFileRoute("/hakkimizda")({
       { property: "og:description", content: description },
       { property: "og:url", content: "/hakkimizda" },
     ],
-    links: [{ rel: "canonical", href: "/hakkimizda" }],
+    links: [
+      { rel: "canonical", href: "/hakkimizda" },
+      {
+        rel: "preload",
+        as: "image",
+        href: headerAsset.url,
+        fetchpriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
