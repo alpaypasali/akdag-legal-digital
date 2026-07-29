@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
@@ -10,6 +10,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const overlay = isOverlayRoute(pathname);
 
@@ -31,7 +32,10 @@ export function SiteHeader() {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        requestAnimationFrame(() => toggleRef.current?.focus());
+      }
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -92,6 +96,7 @@ export function SiteHeader() {
         </nav>
 
         <button
+          ref={toggleRef}
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Menüyü aç"
@@ -111,15 +116,46 @@ export function SiteHeader() {
       {/* Portal: header uses backdrop-blur, which creates a containing block
           and would trap a `fixed inset-0` overlay inside the header box. */}
       {open && mounted
-        ? createPortal(<MobileMenu onClose={() => setOpen(false)} />, document.body)
+        ? createPortal(
+            <MobileMenu
+              onClose={() => {
+                setOpen(false);
+                // Odağı menüyü açan butona geri ver (WCAG 2.4.3)
+                requestAnimationFrame(() => toggleRef.current?.focus());
+              }}
+            />,
+            document.body,
+          )
         : null}
     </header>
   );
 }
 
 function MobileMenu({ onClose }: { onClose: () => void }) {
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Odak tuzağı: Tab ile odak menü içinde döner
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== "Tab" || !panelRef.current) return;
+    const items = panelRef.current.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled])',
+    );
+    if (items.length === 0) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <div
+      ref={panelRef}
+      onKeyDown={onKeyDown}
       id="mobil-menu"
       role="dialog"
       aria-modal="true"

@@ -1,5 +1,5 @@
 import scalesAsset from "@/assets/hero-scales.webp.asset.json";
-import booksAsset from "@/assets/hero-books.jpg.asset.json";
+import booksAsset from "@/assets/hero-books.webp.asset.json";
 
 /**
  * İki banner görselinin tek kompozisyonda birleştirilmesi.

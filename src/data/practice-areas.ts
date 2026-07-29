@@ -1,13 +1,13 @@
-import aileImg from "@/assets/aile-hukuku.jpg.asset.json";
-import borclarImg from "@/assets/borclar-hukuku.jpg.asset.json";
-import cezaImg from "@/assets/ceza-hukuku.jpg.asset.json";
-import denizImg from "@/assets/deniz-ticareti-hukuku.jpg.asset.json";
-import enerjiImg from "@/assets/enerji-hukuku.jpg.asset.json";
-import gayrimenkulImg from "@/assets/gayrimenkul-hukuku.jpg.asset.json";
-import icraImg from "@/assets/icra-hukuku.jpg.asset.json";
-import idareImg from "@/assets/idare-hukuku.jpg.asset.json";
-import insaatImg from "@/assets/insaat-hukuku.jpg.asset.json";
-import isImg from "@/assets/is-hukuku.jpg.asset.json";
+import aileImg from "@/assets/aile-hukuku.webp.asset.json";
+import borclarImg from "@/assets/borclar-hukuku.webp.asset.json";
+import cezaImg from "@/assets/ceza-hukuku.webp.asset.json";
+import denizImg from "@/assets/deniz-ticareti-hukuku.webp.asset.json";
+import enerjiImg from "@/assets/enerji-hukuku.webp.asset.json";
+import gayrimenkulImg from "@/assets/gayrimenkul-hukuku.webp.asset.json";
+import icraImg from "@/assets/icra-hukuku.webp.asset.json";
+import idareImg from "@/assets/idare-hukuku.webp.asset.json";
+import insaatImg from "@/assets/insaat-hukuku.webp.asset.json";
+import isImg from "@/assets/is-hukuku.webp.asset.json";
 
 export interface PracticeArea {
   slug: string;

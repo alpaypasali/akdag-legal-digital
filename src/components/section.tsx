@@ -138,13 +138,14 @@ export function PageHeader({
 
 export function LegalDisclaimer({ text }: { text?: string }) {
   return (
-    <aside
+    <div
+      role="note"
       aria-label="Hukuki bilgilendirme"
       className="border-l-2 border-gold bg-muted px-5 py-4"
     >
       <p className="measure text-sm text-muted-foreground">
         {text ?? site.legalNotice}
       </p>
-    </aside>
+    </div>
   );
 }
