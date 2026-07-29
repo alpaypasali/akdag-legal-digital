@@ -283,3 +283,20 @@
       color-mix(in oklab, var(--color-ink) 45%, transparent)
     );
 }
+
+/* Kademeli görsel yükleme geçişi */
+@utility img-progressive {
+  opacity: 0;
+  transition: opacity 600ms ease;
+
+  &[data-loaded="true"] {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .img-progressive {
+    opacity: 1;
+    transition: none;
+  }
+}

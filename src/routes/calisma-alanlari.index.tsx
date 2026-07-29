@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageHeader, LegalDisclaimer } from "@/components/section";
+import { ProgressiveImage } from "@/components/progressive-image";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import {
   featuredAreas,
@@ -76,11 +77,15 @@ function AreasPage() {
                   >
                     {img ? (
                       <span className="relative block aspect-[16/10] overflow-hidden bg-ink">
-                        <img
+                        <ProgressiveImage
                           src={img.url}
                           alt={img.alt}
                           loading={i < 3 ? "eager" : "lazy"}
+                          fetchPriority={i < 3 ? "high" : "auto"}
                           decoding="async"
+                          width={1366}
+                          height={854}
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                           className="size-full object-cover opacity-90 transition-all duration-500 [filter:grayscale(0.85)_sepia(0.28)_saturate(0.85)_contrast(1.05)_brightness(0.82)] group-hover:scale-105 group-hover:opacity-100 group-hover:[filter:grayscale(0.6)_sepia(0.22)_saturate(1)_contrast(1.05)_brightness(0.9)]"
                         />
                         <span
@@ -134,11 +139,14 @@ function AreasPage() {
                 >
                   {img ? (
                     <span className="relative block aspect-[16/9] overflow-hidden bg-ink">
-                      <img
+                      <ProgressiveImage
                         src={img.url}
                         alt={img.alt}
                         loading="lazy"
                         decoding="async"
+                        width={1366}
+                        height={768}
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="size-full object-cover opacity-90 transition-all duration-500 [filter:grayscale(0.85)_sepia(0.28)_saturate(0.85)_contrast(1.05)_brightness(0.82)] group-hover:scale-105 group-hover:opacity-100 group-hover:[filter:grayscale(0.6)_sepia(0.22)_saturate(1)_contrast(1.05)_brightness(0.9)]"
                       />
                       <span
