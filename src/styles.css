@@ -88,14 +88,14 @@
   --secondary: var(--paper-deep);
   --secondary-foreground: var(--ink);
   --muted: var(--paper-deep);
-  --muted-foreground: oklch(0.48 0.008 260);
-  --accent: oklch(0.52 0.075 82);
+  --muted-foreground: oklch(0.475 0.012 74);
+  --accent: oklch(0.53 0.086 74);
   --accent-foreground: var(--ink-foreground);
   --destructive: oklch(0.52 0.18 27);
   --destructive-foreground: oklch(0.98 0.005 85);
   --border: var(--hairline);
   --input: var(--hairline);
-  --ring: oklch(0.52 0.075 82);
+  --ring: oklch(0.53 0.086 74);
 }
 
 .dark {
