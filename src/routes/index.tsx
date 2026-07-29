@@ -1,7 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { site } from "@/data/site";
-import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
+import {
+  featuredAreas,
+  secondaryAreas,
+  getAreaImage,
+} from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
