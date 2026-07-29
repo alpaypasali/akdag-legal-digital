@@ -72,7 +72,8 @@ function ContactPage() {
         <Breadcrumbs items={[{ label: "İletişim" }]} />
       </PageHeader>
 
-      <div className="container-editorial grid gap-14 py-12 md:py-16 lg:grid-cols-12 lg:gap-16">
+      <div className="container-editorial grid gap-14 bg-background py-12 md:py-16 lg:grid-cols-12 lg:gap-16">
+
         <section aria-labelledby="form-baslik" className="lg:col-span-7">
           <h2 id="form-baslik" className="font-serif text-2xl sm:text-3xl">
             İletişim formu
