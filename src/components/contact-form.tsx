@@ -78,7 +78,7 @@ export function ContactForm() {
 
   return (
     <div>
-      <p className="measure border-l-2 border-gold bg-muted px-5 py-4 text-sm text-muted-foreground">
+      <p className="measure border-l-2 border-gold-ink bg-paper-stone px-5 py-4 text-sm text-muted-foreground">
         {site.formNotice}
       </p>
 
@@ -90,7 +90,7 @@ export function ContactForm() {
         {sent ? (
           <p
             role="status"
-            className="border border-gold bg-muted px-5 py-4 text-sm"
+            className="border-l-2 border-gold-ink bg-paper-stone px-5 py-4 text-sm"
           >
             Mesajınız alındı. En kısa sürede tarafınıza dönüş yapılacaktır.
           </p>
@@ -133,7 +133,7 @@ export function ContactForm() {
             defaultValue=""
             aria-invalid={Boolean(errors.subject)}
             aria-describedby={errors.subject ? "hata-subject" : undefined}
-            className="mt-2 min-h-12 w-full border border-input bg-card px-4 text-base text-foreground"
+            className="mt-2 min-h-12 w-full border border-input bg-paper-deep px-4 text-base text-foreground"
           >
             <option value="">Seçiniz</option>
             {subjects.map((s) => (
@@ -156,7 +156,7 @@ export function ContactForm() {
             maxLength={2000}
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "hata-message" : "yardim-message"}
-            className="mt-2 w-full border border-input bg-card px-4 py-3 text-base text-foreground"
+            className="mt-2 w-full border border-input bg-paper-deep px-4 py-3 text-base text-foreground"
           />
           <p id="yardim-message" className="mt-2 text-xs text-muted-foreground">
             Lütfen kişisel verilerinizi ve dosya ayrıntılarını bu aşamada
@@ -227,7 +227,7 @@ function Field({
         autoComplete={autoComplete}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `hata-${name}` : undefined}
-        className="mt-2 min-h-12 w-full border border-input bg-card px-4 text-base text-foreground"
+        className="mt-2 min-h-12 w-full border border-input bg-paper-deep px-4 text-base text-foreground"
       />
       <FieldError id={`hata-${name}`} message={error} />
     </div>
