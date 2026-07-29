@@ -134,9 +134,7 @@
   --muted-foreground: oklch(0.795 0.012 74);
 }
 
-/* Koyu zeminlerde etiket/ikincil metin okunabilirliği (WCAG AA) */
-.bg-ink .eyebrow,
-.text-ink-foreground .eyebrow,
+/* Koyu zeminlerde ikincil metin okunabilirliği (WCAG AA) */
 .bg-ink .text-muted-foreground,
 .text-ink-foreground .text-muted-foreground {
   color: oklch(0.795 0.012 74);
@@ -177,7 +175,8 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-size: 1rem;
-    line-height: 1.65;
+    font-weight: 420;
+    line-height: 1.68;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
@@ -187,7 +186,7 @@
   h3,
   h4 {
     font-family: var(--font-serif);
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.015em;
     text-wrap: balance;
   }
@@ -249,7 +248,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-muted-foreground);
+  color: var(--rule-gold);
 }
 
 @utility rule-number {
