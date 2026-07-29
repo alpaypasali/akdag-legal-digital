@@ -3,6 +3,7 @@ import { PageHeader, LegalDisclaimer, SectionLabel } from "@/components/section"
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
 import headerAsset from "@/assets/hero-hakkimizda.png.asset.json";
+import ilkelerAsset from "@/assets/ilkeler.jpg.asset.json";
 
 const title = "Hakkımızda | Akdağ Hukuk ve Danışmanlık";
 const description =
