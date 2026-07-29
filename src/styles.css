@@ -106,6 +106,8 @@
 .bg-ink,
 .text-ink-foreground {
   --rule-gold: var(--gold);
+  /* Koyu zeminde AA sağlayan ikincil metin rengi */
+  --muted-foreground: oklch(0.775 0.012 74);
 }
 
 .dark {
