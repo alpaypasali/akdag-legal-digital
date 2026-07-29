@@ -5,7 +5,7 @@ import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 
 const legalLinks = [
   { label: "KVKK Aydınlatma Metni", to: "/kvkk" as const },
-  { label: "Gizlilik Politikası", to: "/gizlilik-politikasi" as const },
+  { label: "Gizlilik Politikası", to: "/gizlilik" as const },
   { label: "Çerez Politikası", to: "/cerez-politikasi" as const },
 ];
 
