@@ -441,7 +441,7 @@ function Home() {
       </section>
 
       {/* 7 — Bursa yerel bağlantı */}
-      <section aria-labelledby="bursa-baslik" className="py-16 md:py-24">
+      <section aria-labelledby="bursa-baslik" className="bg-paper-deep/60 py-16 md:py-24">
         <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionLabel index="06">Büro</SectionLabel>
