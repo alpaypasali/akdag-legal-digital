@@ -89,9 +89,10 @@
   --gold-ink: oklch(0.505 0.098 68);
   --rule-gold: var(--gold-ink);
   --stone: oklch(0.62 0.012 80);
-  --paper: oklch(0.975 0.009 85);
-  --paper-deep: oklch(0.945 0.014 84);
-  --hairline: oklch(0.865 0.014 84);
+  /* Sıcak kemik / taş beji — saf beyaz kullanılmaz */
+  --paper: oklch(0.898 0.017 82);
+  --paper-deep: oklch(0.846 0.021 80);
+  --hairline: oklch(0.775 0.02 80);
   --hairline-invert: oklch(0.35 0.018 72);
   --gradient-gold: linear-gradient(
     100deg,
@@ -101,18 +102,19 @@
     oklch(0.85 0.08 88)
   );
 
-  --background: var(--paper);
-  --foreground: var(--ink);
-  --card: oklch(0.99 0.006 85);
-  --card-foreground: var(--ink);
-  --popover: oklch(0.99 0.006 85);
-  --popover-foreground: var(--ink);
+  /* Açık yüzeyler yarı saydam: ortak mimari arka plan altta hissedilir */
+  --background: color-mix(in oklab, var(--paper) 76%, transparent);
+  --foreground: oklch(0.19 0.008 60);
+  --card: color-mix(in oklab, var(--paper) 72%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.93 0.014 82);
+  --popover-foreground: var(--foreground);
   --primary: var(--ink);
   --primary-foreground: var(--ink-foreground);
-  --secondary: var(--paper-deep);
-  --secondary-foreground: var(--ink);
-  --muted: var(--paper-deep);
-  --muted-foreground: oklch(0.475 0.012 74);
+  --secondary: color-mix(in oklab, var(--paper-deep) 72%, transparent);
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in oklab, var(--paper-deep) 66%, transparent);
+  --muted-foreground: oklch(0.475 0.014 70);
   --accent: oklch(0.53 0.086 74);
   --accent-foreground: var(--ink-foreground);
   --destructive: oklch(0.52 0.18 27);
