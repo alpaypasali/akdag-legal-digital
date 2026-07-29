@@ -107,7 +107,15 @@
 .text-ink-foreground {
   --rule-gold: var(--gold);
   /* Koyu zeminde AA sağlayan ikincil metin rengi */
-  --muted-foreground: oklch(0.775 0.012 74);
+  --muted-foreground: oklch(0.795 0.012 74);
+}
+
+/* Koyu zeminlerde etiket/ikincil metin okunabilirliği (WCAG AA) */
+.bg-ink .eyebrow,
+.text-ink-foreground .eyebrow,
+.bg-ink .text-muted-foreground,
+.text-ink-foreground .text-muted-foreground {
+  color: oklch(0.795 0.012 74);
 }
 
 .dark {
