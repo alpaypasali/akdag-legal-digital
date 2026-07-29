@@ -71,9 +71,8 @@ function ArticlesPage() {
         <Breadcrumbs items={[{ label: "Makaleler" }]} />
       </PageHeader>
 
-      <div className="surface-rise relative">
       <div className="container-editorial py-12 md:py-16">
-        <div className="flex flex-col gap-6 border-b border-hairline pb-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-6 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
           <nav aria-label="Kategori filtreleri">
             <h2 className="eyebrow">Kategoriler</h2>
             <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
@@ -101,7 +100,7 @@ function ArticlesPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Örn. arabuluculuk"
-              className="mt-2 min-h-12 w-full border border-input bg-paper-deep px-4 text-base"
+              className="mt-2 min-h-12 w-full border border-input bg-card px-4 text-base"
             />
           </div>
         </div>
@@ -125,7 +124,7 @@ function ArticlesPage() {
               <h2 id="one-cikan" className="eyebrow">
                 Öne Çıkan Makale
               </h2>
-              <article className="mt-6 grid gap-8 border-t border-hairline-gold pt-8 lg:grid-cols-12">
+              <article className="mt-6 grid gap-8 border-t border-border pt-8 lg:grid-cols-12">
                 <div className="lg:col-span-3">
                   <p className="rule-number">
                     {getCategory(featured.categorySlug)?.title}
@@ -157,13 +156,13 @@ function ArticlesPage() {
                     className="link-underline mt-6 text-sm"
                   >
                     Makaleyi oku
-                    <ArrowUpRight className="size-3.5 text-gold-ink" aria-hidden="true" />
+                    <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
                   </Link>
                 </div>
               </article>
             </section>
 
-            <section aria-labelledby="son-makaleler" className="border-t border-hairline py-12">
+            <section aria-labelledby="son-makaleler" className="border-t border-border py-12">
               <h2 id="son-makaleler" className="eyebrow">
                 Son Makaleler
               </h2>
@@ -175,7 +174,7 @@ function ArticlesPage() {
                 ))}
               </ul>
 
-              <nav aria-label="Sayfalama" className="mt-14 flex items-center gap-4 border-t border-hairline pt-6">
+              <nav aria-label="Sayfalama" className="mt-14 flex items-center gap-4 border-t border-border pt-6">
                 <span className="text-sm text-muted-foreground">
                   Sayfa 1 / 1 · Toplam {publishedArticles.length} makale
                 </span>
@@ -183,7 +182,6 @@ function ArticlesPage() {
             </section>
           </>
         )}
-      </div>
       </div>
     </>
   );
@@ -193,7 +191,7 @@ export function ArticleCard({ slug }: { slug: string }) {
   const article = publishedArticles.find((a) => a.slug === slug);
   if (!article) return null;
   return (
-    <article className="group border-t border-hairline pt-5">
+    <article className="border-t border-border pt-5">
       <p className="eyebrow">{getCategory(article.categorySlug)?.title}</p>
       <h3 className="mt-3 font-serif text-xl leading-snug">
         <Link

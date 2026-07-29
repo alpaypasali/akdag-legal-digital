@@ -192,10 +192,7 @@ function Home() {
 
 
       {/* 2 — Öne çıkan çalışma alanları */}
-      <section
-        aria-labelledby="alanlar-baslik"
-        className="surface-stone paper-grain surface-rise relative py-16 md:py-24"
-      >
+      <section aria-labelledby="alanlar-baslik" className="border-b border-border py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="01">Çalışma Alanları</SectionLabel>
           <h2
@@ -205,14 +202,14 @@ function Home() {
             Öncelikli olarak takip edilen dosya grupları
           </h2>
 
-          <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {featuredAreas.map((area, i) => (
               <Link
                 key={area.slug}
                 to="/calisma-alanlari/$slug"
                 params={{ slug: area.slug }}
-                className={`group flex flex-col justify-between border-t border-hairline pt-5 transition-colors ${
-                  i === 0 ? "lg:col-span-2" : ""
+                className={`group flex flex-col justify-between bg-background p-7 transition-colors hover:bg-secondary ${
+                  i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
                 }`}
               >
                 <div>
@@ -220,7 +217,7 @@ function Home() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3
-                    className={`mt-5 font-serif transition-colors group-hover:text-accent ${
+                    className={`mt-5 font-serif ${
                       i === 0 ? "text-2xl lg:text-3xl" : "text-xl"
                     }`}
                   >
@@ -232,31 +229,30 @@ function Home() {
                 </div>
                 <span className="link-underline mt-8 self-start text-sm">
                   Alanı incele
-                  <ArrowUpRight className="size-3.5 text-gold-ink" aria-hidden="true" />
+                  <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
                 </span>
               </Link>
             ))}
-          </div>
 
-          <div className="mt-14 border-t border-hairline pt-5">
-            <span className="eyebrow">Diğer Alanlar</span>
-            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              {secondaryAreas.map((area) => (
-                <li key={area.slug}>
-                  <Link
-                    to="/calisma-alanlari/$slug"
-                    params={{ slug: area.slug }}
-                    className="py-1 transition-colors hover:text-foreground"
-                  >
-                    {area.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="bg-background p-7">
+              <span className="eyebrow">Diğer Alanlar</span>
+              <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                {secondaryAreas.map((area) => (
+                  <li key={area.slug}>
+                    <Link
+                      to="/calisma-alanlari/$slug"
+                      params={{ slug: area.slug }}
+                      className="py-1 transition-colors hover:text-foreground"
+                    >
+                      {area.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
-
 
       {/* 3 — Avukat tanıtımı */}
       <section
@@ -330,10 +326,7 @@ function Home() {
       </section>
 
       {/* 4 — Çalışma yaklaşımı */}
-      <section
-        aria-labelledby="yaklasim-baslik"
-        className="surface-bone paper-grain surface-rise relative py-16 md:py-24"
-      >
+      <section aria-labelledby="yaklasim-baslik" className="border-b border-border py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="03">Çalışma Yaklaşımı</SectionLabel>
           <h2
@@ -345,7 +338,7 @@ function Home() {
 
           <ol className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
             {approach.map((step, i) => (
-              <li key={step.title} className="border-t border-hairline pt-5">
+              <li key={step.title} className="border-t border-border pt-5">
                 <span className="rule-number">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -355,7 +348,7 @@ function Home() {
             ))}
           </ol>
 
-          <p className="measure mt-12 border-t border-hairline-gold pt-5 text-xs leading-relaxed text-muted-foreground">
+          <p className="measure mt-12 text-sm text-muted-foreground">
             Hukuki süreçlerin sonucu, dosyanın koşullarına ve yargı merciinin
             değerlendirmesine bağlıdır; belirli bir sonuç taahhüdünde
             bulunulmaz.
@@ -403,10 +396,7 @@ function Home() {
 
 
       {/* 6 — Son makaleler */}
-      <section
-        aria-labelledby="makaleler-baslik"
-        className="surface-bone paper-grain surface-rise relative py-16 md:py-24"
-      >
+      <section aria-labelledby="makaleler-baslik" className="border-b border-border py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="05">Makaleler</SectionLabel>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
@@ -424,7 +414,7 @@ function Home() {
 
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {latest.map((article) => (
-              <article key={article.slug} className="group border-t border-hairline pt-5">
+              <article key={article.slug} className="border-t border-border pt-5">
                 <p className="eyebrow">
                   {getCategory(article.categorySlug)?.title}
                 </p>
@@ -462,10 +452,7 @@ function Home() {
       </section>
 
       {/* 7 — Bursa yerel bağlantı */}
-      <section
-        aria-labelledby="bursa-baslik"
-        className="surface-greige paper-grain surface-rise relative py-16 md:py-24"
-      >
+      <section aria-labelledby="bursa-baslik" className="py-16 md:py-24">
         <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionLabel index="06">Büro</SectionLabel>
@@ -483,8 +470,8 @@ function Home() {
           </div>
 
           <div className="lg:col-span-7">
-            <dl className="grid border-t border-hairline sm:grid-cols-2">
-              <div className="cell-quiet border-b border-hairline px-1 py-6 sm:border-r sm:pr-6">
+            <dl className="grid gap-px border border-border bg-border sm:grid-cols-2">
+              <div className="bg-background p-6">
                 <dt className="eyebrow">Adres</dt>
                 <dd className="mt-2">
                   {site.contact.addressLine}
@@ -492,15 +479,15 @@ function Home() {
                   {site.contact.district} / {site.contact.city}
                 </dd>
               </div>
-              <div className="cell-quiet border-b border-hairline px-1 py-6 sm:pl-6">
+              <div className="bg-background p-6">
                 <dt className="eyebrow">Çalışma Saatleri</dt>
                 <dd className="mt-2">{site.contact.hours}</dd>
               </div>
-              <div className="cell-quiet border-b border-hairline px-1 py-6 sm:border-r sm:pr-6">
+              <div className="bg-background p-6">
                 <dt className="eyebrow">Telefon</dt>
                 <dd className="mt-2">{site.contact.phoneLabel}</dd>
               </div>
-              <div className="cell-quiet border-b border-hairline px-1 py-6 sm:pl-6">
+              <div className="bg-background p-6">
                 <dt className="eyebrow">E-posta</dt>
                 <dd className="mt-2">
                   <a
@@ -512,7 +499,6 @@ function Home() {
                 </dd>
               </div>
             </dl>
-
 
             <div className="mt-6 flex flex-wrap gap-4">
               <a

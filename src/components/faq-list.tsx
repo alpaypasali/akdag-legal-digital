@@ -11,12 +11,12 @@ export function FaqList({
   const base = useId();
 
   return (
-    <div className="mt-6 border-t border-hairline" aria-labelledby={headingId}>
+    <div className="mt-6 border-t border-border" aria-labelledby={headingId}>
       {items.map((item, i) => (
         <details
           key={item.question}
           name={base}
-          className="group border-b border-hairline"
+          className="group border-b border-border"
         >
           <summary className="flex cursor-pointer list-none items-baseline gap-4 py-4 text-left marker:hidden">
             <span className="rule-number pt-1">

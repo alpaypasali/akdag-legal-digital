@@ -60,19 +60,16 @@ function AreasPage() {
         <Breadcrumbs items={[{ label: "Çalışma Alanları" }]} />
       </PageHeader>
 
-      <section
-        aria-labelledby="oncelikli"
-        className="surface-stone paper-grain surface-rise relative py-14 md:py-20"
-      >
+      <section aria-labelledby="oncelikli" className="border-b border-border py-14 md:py-20">
         <div className="container-editorial">
           <h2 id="oncelikli" className="eyebrow">
             Öne Çıkan Alanlar
           </h2>
-          <ul className="mt-8 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {featuredAreas.map((area, i) => {
               const img = getAreaImage(area.slug);
               return (
-                <li key={area.slug}>
+                <li key={area.slug} className="bg-background">
                   <Link
                     to="/calisma-alanlari/$slug"
                     params={{ slug: area.slug }}
@@ -102,7 +99,7 @@ function AreasPage() {
                       </span>
                     ) : null}
 
-                    <span className="mt-5 flex flex-1 flex-col border-t border-hairline-gold pt-5">
+                    <span className="flex flex-1 flex-col p-6">
                       <span className="rule-number">
                         {String(i + 1).padStart(2, "0")}
                       </span>
@@ -114,7 +111,7 @@ function AreasPage() {
                       </span>
                       <span className="link-underline mt-5 self-start text-sm">
                         Alanı incele
-                        <ArrowUpRight className="size-4 text-gold-ink" aria-hidden="true" />
+                        <ArrowUpRight className="size-4 text-gold" aria-hidden="true" />
                       </span>
                     </span>
                   </Link>
@@ -125,15 +122,12 @@ function AreasPage() {
         </div>
       </section>
 
-      <section
-        aria-labelledby="diger"
-        className="surface-greige paper-grain surface-rise relative py-14 md:py-20"
-      >
+      <section aria-labelledby="diger" className="py-14 md:py-20">
         <div className="container-editorial">
           <h2 id="diger" className="eyebrow">
             Diğer Çalışma Alanları
           </h2>
-          <div className="mt-8 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {secondaryAreas.map((area) => {
               const img = getAreaImage(area.slug);
               return (
@@ -141,7 +135,7 @@ function AreasPage() {
                   key={area.slug}
                   to="/calisma-alanlari/$slug"
                   params={{ slug: area.slug }}
-                  className="group flex flex-col"
+                  className="group flex flex-col bg-background transition-colors hover:bg-secondary"
                 >
                   {img ? (
                     <span className="relative block aspect-[16/9] overflow-hidden bg-ink">
@@ -166,8 +160,8 @@ function AreasPage() {
                     </span>
                   ) : null}
 
-                  <span className="mt-5 block border-t border-hairline-gold pt-5">
-                    <h3 className="font-serif text-xl transition-colors group-hover:text-accent">{area.title}</h3>
+                  <span className="block p-6">
+                    <h3 className="font-serif text-xl">{area.title}</h3>
                     <span className="mt-3 block text-sm text-muted-foreground">
                       {area.summary}
                     </span>

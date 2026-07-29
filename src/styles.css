@@ -63,7 +63,6 @@
   /* Marka tokenları */
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-ink-deep: var(--ink-deep);
   --color-ink-foreground: var(--ink-foreground);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
@@ -71,86 +70,73 @@
   --color-stone: var(--stone);
   --color-paper: var(--paper);
   --color-paper-deep: var(--paper-deep);
-  --color-paper-stone: var(--paper-stone);
-  --color-paper-greige: var(--paper-greige);
   --color-hairline: var(--hairline);
-  --color-hairline-gold: var(--hairline-gold);
   --color-hairline-invert: var(--hairline-invert);
 
   --tracking-label: 0.18em;
 }
 
-
 :root {
   --radius: 0.25rem;
 
-  /* Sıcak mürekkep / kemik / taş / mat bronz paleti */
-  --ink-deep: #0e0c09;
-  --ink: #15120e;
-  --ink-soft: #1c1813;
-  --ink-foreground: #eee7dc;
-  --gold: #c49a4c;
-  --gold-soft: #d8b87a;
-  /* Açık zeminde WCAG AA sağlayan mat bronz */
-  --gold-ink: #8a6524;
+  /* Logodan örneklenen metalik altın: #A6762E → #D9A94A */
+  --ink: oklch(0.175 0.009 70);
+  --ink-soft: oklch(0.245 0.011 70);
+  --ink-foreground: oklch(0.955 0.012 85);
+  --gold: oklch(0.665 0.098 76);
+  --gold-soft: oklch(0.795 0.086 84);
+  /* Açık zeminde WCAG AA sağlayan koyu altın */
+  --gold-ink: oklch(0.505 0.098 68);
   --rule-gold: var(--gold-ink);
-  --stone: #aaa093;
-  --paper: #e7e0d4;
-  --paper-deep: #ded6c8;
-  --paper-stone: #d9d0c2;
-  --paper-greige: #cfc6b8;
-  --hairline: #c6bcad;
-  --hairline-gold: rgba(183, 138, 62, 0.3);
-  --hairline-invert: #332c22;
+  --stone: oklch(0.62 0.012 80);
+  --paper: oklch(0.975 0.009 85);
+  --paper-deep: oklch(0.945 0.014 84);
+  --hairline: oklch(0.865 0.014 84);
+  --hairline-invert: oklch(0.35 0.018 72);
   --gradient-gold: linear-gradient(
     100deg,
-    #8a6524,
-    #d8b87a 42%,
-    #a87c31 72%,
-    #dcbe86
+    oklch(0.55 0.082 72),
+    oklch(0.8 0.09 86) 42%,
+    oklch(0.6 0.092 74) 72%,
+    oklch(0.85 0.08 88)
   );
 
   --background: var(--paper);
-  --foreground: #17130f;
-  --card: var(--paper-deep);
-  --card-foreground: var(--foreground);
-  --popover: #ece6db;
-  --popover-foreground: var(--foreground);
+  --foreground: var(--ink);
+  --card: oklch(0.99 0.006 85);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.99 0.006 85);
+  --popover-foreground: var(--ink);
   --primary: var(--ink);
   --primary-foreground: var(--ink-foreground);
-  --secondary: var(--paper-stone);
-  --secondary-foreground: var(--foreground);
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--ink);
   --muted: var(--paper-deep);
-  --muted-foreground: #655d53;
-  --accent: #8a6524;
+  --muted-foreground: oklch(0.475 0.012 74);
+  --accent: oklch(0.53 0.086 74);
   --accent-foreground: var(--ink-foreground);
   --destructive: oklch(0.52 0.18 27);
-  --destructive-foreground: #f4efe6;
+  --destructive-foreground: oklch(0.98 0.005 85);
   --border: var(--hairline);
   --input: var(--hairline);
-  --ring: #8a6524;
+  --ring: oklch(0.53 0.086 74);
 }
 
 .dark,
 .bg-ink,
-.bg-ink-soft,
-.bg-ink-deep,
 .text-ink-foreground {
   --rule-gold: var(--gold);
   /* Koyu zeminde AA sağlayan ikincil metin rengi */
-  --muted-foreground: #beb5a8;
+  --muted-foreground: oklch(0.795 0.012 74);
 }
 
 /* Koyu zeminlerde etiket/ikincil metin okunabilirliği (WCAG AA) */
 .bg-ink .eyebrow,
-.bg-ink-soft .eyebrow,
 .text-ink-foreground .eyebrow,
 .bg-ink .text-muted-foreground,
-.bg-ink-soft .text-muted-foreground,
 .text-ink-foreground .text-muted-foreground {
-  color: #beb5a8;
+  color: oklch(0.795 0.012 74);
 }
-
 
 .dark {
   --background: var(--ink);
@@ -184,13 +170,6 @@
 
   body {
     background-color: var(--color-background);
-    background-image:
-      radial-gradient(
-        130% 60% at 50% 0%,
-        rgba(255, 252, 245, 0.4),
-        transparent 60%
-      );
-    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -198,7 +177,6 @@
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
-
 
   h1,
   h2,
@@ -340,99 +318,5 @@
   .img-progressive {
     opacity: 1;
     transition: none;
-  }
-}
-
-/* --- Açık bölüm yüzeyleri: kemik / taş / greige katmanları --- */
-
-/* Çok düşük yoğunluklu kağıt dokusu — ilk bakışta fark edilmez */
-@utility paper-grain {
-  position: relative;
-  isolation: isolate;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.5;
-    background-image:
-      radial-gradient(
-        120% 80% at 12% 0%,
-        rgba(255, 252, 245, 0.55),
-        transparent 62%
-      ),
-      radial-gradient(
-        90% 70% at 92% 100%,
-        rgba(23, 19, 15, 0.05),
-        transparent 65%
-      ),
-      repeating-linear-gradient(
-        92deg,
-        rgba(23, 19, 15, 0.016) 0px,
-        rgba(23, 19, 15, 0.016) 1px,
-        transparent 1px,
-        transparent 3px
-      ),
-      repeating-linear-gradient(
-        2deg,
-        rgba(23, 19, 15, 0.012) 0px,
-        rgba(23, 19, 15, 0.012) 1px,
-        transparent 1px,
-        transparent 4px
-      );
-  }
-}
-
-@utility surface-bone {
-  background-color: var(--paper);
-}
-
-@utility surface-stone {
-  background-color: var(--paper-stone);
-}
-
-@utility surface-greige {
-  background-color: var(--paper-greige);
-}
-
-/* Koyu bölümden açık bölüme yumuşak geçiş */
-@utility surface-rise {
-  &::after {
-    content: "";
-    position: absolute;
-    inset-inline: 0;
-    top: 0;
-    height: 5rem;
-    pointer-events: none;
-    background: linear-gradient(
-      to bottom,
-      rgba(14, 12, 9, 0.14),
-      transparent
-    );
-  }
-}
-
-/* Soluk altın ayırıcı */
-@utility rule-hairline-gold {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--hairline-gold) 18%,
-    var(--hairline-gold) 82%,
-    transparent
-  );
-}
-
-/* Açık zeminde hücre: kutu değil, yalnızca ton farkı */
-@utility cell-quiet {
-  background-color: transparent;
-  transition: background-color 300ms ease;
-
-  &:hover {
-    background-color: rgba(23, 19, 15, 0.04);
   }
 }

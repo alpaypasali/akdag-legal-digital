@@ -117,7 +117,7 @@ function LawyerPage() {
         </div>
 
         <aside className="lg:col-span-5">
-          <div className="grid aspect-[4/5] place-items-center bg-paper-stone p-10 border border-hairline-gold transition-colors duration-500 hover:border-accent/50">
+          <div className="grid aspect-[4/5] place-items-center border border-border bg-secondary p-10 transition-colors duration-500 hover:border-accent/50">
             <img
               src={logoMarkAsset.url}
               alt="Akdağ Hukuk ve Danışmanlık logosu"
@@ -130,9 +130,9 @@ function LawyerPage() {
           </div>
 
 
-          <dl className="mt-8 border-t border-hairline">
+          <dl className="mt-8 border-t border-border">
             {timeline.map((item) => (
-              <div key={item.t} className="border-b border-hairline py-4">
+              <div key={item.t} className="border-b border-border py-4">
                 <dt className="eyebrow">{item.t}</dt>
                 <dd className="mt-2 text-sm text-muted-foreground">{item.d}</dd>
               </div>

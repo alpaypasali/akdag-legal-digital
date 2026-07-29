@@ -47,7 +47,7 @@ export const Route = createFileRoute("/sikca-sorulan-sorular")({
 function FaqPage() {
   return (
     <>
-      <div className="border-b border-hairline py-12 md:py-16">
+      <div className="border-b border-border py-12 md:py-16">
         <div className="container-editorial">
           <Breadcrumbs items={[{ label: "Sıkça Sorulan Sorular" }]} />
           <p className="eyebrow mt-6">Bilgilendirme</p>
@@ -98,7 +98,7 @@ function FaqPage() {
         </div>
 
         <aside className="lg:col-span-4">
-          <div className="border-l-2 border-hairline-gold bg-paper-stone p-6 lg:sticky lg:top-28">
+          <div className="border border-border bg-secondary p-6 lg:sticky lg:top-28">
             <h2 className="font-serif text-xl">Sorunuz burada yok mu?</h2>
             <p className="mt-3 text-sm text-muted-foreground">
               Dosyanıza özgü sorularınızı büroyla paylaşabilirsiniz.
