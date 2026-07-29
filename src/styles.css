@@ -361,7 +361,7 @@
 @media (width < 48rem) {
   .arch-backdrop__img {
     height: 100%;
-    opacity: 0.5;
+    opacity: 1;
   }
 }
 
