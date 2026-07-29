@@ -373,7 +373,7 @@ function Home() {
           <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">
             {principles.map((p) => (
               <div key={p.title} className="border-t border-border pt-4">
-                <dt className="font-serif text-lg text-accent">{p.title}</dt>
+                <dt className="font-serif text-lg text-foreground">{p.title}</dt>
                 <dd className="mt-2 text-sm text-muted-foreground">{p.text}</dd>
               </div>
             ))}

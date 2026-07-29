@@ -191,7 +191,7 @@ export function ContactForm() {
 
         <button
           type="submit"
-          className="inline-flex min-h-12 items-center justify-center border border-foreground bg-foreground px-8 text-sm text-primary-foreground transition-colors hover:bg-transparent hover:text-foreground"
+          className="inline-flex min-h-12 items-center justify-center border border-gold bg-gold px-8 text-sm font-semibold text-primary-foreground transition-colors hover:bg-transparent hover:text-gold"
         >
           Mesajı Gönder
         </button>
