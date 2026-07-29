@@ -24,7 +24,15 @@ export function SiteFooter() {
     <footer className="border-t border-hairline-invert bg-ink text-ink-foreground">
       <div className="container-editorial grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4">
-          <Wordmark tone="invert" />
+          <img
+            src={logoFooterAsset.url}
+            alt="Akdağ Hukuk ve Danışmanlık logosu"
+            width={1536}
+            height={1215}
+            loading="lazy"
+            decoding="async"
+            className="h-28 w-auto"
+          />
           <p className="measure mt-6 text-sm text-ink-foreground/70">
             {site.description}
           </p>
