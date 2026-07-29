@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
+import { Route as GizlilikRouteImport } from './routes/gizlilik'
 import { Route as AvukatKutayOnatAkdagRouteImport } from './routes/avukat-kutay-onat-akdag'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MakalelerIndexRouteImport } from './routes/makaleler.index'
@@ -33,6 +34,11 @@ const IletisimRoute = IletisimRouteImport.update({
 const HakkimizdaRoute = HakkimizdaRouteImport.update({
   id: '/hakkimizda',
   path: '/hakkimizda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GizlilikRoute = GizlilikRouteImport.update({
+  id: '/gizlilik',
+  path: '/gizlilik',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AvukatKutayOnatAkdagRoute = AvukatKutayOnatAkdagRouteImport.update({
@@ -74,6 +80,7 @@ const MakalelerKategoriSlugRoute = MakalelerKategoriSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/avukat-kutay-onat-akdag'
+    | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/avukat-kutay-onat-akdag'
+    | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/avukat-kutay-onat-akdag'
+    | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvukatKutayOnatAkdagRoute: typeof AvukatKutayOnatAkdagRoute
+  GizlilikRoute: typeof GizlilikRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
   KvkkRoute: typeof KvkkRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/hakkimizda'
       fullPath: '/hakkimizda'
       preLoaderRoute: typeof HakkimizdaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gizlilik': {
+      id: '/gizlilik'
+      path: '/gizlilik'
+      fullPath: '/gizlilik'
+      preLoaderRoute: typeof GizlilikRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/avukat-kutay-onat-akdag': {
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvukatKutayOnatAkdagRoute: AvukatKutayOnatAkdagRoute,
+  GizlilikRoute: GizlilikRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
   KvkkRoute: KvkkRoute,
