@@ -183,11 +183,6 @@ function AreaDetail() {
                     className="size-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
-                <div className="absolute -bottom-4 -left-4 flex size-32 items-center justify-center border-r border-t border-gold/30 bg-ink p-6">
-                  <span className="flex size-full items-center justify-center border border-gold/20 font-serif text-3xl italic text-gold">
-                    A
-                  </span>
-                </div>
               </div>
             </div>
           ) : null}
