@@ -192,7 +192,10 @@ function Home() {
 
 
       {/* 2 — Öne çıkan çalışma alanları */}
-      <section aria-labelledby="alanlar-baslik" className="border-b border-border py-16 md:py-24">
+      <section
+        aria-labelledby="alanlar-baslik"
+        className="surface-stone paper-grain surface-rise relative py-16 md:py-24"
+      >
         <div className="container-editorial">
           <SectionLabel index="01">Çalışma Alanları</SectionLabel>
           <h2
@@ -202,14 +205,14 @@ function Home() {
             Öncelikli olarak takip edilen dosya grupları
           </h2>
 
-          <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {featuredAreas.map((area, i) => (
               <Link
                 key={area.slug}
                 to="/calisma-alanlari/$slug"
                 params={{ slug: area.slug }}
-                className={`group flex flex-col justify-between bg-background p-7 transition-colors hover:bg-secondary ${
-                  i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
+                className={`group flex flex-col justify-between border-t border-hairline pt-5 transition-colors ${
+                  i === 0 ? "lg:col-span-2" : ""
                 }`}
               >
                 <div>
@@ -217,7 +220,7 @@ function Home() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3
-                    className={`mt-5 font-serif ${
+                    className={`mt-5 font-serif transition-colors group-hover:text-accent ${
                       i === 0 ? "text-2xl lg:text-3xl" : "text-xl"
                     }`}
                   >
@@ -229,30 +232,31 @@ function Home() {
                 </div>
                 <span className="link-underline mt-8 self-start text-sm">
                   Alanı incele
-                  <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+                  <ArrowUpRight className="size-3.5 text-gold-ink" aria-hidden="true" />
                 </span>
               </Link>
             ))}
+          </div>
 
-            <div className="bg-background p-7">
-              <span className="eyebrow">Diğer Alanlar</span>
-              <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
-                {secondaryAreas.map((area) => (
-                  <li key={area.slug}>
-                    <Link
-                      to="/calisma-alanlari/$slug"
-                      params={{ slug: area.slug }}
-                      className="py-1 transition-colors hover:text-foreground"
-                    >
-                      {area.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mt-14 border-t border-hairline pt-5">
+            <span className="eyebrow">Diğer Alanlar</span>
+            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              {secondaryAreas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    to="/calisma-alanlari/$slug"
+                    params={{ slug: area.slug }}
+                    className="py-1 transition-colors hover:text-foreground"
+                  >
+                    {area.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
+
 
       {/* 3 — Avukat tanıtımı */}
       <section
