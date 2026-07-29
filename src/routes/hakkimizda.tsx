@@ -3,6 +3,7 @@ import { PageHeader, LegalDisclaimer, SectionLabel } from "@/components/section"
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
 import headerAsset from "@/assets/hero-hakkimizda.png.asset.json";
+import ilkelerAsset from "@/assets/ilkeler.jpg.asset.json";
 
 const title = "Hakkımızda | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -88,21 +89,48 @@ function AboutPage() {
       </section>
 
       <section aria-labelledby="ilkeler" className="border-b border-border bg-secondary py-14 md:py-20">
-        <div className="container-editorial">
-          <SectionLabel index="02">Mesleki İlkeler</SectionLabel>
-          <h2 id="ilkeler" className="mt-6 max-w-2xl font-serif text-2xl sm:text-3xl">
-            Çalışmanın dayandığı ilkeler
-          </h2>
-          <dl className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((v) => (
-              <div key={v.t} className="border-t border-border pt-4">
-                <dt className="font-serif text-lg">{v.t}</dt>
-                <dd className="mt-2 text-sm text-muted-foreground">{v.d}</dd>
+        <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <SectionLabel index="02">Mesleki İlkeler</SectionLabel>
+            <h2 id="ilkeler" className="mt-6 font-serif text-2xl sm:text-3xl">
+              Çalışmanın dayandığı altı ilke
+            </h2>
+            <figure className="relative mt-8 border border-accent/30 p-1.5">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img
+                  src={ilkelerAsset.url}
+                  alt="Bursa'daki büronun çalışma ortamından mimari bir detay"
+                  width={1200}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 1024px) 32vw, 100vw"
+                  className="h-full w-full object-cover object-center [filter:saturate(0.55)_contrast(0.96)_brightness(0.92)_sepia(0.18)]"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/10 to-transparent"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 shadow-[inset_0_0_70px_rgba(20,16,12,0.45)]"
+                />
               </div>
-            ))}
-          </dl>
+            </figure>
+          </div>
+          <div className="lg:col-span-8">
+            <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+              {values.map((v) => (
+                <div key={v.t} className="border-t border-border pt-4">
+                  <dt className="font-serif text-lg">{v.t}</dt>
+                  <dd className="mt-2 text-base text-muted-foreground sm:text-sm">{v.d}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </section>
+
 
       <section className="py-14 md:py-20">
         <div className="container-editorial grid gap-10 lg:grid-cols-12">

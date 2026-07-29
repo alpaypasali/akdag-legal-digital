@@ -3,6 +3,7 @@ import { PageHeader, LegalDisclaimer } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
 import headerAsset from "@/assets/banner-inside-a.jpg.asset.json";
+import logoMarkAsset from "@/assets/logo-footer.png.asset.json";
 
 const title = "Av. Kutay Onat Akdağ | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -116,16 +117,18 @@ function LawyerPage() {
         </div>
 
         <aside className="lg:col-span-5">
-          <div
-            aria-hidden="true"
-            className="grid aspect-[4/5] place-items-center border border-border bg-secondary font-serif text-6xl text-accent"
-          >
-            K. O. A.
+          <div className="grid aspect-[4/5] place-items-center border border-border bg-secondary p-10 transition-colors duration-500 hover:border-accent/50">
+            <img
+              src={logoMarkAsset.url}
+              alt="Akdağ Hukuk ve Danışmanlık logosu"
+              width={1536}
+              height={1215}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full max-w-[240px] object-contain opacity-95 transition-opacity duration-500 hover:opacity-100"
+            />
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">
-            Avukat fotoğrafı, marka görsel arşivi tamamlandığında bu alana
-            yerleştirilecektir.
-          </p>
+
 
           <dl className="mt-8 border-t border-border">
             {timeline.map((item) => (

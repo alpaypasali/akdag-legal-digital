@@ -5,6 +5,7 @@ import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
+import logoMarkAsset from "@/assets/logo-footer.png.asset.json";
 
 const trustPoints: string[] = [
   "Bursa'da bireysel ve kurumsal danışmanlık",
@@ -247,16 +248,17 @@ function Home() {
               <span className="rule-number">02</span>
               <span className="eyebrow text-ink-foreground/50">Büro ve Avukat</span>
             </div>
-            <p
-              aria-hidden="true"
-              className="mt-8 border border-hairline-invert px-6 py-10 text-center font-serif text-4xl text-gold sm:text-5xl"
-            >
-              K. O. A.
-            </p>
-            <p className="mt-4 text-xs text-ink-foreground/50">
-              Avukat fotoğrafı, marka görsel arşivi tamamlandığında bu alana
-              yerleştirilecektir.
-            </p>
+            <div className="mt-8 grid min-h-[280px] place-items-center border border-hairline-invert px-10 py-14 transition-colors duration-500 hover:border-gold/50">
+              <img
+                src={logoMarkAsset.url}
+                alt="Akdağ Hukuk ve Danışmanlık logosu"
+                width={1536}
+                height={1215}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full max-w-[220px] object-contain opacity-95 transition-opacity duration-500 hover:opacity-100"
+              />
+            </div>
           </div>
 
           <div className="lg:col-span-7">
