@@ -166,8 +166,6 @@ function AreaDetail() {
             </ul>
           </div>
 
-          ) : null}
-
         </div>
 
         <span
