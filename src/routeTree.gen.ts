@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CalismaAlanlariIndexRouteImport } from './routes/calisma-alanlari.index'
 import { Route as CalismaAlanlariSlugRouteImport } from './routes/calisma-alanlari.$slug'
 
+const HakkimizdaRoute = HakkimizdaRouteImport.update({
+  id: '/hakkimizda',
+  path: '/hakkimizda',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,36 +37,56 @@ const CalismaAlanlariSlugRoute = CalismaAlanlariSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/hakkimizda': typeof HakkimizdaRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/hakkimizda': typeof HakkimizdaRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/hakkimizda': typeof HakkimizdaRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/calisma-alanlari/$slug' | '/calisma-alanlari/'
+  fullPaths:
+    | '/'
+    | '/hakkimizda'
+    | '/calisma-alanlari/$slug'
+    | '/calisma-alanlari/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calisma-alanlari/$slug' | '/calisma-alanlari'
-  id: '__root__' | '/' | '/calisma-alanlari/$slug' | '/calisma-alanlari/'
+  to: '/' | '/hakkimizda' | '/calisma-alanlari/$slug' | '/calisma-alanlari'
+  id:
+    | '__root__'
+    | '/'
+    | '/hakkimizda'
+    | '/calisma-alanlari/$slug'
+    | '/calisma-alanlari/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HakkimizdaRoute: typeof HakkimizdaRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/hakkimizda': {
+      id: '/hakkimizda'
+      path: '/hakkimizda'
+      fullPath: '/hakkimizda'
+      preLoaderRoute: typeof HakkimizdaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +113,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HakkimizdaRoute: HakkimizdaRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
 }
