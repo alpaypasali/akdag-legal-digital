@@ -14,6 +14,7 @@ import { Route as AvukatKutayOnatAkdagRouteImport } from './routes/avukat-kutay-
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MakalelerIndexRouteImport } from './routes/makaleler.index'
 import { Route as CalismaAlanlariIndexRouteImport } from './routes/calisma-alanlari.index'
+import { Route as MakalelerSlugRouteImport } from './routes/makaleler.$slug'
 import { Route as CalismaAlanlariSlugRouteImport } from './routes/calisma-alanlari.$slug'
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
 
@@ -42,6 +43,11 @@ const CalismaAlanlariIndexRoute = CalismaAlanlariIndexRouteImport.update({
   path: '/calisma-alanlari/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MakalelerSlugRoute = MakalelerSlugRouteImport.update({
+  id: '/makaleler/$slug',
+  path: '/makaleler/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CalismaAlanlariSlugRoute = CalismaAlanlariSlugRouteImport.update({
   id: '/calisma-alanlari/$slug',
   path: '/calisma-alanlari/$slug',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
+  '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
+  '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
   '/makaleler': typeof MakalelerIndexRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
+  '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
     | '/calisma-alanlari/$slug'
+    | '/makaleler/$slug'
     | '/calisma-alanlari/'
     | '/makaleler/'
     | '/makaleler/kategori/$slug'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
     | '/calisma-alanlari/$slug'
+    | '/makaleler/$slug'
     | '/calisma-alanlari'
     | '/makaleler'
     | '/makaleler/kategori/$slug'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
     | '/calisma-alanlari/$slug'
+    | '/makaleler/$slug'
     | '/calisma-alanlari/'
     | '/makaleler/'
     | '/makaleler/kategori/$slug'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AvukatKutayOnatAkdagRoute: typeof AvukatKutayOnatAkdagRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
+  MakalelerSlugRoute: typeof MakalelerSlugRoute
   CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
   MakalelerIndexRoute: typeof MakalelerIndexRoute
   MakalelerKategoriSlugRoute: typeof MakalelerKategoriSlugRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalismaAlanlariIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/makaleler/$slug': {
+      id: '/makaleler/$slug'
+      path: '/makaleler/$slug'
+      fullPath: '/makaleler/$slug'
+      preLoaderRoute: typeof MakalelerSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calisma-alanlari/$slug': {
       id: '/calisma-alanlari/$slug'
       path: '/calisma-alanlari/$slug'
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AvukatKutayOnatAkdagRoute: AvukatKutayOnatAkdagRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
+  MakalelerSlugRoute: MakalelerSlugRoute,
   CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
   MakalelerIndexRoute: MakalelerIndexRoute,
   MakalelerKategoriSlugRoute: MakalelerKategoriSlugRoute,
