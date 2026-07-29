@@ -88,54 +88,58 @@ function ContactPage() {
         <aside className="lg:col-span-5">
           <h2 className="font-serif text-2xl sm:text-3xl">Büro</h2>
           <dl className="mt-6 border-t border-border">
-            <div className="flex gap-4 border-b border-border py-5">
-              <MapPin className="mt-1 size-5 shrink-0 text-gold" aria-hidden="true" />
-              <div className="min-w-0">
-                <dt className="eyebrow">Adres</dt>
-                <dd className="mt-1 text-sm text-muted-foreground">
-                  {site.contact.addressLine}
-                  <br />
-                  {site.contact.district} / {site.contact.city}
-                </dd>
-              </div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-4 border-b border-border py-5">
+              <MapPin
+                className="row-span-2 mt-1 size-5 shrink-0 text-gold-ink"
+                aria-hidden="true"
+              />
+              <dt className="eyebrow">Adres</dt>
+              <dd className="col-start-2 mt-1 text-sm text-muted-foreground">
+                {site.contact.addressLine}
+                <br />
+                {site.contact.district} / {site.contact.city}
+              </dd>
             </div>
-            <div className="flex gap-4 border-b border-border py-5">
-              <Phone className="mt-1 size-5 shrink-0 text-gold" aria-hidden="true" />
-              <div className="min-w-0">
-                <dt className="eyebrow">Telefon</dt>
-                <dd className="mt-1 text-sm text-muted-foreground">
-                  {site.contact.phoneHref ? (
-                    <a href={`tel:${site.contact.phoneHref}`} className="link-underline">
-                      {site.contact.phoneLabel}
-                    </a>
-                  ) : (
-                    site.contact.phoneLabel
-                  )}
-                </dd>
-              </div>
-            </div>
-            <div className="flex gap-4 border-b border-border py-5">
-              <Mail className="mt-1 size-5 shrink-0 text-gold" aria-hidden="true" />
-              <div className="min-w-0">
-                <dt className="eyebrow">E-posta</dt>
-                <dd className="mt-1 text-sm text-muted-foreground">
-                  <a
-                    href={`mailto:${site.contact.email}`}
-                    className="link-underline break-all"
-                  >
-                    {site.contact.email}
+            <div className="grid grid-cols-[auto_1fr] gap-x-4 border-b border-border py-5">
+              <Phone
+                className="row-span-2 mt-1 size-5 shrink-0 text-gold-ink"
+                aria-hidden="true"
+              />
+              <dt className="eyebrow">Telefon</dt>
+              <dd className="col-start-2 mt-1 text-sm text-muted-foreground">
+                {site.contact.phoneHref ? (
+                  <a href={`tel:${site.contact.phoneHref}`} className="link-underline">
+                    {site.contact.phoneLabel}
                   </a>
-                </dd>
-              </div>
+                ) : (
+                  site.contact.phoneLabel
+                )}
+              </dd>
             </div>
-            <div className="flex gap-4 border-b border-border py-5">
-              <Clock className="mt-1 size-5 shrink-0 text-gold" aria-hidden="true" />
-              <div className="min-w-0">
-                <dt className="eyebrow">Çalışma saatleri</dt>
-                <dd className="mt-1 text-sm text-muted-foreground">
-                  {site.contact.hours}
-                </dd>
-              </div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-4 border-b border-border py-5">
+              <Mail
+                className="row-span-2 mt-1 size-5 shrink-0 text-gold-ink"
+                aria-hidden="true"
+              />
+              <dt className="eyebrow">E-posta</dt>
+              <dd className="col-start-2 mt-1 min-w-0 text-sm text-muted-foreground">
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="link-underline break-all"
+                >
+                  {site.contact.email}
+                </a>
+              </dd>
+            </div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-4 border-b border-border py-5">
+              <Clock
+                className="row-span-2 mt-1 size-5 shrink-0 text-gold-ink"
+                aria-hidden="true"
+              />
+              <dt className="eyebrow">Çalışma saatleri</dt>
+              <dd className="col-start-2 mt-1 text-sm text-muted-foreground">
+                {site.contact.hours}
+              </dd>
             </div>
           </dl>
 
