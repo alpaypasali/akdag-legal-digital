@@ -102,7 +102,7 @@ function AreasPage() {
                       </span>
                     ) : null}
 
-                    <span className="flex flex-1 flex-col p-6">
+                    <span className="flex flex-1 flex-col border-t border-hairline-gold pt-5">
                       <span className="rule-number">
                         {String(i + 1).padStart(2, "0")}
                       </span>
@@ -114,7 +114,7 @@ function AreasPage() {
                       </span>
                       <span className="link-underline mt-5 self-start text-sm">
                         Alanı incele
-                        <ArrowUpRight className="size-4 text-gold" aria-hidden="true" />
+                        <ArrowUpRight className="size-4 text-gold-ink" aria-hidden="true" />
                       </span>
                     </span>
                   </Link>
