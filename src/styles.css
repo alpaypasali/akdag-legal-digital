@@ -73,8 +73,14 @@
   --color-hairline: var(--hairline);
   --color-hairline-invert: var(--hairline-invert);
 
+  /* Üç seviyeli yüzey sistemi */
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+
   --tracking-label: 0.18em;
 }
+
 
 :root {
   --radius: 0.25rem;
