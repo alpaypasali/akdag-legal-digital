@@ -5,6 +5,8 @@ import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
+import heroBooksAsset from "@/assets/hero-books.jpg.asset.json";
+import heroScalesAsset from "@/assets/hero-scales.webp.asset.json";
 import logoMarkAsset from "@/assets/logo-footer.webp.asset.json";
 import ilkelerAsset from "@/assets/ilkeler.jpg.asset.json";
 
