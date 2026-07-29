@@ -356,7 +356,7 @@
   background: transparent;
   pointer-events: none;
 }
-}
+
 
 @media (width < 48rem) {
   .arch-backdrop__img {
