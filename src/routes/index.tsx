@@ -191,7 +191,7 @@ function Home() {
 
 
       {/* 2 — Öne çıkan çalışma alanları */}
-      <section aria-labelledby="alanlar-baslik" className="border-b border-border bg-background py-16 md:py-24">
+      <section aria-labelledby="alanlar-baslik" className="border-b border-border py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="01">Çalışma Alanları</SectionLabel>
           <h2
@@ -207,7 +207,7 @@ function Home() {
                 key={area.slug}
                 to="/calisma-alanlari/$slug"
                 params={{ slug: area.slug }}
-                className={`group flex flex-col justify-between bg-background p-7 transition-colors hover:bg-secondary ${
+                className={`group flex flex-col justify-between p-7 transition-colors hover:bg-secondary ${
                   i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
                 }`}
               >
@@ -309,7 +309,7 @@ function Home() {
       </section>
 
       {/* 4 — Çalışma yaklaşımı */}
-      <section aria-labelledby="yaklasim-baslik" className="border-b border-border bg-background py-16 md:py-24">
+      <section aria-labelledby="yaklasim-baslik" className="border-b border-border py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="03">Çalışma Yaklaşımı</SectionLabel>
           <h2
@@ -342,7 +342,7 @@ function Home() {
       {/* 5 — Mesleki ilkeler */}
       <section
         aria-labelledby="ilkeler-baslik"
-        className="relative isolate overflow-hidden border-b border-border bg-background py-16 md:py-24"
+        className="relative isolate overflow-hidden border-b border-border py-16 md:py-24"
       >
         <div className="container-editorial grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -367,7 +367,7 @@ function Home() {
 
 
       {/* 6 — Son makaleler */}
-      <section aria-labelledby="makaleler-baslik" className="border-b border-border bg-background py-16 md:py-24">
+      <section aria-labelledby="makaleler-baslik" className="border-b border-border py-16 md:py-24">
         <div className="container-editorial">
           <SectionLabel index="05">Makaleler</SectionLabel>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
@@ -442,7 +442,7 @@ function Home() {
 
           <div className="lg:col-span-7">
             <dl className="grid gap-px border border-border bg-border sm:grid-cols-2">
-              <div className="bg-background p-6">
+              <div className="p-6">
                 <dt className="eyebrow">Adres</dt>
                 <dd className="mt-2">
                   {site.contact.addressLine}
@@ -450,15 +450,15 @@ function Home() {
                   {site.contact.district} / {site.contact.city}
                 </dd>
               </div>
-              <div className="bg-background p-6">
+              <div className="p-6">
                 <dt className="eyebrow">Çalışma Saatleri</dt>
                 <dd className="mt-2">{site.contact.hours}</dd>
               </div>
-              <div className="bg-background p-6">
+              <div className="p-6">
                 <dt className="eyebrow">Telefon</dt>
                 <dd className="mt-2">{site.contact.phoneLabel}</dd>
               </div>
-              <div className="bg-background p-6">
+              <div className="p-6">
                 <dt className="eyebrow">E-posta</dt>
                 <dd className="mt-2">
                   <a

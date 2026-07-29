@@ -60,7 +60,7 @@ function AreasPage() {
         <Breadcrumbs items={[{ label: "Çalışma Alanları" }]} />
       </PageHeader>
 
-      <section aria-labelledby="oncelikli" className="border-b border-border bg-background py-14 md:py-20">
+      <section aria-labelledby="oncelikli" className="border-b border-border py-14 md:py-20">
         <div className="container-editorial">
           <h2 id="oncelikli" className="eyebrow">
             Öne Çıkan Alanlar
@@ -70,7 +70,7 @@ function AreasPage() {
                 const img = getAreaImage(area.slug);
                 const isFirst = i === 0;
                 return (
-                  <li key={area.slug} className={`bg-background ${isFirst ? "lg:col-span-2" : ""}`}>
+                  <li key={area.slug} className={`${isFirst ? "lg:col-span-2" : ""}`}>
                   <Link
                     to="/calisma-alanlari/$slug"
                     params={{ slug: area.slug }}
@@ -123,7 +123,7 @@ function AreasPage() {
         </div>
       </section>
 
-      <section aria-labelledby="diger" className="bg-background py-14 md:py-20">
+      <section aria-labelledby="diger" className="py-14 md:py-20">
         <div className="container-editorial">
           <h2 id="diger" className="eyebrow">
             Diğer Çalışma Alanları
@@ -137,7 +137,7 @@ function AreasPage() {
                   key={area.slug}
                   to="/calisma-alanlari/$slug"
                   params={{ slug: area.slug }}
-                  className={`group flex flex-col bg-background transition-colors hover:bg-secondary ${
+                  className={`group flex flex-col transition-colors hover:bg-secondary ${
                     isFirst ? "lg:col-span-2" : ""
                   }`}
                 >
