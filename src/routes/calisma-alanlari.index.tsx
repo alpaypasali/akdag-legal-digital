@@ -2,7 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageHeader, LegalDisclaimer } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
+import {
+  featuredAreas,
+  secondaryAreas,
+  getAreaImage,
+} from "@/data/practice-areas";
 import headerAsset from "@/assets/calisma-header.png.asset.json";
 
 const title = "Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
