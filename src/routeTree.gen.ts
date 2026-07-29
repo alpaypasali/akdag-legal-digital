@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
 import { Route as AvukatKutayOnatAkdagRouteImport } from './routes/avukat-kutay-onat-akdag'
 import { Route as IndexRouteImport } from './routes/index'
@@ -18,6 +19,11 @@ import { Route as MakalelerSlugRouteImport } from './routes/makaleler.$slug'
 import { Route as CalismaAlanlariSlugRouteImport } from './routes/calisma-alanlari.$slug'
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
 
+const IletisimRoute = IletisimRouteImport.update({
+  id: '/iletisim',
+  path: '/iletisim',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HakkimizdaRoute = HakkimizdaRouteImport.update({
   id: '/hakkimizda',
   path: '/hakkimizda',
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
+    | '/iletisim'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
+    | '/iletisim'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avukat-kutay-onat-akdag'
     | '/hakkimizda'
+    | '/iletisim'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvukatKutayOnatAkdagRoute: typeof AvukatKutayOnatAkdagRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
+  IletisimRoute: typeof IletisimRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   MakalelerSlugRoute: typeof MakalelerSlugRoute
   CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
@@ -136,6 +149,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/iletisim': {
+      id: '/iletisim'
+      path: '/iletisim'
+      fullPath: '/iletisim'
+      preLoaderRoute: typeof IletisimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hakkimizda': {
       id: '/hakkimizda'
       path: '/hakkimizda'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvukatKutayOnatAkdagRoute: AvukatKutayOnatAkdagRoute,
   HakkimizdaRoute: HakkimizdaRoute,
+  IletisimRoute: IletisimRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   MakalelerSlugRoute: MakalelerSlugRoute,
   CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
