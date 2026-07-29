@@ -1,10 +1,29 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { site } from "@/data/site";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 import { publishedArticles, formatDate, getCategory } from "@/data/articles";
 import { SectionLabel } from "@/components/section";
 import heroAsset from "@/assets/banner-inside-a.jpg.asset.json";
+import heroAsset2 from "@/assets/idare-hukuku.jpg.asset.json";
+import heroAsset3 from "@/assets/banner-inside-b.jpg.asset.json";
+import { HeroSlideshow } from "@/components/hero-slideshow";
+
+const heroSlides = [
+  {
+    url: heroAsset.url,
+    alt: "Ahşap raflarda ciltli hukuk kitapları bulunan bir çalışma kütüphanesi",
+  },
+  { url: heroAsset2.url, alt: "Altın adalet terazisi ve hakim tokmağı" },
+  { url: heroAsset3.url, alt: "Toplantı masasında dosya inceleyen iki kişi" },
+];
+
+const trustPoints: string[] = [
+  "Bursa'da bireysel ve kurumsal danışmanlık",
+  "Süreç boyunca yazılı ve düzenli bilgilendirme",
+  "Meslek sırrı ve gizlilik esası",
+  "Randevu ile ön görüşme imkânı",
+];
 
 const description =
   "Bursa'da avukatlık ve hukuki danışmanlık. Aile, ceza, iş, gayrimenkul ve ticaret hukuku alanlarında açık iletişim ve düzenli süreç takibi.";
@@ -91,13 +110,7 @@ function Home() {
     <>
       {/* 1 — Hero */}
       <section className="relative overflow-hidden border-b border-hairline-invert bg-ink text-ink-foreground">
-        <img
-          src={heroAsset.url}
-          alt="Ahşap raflarda ciltli hukuk kitapları bulunan bir çalışma kütüphanesi"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 size-full object-cover"
-        />
+        <HeroSlideshow slides={heroSlides} />
         <div aria-hidden="true" className="ink-veil" />
         <div className="container-editorial relative grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:gap-16 lg:py-28">
           <div className="lg:col-span-7">
@@ -126,6 +139,18 @@ function Home() {
                 Randevu ve İletişim
               </Link>
             </div>
+
+            <ul className="mt-10 grid gap-x-8 gap-y-4 border-t border-hairline-invert pt-6 text-sm text-ink-foreground/75 sm:grid-cols-2">
+              {trustPoints.map((t) => (
+                <li key={t} className="flex items-start gap-3">
+                  <ShieldCheck
+                    className="mt-0.5 size-4 shrink-0 text-gold"
+                    aria-hidden="true"
+                  />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="lg:col-span-5 lg:border-l lg:border-hairline-invert lg:pl-10">
@@ -158,6 +183,7 @@ function Home() {
           </div>
         </div>
       </section>
+
 
 
       {/* 2 — Öne çıkan çalışma alanları */}
