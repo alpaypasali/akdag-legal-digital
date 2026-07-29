@@ -198,7 +198,7 @@ function Home() {
       {/* 2 — Öne çıkan çalışma alanları */}
       <section
         aria-labelledby="alanlar-baslik"
-        className="paper-grain relative overflow-hidden bg-surface-1 py-16 md:py-24"
+        className="paper-grain relative overflow-hidden bg-surface-1 pt-16 md:pt-24"
       >
         {/* Koyu hero'nun açık bölüme kontrollü taşması */}
         <span
