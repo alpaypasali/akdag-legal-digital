@@ -462,7 +462,10 @@ function Home() {
       </section>
 
       {/* 7 — Bursa yerel bağlantı */}
-      <section aria-labelledby="bursa-baslik" className="py-16 md:py-24">
+      <section
+        aria-labelledby="bursa-baslik"
+        className="surface-greige paper-grain surface-rise relative py-16 md:py-24"
+      >
         <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionLabel index="06">Büro</SectionLabel>
@@ -480,8 +483,8 @@ function Home() {
           </div>
 
           <div className="lg:col-span-7">
-            <dl className="grid gap-px border border-border bg-border sm:grid-cols-2">
-              <div className="bg-background p-6">
+            <dl className="grid border-t border-hairline sm:grid-cols-2">
+              <div className="cell-quiet border-b border-hairline px-1 py-6 sm:border-r sm:pr-6">
                 <dt className="eyebrow">Adres</dt>
                 <dd className="mt-2">
                   {site.contact.addressLine}
@@ -489,15 +492,15 @@ function Home() {
                   {site.contact.district} / {site.contact.city}
                 </dd>
               </div>
-              <div className="bg-background p-6">
+              <div className="cell-quiet border-b border-hairline px-1 py-6 sm:pl-6">
                 <dt className="eyebrow">Çalışma Saatleri</dt>
                 <dd className="mt-2">{site.contact.hours}</dd>
               </div>
-              <div className="bg-background p-6">
+              <div className="cell-quiet border-b border-hairline px-1 py-6 sm:border-r sm:pr-6">
                 <dt className="eyebrow">Telefon</dt>
                 <dd className="mt-2">{site.contact.phoneLabel}</dd>
               </div>
-              <div className="bg-background p-6">
+              <div className="cell-quiet border-b border-hairline px-1 py-6 sm:pl-6">
                 <dt className="eyebrow">E-posta</dt>
                 <dd className="mt-2">
                   <a
@@ -509,6 +512,7 @@ function Home() {
                 </dd>
               </div>
             </dl>
+
 
             <div className="mt-6 flex flex-wrap gap-4">
               <a
