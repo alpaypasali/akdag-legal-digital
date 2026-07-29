@@ -71,7 +71,8 @@ function ArticlesPage() {
         <Breadcrumbs items={[{ label: "Makaleler" }]} />
       </PageHeader>
 
-      <div className="container-editorial py-12 md:py-16">
+      <div className="container-editorial bg-background py-12 md:py-16">
+
         <div className="flex flex-col gap-6 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
           <nav aria-label="Kategori filtreleri">
             <h2 className="eyebrow">Kategoriler</h2>

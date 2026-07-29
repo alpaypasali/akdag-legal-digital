@@ -61,7 +61,7 @@ function AboutPage() {
         <Breadcrumbs items={[{ label: "Hakkımızda" }]} />
       </PageHeader>
 
-      <section className="border-b border-border py-14 md:py-20">
+      <section className="border-b border-border bg-background py-14 md:py-20">
         <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <SectionLabel index="01">Büro</SectionLabel>
@@ -95,9 +95,10 @@ function AboutPage() {
         </div>
       </section>
 
+
       <section
         aria-labelledby="ilkeler"
-        className="relative isolate overflow-hidden border-b border-border py-16 md:py-24"
+        className="relative isolate overflow-hidden border-b border-border bg-background py-16 md:py-24"
       >
         <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
@@ -124,7 +125,8 @@ function AboutPage() {
 
 
 
-      <section className="py-14 md:py-20">
+
+      <section className="bg-background py-14 md:py-20">
         <div className="container-editorial grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <h2 className="font-serif text-2xl sm:text-3xl">
@@ -155,6 +157,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
     </>
   );
 }
