@@ -46,6 +46,7 @@
   --color-ink-foreground: var(--ink-foreground);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
+  --color-gold-ink: var(--gold-ink);
   --color-stone: var(--stone);
   --color-paper: var(--paper);
   --color-paper-deep: var(--paper-deep);
@@ -64,6 +65,9 @@
   --ink-foreground: oklch(0.955 0.012 85);
   --gold: oklch(0.665 0.098 76);
   --gold-soft: oklch(0.795 0.086 84);
+  /* Açık zeminde WCAG AA sağlayan koyu altın */
+  --gold-ink: oklch(0.505 0.098 68);
+  --rule-gold: var(--gold-ink);
   --stone: oklch(0.62 0.012 80);
   --paper: oklch(0.975 0.009 85);
   --paper-deep: oklch(0.945 0.014 84);
@@ -96,6 +100,12 @@
   --border: var(--hairline);
   --input: var(--hairline);
   --ring: oklch(0.53 0.086 74);
+}
+
+.dark,
+.bg-ink,
+.text-ink-foreground {
+  --rule-gold: var(--gold);
 }
 
 .dark {
@@ -214,7 +224,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: var(--color-gold);
+  color: var(--rule-gold);
 }
 
 @utility link-underline {
