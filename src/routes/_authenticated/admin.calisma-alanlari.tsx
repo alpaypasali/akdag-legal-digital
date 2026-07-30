@@ -180,8 +180,6 @@ function AdminPracticeAreas() {
         <p className="text-sm text-muted-foreground">
           Görseller sabittir; her çalışma alanı için site içinde tanımlı görsel kullanılır.
         </p>
-        <div className="hidden">
-        </div>
 
         <Field label="Kart özeti" htmlFor="summary">
           <Textarea
