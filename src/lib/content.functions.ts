@@ -61,7 +61,7 @@ export const fetchSiteContent = createServerFn({ method: "GET" }).handler(
         supabase
           .from("practice_areas")
           .select(
-            "slug,title,summary,featured,sort_order,heading,intro,scope,processes,situations,process_note,image_url,image_alt,meta_title,meta_description",
+            "slug,title,summary,featured,sort_order,heading,intro,scope,processes,situations,process_note,meta_title,meta_description",
           )
           .eq("is_active", true)
           .order("sort_order", { ascending: true }),
