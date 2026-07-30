@@ -173,6 +173,48 @@ export type Database = {
         }
         Relationships: []
       }
+      site_settings: {
+        Row: {
+          created_at: string
+          description: string
+          group_name: string
+          id: string
+          is_public: boolean
+          key: string
+          label: string
+          placeholder: string
+          sort_order: number
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          group_name?: string
+          id?: string
+          is_public?: boolean
+          key: string
+          label?: string
+          placeholder?: string
+          sort_order?: number
+          updated_at?: string
+          value?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          group_name?: string
+          id?: string
+          is_public?: boolean
+          key?: string
+          label?: string
+          placeholder?: string
+          sort_order?: number
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
