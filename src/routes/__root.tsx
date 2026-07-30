@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ContactDock } from "@/components/contact-dock";
 import { site } from "@/data/site";
 import faviconAsset from "@/assets/favicon.png.asset.json";
 import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
