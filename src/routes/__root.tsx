@@ -174,6 +174,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <SiteFooter />
+      <ContactDock />
     </QueryClientProvider>
   );
 }
