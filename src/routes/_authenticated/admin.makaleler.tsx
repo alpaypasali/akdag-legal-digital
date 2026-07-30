@@ -100,7 +100,7 @@ function AdminArticles() {
       content_updated_at: editing.content_updated_at || null,
       reading_minutes: Number(editing.reading_minutes) || 5,
       related_area_slug: editing.related_area_slug || null,
-      sections,
+      sections: sectionsPayload,
       sources: Array.isArray(editing.sources) ? editing.sources : [],
       meta_title: editing.meta_title.trim(),
       meta_description: editing.meta_description.trim(),
