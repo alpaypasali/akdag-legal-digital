@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageCircle, Phone, X, Send } from "lucide-react";
 import { site } from "@/data/site";
+import { trackEvent } from "@/lib/analytics";
 
 const DEFAULT_MESSAGE =
   "Merhaba, hukuki bir konu hakkında görüşme talep etmek istiyorum.";
@@ -29,6 +30,7 @@ export function ContactDock() {
   }, [open]);
 
   const send = () => {
+    trackEvent("click_appointment", { button_location: "contact_dock" });
     const text = encodeURIComponent(message.trim() || DEFAULT_MESSAGE);
     window.open(
       `https://wa.me/${site.contact.whatsapp}?text=${text}`,
@@ -92,6 +94,9 @@ export function ContactDock() {
         <a
           href={`tel:${site.contact.phoneHref}`}
           aria-label={`Telefonla ara: ${site.contact.phoneLabel}`}
+          onClick={() =>
+            trackEvent("click_phone", { button_location: "contact_dock" })
+          }
           className="inline-flex min-h-12 items-center gap-2 border border-gold bg-ink px-4 text-sm text-ink-foreground shadow-lg transition-colors hover:bg-gold hover:text-ink"
         >
           <Phone className="size-4" aria-hidden="true" />

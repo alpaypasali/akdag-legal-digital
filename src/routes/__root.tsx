@@ -14,6 +14,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactDock } from "@/components/contact-dock";
+import { CookieConsent } from "@/components/cookie-consent";
+import { AnalyticsTracker } from "@/components/analytics-tracker";
 import { site } from "@/data/site";
 import faviconAsset from "@/assets/favicon.png.asset.json";
 import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
@@ -175,6 +177,8 @@ function RootComponent() {
       </main>
       <SiteFooter />
       <ContactDock />
+      <CookieConsent />
+      <AnalyticsTracker />
     </QueryClientProvider>
   );
 }
