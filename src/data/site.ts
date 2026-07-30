@@ -7,20 +7,19 @@ export const site = {
   tagline: "Bursa'da Avukatlık ve Hukuki Danışmanlık",
   description:
     "Akdağ Hukuk ve Danışmanlık, bireyler ve kurumların hukuki süreçlerini anlaşılır, düzenli ve şeffaf bir yaklaşımla takip eder.",
-  /**
-   * TODO: Aşağıdaki iletişim bilgileri yer tutucudur.
-   * Gerçek bilgiler paylaşıldığında güncellenmeli; yapılandırılmış veri de
-   * yalnızca sayfada görünen bu bilgileri kullanır.
-   */
   contact: {
-    addressLine: "Adres bilgisi güncellenecektir",
+    addressLine:
+      "Hacı İlyas Mh. Kıbrıs Şehitleri Cd. 1. Han Sk. Avukatlar İşhanı K:2 D:17/B",
+    postalCode: "16120",
     district: "Osmangazi",
     city: "Bursa",
-    phoneLabel: "Telefon bilgisi güncellenecektir",
-    phoneHref: "",
+    phoneLabel: "0534 898 77 91",
+    phoneHref: "+905348987791",
+    whatsapp: "905348987791",
     email: "info@akdaghukuk.com.tr",
     hours: "Pazartesi – Cuma · 09:00 – 18:00",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=Osmangazi+Bursa",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Hac%C4%B1+%C4%B0lyas+Mh.+K%C4%B1br%C4%B1s+%C5%9Eehitleri+Cd.+Avukatlar+%C4%B0%C5%9Fhan%C4%B1+Osmangazi+Bursa",
   },
   legalNotice:
     "Bu internet sitesindeki içerikler yalnızca genel bilgilendirme amacı taşır; hukuki görüş veya tavsiye niteliğinde değildir. Her uyuşmazlık kendi koşulları içinde değerlendirilir.",
