@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { fetchSiteContent } from "@/lib/content.functions";
+import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
 
-// TODO: proje adı veya özel alan adı tanımlandığında proje URL'si ile değiştirin.
-const BASE_URL = "";
+// Alan adı yönetim panelindeki "Site Adresi" ayarından okunur; boşsa göreli
+// adresler kullanılır.
 
 interface SitemapEntry {
   path: string;
@@ -23,7 +24,11 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const content = await fetchSiteContent();
+        const [content, settings] = await Promise.all([
+          fetchSiteContent(),
+          fetchSiteSettings(),
+        ]);
+        const BASE_URL = (settings[SETTING_KEYS.baseUrl] ?? "").replace(/\/$/, "");
 
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },

@@ -29,6 +29,7 @@ import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authentic
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
 import { Route as AuthenticatedAdminMakalelerRouteImport } from './routes/_authenticated/admin.makaleler'
 import { Route as AuthenticatedAdminCalismaAlanlariRouteImport } from './routes/_authenticated/admin.calisma-alanlari'
+import { Route as AuthenticatedAdminAyarlarRouteImport } from './routes/_authenticated/admin.ayarlar'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -131,6 +132,12 @@ const AuthenticatedAdminCalismaAlanlariRoute =
     path: '/calisma-alanlari',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
+const AuthenticatedAdminAyarlarRoute =
+  AuthenticatedAdminAyarlarRouteImport.update({
+    id: '/ayarlar',
+    path: '/ayarlar',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -148,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
+  '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
@@ -168,6 +176,7 @@ export interface FileRoutesByTo {
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
   '/makaleler': typeof MakalelerIndexRoute
+  '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
@@ -191,6 +200,7 @@ export interface FileRoutesById {
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
+  '/_authenticated/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/_authenticated/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/_authenticated/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
@@ -214,6 +224,7 @@ export interface FileRouteTypes {
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
     | '/makaleler/'
+    | '/admin/ayarlar'
     | '/admin/calisma-alanlari'
     | '/admin/makaleler'
     | '/makaleler/kategori/$slug'
@@ -234,6 +245,7 @@ export interface FileRouteTypes {
     | '/makaleler/$slug'
     | '/calisma-alanlari'
     | '/makaleler'
+    | '/admin/ayarlar'
     | '/admin/calisma-alanlari'
     | '/admin/makaleler'
     | '/makaleler/kategori/$slug'
@@ -256,6 +268,7 @@ export interface FileRouteTypes {
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
     | '/makaleler/'
+    | '/_authenticated/admin/ayarlar'
     | '/_authenticated/admin/calisma-alanlari'
     | '/_authenticated/admin/makaleler'
     | '/makaleler/kategori/$slug'
@@ -423,16 +436,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminCalismaAlanlariRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/_authenticated/admin/ayarlar': {
+      id: '/_authenticated/admin/ayarlar'
+      path: '/ayarlar'
+      fullPath: '/admin/ayarlar'
+      preLoaderRoute: typeof AuthenticatedAdminAyarlarRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
   }
 }
 
 interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminAyarlarRoute: typeof AuthenticatedAdminAyarlarRoute
   AuthenticatedAdminCalismaAlanlariRoute: typeof AuthenticatedAdminCalismaAlanlariRoute
   AuthenticatedAdminMakalelerRoute: typeof AuthenticatedAdminMakalelerRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
 const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminAyarlarRoute: AuthenticatedAdminAyarlarRoute,
   AuthenticatedAdminCalismaAlanlariRoute:
     AuthenticatedAdminCalismaAlanlariRoute,
   AuthenticatedAdminMakalelerRoute: AuthenticatedAdminMakalelerRoute,
@@ -474,3 +496,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

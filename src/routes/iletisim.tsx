@@ -5,6 +5,7 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
 import { trackEvent } from "@/lib/analytics";
 import { site } from "@/data/site";
+import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
 import headerAsset from "@/assets/hero-iletisim.webp.asset.json";
 
 const title = "İletişim | Akdağ Hukuk ve Danışmanlık — Bursa";
@@ -12,6 +13,7 @@ const description =
   "Akdağ Hukuk ve Danışmanlık ile Bursa'da görüşme talebi oluşturun. İletişim formu, e-posta ve büro çalışma saatleri.";
 
 export const Route = createFileRoute("/iletisim")({
+  loader: () => fetchSiteSettings(),
   head: () => ({
     meta: [
       { title },
@@ -63,6 +65,13 @@ export const Route = createFileRoute("/iletisim")({
 });
 
 function ContactPage() {
+  const settings = Route.useLoaderData();
+  // Harita ve işletme profili bağlantıları yönetim panelinden değiştirilebilir.
+  const mapUrl =
+    settings?.[SETTING_KEYS.mapsUrl] ??
+    settings?.[SETTING_KEYS.businessProfileUrl] ??
+    site.contact.mapUrl;
+  const reviewUrl = settings?.[SETTING_KEYS.reviewUrl];
   return (
     <>
       <PageHeader
@@ -154,7 +163,7 @@ function ContactPage() {
           </dl>
 
           <a
-            href={site.contact.mapUrl}
+            href={mapUrl}
             onClick={() => trackEvent("click_map", { button_location: "contact_page" })}
             target="_blank"
             rel="noreferrer noopener"
@@ -162,6 +171,17 @@ function ContactPage() {
           >
             Haritada görüntüle
           </a>
+
+          {reviewUrl ? (
+            <a
+              href={reviewUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="mt-3 inline-flex min-h-12 items-center px-1 text-sm underline underline-offset-4 transition-colors hover:text-gold-ink"
+            >
+              Google'da yorum bırakın
+            </a>
+          ) : null}
 
         </aside>
       </div>

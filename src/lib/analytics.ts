@@ -13,8 +13,21 @@
 
 import { hasAnalyticsConsent } from "./consent";
 
-export const GA_MEASUREMENT_ID: string =
+let measurementId: string =
   (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined) ?? "";
+
+/** GA4 ölçüm kimliği (yönetim panelindeki ayardan gelir). */
+export function getMeasurementId(): string {
+  return measurementId;
+}
+
+/** Yönetim panelinden gelen ölçüm kimliğini uygular. */
+export function setMeasurementId(id: string | undefined | null) {
+  const next = (id ?? "").trim();
+  if (next && next !== measurementId) {
+    measurementId = next;
+  }
+}
 
 export type AnalyticsEventName =
   | "page_view"
@@ -84,7 +97,7 @@ function deviceType(): NonNullable<AnalyticsParams["device_type"]> {
 /** GA4 etiketini yükler (yalnızca izin verildiyse ve yalnızca bir kez). */
 export function loadAnalytics() {
   if (typeof window === "undefined") return;
-  if (loaded || !GA_MEASUREMENT_ID || !hasAnalyticsConsent()) return;
+  if (loaded || !measurementId || !hasAnalyticsConsent()) return;
   if (document.querySelector('script[data-ga4="1"]')) {
     loaded = true;
     return;
@@ -94,7 +107,7 @@ export function loadAnalytics() {
   const s = document.createElement("script");
   s.async = true;
   s.dataset.ga4 = "1";
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
   document.head.appendChild(s);
 
   window.gtag = gtag;
@@ -106,7 +119,7 @@ export function loadAnalytics() {
     ad_personalization: "denied",
     analytics_storage: "granted",
   });
-  gtag("config", GA_MEASUREMENT_ID, {
+  gtag("config", measurementId, {
     anonymize_ip: true,
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
@@ -117,9 +130,9 @@ export function loadAnalytics() {
 
 /** İzin geri alındığında ölçümü durdurur. */
 export function disableAnalytics() {
-  if (typeof window === "undefined" || !GA_MEASUREMENT_ID) return;
+  if (typeof window === "undefined" || !measurementId) return;
   (window as unknown as Record<string, boolean>)[
-    `ga-disable-${GA_MEASUREMENT_ID}`
+    `ga-disable-${measurementId}`
   ] = true;
   sentOnce.clear();
 }
@@ -145,7 +158,7 @@ export function trackEvent(
   options?: { once?: string },
 ) {
   if (typeof window === "undefined") return;
-  if (!GA_MEASUREMENT_ID || !hasAnalyticsConsent()) return;
+  if (!measurementId || !hasAnalyticsConsent()) return;
 
   const key = options?.once ?? null;
   if (key) {
