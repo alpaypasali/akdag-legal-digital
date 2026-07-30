@@ -25,8 +25,6 @@ type AreaRecord = {
   processes: unknown;
   situations: unknown;
   process_note: string;
-  image_url: string | null;
-  image_alt: string | null;
   meta_title: string;
   meta_description: string;
   is_active: boolean;
@@ -45,8 +43,6 @@ const emptyArea = (order: number): AreaRecord => ({
   processes: [],
   situations: [],
   process_note: "",
-  image_url: "",
-  image_alt: "",
   meta_title: "",
   meta_description: "",
   is_active: true,
@@ -84,8 +80,6 @@ function AdminPracticeAreas() {
       processes: Array.isArray(editing.processes) ? editing.processes : [],
       situations: Array.isArray(editing.situations) ? editing.situations : [],
       process_note: editing.process_note.trim(),
-      image_url: editing.image_url || null,
-      image_alt: editing.image_alt || null,
       meta_title: editing.meta_title.trim(),
       meta_description: editing.meta_description.trim(),
       is_active: editing.is_active,
@@ -176,21 +170,10 @@ function AdminPracticeAreas() {
               onChange={(e) => setEditing({ ...editing, sort_order: Number(e.target.value) })}
             />
           </Field>
-          <Field label="Görsel adresi (URL)" htmlFor="image">
-            <Input
-              id="image"
-              value={editing.image_url ?? ""}
-              onChange={(e) => setEditing({ ...editing, image_url: e.target.value })}
-            />
-          </Field>
-          <Field label="Görsel alternatif metni" htmlFor="imageAlt">
-            <Input
-              id="imageAlt"
-              value={editing.image_alt ?? ""}
-              onChange={(e) => setEditing({ ...editing, image_alt: e.target.value })}
-            />
-          </Field>
         </div>
+        <p className="text-sm text-muted-foreground">
+          Görseller sabittir; her çalışma alanı için site içinde tanımlı görsel kullanılır.
+        </p>
 
         <Field label="Kart özeti" htmlFor="summary">
           <Textarea
