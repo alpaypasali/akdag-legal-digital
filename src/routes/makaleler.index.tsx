@@ -54,12 +54,12 @@ function ArticlesPage() {
   const [featured, ...rest] = publishedArticles;
 
   const getCategory = (slug: string) =>
-    articleCategories.find((c) => c.slug === slug);
+    articleCategories.find((c: ArticleCategory) => c.slug === slug);
 
   const normalized = query.trim().toLocaleLowerCase("tr-TR");
   const results = normalized
     ? publishedArticles.filter(
-        (a) =>
+        (a: Article) =>
           a.title.toLocaleLowerCase("tr-TR").includes(normalized) ||
           a.excerpt.toLocaleLowerCase("tr-TR").includes(normalized),
       )
@@ -84,7 +84,7 @@ function ArticlesPage() {
           <nav aria-label="Kategori filtreleri">
             <h2 className="eyebrow">Kategoriler</h2>
             <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              {articleCategories.map((c) => (
+              {articleCategories.map((c: ArticleCategory) => (
                 <li key={c.slug}>
                   <Link
                     to="/makaleler/kategori/$slug"
@@ -119,7 +119,7 @@ function ArticlesPage() {
               {results.length} sonuç bulundu
             </p>
             <ul className="mt-8 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-              {results.map((a) => (
+              {results.map((a: Article) => (
                 <li key={a.slug}>
                   <ArticleCardInner article={a} category={getCategory(a.categorySlug)} />
                 </li>
@@ -177,7 +177,7 @@ function ArticlesPage() {
                 Son Makaleler
               </h2>
               <ul className="mt-8 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-                {rest.map((a) => (
+                {rest.map((a: Article) => (
                   <li key={a.slug}>
                     <ArticleCardInner article={a} category={getCategory(a.categorySlug)} />
                   </li>

@@ -120,7 +120,7 @@ const approach = [
 function Home() {
   const { articles, categories } = Route.useLoaderData();
   const latest = articles.slice(0, 3);
-  const getCategory = (slug: string) => categories.find((c) => c.slug === slug);
+  const getCategory = (slug: string) => categories.find((c: ArticleCategory) => c.slug === slug);
 
   return (
     <>
@@ -410,7 +410,7 @@ function Home() {
           </div>
 
           <div className="mt-12 grid gap-10 md:grid-cols-3">
-            {latest.map((article) => (
+            {latest.map((article: Article) => (
               <article key={article.slug} className="border-t border-border pt-5">
                 <p className="eyebrow">
                   {getCategory(article.categorySlug)?.title}

@@ -88,7 +88,7 @@ export const Route = createFileRoute("/makaleler/$slug")({
 function ArticleDetail() {
   const { article, category, area, related } = Route.useLoaderData();
 
-  const toc = article.sections.map((s) => ({
+  const toc = article.sections.map((s: (typeof article.sections)[number]) => ({
     id: s.id,
     heading: s.heading,
     level: s.level,
@@ -186,7 +186,7 @@ function ArticleDetail() {
         </aside>
 
         <article className="lg:col-span-8 lg:order-1">
-          {article.sections.map((section) => {
+          {article.sections.map((section: (typeof article.sections)[number]) => {
             const Heading = section.level === 2 ? "h2" : "h3";
             return (
               <section key={section.id} className="mb-10 scroll-mt-28" id={section.id}>
@@ -199,14 +199,14 @@ function ArticleDetail() {
                 >
                   {section.heading}
                 </Heading>
-                {section.paragraphs.map((p) => (
+                {section.paragraphs.map((p: string) => (
                   <p key={p} className="measure mt-4 text-muted-foreground">
                     {p}
                   </p>
                 ))}
                 {section.list ? (
                   <ul className="measure mt-5 space-y-2">
-                    {section.list.map((li) => (
+                    {section.list.map((li: string) => (
                       <li key={li} className="flex gap-4">
                         <span
                           aria-hidden="true"
@@ -227,7 +227,7 @@ function ArticleDetail() {
                 İlgili mevzuat ve kaynaklar
               </h2>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {article.sources.map((s) => (
+                {article.sources.map((s: string) => (
                   <li key={s}>{s}</li>
                 ))}
               </ul>
@@ -262,7 +262,7 @@ function ArticleDetail() {
               İlgili Makaleler
             </h2>
             <ul className="mt-8 grid gap-10 md:grid-cols-3">
-              {related.map((a) => (
+              {related.map((a: (typeof related)[number]) => (
                 <li key={a.slug} className="border-t border-border pt-5">
                   <h3 className="font-serif text-lg leading-snug">
                     <Link

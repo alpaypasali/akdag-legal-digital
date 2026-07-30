@@ -78,7 +78,7 @@ function CategoryPage() {
           </p>
         ) : (
           <ul className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {items.map((a) => (
+            {items.map((a: Article) => (
               <li key={a.slug}>
                 <article className="border-t border-border pt-5">
                   <h2 className="font-serif text-xl leading-snug">
