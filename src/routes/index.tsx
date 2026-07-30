@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { site } from "@/data/site";
 import { featuredAreas } from "@/data/practice-areas";
-import { publishedArticles, formatDate, getCategory } from "@/data/articles";
+import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
+import { fetchSiteContent } from "@/lib/content.functions";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { ArchBackdrop } from "@/components/arch-backdrop";
@@ -23,6 +24,10 @@ const description =
   "Bursa'da avukatlık ve hukuki danışmanlık. Aile, ceza, iş, gayrimenkul ve ticaret hukuku alanlarında açık iletişim ve düzenli süreç takibi.";
 
 export const Route = createFileRoute("/")({
+  loader: async (): Promise<{ articles: Article[]; categories: ArticleCategory[] }> => {
+    const content = await fetchSiteContent();
+    return { articles: content.articles, categories: content.categories };
+  },
   head: () => ({
     meta: [
       { title: `${site.name} | Bursa'da Avukatlık ve Hukuki Danışmanlık` },
@@ -80,6 +85,7 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
+  errorComponent: HomeErrorComponent,
   component: Home,
 });
 
@@ -112,7 +118,9 @@ const approach = [
 ];
 
 function Home() {
-  const latest = publishedArticles.slice(0, 3);
+  const { articles, categories } = Route.useLoaderData();
+  const latest = articles.slice(0, 3);
+  const getCategory = (slug: string) => categories.find((c: ArticleCategory) => c.slug === slug);
 
   return (
     <>
@@ -402,7 +410,7 @@ function Home() {
           </div>
 
           <div className="mt-12 grid gap-10 md:grid-cols-3">
-            {latest.map((article) => (
+            {latest.map((article: Article) => (
               <article key={article.slug} className="border-t border-border pt-5">
                 <p className="eyebrow">
                   {getCategory(article.categorySlug)?.title}
@@ -509,5 +517,17 @@ function Home() {
         </div>
       </section>
     </>
+  );
+}
+
+function HomeErrorComponent() {
+  return (
+    <div className="container-editorial flex min-h-[60vh] flex-col justify-center py-20">
+      <p className="rule-number">500</p>
+      <h1 className="mt-4 font-serif text-4xl sm:text-5xl">Bu sayfa yüklenemedi</h1>
+      <p className="measure mt-4 text-muted-foreground">
+        Beklenmeyen bir sorun oluştu. Lütfen sayfayı yenileyin.
+      </p>
+    </div>
   );
 }

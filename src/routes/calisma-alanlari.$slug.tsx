@@ -1,23 +1,27 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { FaqList } from "@/components/faq-list";
 import { areaFaqs, faqJsonLd } from "@/data/faqs";
-import {
-  getArea,
-  practiceAreas,
-  getAreaImage,
-  type PracticeArea,
-} from "@/data/practice-areas";
+import { areaImages as staticAreaImages, type PracticeArea } from "@/data/practice-areas";
 import { articlesForArea, formatDate } from "@/data/articles";
 import { site } from "@/data/site";
+import { fetchSiteContent } from "@/lib/content.functions";
+import type { SiteContent } from "@/lib/content-mappers";
 
+type LoaderData = {
+  area: PracticeArea;
+  areas: PracticeArea[];
+  areaImages: Record<string, { url: string; alt: string }>;
+};
 
 export const Route = createFileRoute("/calisma-alanlari/$slug")({
-  loader: ({ params }): { area: PracticeArea } => {
-    const area = getArea(params.slug);
+  loader: async ({ params }): Promise<LoaderData> => {
+    const content: SiteContent = await fetchSiteContent();
+    const area = content.areas.find((a) => a.slug === params.slug);
     if (!area) throw notFound();
-    return { area };
+    return { area, areas: content.areas, areaImages: content.areaImages };
   },
   head: ({ params, loaderData }) => {
     if (!loaderData) {
@@ -28,7 +32,8 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
         ],
       };
     }
-    const { area } = loaderData;
+    const { area, areaImages } = loaderData;
+    const heroImg = areaImages[params.slug] ?? staticAreaImages[params.slug];
     const url = `/calisma-alanlari/${params.slug}`;
     return {
       meta: [
@@ -41,12 +46,12 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
       ],
       links: [
         { rel: "canonical", href: url },
-        ...(getAreaImage(params.slug)
+        ...(heroImg
           ? [
               {
                 rel: "preload",
                 as: "image",
-                href: getAreaImage(params.slug)!.url,
+                href: heroImg.url,
                 fetchPriority: "high" as const,
               },
             ]
@@ -75,15 +80,17 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
     };
   },
   component: AreaDetail,
+  notFoundComponent: AreaNotFound,
+  errorComponent: AreaError,
 });
 
 function AreaDetail() {
-  const { area } = Route.useLoaderData() as { area: PracticeArea };
+  const { area, areas, areaImages } = Route.useLoaderData() as LoaderData;
   const related = articlesForArea(area.slug);
   const faqs = areaFaqs[area.slug] ?? [];
-  const heroImg = getAreaImage(area.slug);
+  const heroImg = areaImages[area.slug] ?? staticAreaImages[area.slug];
 
-  const others = practiceAreas.filter((a) => a.slug !== area.slug).slice(0, 6);
+  const others = areas.filter((a) => a.slug !== area.slug).slice(0, 6);
 
   return (
     <>
@@ -349,5 +356,72 @@ function AreaDetail() {
         </aside>
       </div>
     </>
+  );
+}
+
+function AreaNotFound() {
+  return (
+    <div className="container-editorial flex min-h-[60vh] flex-col justify-center py-20">
+      <p className="rule-number">404</p>
+      <h1 className="mt-4 font-serif text-4xl sm:text-5xl">
+        Çalışma alanı bulunamadı
+      </h1>
+      <p className="measure mt-4 text-muted-foreground">
+        Aradığınız çalışma alanı taşınmış veya kaldırılmış olabilir. Diğer
+        çalışma alanlarına göz atabilirsiniz.
+      </p>
+      <div className="mt-8 flex flex-wrap gap-4">
+        <Link
+          to="/calisma-alanlari"
+          className="inline-flex min-h-12 items-center border border-foreground bg-foreground px-6 text-sm text-primary-foreground"
+        >
+          Çalışma Alanları
+        </Link>
+        <Link
+          to="/iletisim"
+          className="inline-flex min-h-12 items-center border border-foreground px-6 text-sm"
+        >
+          İletişim
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function AreaError({ error, reset }: { error: Error; reset: () => void }) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
+  return (
+    <div className="container-editorial flex min-h-[60vh] flex-col justify-center py-20">
+      <p className="rule-number">500</p>
+      <h1 className="mt-4 font-serif text-4xl sm:text-5xl">
+        Bu sayfa yüklenemedi
+      </h1>
+      <p className="measure mt-4 text-muted-foreground">
+        Beklenmeyen bir sorun oluştu. Sayfayı yeniden deneyebilir veya ana
+        sayfaya dönebilirsiniz.
+      </p>
+      <div className="mt-8 flex flex-wrap gap-4">
+        <button
+          onClick={() => {
+            router.invalidate();
+            reset();
+          }}
+          className="inline-flex min-h-12 items-center border border-foreground bg-foreground px-6 text-sm text-primary-foreground"
+        >
+          Yeniden dene
+        </button>
+        <a
+          href="/"
+          className="inline-flex min-h-12 items-center border border-foreground px-6 text-sm"
+        >
+          Ana sayfa
+        </a>
+      </div>
+    </div>
   );
 }

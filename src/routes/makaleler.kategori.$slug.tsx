@@ -1,21 +1,19 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import {
-  getCategory,
-  articlesByCategory,
-  formatDate,
-  type Article,
-  type ArticleCategory,
-} from "@/data/articles";
+import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
+import { fetchSiteContent } from "@/lib/content.functions";
 
 export const Route = createFileRoute("/makaleler/kategori/$slug")({
-  loader: ({
+  loader: async ({
     params,
-  }): { category: ArticleCategory; items: Article[] } => {
-    const category = getCategory(params.slug);
+  }): Promise<{ category: ArticleCategory; items: Article[] }> => {
+    const content = await fetchSiteContent();
+    const category = content.categories.find((c) => c.slug === params.slug);
     if (!category) throw notFound();
-    return { category, items: articlesByCategory(params.slug) };
+    const items = content.articles.filter((a) => a.categorySlug === params.slug);
+    return { category, items };
   },
   head: ({ params, loaderData }) => {
     if (!loaderData) {
@@ -50,14 +48,13 @@ export const Route = createFileRoute("/makaleler/kategori/$slug")({
       ],
     };
   },
+  errorComponent: CategoryErrorComponent,
+  notFoundComponent: CategoryNotFoundComponent,
   component: CategoryPage,
 });
 
 function CategoryPage() {
-  const { category, items } = Route.useLoaderData() as {
-    category: ArticleCategory;
-    items: Article[];
-  };
+  const { category, items } = Route.useLoaderData();
 
   return (
     <>
@@ -81,7 +78,7 @@ function CategoryPage() {
           </p>
         ) : (
           <ul className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {items.map((a) => (
+            {items.map((a: Article) => (
               <li key={a.slug}>
                 <article className="border-t border-border pt-5">
                   <h2 className="font-serif text-xl leading-snug">
@@ -110,5 +107,35 @@ function CategoryPage() {
         </Link>
       </div>
     </>
+  );
+}
+
+function CategoryErrorComponent() {
+  return (
+    <div className="container-editorial flex min-h-[40vh] flex-col justify-center py-20">
+      <p className="rule-number">500</p>
+      <h1 className="mt-4 font-serif text-3xl sm:text-4xl">
+        Kategori yüklenemedi
+      </h1>
+      <p className="measure mt-4 text-muted-foreground">
+        Beklenmeyen bir sorun oluştu. Lütfen daha sonra tekrar deneyin.
+      </p>
+    </div>
+  );
+}
+
+function CategoryNotFoundComponent() {
+  return (
+    <div className="container-editorial flex min-h-[40vh] flex-col justify-center py-20">
+      <p className="rule-number">404</p>
+      <h1 className="mt-4 font-serif text-3xl sm:text-4xl">Kategori bulunamadı</h1>
+      <p className="measure mt-4 text-muted-foreground">
+        Aradığınız kategori bulunamadı.
+      </p>
+      <Link to="/makaleler" className="link-underline mt-6 text-sm">
+        Tüm makaleler
+        <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+      </Link>
+    </div>
   );
 }
