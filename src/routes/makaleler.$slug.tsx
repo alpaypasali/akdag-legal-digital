@@ -1,21 +1,32 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import {
-  getArticle,
-  getCategory,
-  publishedArticles,
-  formatDate,
-  type Article,
-} from "@/data/articles";
-import { getArea } from "@/data/practice-areas";
+import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
+import { getArea, type PracticeArea } from "@/data/practice-areas";
 import { site } from "@/data/site";
+import { fetchSiteContent } from "@/lib/content.functions";
 
 export const Route = createFileRoute("/makaleler/$slug")({
-  loader: ({ params }): { article: Article } => {
-    const article = getArticle(params.slug);
+  loader: async ({
+    params,
+  }): Promise<{
+    article: Article;
+    category: ArticleCategory | undefined;
+    area: PracticeArea | undefined;
+    related: Article[];
+  }> => {
+    const content = await fetchSiteContent();
+    const article = content.articles.find((a) => a.slug === params.slug);
     if (!article) throw notFound();
-    return { article };
+    const category = content.categories.find(
+      (c) => c.slug === article.categorySlug,
+    );
+    const area = getArea(article.relatedAreaSlug);
+    const related = content.articles
+      .filter((a) => a.slug !== article.slug && a.categorySlug === article.categorySlug)
+      .concat(content.articles.filter((a) => a.slug !== article.slug))
+      .slice(0, 3);
+    return { article, category, area, related };
   },
   head: ({ params, loaderData }) => {
     if (!loaderData) {
@@ -69,17 +80,13 @@ export const Route = createFileRoute("/makaleler/$slug")({
       ],
     };
   },
+  errorComponent: ArticleErrorComponent,
+  notFoundComponent: ArticleNotFoundComponent,
   component: ArticleDetail,
 });
 
 function ArticleDetail() {
-  const { article } = Route.useLoaderData() as { article: Article };
-  const category = getCategory(article.categorySlug);
-  const area = getArea(article.relatedAreaSlug);
-  const related = publishedArticles
-    .filter((a) => a.slug !== article.slug && a.categorySlug === article.categorySlug)
-    .concat(publishedArticles.filter((a) => a.slug !== article.slug))
-    .slice(0, 3);
+  const { article, category, area, related } = Route.useLoaderData();
 
   const toc = article.sections.map((s) => ({
     id: s.id,
@@ -295,5 +302,35 @@ function TocList({
         </li>
       ))}
     </ol>
+  );
+}
+
+function ArticleErrorComponent() {
+  return (
+    <div className="container-editorial flex min-h-[40vh] flex-col justify-center py-20">
+      <p className="rule-number">500</p>
+      <h1 className="mt-4 font-serif text-3xl sm:text-4xl">
+        Makale yüklenemedi
+      </h1>
+      <p className="measure mt-4 text-muted-foreground">
+        Beklenmeyen bir sorun oluştu. Lütfen daha sonra tekrar deneyin.
+      </p>
+    </div>
+  );
+}
+
+function ArticleNotFoundComponent() {
+  return (
+    <div className="container-editorial flex min-h-[40vh] flex-col justify-center py-20">
+      <p className="rule-number">404</p>
+      <h1 className="mt-4 font-serif text-3xl sm:text-4xl">Makale bulunamadı</h1>
+      <p className="measure mt-4 text-muted-foreground">
+        Aradığınız makale bulunamadı ya da kaldırılmış olabilir.
+      </p>
+      <Link to="/makaleler" className="link-underline mt-6 text-sm">
+        Tüm makaleler
+        <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+      </Link>
+    </div>
   );
 }

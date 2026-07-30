@@ -3,11 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/section";
 import { ProgressiveImage } from "@/components/progressive-image";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import {
-  featuredAreas,
-  secondaryAreas,
-  getAreaImage,
-} from "@/data/practice-areas";
+import { fetchSiteContent } from "@/lib/content.functions";
+import type { SiteContent } from "@/lib/content-mappers";
 import headerAsset from "@/assets/calisma-header.webp.asset.json";
 
 const title = "Bursa Avukat Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
@@ -15,6 +12,7 @@ const description =
   "Bursa'da aile, ceza, iş, gayrimenkul ve kira, ticaret, miras, icra, borçlar, tüketici, idare, inşaat ve yabancılar hukuku alanlarında yürütülen çalışmalar.";
 
 export const Route = createFileRoute("/calisma-alanlari/")({
+  loader: async (): Promise<SiteContent> => await fetchSiteContent(),
   head: () => ({
     meta: [
       { title },
@@ -47,6 +45,13 @@ export const Route = createFileRoute("/calisma-alanlari/")({
 });
 
 function AreasPage() {
+  const data = Route.useLoaderData() as SiteContent | undefined;
+  const areas = data?.areas ?? [];
+  const areaImages = data?.areaImages ?? {};
+  const getAreaImage = (slug: string) => areaImages[slug];
+  const featuredAreas = areas.filter((a) => a.featured);
+  const secondaryAreas = areas.filter((a) => !a.featured);
+
   return (
     <>
       <PageHeader
