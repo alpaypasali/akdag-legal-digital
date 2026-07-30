@@ -257,19 +257,8 @@ function AdminArticles() {
           />
         </Field>
 
-        <Field
-          label="Bölümler (JSON)"
-          htmlFor="sections"
-          hint='Örn: [{"id":"giris","heading":"Giriş","level":2,"paragraphs":["..."],"list":["..."]}]'
-        >
-          <Textarea
-            id="sections"
-            rows={16}
-            className="font-mono text-xs"
-            value={sectionsText}
-            onChange={(e) => setSectionsText(e.target.value)}
-          />
-        </Field>
+        <SectionsEditor sections={sections} onChange={setSections} />
+
 
         <Field label="Kaynaklar (her satıra bir kaynak)" htmlFor="sources">
           <Textarea
