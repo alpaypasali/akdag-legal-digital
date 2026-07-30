@@ -29,7 +29,7 @@ export const Route = createFileRoute("/calisma-alanlari/")({
         rel: "preload",
         as: "image",
         href: headerAsset.url,
-        fetchPriority: "high",
+        fetchPriority: "high" as const,
       },
     ],
     scripts: [
