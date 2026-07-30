@@ -109,6 +109,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             },
           ]
         : []),
+      { title: "deneme" },
+      { property: "og:title", content: "deneme" },
+      { name: "twitter:title", content: "deneme" },
+      { name: "description", content: "deneme" },
+      { property: "og:description", content: "deneme" },
+      { name: "twitter:description", content: "deneme" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c22054bb-c9ab-4016-8693-43c5c8b3cc3b/id-preview-7b07c6fa--63cd693f-97d8-4420-9603-1d14cfb2e276.lovable.app-1785373345592.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c22054bb-c9ab-4016-8693-43c5c8b3cc3b/id-preview-7b07c6fa--63cd693f-97d8-4420-9603-1d14cfb2e276.lovable.app-1785373345592.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
