@@ -25,7 +25,7 @@ export const Route = createFileRoute("/iletisim")({
         rel: "preload",
         as: "image",
         href: headerAsset.url,
-        fetchpriority: "high",
+        fetchPriority: "high",
       },
     ],
     scripts: [
