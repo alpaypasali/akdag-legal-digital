@@ -10,9 +10,9 @@ import {
 } from "@/data/practice-areas";
 import headerAsset from "@/assets/calisma-header.webp.asset.json";
 
-const title = "Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
+const title = "Bursa Avukat Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
 const description =
-  "Aile, ceza, iş, gayrimenkul ve kira, ticaret, miras, icra, borçlar, tüketici, idare, inşaat ve yabancılar hukuku alanlarında yürütülen çalışmalar.";
+  "Bursa'da aile, ceza, iş, gayrimenkul ve kira, ticaret, miras, icra, borçlar, tüketici, idare, inşaat ve yabancılar hukuku alanlarında yürütülen çalışmalar.";
 
 export const Route = createFileRoute("/calisma-alanlari/")({
   head: () => ({
