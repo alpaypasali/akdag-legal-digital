@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { publishedArticles, articleCategories } from "@/data/articles";
-import { practiceAreas } from "@/data/practice-areas";
+import { fetchSiteContent } from "@/lib/content.functions";
 
 // TODO: proje adı veya özel alan adı tanımlandığında proje URL'si ile değiştirin.
 const BASE_URL = "";
@@ -24,6 +23,8 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const content = await fetchSiteContent();
+
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/hakkimizda", changefreq: "yearly", priority: "0.7" },
@@ -33,18 +34,18 @@ export const Route = createFileRoute("/sitemap.xml")({
             priority: "0.7",
           },
           { path: "/calisma-alanlari", changefreq: "monthly", priority: "0.9" },
-          ...practiceAreas.map<SitemapEntry>((a) => ({
+          ...content.areas.map<SitemapEntry>((a) => ({
             path: `/calisma-alanlari/${a.slug}`,
             changefreq: "monthly",
             priority: "0.8",
           })),
           { path: "/makaleler", changefreq: "weekly", priority: "0.8" },
-          ...articleCategories.map<SitemapEntry>((c) => ({
+          ...content.categories.map<SitemapEntry>((c) => ({
             path: `/makaleler/kategori/${c.slug}`,
             changefreq: "weekly",
             priority: "0.6",
           })),
-          ...publishedArticles.map<SitemapEntry>((a) => ({
+          ...content.articles.map<SitemapEntry>((a) => ({
             path: `/makaleler/${a.slug}`,
             lastmod: a.updatedAt ?? a.publishedAt,
             changefreq: "yearly",
