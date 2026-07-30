@@ -17,6 +17,7 @@ import { ContactDock } from "@/components/contact-dock";
 import { CookieConsent } from "@/components/cookie-consent";
 import { AnalyticsTracker } from "@/components/analytics-tracker";
 import { site } from "@/data/site";
+import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
 import faviconAsset from "@/assets/favicon.png.asset.json";
 import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
 
@@ -86,7 +87,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
+  loader: () => fetchSiteSettings(),
+  head: ({ loaderData }) => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -98,6 +100,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#101114" },
+      // Google Search Console doğrulaması yalnızca panelden girildiyse eklenir.
+      ...(loaderData?.[SETTING_KEYS.siteVerification]
+        ? [
+            {
+              name: "google-site-verification",
+              content: loaderData[SETTING_KEYS.siteVerification],
+            },
+          ]
+        : []),
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -161,6 +172,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const settings = Route.useLoaderData();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -178,7 +190,7 @@ function RootComponent() {
       <SiteFooter />
       <ContactDock />
       <CookieConsent />
-      <AnalyticsTracker />
+      <AnalyticsTracker measurementId={settings?.[SETTING_KEYS.gaId]} />
     </QueryClientProvider>
   );
 }

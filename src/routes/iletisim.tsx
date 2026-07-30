@@ -5,6 +5,7 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
 import { trackEvent } from "@/lib/analytics";
 import { site } from "@/data/site";
+import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
 import headerAsset from "@/assets/hero-iletisim.webp.asset.json";
 
 const title = "İletişim | Akdağ Hukuk ve Danışmanlık — Bursa";
@@ -12,6 +13,7 @@ const description =
   "Akdağ Hukuk ve Danışmanlık ile Bursa'da görüşme talebi oluşturun. İletişim formu, e-posta ve büro çalışma saatleri.";
 
 export const Route = createFileRoute("/iletisim")({
+  loader: () => fetchSiteSettings(),
   head: () => ({
     meta: [
       { title },
@@ -154,7 +156,7 @@ function ContactPage() {
           </dl>
 
           <a
-            href={site.contact.mapUrl}
+            href={mapUrl}
             onClick={() => trackEvent("click_map", { button_location: "contact_page" })}
             target="_blank"
             rel="noreferrer noopener"

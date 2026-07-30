@@ -158,7 +158,7 @@ export function trackEvent(
   options?: { once?: string },
 ) {
   if (typeof window === "undefined") return;
-  if (!GA_MEASUREMENT_ID || !hasAnalyticsConsent()) return;
+  if (!measurementId || !hasAnalyticsConsent()) return;
 
   const key = options?.once ?? null;
   if (key) {

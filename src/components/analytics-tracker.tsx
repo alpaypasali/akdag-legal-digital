@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useRouterState } from "@tanstack/react-router";
-import { resetOnceScope, trackEvent } from "@/lib/analytics";
+import { loadAnalytics, resetOnceScope, setMeasurementId, trackEvent } from "@/lib/analytics";
 import { CONSENT_EVENT } from "@/lib/consent";
 
 function pageTypeOf(pathname: string): { page_type: string; page_slug: string } {
@@ -26,8 +26,15 @@ function pageTypeOf(pathname: string): { page_type: string; page_slug: string } 
  * Anonim sayfa görüntüleme ve kaydırma derinliği ölçümü.
  * Hiçbir kişisel veri veya URL parametresi gönderilmez.
  */
-export function AnalyticsTracker() {
+export function AnalyticsTracker({ measurementId }: { measurementId?: string }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  // Ölçüm kimliği yönetim panelindeki ayardan gelir; boşsa hiçbir kod yüklenmez.
+  useEffect(() => {
+    if (!measurementId) return;
+    setMeasurementId(measurementId);
+    loadAnalytics();
+  }, [measurementId]);
 
   useEffect(() => {
     if (pathname.startsWith("/admin")) return;
