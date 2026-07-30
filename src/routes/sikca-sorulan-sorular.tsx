@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { FaqList } from "@/components/faq-list";
-import { LegalDisclaimer } from "@/components/section";
 import { areaFaqs, faqJsonLd, generalFaqs } from "@/data/faqs";
 import { practiceAreas } from "@/data/practice-areas";
 import { site } from "@/data/site";
@@ -92,9 +91,6 @@ function FaqPage() {
             );
           })}
 
-          <div className="mt-14">
-            <LegalDisclaimer text={site.legalNotice} />
-          </div>
         </div>
 
         <aside className="lg:col-span-4">

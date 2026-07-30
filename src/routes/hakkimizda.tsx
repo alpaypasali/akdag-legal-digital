@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageHeader, LegalDisclaimer, SectionLabel } from "@/components/section";
+import { PageHeader, SectionLabel } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
 import headerAsset from "@/assets/hero-hakkimizda.webp.asset.json";
@@ -165,9 +165,6 @@ function AboutPage() {
                 İletişim
               </Link>
             </div>
-          </div>
-          <div className="lg:col-span-5">
-            <LegalDisclaimer text={site.legalNotice} />
           </div>
         </div>
       </section>

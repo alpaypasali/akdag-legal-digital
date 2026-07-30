@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import { LegalDisclaimer } from "@/components/section";
 import {
   getArticle,
   getCategory,
@@ -246,9 +245,6 @@ function ArticleDetail() {
             </Link>
           </section>
 
-          <div className="mt-10">
-            <LegalDisclaimer />
-          </div>
         </article>
       </div>
 
