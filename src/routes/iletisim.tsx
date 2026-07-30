@@ -65,6 +65,13 @@ export const Route = createFileRoute("/iletisim")({
 });
 
 function ContactPage() {
+  const settings = Route.useLoaderData();
+  // Harita ve işletme profili bağlantıları yönetim panelinden değiştirilebilir.
+  const mapUrl =
+    settings?.[SETTING_KEYS.mapsUrl] ??
+    settings?.[SETTING_KEYS.businessProfileUrl] ??
+    site.contact.mapUrl;
+  const reviewUrl = settings?.[SETTING_KEYS.reviewUrl];
   return (
     <>
       <PageHeader
@@ -164,6 +171,17 @@ function ContactPage() {
           >
             Haritada görüntüle
           </a>
+
+          {reviewUrl ? (
+            <a
+              href={reviewUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="mt-3 inline-flex min-h-12 items-center px-1 text-sm underline underline-offset-4 transition-colors hover:text-gold-ink"
+            >
+              Google'da yorum bırakın
+            </a>
+          ) : null}
 
         </aside>
       </div>
