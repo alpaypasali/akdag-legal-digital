@@ -61,7 +61,7 @@ function AdminArticles() {
   const [categories, setCategories] = useState<{ slug: string; title: string }[]>([]);
   const [areas, setAreas] = useState<{ slug: string; title: string }[]>([]);
   const [editing, setEditing] = useState<ArticleRecord | null>(null);
-  const [sectionsText, setSectionsText] = useState("[]");
+  const [sections, setSections] = useState<EditableSection[]>([]);
   const [saving, setSaving] = useState(false);
 
   const load = useCallback(async () => {
@@ -82,21 +82,13 @@ function AdminArticles() {
 
   function startEdit(record: ArticleRecord) {
     setEditing({ ...record });
-    setSectionsText(JSON.stringify(record.sections ?? [], null, 2));
+    setSections(toEditableSections(record.sections));
   }
 
   async function save() {
     if (!editing) return;
-    let sections: unknown;
-    try {
-      sections = JSON.parse(sectionsText || "[]");
-      if (!Array.isArray(sections)) throw new Error("Bölümler bir liste olmalı.");
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? `Bölüm JSON hatası: ${error.message}` : "Bölüm JSON hatası",
-      );
-      return;
-    }
+    const sectionsPayload = fromEditableSections(sections);
+
 
     const payload = {
       slug: editing.slug || slugify(editing.title),
