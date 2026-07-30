@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/contact-form";
 import { trackEvent } from "@/lib/analytics";
 import { site } from "@/data/site";
 import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
-import headerAsset from "@/assets/hero-iletisim.webp.asset.json";
+import headerAsset from "@/assets/hero-iletisim.webp";
 
 const title = "İletişim | Akdağ Hukuk ve Danışmanlık — Bursa";
 const description =
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/iletisim")({
       {
         rel: "preload",
         as: "image",
-        href: headerAsset.url,
+        href: headerAsset,
         fetchPriority: "high" as const,
       },
     ],
@@ -77,7 +77,7 @@ function ContactPage() {
       <PageHeader
         eyebrow="İletişim"
         title="Görüşme talebi ve büro bilgileri"
-        image={headerAsset.url}
+        image={headerAsset}
         imageAlt="Adalet heykeli, defterler ve dolma kalemin bulunduğu koyu tonlu büro masası"
         imagePosition="78% center"
         intro="Aşağıdaki formu doldurarak ya da e-posta yoluyla büroya ulaşabilirsiniz. Talebiniz incelendikten sonra tarafınıza dönüş yapılır."

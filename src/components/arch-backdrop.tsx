@@ -1,4 +1,4 @@
-import archAsset from "@/assets/arch-columns.webp.asset.json";
+import archAsset from "@/assets/arch-columns.webp";
 
 /**
  * Açık/beyaz bölümlerin ortak mimari arka planı.
@@ -12,7 +12,7 @@ export function ArchBackdrop() {
   return (
     <div aria-hidden="true" className="arch-backdrop">
       <img
-        src={archAsset.url}
+        src={archAsset}
         alt=""
         loading="lazy"
         decoding="async"

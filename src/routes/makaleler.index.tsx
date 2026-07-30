@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
 import { fetchSiteContent } from "@/lib/content.functions";
-import headerAsset from "@/assets/hero-makaleler.webp.asset.json";
+import headerAsset from "@/assets/hero-makaleler.webp";
 
 const title = "Makaleler | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/makaleler/")({
       {
         rel: "preload",
         as: "image",
-        href: headerAsset.url,
+        href: headerAsset,
         fetchPriority: "high" as const,
       },
     ],
@@ -70,7 +70,7 @@ function ArticlesPage() {
       <PageHeader
         eyebrow="Makaleler"
         title="Hukuki süreçlere ilişkin bilgilendirme yazıları"
-        image={headerAsset.url}
+        image={headerAsset}
         imageAlt="Rafta duran ciltli hukuk kitapları ve sütunlu duvar detayı"
         imagePosition="75% center"
         intro="Bu bölümdeki yazılar genel bilgilendirme amacı taşır. Yazılarda anlatılan çerçeve, her uyuşmazlığın kendi koşullarına göre değişebilir."

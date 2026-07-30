@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/logo.webp.asset.json";
+import logoAsset from "@/assets/logo.webp";
 
 export function Wordmark({ tone = "ink" }: { tone?: "ink" | "invert" }) {
   return (
     <img
-      src={logoAsset.url}
+      src={logoAsset}
       alt="Akdağ Hukuk ve Danışmanlık — Av. Kutay Onat Akdağ"
       width={560}
       height={200}

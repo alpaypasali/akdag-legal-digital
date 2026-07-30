@@ -5,7 +5,7 @@ import { ProgressiveImage } from "@/components/progressive-image";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { fetchSiteContent } from "@/lib/content.functions";
 import type { SiteContent } from "@/lib/content-mappers";
-import headerAsset from "@/assets/calisma-header.webp.asset.json";
+import headerAsset from "@/assets/calisma-header.webp";
 
 const title = "Bursa Avukat Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/calisma-alanlari/")({
       {
         rel: "preload",
         as: "image",
-        href: headerAsset.url,
+        href: headerAsset,
         fetchPriority: "high" as const,
       },
     ],
@@ -57,7 +57,7 @@ function AreasPage() {
       <PageHeader
         eyebrow="Çalışma Alanları"
         title="Takip edilen hukuk alanları ve dosya grupları"
-        image={headerAsset.url}
+        image={headerAsset}
         imageAlt="Ahşap raflarla çevrili klasik bir hukuk kütüphanesi"
         imagePosition="65% center"
         intro="Aşağıdaki başlıklar, büro tarafından yürütülen dosya gruplarını gösterir. Her alanda sürecin kapsamı, izlenen aşamalar ve sık karşılaşılan durumlar ilgili sayfada ayrıca açıklanmıştır."

@@ -1,13 +1,13 @@
-import aileImg from "@/assets/aile-hukuku.webp.asset.json";
-import borclarImg from "@/assets/borclar-hukuku.webp.asset.json";
-import cezaImg from "@/assets/ceza-hukuku.webp.asset.json";
-import denizImg from "@/assets/deniz-ticareti-hukuku.webp.asset.json";
-import enerjiImg from "@/assets/enerji-hukuku.webp.asset.json";
-import gayrimenkulImg from "@/assets/gayrimenkul-hukuku.webp.asset.json";
-import icraImg from "@/assets/icra-hukuku.webp.asset.json";
-import idareImg from "@/assets/idare-hukuku.webp.asset.json";
-import insaatImg from "@/assets/insaat-hukuku.webp.asset.json";
-import isImg from "@/assets/is-hukuku.webp.asset.json";
+import aileImg from "@/assets/aile-hukuku.webp";
+import borclarImg from "@/assets/borclar-hukuku.webp";
+import cezaImg from "@/assets/ceza-hukuku.webp";
+import denizImg from "@/assets/deniz-ticareti-hukuku.webp";
+import enerjiImg from "@/assets/enerji-hukuku.webp";
+import gayrimenkulImg from "@/assets/gayrimenkul-hukuku.webp";
+import icraImg from "@/assets/icra-hukuku.webp";
+import idareImg from "@/assets/idare-hukuku.webp";
+import insaatImg from "@/assets/insaat-hukuku.webp";
+import isImg from "@/assets/is-hukuku.webp";
 
 export interface PracticeArea {
   slug: string;
@@ -30,51 +30,51 @@ export interface PracticeArea {
 /** Alan görselleri: CDN pointer + Türkçe alternatif metin */
 export const areaImages: Record<string, { url: string; alt: string }> = {
   "aile-hukuku": {
-    url: aileImg.url,
+    url: aileImg,
     alt: "Hakim tokmağının önünde duran iki altın alyans",
   },
   "ceza-hukuku": {
-    url: cezaImg.url,
+    url: cezaImg,
     alt: "Hukuk kitapları, kelepçe ve hakim tokmağı",
   },
   "is-hukuku": {
-    url: isImg.url,
+    url: isImg,
     alt: "Sarı baret ve iş güvenliği gözlüğünün yanında hakim tokmağı",
   },
   "gayrimenkul-ve-kira-hukuku": {
-    url: gayrimenkulImg.url,
+    url: gayrimenkulImg,
     alt: "Yeni taşındıkları evin önünde valizleriyle bekleyen çift",
   },
   "ticaret-ve-sirketler-hukuku": {
-    url: denizImg.url,
+    url: denizImg,
     alt: "Gün batımında konteyner taşıyan ticaret gemisi",
   },
   "miras-hukuku": {
-    url: idareImg.url,
+    url: idareImg,
     alt: "Ahşap masada adalet terazisi ve hakim tokmağı",
   },
   "icra-ve-iflas-hukuku": {
-    url: icraImg.url,
+    url: icraImg,
     alt: "Mali belgeler üzerinde duran hakim tokmağı ve hesap makinesi",
   },
   "borclar-hukuku": {
-    url: borclarImg.url,
+    url: borclarImg,
     alt: "Madeni paraların üzerinde duran hakim tokmağı",
   },
   "tuketici-hukuku": {
-    url: enerjiImg.url,
+    url: enerjiImg,
     alt: "Gün ışığında yüksek gerilim hatları ve elektrik direkleri",
   },
   "idare-hukuku": {
-    url: idareImg.url,
+    url: idareImg,
     alt: "Kitaplığın önünde altın adalet terazisi ve hakim tokmağı",
   },
   "insaat-hukuku": {
-    url: insaatImg.url,
+    url: insaatImg,
     alt: "Vinç ve iskelelerle yükselen bir inşaat şantiyesi",
   },
   "yabancilar-hukuku": {
-    url: denizImg.url,
+    url: denizImg,
     alt: "Açık denizde seyreden uluslararası ticaret gemisi",
   },
 };

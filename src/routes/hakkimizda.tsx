@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, SectionLabel } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
-import headerAsset from "@/assets/hero-hakkimizda.webp.asset.json";
-import archAsset from "@/assets/arch-columns.webp.asset.json";
+import headerAsset from "@/assets/hero-hakkimizda.webp";
+import archAsset from "@/assets/arch-columns.webp";
 
 const title = "Hakkımızda | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/hakkimizda")({
       {
         rel: "preload",
         as: "image",
-        href: headerAsset.url,
+        href: headerAsset,
         fetchPriority: "high" as const,
       },
     ],
@@ -54,7 +54,7 @@ function AboutPage() {
       <PageHeader
         eyebrow="Hakkımızda"
         title="Bursa'da bireyler ve kurumlar için hukuki süreç yönetimi"
-        image={headerAsset.url}
+        image={headerAsset}
         imageAlt="Klasik büst, hukuk kitabı ve mimari sütunlarla düzenlenmiş sakin bir büro köşesi"
         imagePosition="72% center"
         intro="Akdağ Hukuk ve Danışmanlık, dava ve danışmanlık dosyalarını düzenli bir çalışma yöntemiyle yürütür. Amaç, müvekkilin süreci anlaması ve her aşamada nerede durduğunu bilmesidir."
@@ -102,7 +102,7 @@ function AboutPage() {
         className="relative isolate overflow-hidden border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
       >
         <img
-          src={archAsset.url}
+          src={archAsset}
           alt=""
           aria-hidden="true"
           loading="lazy"
