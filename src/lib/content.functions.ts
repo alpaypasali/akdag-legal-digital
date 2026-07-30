@@ -70,12 +70,8 @@ export const fetchSiteContent = createServerFn({ method: "GET" }).handler(
       const areaRows = (areasRes.data ?? []) as PracticeAreaRow[];
       if (areaRows.length === 0) return fallback;
 
+      // Görseller statiktir: veritabanından okunmaz.
       const areaImages: Record<string, { url: string; alt: string }> = { ...staticAreaImages };
-      for (const row of areaRows) {
-        if (row.image_url) {
-          areaImages[row.slug] = { url: row.image_url, alt: row.image_alt ?? row.title };
-        }
-      }
 
       return {
         articles: ((articlesRes.data ?? []) as ArticleRow[]).map(mapArticle),
