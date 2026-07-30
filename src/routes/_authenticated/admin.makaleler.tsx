@@ -7,6 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Field, arrayToLines, linesToArray, slugify } from "@/components/admin/admin-form";
+import {
+  SectionsEditor,
+  fromEditableSections,
+  toEditableSections,
+  type EditableSection,
+} from "@/components/admin/sections-editor";
 
 export const Route = createFileRoute("/_authenticated/admin/makaleler")({
   component: AdminArticles,
@@ -55,7 +61,7 @@ function AdminArticles() {
   const [categories, setCategories] = useState<{ slug: string; title: string }[]>([]);
   const [areas, setAreas] = useState<{ slug: string; title: string }[]>([]);
   const [editing, setEditing] = useState<ArticleRecord | null>(null);
-  const [sectionsText, setSectionsText] = useState("[]");
+  const [sections, setSections] = useState<EditableSection[]>([]);
   const [saving, setSaving] = useState(false);
 
   const load = useCallback(async () => {
@@ -76,21 +82,13 @@ function AdminArticles() {
 
   function startEdit(record: ArticleRecord) {
     setEditing({ ...record });
-    setSectionsText(JSON.stringify(record.sections ?? [], null, 2));
+    setSections(toEditableSections(record.sections));
   }
 
   async function save() {
     if (!editing) return;
-    let sections: unknown;
-    try {
-      sections = JSON.parse(sectionsText || "[]");
-      if (!Array.isArray(sections)) throw new Error("Bölümler bir liste olmalı.");
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? `Bölüm JSON hatası: ${error.message}` : "Bölüm JSON hatası",
-      );
-      return;
-    }
+    const sectionsPayload = fromEditableSections(sections);
+
 
     const payload = {
       slug: editing.slug || slugify(editing.title),
@@ -102,7 +100,7 @@ function AdminArticles() {
       content_updated_at: editing.content_updated_at || null,
       reading_minutes: Number(editing.reading_minutes) || 5,
       related_area_slug: editing.related_area_slug || null,
-      sections,
+      sections: sectionsPayload,
       sources: Array.isArray(editing.sources) ? editing.sources : [],
       meta_title: editing.meta_title.trim(),
       meta_description: editing.meta_description.trim(),
@@ -259,19 +257,8 @@ function AdminArticles() {
           />
         </Field>
 
-        <Field
-          label="Bölümler (JSON)"
-          htmlFor="sections"
-          hint='Örn: [{"id":"giris","heading":"Giriş","level":2,"paragraphs":["..."],"list":["..."]}]'
-        >
-          <Textarea
-            id="sections"
-            rows={16}
-            className="font-mono text-xs"
-            value={sectionsText}
-            onChange={(e) => setSectionsText(e.target.value)}
-          />
-        </Field>
+        <SectionsEditor sections={sections} onChange={setSections} />
+
 
         <Field label="Kaynaklar (her satıra bir kaynak)" htmlFor="sources">
           <Textarea
