@@ -17,11 +17,14 @@ import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
 import { Route as GizlilikRouteImport } from './routes/gizlilik'
 import { Route as CerezPolitikasiRouteImport } from './routes/cerez-politikasi'
 import { Route as AvukatKutayOnatAkdagRouteImport } from './routes/avukat-kutay-onat-akdag'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MakalelerIndexRouteImport } from './routes/makaleler.index'
 import { Route as CalismaAlanlariIndexRouteImport } from './routes/calisma-alanlari.index'
 import { Route as MakalelerSlugRouteImport } from './routes/makaleler.$slug'
 import { Route as CalismaAlanlariSlugRouteImport } from './routes/calisma-alanlari.$slug'
+import { Route as AdminGirisRouteImport } from './routes/admin.giris'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -64,6 +67,10 @@ const AvukatKutayOnatAkdagRoute = AvukatKutayOnatAkdagRouteImport.update({
   path: '/avukat-kutay-onat-akdag',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -89,6 +96,16 @@ const CalismaAlanlariSlugRoute = CalismaAlanlariSlugRouteImport.update({
   path: '/calisma-alanlari/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminGirisRoute = AdminGirisRouteImport.update({
+  id: '/admin/giris',
+  path: '/admin/giris',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const MakalelerKategoriSlugRoute = MakalelerKategoriSlugRouteImport.update({
   id: '/makaleler/kategori/$slug',
   path: '/makaleler/kategori/$slug',
@@ -105,6 +122,8 @@ export interface FileRoutesByFullPath {
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
@@ -121,6 +140,8 @@ export interface FileRoutesByTo {
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
@@ -130,6 +151,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
@@ -138,6 +160,8 @@ export interface FileRoutesById {
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
@@ -156,6 +180,8 @@ export interface FileRouteTypes {
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/admin'
+    | '/admin/giris'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
@@ -172,6 +198,8 @@ export interface FileRouteTypes {
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/admin'
+    | '/admin/giris'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari'
@@ -180,6 +208,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/avukat-kutay-onat-akdag'
     | '/cerez-politikasi'
     | '/gizlilik'
@@ -188,6 +217,8 @@ export interface FileRouteTypes {
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/_authenticated/admin'
+    | '/admin/giris'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
@@ -197,6 +228,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AvukatKutayOnatAkdagRoute: typeof AvukatKutayOnatAkdagRoute
   CerezPolitikasiRoute: typeof CerezPolitikasiRoute
   GizlilikRoute: typeof GizlilikRoute
@@ -205,6 +237,7 @@ export interface RootRouteChildren {
   KvkkRoute: typeof KvkkRoute
   SikcaSorulanSorularRoute: typeof SikcaSorulanSorularRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminGirisRoute: typeof AdminGirisRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   MakalelerSlugRoute: typeof MakalelerSlugRoute
   CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
@@ -270,6 +303,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AvukatKutayOnatAkdagRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -305,6 +345,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalismaAlanlariSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/giris': {
+      id: '/admin/giris'
+      path: '/admin/giris'
+      fullPath: '/admin/giris'
+      preLoaderRoute: typeof AdminGirisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/makaleler/kategori/$slug': {
       id: '/makaleler/kategori/$slug'
       path: '/makaleler/kategori/$slug'
@@ -315,8 +369,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AvukatKutayOnatAkdagRoute: AvukatKutayOnatAkdagRoute,
   CerezPolitikasiRoute: CerezPolitikasiRoute,
   GizlilikRoute: GizlilikRoute,
@@ -325,6 +391,7 @@ const rootRouteChildren: RootRouteChildren = {
   KvkkRoute: KvkkRoute,
   SikcaSorulanSorularRoute: SikcaSorulanSorularRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminGirisRoute: AdminGirisRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   MakalelerSlugRoute: MakalelerSlugRoute,
   CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
