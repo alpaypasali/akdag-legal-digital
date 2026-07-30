@@ -7,6 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Field, arrayToLines, linesToArray, slugify } from "@/components/admin/admin-form";
+import {
+  SectionsEditor,
+  fromEditableSections,
+  toEditableSections,
+  type EditableSection,
+} from "@/components/admin/sections-editor";
 
 export const Route = createFileRoute("/_authenticated/admin/makaleler")({
   component: AdminArticles,
