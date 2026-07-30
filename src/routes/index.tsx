@@ -41,13 +41,13 @@ export const Route = createFileRoute("/")({
         rel: "preload",
         as: "image",
         href: heroBooksAsset.url,
-        fetchPriority: "high",
+        fetchPriority: "high" as const,
       },
       {
         rel: "preload",
         as: "image",
         href: heroScalesAsset.url,
-        fetchPriority: "high",
+        fetchPriority: "high" as const,
       },
     ],
     scripts: [

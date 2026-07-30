@@ -48,7 +48,7 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
                 rel: "preload",
                 as: "image",
                 href: getAreaImage(params.slug)!.url,
-                fetchPriority: "high",
+                fetchPriority: "high" as const,
               },
             ]
           : []),
