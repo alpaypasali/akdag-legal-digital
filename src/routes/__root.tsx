@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ContactDock } from "@/components/contact-dock";
 import { site } from "@/data/site";
 import faviconAsset from "@/assets/favicon.png.asset.json";
 import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
@@ -118,13 +119,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": "LegalService",
           name: site.name,
           url: "/",
           areaServed: "Bursa, Türkiye",
           email: site.contact.email,
+          telephone: site.contact.phoneHref,
           address: {
             "@type": "PostalAddress",
+            streetAddress: site.contact.addressLine,
+            postalCode: site.contact.postalCode,
             addressLocality: site.contact.district,
             addressRegion: site.contact.city,
             addressCountry: "TR",
@@ -170,6 +174,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <SiteFooter />
+      <ContactDock />
     </QueryClientProvider>
   );
 }

@@ -86,12 +86,12 @@ export function getAreaImage(slug: string) {
 export const practiceAreas: PracticeArea[] = [
   {
     slug: "aile-hukuku",
-    title: "Aile Hukuku",
+    title: "Bursa Aile Hukuku",
     summary:
       "Boşanma, velayet, nafaka ve mal rejimi süreçlerinde düzenli hazırlık ve ölçülü temsil.",
     featured: true,
     order: 1,
-    heading: "Aile Hukuku: Boşanma, Velayet ve Mal Rejimi Süreçleri",
+    heading: "Bursa Aile Hukuku: Boşanma, Velayet ve Mal Rejimi Süreçleri",
     intro:
       "Aile hukuku uyuşmazlıkları, hukuki olduğu kadar kişisel sonuçları da olan süreçlerdir. Bu nedenle dosyanın baştan doğru kurgulanması, belgelerin eksiksiz hazırlanması ve süreç boyunca açık iletişim kurulması önem taşır.",
     scope: [
@@ -116,18 +116,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Süreç, uyuşmazlığın kapsamına ve mahkemenin iş yoğunluğuna göre değişir. Anlaşmalı süreçler genellikle daha kısa sürerken, çekişmeli dosyalarda delil ve bilirkişi aşamaları süreyi etkiler.",
-    metaTitle: "Aile Hukuku | Boşanma, Velayet ve Nafaka | Akdağ Hukuk",
+    metaTitle: "Bursa Aile Hukuku | Boşanma, Velayet ve Nafaka | Akdağ Hukuk",
     metaDescription:
       "Boşanma, velayet, nafaka ve mal rejimi süreçlerine ilişkin genel bilgilendirme. Bursa'da aile hukuku alanında avukatlık ve danışmanlık hizmeti.",
   },
   {
     slug: "ceza-hukuku",
-    title: "Ceza Hukuku",
+    title: "Bursa Ceza Hukuku",
     summary:
       "Soruşturma ve kovuşturma aşamalarında savunma hazırlığı, müşteki ve şüpheli vekilliği.",
     featured: true,
     order: 2,
-    heading: "Ceza Hukuku: Soruşturma ve Kovuşturma Aşamalarında Temsil",
+    heading: "Bursa Ceza Hukuku: Soruşturma ve Kovuşturma Aşamalarında Temsil",
     intro:
       "Ceza yargılamasında ilk saatlerde alınan ifade ve toplanan deliller, sürecin tamamını etkileyebilir. Dosyanın erken aşamada incelenmesi ve savunmanın usulüne uygun biçimde kurulması bu nedenle önemlidir.",
     scope: [
@@ -152,18 +152,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Ceza yargılamasında süreler kesindir ve kaçırılması hak kaybına yol açabilir. Tebligat tarihleri ve itiraz süreleri dosya boyunca takip edilir.",
-    metaTitle: "Ceza Hukuku | Soruşturma ve Kovuşturma | Akdağ Hukuk",
+    metaTitle: "Bursa Ceza Hukuku | Soruşturma ve Kovuşturma | Akdağ Hukuk",
     metaDescription:
       "Soruşturma ve kovuşturma aşamalarında savunma, müşteki vekilliği ve kanun yolları hakkında genel bilgilendirme. Bursa'da ceza hukuku alanında hizmet.",
   },
   {
     slug: "is-hukuku",
-    title: "İş Hukuku",
+    title: "Bursa İş Hukuku",
     summary:
       "İşçi ve işveren tarafında fesih, alacak ve kurum uyuşmazlıklarının yürütülmesi.",
     featured: true,
     order: 3,
-    heading: "İş Hukuku: Fesih, İşçilik Alacakları ve İş Kazası Süreçleri",
+    heading: "Bursa İş Hukuku: Fesih, İşçilik Alacakları ve İş Kazası Süreçleri",
     intro:
       "İş ilişkisinden doğan uyuşmazlıklarda kayıtlar belirleyicidir. Bordro, puantaj, özlük dosyası ve yazışmaların baştan incelenmesi, talebin doğru kurulmasını sağlar.",
     scope: [
@@ -188,18 +188,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "İş davalarının büyük bölümünde dava açılmadan önce arabulucuya başvurmak zorunludur. Bu aşamanın usulüne uygun tamamlanması gerekir.",
-    metaTitle: "İş Hukuku | Fesih ve İşçilik Alacakları | Akdağ Hukuk",
+    metaTitle: "Bursa İş Hukuku | Fesih ve İşçilik Alacakları | Akdağ Hukuk",
     metaDescription:
       "İşe iade, kıdem ve ihbar tazminatı, fazla mesai ve iş kazası süreçlerine ilişkin genel bilgilendirme. Bursa'da iş hukuku alanında avukatlık hizmeti.",
   },
   {
     slug: "gayrimenkul-ve-kira-hukuku",
-    title: "Gayrimenkul ve Kira Hukuku",
+    title: "Bursa Gayrimenkul ve Kira Hukuku",
     summary:
       "Tapu, ortaklığın giderilmesi, kira tespiti ve tahliye süreçlerinin yürütülmesi.",
     featured: true,
     order: 4,
-    heading: "Gayrimenkul ve Kira Hukuku: Tapu, Kira ve Tahliye Süreçleri",
+    heading: "Bursa Gayrimenkul ve Kira Hukuku: Tapu, Kira ve Tahliye Süreçleri",
     intro:
       "Taşınmaza ilişkin uyuşmazlıklarda tapu kaydı, sözleşme metni ve fiili kullanım birlikte değerlendirilir. Sürecin başında yapılan kayıt incelemesi çoğu zaman yönü belirler.",
     scope: [
@@ -224,18 +224,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Kira uyuşmazlıklarının önemli bir bölümünde dava öncesi arabuluculuk zorunludur. Tahliye taleplerinde ise süre ve bildirim koşulları belirleyicidir.",
-    metaTitle: "Gayrimenkul ve Kira Hukuku | Tapu ve Tahliye | Akdağ Hukuk",
+    metaTitle: "Bursa Gayrimenkul ve Kira Hukuku | Tapu ve Tahliye | Akdağ Hukuk",
     metaDescription:
       "Tapu iptali, ortaklığın giderilmesi, kira tespiti ve tahliye süreçlerine ilişkin genel bilgilendirme. Bursa'da gayrimenkul hukuku alanında hizmet.",
   },
   {
     slug: "ticaret-ve-sirketler-hukuku",
-    title: "Ticaret ve Şirketler Hukuku",
+    title: "Bursa Ticaret ve Şirketler Hukuku",
     summary:
       "Şirket kuruluşu, sözleşme yönetimi ve ticari uyuşmazlıklarda düzenli danışmanlık.",
     featured: true,
     order: 5,
-    heading: "Ticaret ve Şirketler Hukuku: Sözleşme ve Uyuşmazlık Yönetimi",
+    heading: "Bursa Ticaret ve Şirketler Hukuku: Sözleşme ve Uyuşmazlık Yönetimi",
     intro:
       "Ticari ilişkilerde uyuşmazlığın önlenmesi, sonradan çözülmesinden daha az maliyetlidir. Sözleşmelerin ve şirket içi kararların baştan doğru kurgulanması bu nedenle önceliklidir.",
     scope: [
@@ -260,18 +260,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Ticari davaların büyük bölümünde konusu bir miktar paranın ödenmesi olan taleplerde arabuluculuk dava şartıdır.",
-    metaTitle: "Ticaret ve Şirketler Hukuku | Sözleşme ve Dava | Akdağ Hukuk",
+    metaTitle: "Bursa Ticaret ve Şirketler Hukuku | Sözleşme ve Dava | Akdağ Hukuk",
     metaDescription:
       "Şirket kuruluşu, pay devri, ticari sözleşmeler ve alacak takibi hakkında genel bilgilendirme. Bursa'da ticaret hukuku alanında avukatlık hizmeti.",
   },
   {
     slug: "miras-hukuku",
-    title: "Miras Hukuku",
+    title: "Bursa Miras Hukuku",
     summary:
       "Mirasçılık belgesi, tenkis ve miras paylaşımı süreçlerinin yürütülmesi.",
     featured: false,
     order: 6,
-    heading: "Miras Hukuku: Paylaşım, Tenkis ve Mirasın Reddi",
+    heading: "Bursa Miras Hukuku: Paylaşım, Tenkis ve Mirasın Reddi",
     intro:
       "Miras uyuşmazlıklarında terekenin kapsamı ve mirasçıların hukuki durumu birlikte belirlenir. Süreler ve tereke tespiti bu alanda özellikle önemlidir.",
     scope: [
@@ -296,18 +296,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Mirasın reddi gibi taleplerde kanuni süreler kısadır; bu nedenle sürecin erken değerlendirilmesi gerekir.",
-    metaTitle: "Miras Hukuku | Tenkis, Paylaşım ve Mirasın Reddi | Akdağ Hukuk",
+    metaTitle: "Bursa Miras Hukuku | Tenkis, Paylaşım ve Mirasın Reddi | Akdağ Hukuk",
     metaDescription:
       "Mirasçılık belgesi, tenkis, muris muvazaası ve mirasın reddi süreçlerine ilişkin genel bilgilendirme. Bursa'da miras hukuku alanında hizmet.",
   },
   {
     slug: "icra-ve-iflas-hukuku",
-    title: "İcra ve İflas Hukuku",
+    title: "Bursa İcra ve İflas Hukuku",
     summary:
       "Alacak takibi, itirazın iptali ve haciz süreçlerinin düzenli yürütülmesi.",
     featured: false,
     order: 7,
-    heading: "İcra ve İflas Hukuku: Alacak Takibi ve İtiraz Süreçleri",
+    heading: "Bursa İcra ve İflas Hukuku: Alacak Takibi ve İtiraz Süreçleri",
     intro:
       "İcra takibinde doğru takip türünün seçilmesi ve sürelerin takibi, alacağın tahsil edilebilirliğini doğrudan etkiler.",
     scope: [
@@ -332,18 +332,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "İcra hukukunda süreler gün bazında işler; ödeme emri tebliğinden sonraki itiraz süresi özellikle takip edilmelidir.",
-    metaTitle: "İcra ve İflas Hukuku | Alacak Takibi ve Haciz | Akdağ Hukuk",
+    metaTitle: "Bursa İcra ve İflas Hukuku | Alacak Takibi ve Haciz | Akdağ Hukuk",
     metaDescription:
       "İcra takibi, itirazın iptali, haciz ve satış süreçlerine ilişkin genel bilgilendirme. Bursa'da icra ve iflas hukuku alanında avukatlık hizmeti.",
   },
   {
     slug: "borclar-hukuku",
-    title: "Borçlar Hukuku",
+    title: "Bursa Borçlar Hukuku",
     summary:
       "Sözleşmeden ve haksız fiilden doğan tazminat ve alacak uyuşmazlıkları.",
     featured: false,
     order: 8,
-    heading: "Borçlar Hukuku: Sözleşme, Tazminat ve Alacak Uyuşmazlıkları",
+    heading: "Bursa Borçlar Hukuku: Sözleşme, Tazminat ve Alacak Uyuşmazlıkları",
     intro:
       "Borç ilişkisinin kaynağı, ispat yükünü ve izlenecek yolu belirler. Sözleşme metni ile fiili uygulama arasındaki farklar çoğu uyuşmazlığın merkezindedir.",
     scope: [
@@ -368,18 +368,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Talebin türüne göre zamanaşımı süreleri değişir; bu nedenle sürecin başında zamanaşımı değerlendirmesi yapılır.",
-    metaTitle: "Borçlar Hukuku | Sözleşme ve Tazminat | Akdağ Hukuk",
+    metaTitle: "Bursa Borçlar Hukuku | Sözleşme ve Tazminat | Akdağ Hukuk",
     metaDescription:
       "Sözleşmeden ve haksız fiilden doğan tazminat ile alacak uyuşmazlıklarına ilişkin genel bilgilendirme. Bursa'da borçlar hukuku alanında hizmet.",
   },
   {
     slug: "tuketici-hukuku",
-    title: "Tüketici Hukuku",
+    title: "Bursa Tüketici Hukuku",
     summary:
       "Ayıplı mal ve hizmet, hakem heyeti ve tüketici mahkemesi başvuruları.",
     featured: false,
     order: 9,
-    heading: "Tüketici Hukuku: Ayıplı Mal, Hizmet ve Başvuru Yolları",
+    heading: "Bursa Tüketici Hukuku: Ayıplı Mal, Hizmet ve Başvuru Yolları",
     intro:
       "Tüketici uyuşmazlıklarında parasal sınıra göre hakem heyeti veya tüketici mahkemesi yetkilidir. Başvurunun doğru mercie yapılması süreci kısaltır.",
     scope: [
@@ -404,18 +404,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Parasal sınırlar her yıl güncellenir; başvuru mercii bu güncel değerlere göre belirlenir.",
-    metaTitle: "Tüketici Hukuku | Ayıplı Mal ve Hakem Heyeti | Akdağ Hukuk",
+    metaTitle: "Bursa Tüketici Hukuku | Ayıplı Mal ve Hakem Heyeti | Akdağ Hukuk",
     metaDescription:
       "Ayıplı mal ve hizmet, cayma hakkı, hakem heyeti ve tüketici mahkemesi süreçlerine ilişkin genel bilgilendirme. Bursa'da tüketici hukuku hizmeti.",
   },
   {
     slug: "idare-hukuku",
-    title: "İdare Hukuku",
+    title: "Bursa İdare Hukuku",
     summary:
       "İdari işlemin iptali, tam yargı ve idari başvuru süreçlerinin takibi.",
     featured: false,
     order: 10,
-    heading: "İdare Hukuku: İptal Davası ve Tam Yargı Süreçleri",
+    heading: "Bursa İdare Hukuku: İptal Davası ve Tam Yargı Süreçleri",
     intro:
       "İdari yargıda süreler kısa ve kesindir. İşlemin tebliğ tarihinden itibaren yapılacak değerlendirme, hak kaybının önlenmesi bakımından belirleyicidir.",
     scope: [
@@ -440,18 +440,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "İdari yargıda dava açma süresi genellikle tebliğden itibaren işler; sürenin kaçırılması esasa girilmeden ret sonucunu doğurabilir.",
-    metaTitle: "İdare Hukuku | İptal ve Tam Yargı Davaları | Akdağ Hukuk",
+    metaTitle: "Bursa İdare Hukuku | İptal ve Tam Yargı Davaları | Akdağ Hukuk",
     metaDescription:
       "İdari işlemin iptali, tam yargı davaları, imar ve disiplin süreçlerine ilişkin genel bilgilendirme. Bursa'da idare hukuku alanında avukatlık hizmeti.",
   },
   {
     slug: "insaat-hukuku",
-    title: "İnşaat Hukuku",
+    title: "Bursa İnşaat Hukuku",
     summary:
       "Kat karşılığı inşaat sözleşmeleri, gecikme ve ayıp uyuşmazlıkları.",
     featured: false,
     order: 11,
-    heading: "İnşaat Hukuku: Kat Karşılığı Sözleşmeler ve Teslim Uyuşmazlıkları",
+    heading: "Bursa İnşaat Hukuku: Kat Karşılığı Sözleşmeler ve Teslim Uyuşmazlıkları",
     intro:
       "İnşaat uyuşmazlıklarında sözleşme, ruhsat ve teknik raporlar birlikte değerlendirilir. Teslim tarihi ve imalat kalemleri çoğu zaman uyuşmazlığın merkezindedir.",
     scope: [
@@ -476,18 +476,18 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Bu alanda teknik bilirkişi raporları belirleyicidir; rapora karşı süresinde ve teknik gerekçeyle itiraz edilmesi önem taşır.",
-    metaTitle: "İnşaat Hukuku | Kat Karşılığı Sözleşme ve Ayıp | Akdağ Hukuk",
+    metaTitle: "Bursa İnşaat Hukuku | Kat Karşılığı Sözleşme ve Ayıp | Akdağ Hukuk",
     metaDescription:
       "Kat karşılığı inşaat sözleşmeleri, gecikme tazminatı ve ayıplı imalat süreçlerine ilişkin genel bilgilendirme. Bursa'da inşaat hukuku hizmeti.",
   },
   {
     slug: "yabancilar-hukuku",
-    title: "Yabancılar Hukuku",
+    title: "Bursa Yabancılar Hukuku",
     summary:
       "Oturma izni, vatandaşlık ve yabancıların taşınmaz edinimi süreçleri.",
     featured: false,
     order: 12,
-    heading: "Yabancılar Hukuku: İkamet, Vatandaşlık ve Taşınmaz Edinimi",
+    heading: "Bursa Yabancılar Hukuku: İkamet, Vatandaşlık ve Taşınmaz Edinimi",
     intro:
       "Yabancılar hukukunda idari başvurular, belge standartları ve süreler belirleyicidir. Eksik belge çoğu zaman sürecin uzamasına yol açar.",
     scope: [
@@ -512,7 +512,7 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "İdari kararlara karşı başvuru süreleri kısadır ve kararın tebliğ biçimine göre değişebilir.",
-    metaTitle: "Yabancılar Hukuku | İkamet İzni ve Vatandaşlık | Akdağ Hukuk",
+    metaTitle: "Bursa Yabancılar Hukuku | İkamet İzni ve Vatandaşlık | Akdağ Hukuk",
     metaDescription:
       "İkamet izni, çalışma izni, vatandaşlık ve yabancıların taşınmaz edinimi süreçlerine ilişkin genel bilgilendirme. Bursa'da yabancılar hukuku hizmeti.",
   },

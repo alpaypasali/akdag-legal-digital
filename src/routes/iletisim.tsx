@@ -25,7 +25,7 @@ export const Route = createFileRoute("/iletisim")({
         rel: "preload",
         as: "image",
         href: headerAsset.url,
-        fetchpriority: "high",
+        fetchPriority: "high",
       },
     ],
     scripts: [
@@ -37,8 +37,11 @@ export const Route = createFileRoute("/iletisim")({
           name: site.name,
           areaServed: site.region,
           email: site.contact.email,
+          telephone: site.contact.phoneHref,
           address: {
             "@type": "PostalAddress",
+            streetAddress: site.contact.addressLine,
+            postalCode: site.contact.postalCode,
             addressLocality: site.contact.district,
             addressRegion: site.contact.city,
             addressCountry: "TR",
@@ -98,7 +101,7 @@ function ContactPage() {
               <dd className="col-start-2 mt-1 text-sm text-muted-foreground">
                 {site.contact.addressLine}
                 <br />
-                {site.contact.district} / {site.contact.city}
+                {site.contact.postalCode} {site.contact.district} / {site.contact.city}
               </dd>
             </div>
             <div className="grid grid-cols-[auto_1fr] gap-x-4 border-b border-border py-5">

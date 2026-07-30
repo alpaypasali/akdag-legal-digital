@@ -24,7 +24,7 @@ export const Route = createFileRoute("/hakkimizda")({
         rel: "preload",
         as: "image",
         href: headerAsset.url,
-        fetchpriority: "high",
+        fetchPriority: "high",
       },
     ],
     scripts: [
