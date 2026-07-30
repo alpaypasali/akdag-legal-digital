@@ -25,8 +25,6 @@ type AreaRecord = {
   processes: unknown;
   situations: unknown;
   process_note: string;
-  image_url: string | null;
-  image_alt: string | null;
   meta_title: string;
   meta_description: string;
   is_active: boolean;
@@ -45,8 +43,6 @@ const emptyArea = (order: number): AreaRecord => ({
   processes: [],
   situations: [],
   process_note: "",
-  image_url: "",
-  image_alt: "",
   meta_title: "",
   meta_description: "",
   is_active: true,
@@ -84,8 +80,6 @@ function AdminPracticeAreas() {
       processes: Array.isArray(editing.processes) ? editing.processes : [],
       situations: Array.isArray(editing.situations) ? editing.situations : [],
       process_note: editing.process_note.trim(),
-      image_url: editing.image_url || null,
-      image_alt: editing.image_alt || null,
       meta_title: editing.meta_title.trim(),
       meta_description: editing.meta_description.trim(),
       is_active: editing.is_active,
