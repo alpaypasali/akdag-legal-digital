@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
-import { PageHeader, LegalDisclaimer } from "@/components/section";
+import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
 import { site } from "@/data/site";
@@ -156,9 +156,6 @@ function ContactPage() {
             Haritada görüntüle
           </a>
 
-          <div className="mt-10">
-            <LegalDisclaimer />
-          </div>
         </aside>
       </div>
     </>

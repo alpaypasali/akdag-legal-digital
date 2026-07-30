@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { PageHeader, LegalDisclaimer } from "@/components/section";
+import { PageHeader } from "@/components/section";
 import { ProgressiveImage } from "@/components/progressive-image";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import {
@@ -176,9 +176,6 @@ function AreasPage() {
           </div>
 
 
-          <div className="mt-14">
-            <LegalDisclaimer />
-          </div>
         </div>
       </section>
     </>

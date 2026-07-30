@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageHeader, LegalDisclaimer } from "@/components/section";
+import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
 import headerAsset from "@/assets/banner-inside-a.webp.asset.json";
@@ -111,9 +111,6 @@ function LawyerPage() {
             </div>
           </section>
 
-          <div className="mt-12">
-            <LegalDisclaimer />
-          </div>
         </div>
 
         <aside className="lg:col-span-5">

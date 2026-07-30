@@ -94,9 +94,6 @@ export function SiteFooter() {
       </div>
 
       <div className="container-editorial border-t border-hairline-invert py-8">
-        <p className="measure text-xs leading-relaxed text-ink-foreground/55">
-          {site.legalNotice}
-        </p>
         <div className="mt-6 flex flex-col gap-4 border-t border-hairline-invert pt-6 text-xs text-ink-foreground/55 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. Tüm hakları saklıdır.

@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import { LegalDisclaimer } from "@/components/section";
 import { FaqList } from "@/components/faq-list";
 import { areaFaqs, faqJsonLd } from "@/data/faqs";
 import {
@@ -307,11 +306,6 @@ function AreaDetail() {
             </section>
           ) : null}
 
-          <div className="mt-14">
-            <LegalDisclaimer
-              text={`${site.legalNotice} Bu sayfadaki açıklamalar ${area.title.toLocaleLowerCase("tr-TR")} alanına ilişkin genel çerçeveyi anlatır.`}
-            />
-          </div>
         </div>
 
         <aside className="lg:col-span-4">

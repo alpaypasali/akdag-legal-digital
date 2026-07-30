@@ -21,8 +21,6 @@ export const site = {
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Hac%C4%B1+%C4%B0lyas+Mh.+K%C4%B1br%C4%B1s+%C5%9Eehitleri+Cd.+Avukatlar+%C4%B0%C5%9Fhan%C4%B1+Osmangazi+Bursa",
   },
-  legalNotice:
-    "Bu internet sitesindeki içerikler yalnızca genel bilgilendirme amacı taşır; hukuki görüş veya tavsiye niteliğinde değildir. Her uyuşmazlık kendi koşulları içinde değerlendirilir.",
   formNotice:
     "Bu form üzerinden gönderilen bilgiler, avukat-müvekkil ilişkisi kurulduğu veya hukuki danışmanlık verildiği anlamına gelmez.",
 } as const;
