@@ -18,8 +18,8 @@ import { CookieConsent } from "@/components/cookie-consent";
 import { AnalyticsTracker } from "@/components/analytics-tracker";
 import { site } from "@/data/site";
 import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
-import faviconAsset from "@/assets/favicon.png.asset.json";
-import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
+import faviconAsset from "@/assets/favicon.png";
+import logoFooterAsset from "@/assets/logo-footer.webp";
 
 function NotFoundComponent() {
   return (
@@ -120,8 +120,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: faviconAsset.url, type: "image/png" },
-      { rel: "apple-touch-icon", href: logoFooterAsset.url },
+      { rel: "icon", href: faviconAsset, type: "image/png" },
+      { rel: "apple-touch-icon", href: logoFooterAsset },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",

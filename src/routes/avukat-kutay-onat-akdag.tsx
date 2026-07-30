@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { site } from "@/data/site";
-import headerAsset from "@/assets/banner-inside-a.webp.asset.json";
-import logoMarkAsset from "@/assets/logo-footer.webp.asset.json";
+import headerAsset from "@/assets/banner-inside-a.webp";
+import logoMarkAsset from "@/assets/logo-footer.webp";
 
 const title = "Av. Kutay Onat Akdağ | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -65,7 +65,7 @@ function LawyerPage() {
       <PageHeader
         eyebrow="Avukat"
         title="Av. Kutay Onat Akdağ"
-        image={headerAsset.url}
+        image={headerAsset}
         imagePosition="70% center"
         imageAlt="Ciltli hukuk kitaplarının bulunduğu çalışma kütüphanesi"
         intro="Dosyaların hazırlığı, dilekçelerin yazımı ve duruşma takibi doğrudan yürütülür. Amaç, sürecin müvekkil tarafından anlaşılabilir biçimde ilerlemesidir."
@@ -116,7 +116,7 @@ function LawyerPage() {
         <aside className="lg:col-span-5">
           <div className="grid aspect-[4/5] place-items-center border border-border bg-secondary p-10 transition-colors duration-500 hover:border-accent/50">
             <img
-              src={logoMarkAsset.url}
+              src={logoMarkAsset}
               alt="Akdağ Hukuk ve Danışmanlık logosu"
               width={1536}
               height={1215}

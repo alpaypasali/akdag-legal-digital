@@ -1,5 +1,5 @@
-import scalesAsset from "@/assets/hero-scales.webp.asset.json";
-import booksAsset from "@/assets/hero-books.webp.asset.json";
+import scalesAsset from "@/assets/hero-scales.webp";
+import booksAsset from "@/assets/hero-books.webp";
 
 /**
  * İki banner görselinin tek kompozisyonda birleştirilmesi.
@@ -13,7 +13,7 @@ export function HeroBackdrop() {
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden bg-ink">
       {/* Katman 1 — kitaplık dokusu (sol) */}
       <img
-        src={booksAsset.url}
+        src={booksAsset}
         alt=""
         fetchPriority="high"
         decoding="async"
@@ -29,7 +29,7 @@ export function HeroBackdrop() {
 
       {/* Katman 2 — terazi (sağ odak) */}
       <img
-        src={scalesAsset.url}
+        src={scalesAsset}
         alt=""
         fetchPriority="high"
         decoding="async"

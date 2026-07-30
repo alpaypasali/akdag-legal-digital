@@ -7,10 +7,10 @@ import { fetchSiteContent } from "@/lib/content.functions";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { ArchBackdrop } from "@/components/arch-backdrop";
-import heroBooksAsset from "@/assets/hero-books.webp.asset.json";
-import heroScalesAsset from "@/assets/hero-scales.webp.asset.json";
-import logoMarkAsset from "@/assets/logo-footer.webp.asset.json";
-import archAsset from "@/assets/arch-columns.webp.asset.json";
+import heroBooksAsset from "@/assets/hero-books.webp";
+import heroScalesAsset from "@/assets/hero-scales.webp";
+import logoMarkAsset from "@/assets/logo-footer.webp";
+import archAsset from "@/assets/arch-columns.webp";
 
 
 const trustPoints: string[] = [
@@ -45,13 +45,13 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: heroBooksAsset.url,
+        href: heroBooksAsset,
         fetchPriority: "high" as const,
       },
       {
         rel: "preload",
         as: "image",
-        href: heroScalesAsset.url,
+        href: heroScalesAsset,
         fetchPriority: "high" as const,
       },
     ],
@@ -267,7 +267,7 @@ function Home() {
                 className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--color-gold)_14%,transparent),transparent_70%)] lg:left-[140px]"
               />
               <img
-                src={logoMarkAsset.url}
+                src={logoMarkAsset}
                 alt="Akdağ Hukuk ve Danışmanlık logosu"
                 width={1536}
                 height={1215}
@@ -358,7 +358,7 @@ function Home() {
         className="relative isolate overflow-hidden border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
       >
         <img
-          src={archAsset.url}
+          src={archAsset}
           alt=""
           aria-hidden="true"
           loading="lazy"

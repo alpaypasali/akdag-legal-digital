@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
+import logoFooterAsset from "@/assets/logo-footer.webp";
 import { site } from "@/data/site";
 import { openConsentPreferences } from "@/lib/consent";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
@@ -26,7 +26,7 @@ export function SiteFooter() {
       <div className="container-editorial grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4">
           <img
-            src={logoFooterAsset.url}
+            src={logoFooterAsset}
             alt="Akdağ Hukuk ve Danışmanlık logosu"
             width={1536}
             height={1215}
