@@ -119,13 +119,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": "LegalService",
           name: site.name,
           url: "/",
           areaServed: "Bursa, Türkiye",
           email: site.contact.email,
+          telephone: site.contact.phoneHref,
           address: {
             "@type": "PostalAddress",
+            streetAddress: site.contact.addressLine,
+            postalCode: site.contact.postalCode,
             addressLocality: site.contact.district,
             addressRegion: site.contact.city,
             addressCountry: "TR",
