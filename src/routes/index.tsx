@@ -30,11 +30,11 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: `${site.name} | Bursa'da Avukatlık ve Hukuki Danışmanlık` },
+      { title: `${site.shortName} | Bursa Avukatlık ve Danışmanlık` },
       { name: "description", content: description },
       {
         property: "og:title",
-        content: `${site.name} | Bursa'da Avukatlık ve Hukuki Danışmanlık`,
+        content: `${site.shortName} | Bursa Avukatlık ve Danışmanlık`,
       },
       { property: "og:description", content: description },
       { property: "og:url", content: "/" },
