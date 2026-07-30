@@ -27,6 +27,7 @@ import { Route as AdminGirisRouteImport } from './routes/admin.giris'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
+import { Route as AuthenticatedAdminMakalelerRouteImport } from './routes/_authenticated/admin.makaleler'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -117,6 +118,12 @@ const MakalelerKategoriSlugRoute = MakalelerKategoriSlugRouteImport.update({
   path: '/makaleler/kategori/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminMakalelerRoute =
+  AuthenticatedAdminMakalelerRouteImport.update({
+    id: '/makaleler',
+    path: '/makaleler',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -134,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
+  '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
 }
@@ -152,6 +160,7 @@ export interface FileRoutesByTo {
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
   '/makaleler': typeof MakalelerIndexRoute
+  '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
 }
@@ -173,6 +182,7 @@ export interface FileRoutesById {
   '/makaleler/$slug': typeof MakalelerSlugRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
+  '/_authenticated/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
 }
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
     | '/makaleler/'
+    | '/admin/makaleler'
     | '/makaleler/kategori/$slug'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -212,6 +223,7 @@ export interface FileRouteTypes {
     | '/makaleler/$slug'
     | '/calisma-alanlari'
     | '/makaleler'
+    | '/admin/makaleler'
     | '/makaleler/kategori/$slug'
     | '/admin'
   id:
@@ -232,6 +244,7 @@ export interface FileRouteTypes {
     | '/makaleler/$slug'
     | '/calisma-alanlari/'
     | '/makaleler/'
+    | '/_authenticated/admin/makaleler'
     | '/makaleler/kategori/$slug'
     | '/_authenticated/admin/'
   fileRoutesById: FileRoutesById
@@ -383,14 +396,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MakalelerKategoriSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin/makaleler': {
+      id: '/_authenticated/admin/makaleler'
+      path: '/makaleler'
+      fullPath: '/admin/makaleler'
+      preLoaderRoute: typeof AuthenticatedAdminMakalelerRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
   }
 }
 
 interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminMakalelerRoute: typeof AuthenticatedAdminMakalelerRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
 const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminMakalelerRoute: AuthenticatedAdminMakalelerRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
 
