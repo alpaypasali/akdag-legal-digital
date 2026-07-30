@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
+import { trackEvent } from "@/lib/analytics";
 import { site } from "@/data/site";
 
 const schema = z.object({
@@ -43,6 +44,7 @@ const subjects = [
 type Errors = Partial<Record<string, string>>;
 
 export function ContactForm() {
+  // Yalnızca işlem durumu ölçülür; form içeriği hiçbir sisteme gönderilmez.
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
 
@@ -66,6 +68,10 @@ export function ContactForm() {
         if (!next[key]) next[key] = issue.message;
       }
       setErrors(next);
+      trackEvent("form_submit_error", {
+        form_name: "iletisim",
+        form_status: "error",
+      });
       const first = document.getElementById(`alan-${Object.keys(next)[0]}`);
       first?.focus();
       return;
@@ -73,6 +79,10 @@ export function ContactForm() {
 
     setErrors({});
     setSent(true);
+    trackEvent("form_submit_success", {
+      form_name: "iletisim",
+      form_status: "success",
+    });
     e.currentTarget.reset();
   }
 
@@ -82,7 +92,10 @@ export function ContactForm() {
         {site.formNotice}
       </p>
 
-      <form onSubmit={onSubmit} noValidate className="mt-8 space-y-6">
+      <form
+      onFocusCapture={() =>
+        trackEvent("form_start", { form_name: "iletisim" }, { once: "form_start:iletisim" })
+      } onSubmit={onSubmit} noValidate className="mt-8 space-y-6">
         <div aria-live="polite" className="sr-only">
           {sent ? "Mesajınız iletildi." : ""}
         </div>

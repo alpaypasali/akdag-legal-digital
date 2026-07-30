@@ -45,12 +45,14 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "weekly",
             priority: "0.6",
           })),
-          ...content.articles.map<SitemapEntry>((a) => ({
-            path: `/makaleler/${a.slug}`,
-            lastmod: a.updatedAt ?? a.publishedAt,
-            changefreq: "yearly",
-            priority: "0.7",
-          })),
+          ...content.articles
+            .filter((a) => !a.noindex && a.status !== "draft")
+            .map<SitemapEntry>((a) => ({
+              path: `/makaleler/${a.slug}`,
+              lastmod: a.updatedAt ?? a.publishedAt,
+              changefreq: "yearly",
+              priority: "0.7",
+            })),
           {
             path: "/sikca-sorulan-sorular",
             changefreq: "monthly",

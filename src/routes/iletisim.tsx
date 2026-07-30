@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
+import { trackEvent } from "@/lib/analytics";
 import { site } from "@/data/site";
 import headerAsset from "@/assets/hero-iletisim.webp.asset.json";
 
@@ -112,7 +113,11 @@ function ContactPage() {
               <dt className="eyebrow">Telefon</dt>
               <dd className="col-start-2 mt-1 text-sm text-muted-foreground">
                 {site.contact.phoneHref ? (
-                  <a href={`tel:${site.contact.phoneHref}`} className="link-underline">
+                  <a
+                    href={`tel:${site.contact.phoneHref}`}
+                    onClick={() => trackEvent("click_phone", { button_location: "contact_page" })}
+                    className="link-underline"
+                  >
                     {site.contact.phoneLabel}
                   </a>
                 ) : (
@@ -129,6 +134,7 @@ function ContactPage() {
               <dd className="col-start-2 mt-1 min-w-0 text-sm text-muted-foreground">
                 <a
                   href={`mailto:${site.contact.email}`}
+                  onClick={() => trackEvent("click_email", { button_location: "contact_page" })}
                   className="link-underline break-all"
                 >
                   {site.contact.email}
@@ -149,6 +155,7 @@ function ContactPage() {
 
           <a
             href={site.contact.mapUrl}
+            onClick={() => trackEvent("click_map", { button_location: "contact_page" })}
             target="_blank"
             rel="noreferrer noopener"
             className="mt-6 inline-flex min-h-12 items-center border border-foreground px-6 text-sm transition-colors hover:bg-secondary"

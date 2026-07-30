@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import logoFooterAsset from "@/assets/logo-footer.webp.asset.json";
 import { site } from "@/data/site";
+import { openConsentPreferences } from "@/lib/consent";
 import { featuredAreas, secondaryAreas } from "@/data/practice-areas";
 
 const legalLinks = [
@@ -106,6 +107,15 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
+            <li>
+              <button
+                type="button"
+                onClick={openConsentPreferences}
+                className="py-1 underline-offset-2 transition-colors hover:text-gold hover:underline"
+              >
+                Çerez Tercihleri
+              </button>
+            </li>
           </ul>
         </div>
       </div>
