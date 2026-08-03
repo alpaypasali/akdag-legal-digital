@@ -387,6 +387,46 @@ function Home() {
         </div>
       </section>
 
+      {/* 2c — Gurbetçi Hukuku Rehberleri */}
+      {gurbetciGuides.length > 0 ? (
+        <section
+          aria-labelledby="gurbetci-rehberleri"
+          className="border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-20"
+        >
+          <div className="container-editorial">
+            <div className="flex items-center gap-4">
+              <span aria-hidden="true" className="h-px w-8 bg-gold" />
+              <p className="eyebrow text-gold">Rehberler</p>
+            </div>
+            <h2
+              id="gurbetci-rehberleri"
+              className="mt-5 font-serif text-2xl sm:text-3xl lg:text-4xl"
+            >
+              Gurbetçi Hukuku Rehberleri
+            </h2>
+            <p className="measure mt-5 text-ink-foreground/75">
+              Vekâletname, miras, boşanma ve askerlik başlıklarında yurt
+              dışından yürütülebilen işlemleri anlatan güncel yazılar.
+            </p>
+
+            <div className="mt-10">
+              <GuideCards articles={gurbetciGuides} tone="dark" />
+            </div>
+
+            <Link
+              to="/makaleler/kategori/$slug"
+              params={{ slug: "gurbetci-hukuk" }}
+              className="link-underline mt-10 inline-flex text-sm"
+            >
+              Tüm gurbetçi hukuku yazıları
+              <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
+      ) : null}
+
+
+
       {/* 3 — Avukat tanıtımı */}
 
       <section
