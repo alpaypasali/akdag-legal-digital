@@ -7,6 +7,7 @@ import { fetchSiteContent } from "@/lib/content.functions";
 import type { SiteContent } from "@/lib/content-mappers";
 import headerAsset from "@/assets/calisma-header.webp";
 import gurbetciAsset from "@/assets/gurbetci-hukuk.webp";
+import { absoluteUrl } from "@/data/site";
 
 const title = "Bursa Avukat Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -20,10 +21,10 @@ export const Route = createFileRoute("/calisma-alanlari/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: "/calisma-alanlari" },
+      { property: "og:url", content: absoluteUrl("/calisma-alanlari") },
     ],
     links: [
-      { rel: "canonical", href: "/calisma-alanlari" },
+      { rel: "canonical", href: absoluteUrl("/calisma-alanlari") },
       {
         rel: "preload",
         as: "image",

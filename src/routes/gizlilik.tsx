@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/legal-page";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 
 const title = "Gizlilik Politikası | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -13,9 +13,9 @@ export const Route = createFileRoute("/gizlilik")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: "/gizlilik" },
+      { property: "og:url", content: absoluteUrl("/gizlilik") },
     ],
-    links: [{ rel: "canonical", href: "/gizlilik" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/gizlilik") }],
   }),
   component: () => (
     <LegalPage

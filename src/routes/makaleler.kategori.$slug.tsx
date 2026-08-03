@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
 import { fetchSiteContent } from "@/lib/content.functions";
+import { absoluteUrl } from "@/data/site";
 
 export const Route = createFileRoute("/makaleler/kategori/$slug")({
   loader: async ({
@@ -32,9 +33,9 @@ export const Route = createFileRoute("/makaleler/kategori/$slug")({
         { name: "description", content: loaderData.category.description },
         { property: "og:title", content: title },
         { property: "og:description", content: loaderData.category.description },
-        { property: "og:url", content: url },
+        { property: "og:url", content: absoluteUrl(url) },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [{ rel: "canonical", href: absoluteUrl(url) }],
       scripts: [
         {
           type: "application/ld+json",

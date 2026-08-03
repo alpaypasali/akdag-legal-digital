@@ -6,6 +6,7 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
 import { fetchSiteContent } from "@/lib/content.functions";
 import headerAsset from "@/assets/hero-makaleler.webp";
+import { absoluteUrl } from "@/data/site";
 
 const title = "Makaleler | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -22,10 +23,10 @@ export const Route = createFileRoute("/makaleler/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: "/makaleler" },
+      { property: "og:url", content: absoluteUrl("/makaleler") },
     ],
     links: [
-      { rel: "canonical", href: "/makaleler" },
+      { rel: "canonical", href: absoluteUrl("/makaleler") },
       {
         rel: "preload",
         as: "image",

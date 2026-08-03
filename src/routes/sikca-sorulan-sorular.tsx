@@ -3,7 +3,7 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { FaqList } from "@/components/faq-list";
 import { areaFaqs, faqJsonLd, generalFaqs } from "@/data/faqs";
 import { practiceAreas } from "@/data/practice-areas";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 
 const title = "Sıkça Sorulan Sorular | Bursa Avukat | Akdağ Hukuk";
 const description =
@@ -21,10 +21,10 @@ export const Route = createFileRoute("/sikca-sorulan-sorular")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: "/sikca-sorulan-sorular" },
+      { property: "og:url", content: absoluteUrl("/sikca-sorulan-sorular") },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/sikca-sorulan-sorular" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/sikca-sorulan-sorular") }],
     scripts: [
       {
         type: "application/ld+json",

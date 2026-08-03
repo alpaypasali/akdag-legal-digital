@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
 import { getArea, type PracticeArea } from "@/data/practice-areas";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import { fetchSiteContent } from "@/lib/content.functions";
 
 export const Route = createFileRoute("/makaleler/$slug")({
@@ -46,12 +46,12 @@ export const Route = createFileRoute("/makaleler/$slug")({
         { property: "og:title", content: article.metaTitle },
         { property: "og:description", content: article.metaDescription },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: url },
+        { property: "og:url", content: absoluteUrl(url) },
         ...(article.noindex
           ? [{ name: "robots", content: "noindex" }]
           : []),
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [{ rel: "canonical", href: absoluteUrl(url) }],
       scripts: [
         {
           type: "application/ld+json",

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import headerAsset from "@/assets/banner-inside-a.webp";
 import logoMarkAsset from "@/assets/logo-footer.webp";
 
@@ -17,9 +17,9 @@ export const Route = createFileRoute("/avukat-kutay-onat-akdag")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "profile" },
-      { property: "og:url", content: "/avukat-kutay-onat-akdag" },
+      { property: "og:url", content: absoluteUrl("/avukat-kutay-onat-akdag") },
     ],
-    links: [{ rel: "canonical", href: "/avukat-kutay-onat-akdag" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/avukat-kutay-onat-akdag") }],
     scripts: [
       {
         type: "application/ld+json",

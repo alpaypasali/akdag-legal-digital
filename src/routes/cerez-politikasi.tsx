@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/legal-page";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 
 const title = "Çerez Politikası | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -13,9 +13,9 @@ export const Route = createFileRoute("/cerez-politikasi")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: "/cerez-politikasi" },
+      { property: "og:url", content: absoluteUrl("/cerez-politikasi") },
     ],
-    links: [{ rel: "canonical", href: "/cerez-politikasi" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/cerez-politikasi") }],
   }),
   component: () => (
     <LegalPage

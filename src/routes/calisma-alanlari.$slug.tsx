@@ -6,7 +6,7 @@ import { FaqList } from "@/components/faq-list";
 import { areaFaqs, faqJsonLd } from "@/data/faqs";
 import { areaImages as staticAreaImages, type PracticeArea } from "@/data/practice-areas";
 import { articlesForArea, formatDate } from "@/data/articles";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import { fetchSiteContent } from "@/lib/content.functions";
 import type { SiteContent } from "@/lib/content-mappers";
 
@@ -41,11 +41,11 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
         { name: "description", content: area.metaDescription },
         { property: "og:title", content: area.metaTitle },
         { property: "og:description", content: area.metaDescription },
-        { property: "og:url", content: url },
+        { property: "og:url", content: absoluteUrl(url) },
         { property: "og:type", content: "article" },
       ],
       links: [
-        { rel: "canonical", href: url },
+        { rel: "canonical", href: absoluteUrl(url) },
         ...(heroImg
           ? [
               {
