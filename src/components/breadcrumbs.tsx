@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
+import { absoluteUrl } from "@/data/site";
 
 export interface Crumb {
   label: string;
@@ -50,7 +51,7 @@ export function breadcrumbJsonLd(items: { name: string; item: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: entry.name,
-      item: entry.item,
+      item: absoluteUrl(entry.item),
     })),
   };
 }

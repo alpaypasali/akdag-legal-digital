@@ -31,51 +31,51 @@ export interface PracticeArea {
 export const areaImages: Record<string, { url: string; alt: string }> = {
   "aile-hukuku": {
     url: aileImg,
-    alt: "Hakim tokmağının önünde duran iki altın alyans",
+    alt: "Bursa aile hukuku ve boşanma avukatı çalışma alanı görseli",
   },
   "ceza-hukuku": {
     url: cezaImg,
-    alt: "Hukuk kitapları, kelepçe ve hakim tokmağı",
+    alt: "Bursa ceza hukuku avukatı çalışma alanı görseli",
   },
   "is-hukuku": {
     url: isImg,
-    alt: "Sarı baret ve iş güvenliği gözlüğünün yanında hakim tokmağı",
+    alt: "Bursa iş hukuku danışmanlığı çalışma alanı görseli",
   },
   "gayrimenkul-ve-kira-hukuku": {
     url: gayrimenkulImg,
-    alt: "Yeni taşındıkları evin önünde valizleriyle bekleyen çift",
+    alt: "Bursa gayrimenkul, tapu ve kira hukuku avukatı çalışma alanı görseli",
   },
   "ticaret-ve-sirketler-hukuku": {
     url: denizImg,
-    alt: "Gün batımında konteyner taşıyan ticaret gemisi",
+    alt: "Bursa ticaret ve şirketler hukuku danışmanlığı çalışma alanı görseli",
   },
   "miras-hukuku": {
     url: idareImg,
-    alt: "Ahşap masada adalet terazisi ve hakim tokmağı",
+    alt: "Bursa miras hukuku avukatı çalışma alanı görseli",
   },
   "icra-ve-iflas-hukuku": {
     url: icraImg,
-    alt: "Mali belgeler üzerinde duran hakim tokmağı ve hesap makinesi",
+    alt: "Bursa icra ve iflas hukuku avukatı çalışma alanı görseli",
   },
   "borclar-hukuku": {
     url: borclarImg,
-    alt: "Madeni paraların üzerinde duran hakim tokmağı",
+    alt: "Bursa borçlar hukuku ve sözleşmeler danışmanlığı çalışma alanı görseli",
   },
   "tuketici-hukuku": {
     url: enerjiImg,
-    alt: "Gün ışığında yüksek gerilim hatları ve elektrik direkleri",
+    alt: "Bursa tüketici hukuku avukatı çalışma alanı görseli",
   },
   "idare-hukuku": {
     url: idareImg,
-    alt: "Kitaplığın önünde altın adalet terazisi ve hakim tokmağı",
+    alt: "Bursa idare hukuku ve idari dava avukatı çalışma alanı görseli",
   },
   "insaat-hukuku": {
     url: insaatImg,
-    alt: "Vinç ve iskelelerle yükselen bir inşaat şantiyesi",
+    alt: "Bursa inşaat hukuku danışmanlığı çalışma alanı görseli",
   },
   "yabancilar-hukuku": {
     url: denizImg,
-    alt: "Açık denizde seyreden uluslararası ticaret gemisi",
+    alt: "Bursa yabancılar hukuku ve oturum işlemleri danışmanlığı çalışma alanı görseli",
   },
 };
 
