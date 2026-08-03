@@ -1,3 +1,5 @@
+import { seoPackArticles } from "./articles-seo-pack";
+
 export interface ArticleCategory {
   slug: string;
   title: string;
@@ -70,9 +72,22 @@ export const articleCategories: ArticleCategory[] = [
     description:
       "Soruşturma, kovuşturma ve kanun yollarına ilişkin genel bilgilendirme yazıları.",
   },
+  {
+    slug: "gayrimenkul-hukuku",
+    title: "Gayrimenkul Hukuku",
+    description:
+      "Tapu iptali ve tescil, ortaklığın giderilmesi ve taşınmaz devirlerine ilişkin genel bilgilendirme yazıları.",
+  },
+  {
+    slug: "icra-hukuku",
+    title: "İcra Hukuku",
+    description:
+      "İcra takibi türleri, ödeme emrine itiraz, haciz ve tahsil aşamalarına ilişkin yazılar.",
+  },
 ];
 
-export const articles: Article[] = [
+const coreArticles: Article[] = [
+
   {
     slug: "bursa-gurbetci-hukuk",
     title: "Bursa Gurbetçi Hukuk: Yurt Dışında Yaşayanlar İçin Hukuki Rehber",
@@ -1445,6 +1460,10 @@ export const articles: Article[] = [
       "Bu yazı genel bilgilendirme amacıyla hazırlanmıştır; hukuki tavsiye niteliği taşımaz, herhangi bir kişinin suçlu veya suçsuz olduğuna dair değerlendirme içermez ve tutuklama, tahliye, beraat ya da ceza miktarı konusunda taahhüt sunmaz. Ceza yargılaması her dosyanın kendi delil durumuna göre değişir; kendi durumunuz için bir avukatla görüşmeniz gerekir.",
   },
 ];
+
+export const articles: Article[] = [...coreArticles, ...seoPackArticles];
+
+
 
 export const publishedArticles = articles
   .filter((a) => a.status === "published")
