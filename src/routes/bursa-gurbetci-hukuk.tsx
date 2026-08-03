@@ -4,6 +4,9 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { PageHeader } from "@/components/section";
 import { faqJsonLd } from "@/data/faqs";
 import { absoluteUrl, site } from "@/data/site";
+import { type Article } from "@/data/articles";
+import { fetchSiteContent } from "@/lib/content.functions";
+import { GuideCards } from "@/components/gurbetci/guide-cards";
 import { trackEvent } from "@/lib/analytics";
 import {
   hubFaqs,
