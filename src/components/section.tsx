@@ -61,7 +61,8 @@ export function PageHeader({
   return (
     <div className="relative flex min-h-[440px] flex-col justify-end overflow-hidden bg-ink pb-12 pt-28 text-ink-foreground md:min-h-[600px] md:pb-16 md:pt-40">
       <ProgressiveImage
-        src={image}
+        src={image!}
+
         alt={imageAlt ?? ""}
         width={1600}
         height={854}
