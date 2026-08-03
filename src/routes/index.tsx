@@ -169,6 +169,9 @@ const approach = [
 function Home() {
   const { articles, categories } = Route.useLoaderData();
   const latest = articles.slice(0, 3);
+  const gurbetciGuides = articles
+    .filter((a: Article) => a.categorySlug === "gurbetci-hukuk")
+    .slice(0, 3);
   const getCategory = (slug: string) => categories.find((c: ArticleCategory) => c.slug === slug);
 
   return (
