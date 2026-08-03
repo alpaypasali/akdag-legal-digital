@@ -6,7 +6,7 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { fetchSiteContent } from "@/lib/content.functions";
 import type { SiteContent } from "@/lib/content-mappers";
 import headerAsset from "@/assets/calisma-header.webp";
-import gurbetciAsset from "@/assets/gurbetci-hukuk.jpg";
+import gurbetciAsset from "@/assets/gurbetci-hukuk.webp";
 
 const title = "Bursa Avukat Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
 const description =
