@@ -72,7 +72,7 @@ function GurbetciHubPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Bursa Gurbetçi Hukuk"
+        eyebrow="Yurt Dışında Yaşayan Vatandaşlara Hukuki Destek"
         title="Bursa Gurbetçi Hukuk ve Yurt Dışı Hukuki Danışmanlık"
         image={heroImage}
         imageAlt=""
@@ -87,32 +87,54 @@ function GurbetciHubPage() {
       >
         <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <h2
-              id="hub-giris"
-              className="font-serif text-2xl leading-tight sm:text-3xl"
-            >
-              Türkiye'ye gelmenize gerek yok.
+            <h2 id="hub-giris" className="sr-only">
+              Bursa gurbetçi hukuk hizmetimiz
             </h2>
+            <p className="measure text-base text-foreground/85 sm:text-lg">
+              Bursa gurbetçi hukuk hizmetimiz; Avrupa ve diğer ülkelerde yaşayan
+              vatandaşların Türkiye'deki vekâletname, miras, boşanma, tapu ve
+              dava takiplerine ilişkin hukuki ihtiyaçlarına yöneliktir. Bursa
+              gurbetçi avukat desteğiyle, uygun işlemler Türkiye'ye gelmeden ve
+              konsolosluk aracılığıyla düzenlenen vekâletname üzerinden takip
+              edilebilir.
+            </p>
+            <span aria-hidden="true" className="rule-gold mt-7 block" />
             <p className="measure mt-6 text-muted-foreground">
-              Avrupa'da yaşayan birçok vatandaşımız, Türkiye'deki hukuki bir
-              işlemi yalnızca Türkiye'ye gelemediği için erteliyor. Miras,
-              boşanma, tapu işlemleri veya dava takibi gibi süreçleri,
-              konsolosluktan düzenlenecek uygun bir vekâletnameyle Türkiye'ye
-              gelmeden bizimle birlikte yürütebilirsiniz.
+              Gurbetçi hukuk Bursa hizmetleri kapsamında her dosya kendi
+              belgeleri, süreleri ve hukuki koşulları çerçevesinde
+              değerlendirilir. Gurbetçi avukat Bursa aramasıyla büromuza ulaşan
+              vatandaşlara süreç, gerekli belgeler ve izlenebilecek hukuki
+              yollar açık biçimde anlatılır.
             </p>
-            <p className="measure mt-4 text-muted-foreground">
-              Akdağ Hukuk Gurbetçi Hub hizmeti kapsamında süreç boyunca
-              WhatsApp üzerinden düzenli olarak bilgilendirilirsiniz.
-            </p>
-            <div className="mt-8">
-              <HubCtaButtons location="hero" />
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href={whatsappHref()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("gurbetci_hub_whatsapp_click", {
+                    button_location: "hero",
+                  })
+                }
+                className="inline-flex min-h-12 items-center justify-center gap-2 border border-gold bg-gold px-7 text-sm font-semibold text-ink transition-colors hover:bg-transparent hover:text-gold"
+              >
+                WhatsApp'tan Bilgi Alın
+              </a>
+              <a
+                href="#hizmetler"
+                className="inline-flex min-h-12 items-center justify-center gap-2 border border-foreground px-7 text-sm text-foreground transition-colors hover:bg-foreground hover:text-primary-foreground"
+              >
+                Hizmetleri İnceleyin
+                <ArrowDown className="size-4" aria-hidden="true" />
+              </a>
             </div>
           </div>
 
           <div className="lg:col-span-5">
             <h3 className="eyebrow">Çalışma Esaslarımız</h3>
             <ul className="mt-5 border-t border-border">
-              {hubTrustPoints.map((point, i) => (
+              {heroTrustPoints.map((point, i) => (
                 <li
                   key={point}
                   className="flex items-baseline gap-4 border-b border-border py-4"
@@ -127,6 +149,7 @@ function GurbetciHubPage() {
           </div>
         </div>
       </section>
+
 
       <HubQuickNav sections={hubSections} />
 
