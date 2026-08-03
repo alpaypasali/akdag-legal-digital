@@ -14,6 +14,8 @@ export function ArchBackdrop() {
       <img
         src={archAsset}
         alt=""
+        width={1920}
+        height={1280}
         loading="lazy"
         decoding="async"
         className="arch-backdrop__img"
