@@ -101,7 +101,7 @@ function AboutPage() {
         aria-labelledby="ilkeler"
         className="relative isolate overflow-hidden border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
       >
-        <img
+        <ProgressiveImage
           src={archAsset}
           alt=""
           aria-hidden="true"
@@ -109,6 +109,7 @@ function AboutPage() {
           height={1280}
           loading="lazy"
           decoding="async"
+          sizes="100vw"
           className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center opacity-45 [filter:grayscale(1)_contrast(1.05)_brightness(0.9)]"
         />
         <span

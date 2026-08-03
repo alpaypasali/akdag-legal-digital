@@ -1,3 +1,4 @@
+import { ProgressiveImage } from "@/components/progressive-image";
 import scalesAsset from "@/assets/hero-scales.webp";
 import booksAsset from "@/assets/hero-books.webp";
 
@@ -12,13 +13,14 @@ export function HeroBackdrop() {
   return (
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden bg-ink">
       {/* Katman 1 — kitaplık dokusu (sol) */}
-      <img
+      <ProgressiveImage
         src={booksAsset}
         alt=""
         width={1600}
         height={1060}
         fetchPriority="high"
         decoding="async"
+        sizes="100vw"
         className="absolute inset-0 size-full object-cover object-left"
         style={{
           filter: "saturate(0.78) contrast(1.04) brightness(0.9) sepia(0.06)",
@@ -30,13 +32,14 @@ export function HeroBackdrop() {
       />
 
       {/* Katman 2 — terazi (sağ odak) */}
-      <img
+      <ProgressiveImage
         src={scalesAsset}
         alt=""
         width={1600}
         height={854}
         fetchPriority="high"
         decoding="async"
+        sizes="100vw"
         className="absolute inset-0 size-full object-cover object-[72%_center]"
         style={{
           filter: "saturate(0.86) contrast(1.04) brightness(1.02)",
