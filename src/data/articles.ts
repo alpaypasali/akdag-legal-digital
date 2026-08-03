@@ -1459,6 +1459,10 @@ const coreArticles: Article[] = [
   },
 ];
 
+export const articles: Article[] = [...coreArticles, ...seoPackArticles];
+
+
+
 export const publishedArticles = articles
   .filter((a) => a.status === "published")
   .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
