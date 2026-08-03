@@ -9,11 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YurtdisiHukukRouteImport } from './routes/yurtdisi-hukuk'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SikcaSorulanSorularRouteImport } from './routes/sikca-sorulan-sorular'
 import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
+import { Route as GurbetciHukukRouteImport } from './routes/gurbetci-hukuk'
+import { Route as GurbetciHubRouteImport } from './routes/gurbetci-hub'
 import { Route as GizlilikRouteImport } from './routes/gizlilik'
 import { Route as CerezPolitikasiRouteImport } from './routes/cerez-politikasi'
 import { Route as BursaGurbetciHukukRouteImport } from './routes/bursa-gurbetci-hukuk'
@@ -32,6 +35,11 @@ import { Route as AuthenticatedAdminMakalelerRouteImport } from './routes/_authe
 import { Route as AuthenticatedAdminCalismaAlanlariRouteImport } from './routes/_authenticated/admin.calisma-alanlari'
 import { Route as AuthenticatedAdminAyarlarRouteImport } from './routes/_authenticated/admin.ayarlar'
 
+const YurtdisiHukukRoute = YurtdisiHukukRouteImport.update({
+  id: '/yurtdisi-hukuk',
+  path: '/yurtdisi-hukuk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -55,6 +63,16 @@ const IletisimRoute = IletisimRouteImport.update({
 const HakkimizdaRoute = HakkimizdaRouteImport.update({
   id: '/hakkimizda',
   path: '/hakkimizda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GurbetciHukukRoute = GurbetciHukukRouteImport.update({
+  id: '/gurbetci-hukuk',
+  path: '/gurbetci-hukuk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GurbetciHubRoute = GurbetciHubRouteImport.update({
+  id: '/gurbetci-hub',
+  path: '/gurbetci-hub',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GizlilikRoute = GizlilikRouteImport.update({
@@ -151,11 +169,14 @@ export interface FileRoutesByFullPath {
   '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
+  '/gurbetci-hub': typeof GurbetciHubRoute
+  '/gurbetci-hukuk': typeof GurbetciHukukRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yurtdisi-hukuk': typeof YurtdisiHukukRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
@@ -174,11 +195,14 @@ export interface FileRoutesByTo {
   '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
+  '/gurbetci-hub': typeof GurbetciHubRoute
+  '/gurbetci-hukuk': typeof GurbetciHukukRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yurtdisi-hukuk': typeof YurtdisiHukukRoute
   '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
@@ -198,11 +222,14 @@ export interface FileRoutesById {
   '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
+  '/gurbetci-hub': typeof GurbetciHubRoute
+  '/gurbetci-hukuk': typeof GurbetciHukukRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yurtdisi-hukuk': typeof YurtdisiHukukRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
@@ -223,11 +250,14 @@ export interface FileRouteTypes {
     | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
+    | '/gurbetci-hub'
+    | '/gurbetci-hukuk'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/yurtdisi-hukuk'
     | '/admin'
     | '/admin/giris'
     | '/calisma-alanlari/$slug'
@@ -246,11 +276,14 @@ export interface FileRouteTypes {
     | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
+    | '/gurbetci-hub'
+    | '/gurbetci-hukuk'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/yurtdisi-hukuk'
     | '/admin/giris'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
@@ -269,11 +302,14 @@ export interface FileRouteTypes {
     | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
+    | '/gurbetci-hub'
+    | '/gurbetci-hukuk'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/yurtdisi-hukuk'
     | '/_authenticated/admin'
     | '/admin/giris'
     | '/calisma-alanlari/$slug'
@@ -294,11 +330,14 @@ export interface RootRouteChildren {
   BursaGurbetciHukukRoute: typeof BursaGurbetciHukukRoute
   CerezPolitikasiRoute: typeof CerezPolitikasiRoute
   GizlilikRoute: typeof GizlilikRoute
+  GurbetciHubRoute: typeof GurbetciHubRoute
+  GurbetciHukukRoute: typeof GurbetciHukukRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
   KvkkRoute: typeof KvkkRoute
   SikcaSorulanSorularRoute: typeof SikcaSorulanSorularRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  YurtdisiHukukRoute: typeof YurtdisiHukukRoute
   AdminGirisRoute: typeof AdminGirisRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   MakalelerSlugRoute: typeof MakalelerSlugRoute
@@ -309,6 +348,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yurtdisi-hukuk': {
+      id: '/yurtdisi-hukuk'
+      path: '/yurtdisi-hukuk'
+      fullPath: '/yurtdisi-hukuk'
+      preLoaderRoute: typeof YurtdisiHukukRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -342,6 +388,20 @@ declare module '@tanstack/react-router' {
       path: '/hakkimizda'
       fullPath: '/hakkimizda'
       preLoaderRoute: typeof HakkimizdaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gurbetci-hukuk': {
+      id: '/gurbetci-hukuk'
+      path: '/gurbetci-hukuk'
+      fullPath: '/gurbetci-hukuk'
+      preLoaderRoute: typeof GurbetciHukukRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gurbetci-hub': {
+      id: '/gurbetci-hub'
+      path: '/gurbetci-hub'
+      fullPath: '/gurbetci-hub'
+      preLoaderRoute: typeof GurbetciHubRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gizlilik': {
@@ -502,11 +562,14 @@ const rootRouteChildren: RootRouteChildren = {
   BursaGurbetciHukukRoute: BursaGurbetciHukukRoute,
   CerezPolitikasiRoute: CerezPolitikasiRoute,
   GizlilikRoute: GizlilikRoute,
+  GurbetciHubRoute: GurbetciHubRoute,
+  GurbetciHukukRoute: GurbetciHukukRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
   KvkkRoute: KvkkRoute,
   SikcaSorulanSorularRoute: SikcaSorulanSorularRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  YurtdisiHukukRoute: YurtdisiHukukRoute,
   AdminGirisRoute: AdminGirisRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   MakalelerSlugRoute: MakalelerSlugRoute,
@@ -517,13 +580,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
