@@ -53,9 +53,9 @@ export const Route = createFileRoute("/avukat-kutay-onat-akdag")({
 });
 
 const timeline = [
-  { t: "Eğitim", d: "Hukuk fakültesi lisans eğitimi. Ayrıntılı bilgi güncellenecektir." },
+  { t: "Eğitim", d: "Hukuk fakültesi lisans eğitimi." },
   { t: "Baro", d: "Bursa Barosu'na kayıtlı avukat." },
-  { t: "Mesleğe başlangıç", d: "Serbest avukatlık faaliyeti. Yıl bilgisi güncellenecektir." },
+  { t: "Mesleğe başlangıç", d: "Bursa Barosu levhasına kayıtlı olarak serbest avukatlık faaliyeti." },
   { t: "Faaliyet bölgesi", d: "Bursa merkez ilçeleri ve çevre yerleşimler." },
 ];
 
