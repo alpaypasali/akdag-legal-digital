@@ -213,6 +213,13 @@ function Home() {
           >
             Öncelikli olarak takip edilen dosya grupları
           </h2>
+          <p className="measure mt-6 text-muted-foreground">
+            Bursa hukuk bürosu olarak dosyalar, konusuna göre ilgili alanda
+            yürütülür: aile ve boşanma dosyalarında Bursa aile hukuku avukatı,
+            soruşturma ve kovuşturma süreçlerinde Bursa ceza avukatı, işçi ve
+            işveren uyuşmazlıklarında Bursa iş hukuku avukatı, tapu ve kira
+            uyuşmazlıklarında ise Bursa gayrimenkul avukatı desteği sunulur.
+          </p>
 
           <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {featuredAreas.map((area, i) => (
@@ -275,10 +282,18 @@ function Home() {
               hizmetimiz sayesinde birçok işlem, uygun vekâletname düzenlenerek
               Türkiye'ye gelmeden takip edilebilir.
             </p>
+            <p className="measure mt-4 text-ink-foreground/75">
+              Akdağ Hukuk; Bursa'da aile, ceza, iş, gayrimenkul ve miras hukuku
+              alanlarında hizmet sunarken, yurt dışında yaşayan vatandaşlar için
+              Bursa gurbetçi hukuk danışmanlığı da sağlamaktadır. Bursa gurbetçi
+              avukat desteği kapsamında Türkiye'deki hukuki işlemler, dosyanın
+              niteliğine göre vekâletname aracılığıyla takip edilebilir.
+            </p>
             <p className="measure mt-4 text-sm text-ink-foreground/65">
               Almanya, Hollanda, Fransa ve diğer ülkelerden gelen taleplerde
-              gurbetçi hukuk Bursa ölçeğinde tek merkezden yürütülür; Bursa
-              gurbetçi avukat desteğiyle süreç yazılı olarak raporlanır.
+              gurbetçi avukat Bursa ölçeğinde tek merkezden yürütülür; yurt
+              dışında yaşayan vatandaşlar için avukat desteğiyle süreç yazılı
+              olarak raporlanır.
             </p>
 
             <Link

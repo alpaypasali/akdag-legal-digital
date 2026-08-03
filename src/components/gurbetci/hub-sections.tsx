@@ -8,6 +8,8 @@ import {
 import { FaqList } from "@/components/faq-list";
 import { SectionLabel } from "@/components/section";
 import type { HubSection, HubStep } from "@/data/gurbetci-hub";
+import { whatsappHref } from "@/components/gurbetci/hub-cta";
+import { trackEvent } from "@/lib/analytics";
 
 const icons: Record<HubSection["icon"], LucideIcon> = {
   "file-signature": FileSignature,
@@ -155,6 +157,22 @@ export function HubServiceSection({
               </h3>
               <FaqList items={section.faqs} headingId={faqHeadingId} />
             </div>
+
+            <a
+              href={whatsappHref(
+                `Merhaba, yurt dışında yaşıyorum. ${section.navLabel} konusunda bilgi almak istiyorum.`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("gurbetci_hub_whatsapp_click", {
+                  button_location: section.id,
+                })
+              }
+              className="mt-10 inline-flex min-h-12 items-center justify-center gap-2 border border-gold bg-gold px-7 text-sm font-semibold text-ink transition-colors hover:bg-transparent hover:text-gold"
+            >
+              WhatsApp'tan Bu Konuda Yazın
+            </a>
           </div>
         </div>
       </div>

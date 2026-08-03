@@ -34,12 +34,12 @@ export const hubWhatsappMessage =
 export const hubSections: HubSection[] = [
   {
     id: "vekaletname",
-    navLabel: "Vekâletname İşlemleri",
+    navLabel: "Konsolosluk Vekâletnamesi",
     icon: "file-signature",
-    title: "Vekâletname Nasıl Çıkarılır?",
+    title: "Konsolosluk Vekâletnamesi Nasıl Çıkarılır?",
     subtitle: "Türkiye'ye gelmeden işlemlerinizi başlatın",
     description:
-      "Yurt dışında yaşayan birçok vatandaşımız; miras, tapu, boşanma veya dava takibi gibi işlemleri Türkiye'ye gelemediği için erteliyor. Oysa konsolosluktan düzenlenecek, yapılacak işleme uygun bir vekâletnameyle süreç Türkiye'de tarafımızca takip edilebilir.",
+      "Yurt dışında yaşayan birçok vatandaşımız; miras, tapu, boşanma veya dava takibi gibi işlemleri Türkiye'ye gelemediği için erteliyor. Oysa konsolosluk vekâletnamesi ile bu işlemler Türkiye'de tarafımızca takip edilebilir. Yurt dışında yaşayan Türkler için avukat desteğinin ilk adımı, yapılacak işleme uygun kapsamda düzenlenmiş bir vekâletnamedir.",
     stepsTitle: "Adım adım süreç",
     steps: [
       {
@@ -59,7 +59,7 @@ export const hubSections: HubSection[] = [
         text: "Konsolosluk tarafından düzenlenen vekâletnamenin okunabilir bir kopyası ön inceleme için e-posta veya WhatsApp üzerinden iletilebilir. Resmî işlem için belgenin aslının gerekip gerekmediği ayrıca bildirilir.",
       },
     ],
-    serviceListTitle: "Bu süreçte sizin için yaptıklarımız",
+    serviceListTitle: "Bu süreçte neler yapıyoruz?",
     serviceList: [
       "Yapılacak işleme uygun vekâletname metnini hazırlarız.",
       "Konsolosluk sürecindeki sorularınızı WhatsApp üzerinden yanıtlarız.",
@@ -86,7 +86,7 @@ export const hubSections: HubSection[] = [
   },
   {
     id: "miras",
-    navLabel: "Yurt Dışından Miras",
+    navLabel: "Yurt Dışından Miras İşlemleri",
     icon: "scroll-text",
     title: "Yurt Dışından Miras İşlemleri",
     subtitle: "Türkiye'deki mirasınızı uzaktan takip edin",
@@ -111,6 +111,13 @@ export const hubSections: HubSection[] = [
         text: "Mirasçılar arasında uyuşmazlık bulunması hâlinde gerekli dava süreci başlatılabilir ve vekâletname kapsamında takip edilebilir.",
       },
     ],
+    serviceListTitle: "Bu süreçte neler yapıyoruz?",
+    serviceList: [
+      "Mirasçılık belgesi ve tapu kayıtlarına ilişkin araştırmaları yürütürüz.",
+      "Mirasa konu taşınmaz ve banka işlemlerini vekâletname kapsamında takip ederiz.",
+      "Mirasçılar arasındaki görüşmelerde yazışmaları düzenli biçimde yönetiriz.",
+      "Dava gerekmesi hâlinde yurt dışından Türkiye'de dava takibini üstleniriz.",
+    ],
     faqs: [
       {
         question: "Mirası reddetmek istersem ne yapmam gerekir?",
@@ -131,7 +138,7 @@ export const hubSections: HubSection[] = [
   },
   {
     id: "bosanma",
-    navLabel: "Yurt Dışından Boşanma",
+    navLabel: "Yurt Dışından Boşanma Davası",
     icon: "heart-crack",
     title: "Yurt Dışından Boşanma Davası",
     subtitle: "Eşlerden biri Türkiye'de, diğeri Avrupa'da olsa bile",
@@ -156,6 +163,13 @@ export const hubSections: HubSection[] = [
         text: "Mahkeme kararının kesinleşme süreci ve gerekli nüfus kayıt işlemleri takip edilir.",
       },
     ],
+    serviceListTitle: "Bu süreçte neler yapıyoruz?",
+    serviceList: [
+      "Anlaşmalı boşanma protokolünü ve dava dilekçelerini hazırlarız.",
+      "Duruşmaları ve ara kararları takip ederek gelişmeleri yazılı olarak bildiririz.",
+      "Nafaka, velayet ve mal paylaşımı taleplerini dosya kapsamında değerlendiririz.",
+      "Karar sonrası kesinleşme ve nüfus kaydı işlemlerini yürütürüz.",
+    ],
     faqs: [
       {
         question: "Duruşmaya mutlaka katılmam gerekir mi?",
@@ -176,9 +190,9 @@ export const hubSections: HubSection[] = [
   },
   {
     id: "askerlik",
-    navLabel: "Askerlik İşlemleri",
+    navLabel: "Askerlik ve Diğer İşlemler",
     icon: "shield-check",
-    title: "Askerlik Erteleme ve Muafiyet Danışmanlığı",
+    title: "Askerlik Erteleme ve Diğer İşlemler",
     subtitle: "Yurt dışında ikamet eden vatandaşlarımız için",
     description:
       "Yurt dışında yaşayan vatandaşlarımızın askerlik erteleme, dövizle askerlik, bedelli askerlik ve kişisel durumlarına göre gündeme gelebilecek diğer askerlik işlemlerine ilişkin başvuru şartları değerlendirilir. Şartlar güncel mevzuata ve kişisel duruma göre değişebildiği için bilgiler görüşmede dosyanıza özgü olarak ele alınır.",
@@ -201,6 +215,13 @@ export const hubSections: HubSection[] = [
         text: "Başvurunun sonucu, eksik belgeler ve gerçekleştirilmesi gereken sonraki adımlar düzenli olarak başvurucuya bildirilir.",
       },
     ],
+    serviceListTitle: "Bu süreçte neler yapıyoruz?",
+    serviceList: [
+      "Mevcut askerlik statünüzü ve belgelerinizi birlikte gözden geçiririz.",
+      "Başvurunun hangi kurum veya konsolosluk üzerinden yapılabileceğini araştırırız.",
+      "Güncel mevzuata göre seçenekleri ve olası riskleri açık biçimde anlatırız.",
+      "Süre ve belge takibini yaparak eksikleri zamanında bildiririz.",
+    ],
     faqs: [
       {
         question: "Kaç yıl yurt dışında kalmam erteleme için yeterlidir?",
@@ -211,6 +232,11 @@ export const hubSections: HubSection[] = [
         question: "Erteleme süresi dolarsa ne yapmalıyım?",
         answer:
           "Mevcut askerlik durumunun ve sürelerin, erteleme sona ermeden önce kontrol edilmesi önemlidir. Yenileme veya farklı bir başvuru gerekip gerekmediği kişisel duruma göre değerlendirilir.",
+      },
+      {
+        question: "İşlemleri Türkiye'ye gelmeden takip edebilir miyim?",
+        answer:
+          "Başvuruların bir kısmı konsolosluk veya e-Devlet üzerinden yapılabilir; Türkiye'de yürütülmesi gereken işlemler ise kapsamı uygun bir vekâletnameyle avukat aracılığıyla takip edilebilir. Hangi yolun mümkün olduğu, başvuru türüne ve o dönemde geçerli konsolosluk uygulamasına göre değişebilir.",
       },
     ],
   },
