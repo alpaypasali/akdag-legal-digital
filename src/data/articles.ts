@@ -959,6 +959,491 @@ export const articles: Article[] = [
       "Ceza soruşturmasında ifade alınmadan önce bildirilmesi gereken haklar, müşteki bakımından haklar ve ifade tutanağı hakkında genel bilgilendirme.",
     status: "published",
   },
+  {
+    slug: "bursa-aile-hukuku-avukati",
+    title: "Bursa Aile Hukuku Avukatı: Boşanma, Velayet ve Nafaka Süreçleri",
+    excerpt:
+      "Bursa aile hukuku avukatı desteğiyle yürütülen boşanma, velayet, nafaka ve mal paylaşımı süreçlerinin nasıl işlediğini; Osmangazi ve Yıldırım başta olmak üzere Bursa adliyelerindeki pratik işleyişi anlatan kapsamlı bir rehber.",
+    categorySlug: "aile-hukuku",
+    author: "Av. Kutay Onat Akdağ",
+    publishedAt: "2026-08-03",
+    readingMinutes: 10,
+    relatedAreaSlug: "aile-hukuku",
+    metaTitle: "Bursa Aile Hukuku Avukatı | Boşanma ve Velayet",
+    metaDescription:
+      "Bursa aile hukuku avukatı desteği, boşanma, velayet, nafaka ve mal paylaşımı süreçleri hakkında bilgi alın. Osmangazi ve Yıldırım hukuki danışmanlık.",
+    status: "published",
+    sections: [
+      {
+        id: "giris",
+        heading: "Bursa Aile Hukuku Hangi Uyuşmazlıkları Kapsar?",
+        level: 2,
+        paragraphs: [
+          "Bursa aile hukuku avukatı desteği aranan dosyaların büyük bölümü, evliliğin devamı ya da sona ermesiyle ilgili uyuşmazlıklardan doğar. Aile hukuku; nişanlanmadan evlenmeye, boşanmadan velayete, nafakadan mal rejimine kadar geniş bir alanı kapsar. Bu başlıkların ortak özelliği, hem hukuki hem de kişisel sonuçları aynı anda doğurmasıdır. Bu nedenle dosyanın en başında hangi taleplerin ileri sürüleceğinin, hangi belgelerin toplanacağının ve tarafların hangi noktada uzlaşabileceğinin belirlenmesi, sürecin bütününü etkiler.",
+          "Bursa aile hukuku uygulamasında en sık görülen dosya türleri arasında anlaşmalı ve çekişmeli boşanma davaları, velayetin değiştirilmesi, kişisel ilişki (çocukla görüşme) düzenlemesi, tedbir–yoksulluk–iştirak nafakası talepleri, maddi ve manevi tazminat istemleri, mal rejiminin tasfiyesi ve aile konutu şerhi başvuruları yer alır. Buna ek olarak, koruma tedbiri talepleri ve soybağına ilişkin davalar da aynı alanın parçasıdır.",
+          "Her uyuşmazlığın kendi delilleri, kendi tarafları ve kendi geçmişi vardır. Bir dosyada sonuç veren yaklaşım, benzer görünen bir başka dosyada beklenen etkiyi doğurmayabilir. Bu yazıdaki açıklamalar genel çerçeveyi anlatır; kendi durumunuz için değerlendirme yapılırken evlilik tarihi, çocukların yaşı, gelir durumu, taşınmazların edinme zamanı ve elinizdeki belgeler birlikte incelenmelidir. Ayrıntılı hizmet kapsamı için [Bursa aile hukuku çalışma alanımıza](/calisma-alanlari/aile-hukuku) göz atabilirsiniz.",
+        ],
+      },
+      {
+        id: "bosanma-davasi-turleri",
+        heading: "Boşanma Davası Türleri Nelerdir?",
+        level: 2,
+        paragraphs: [
+          "Türk hukukunda boşanma davaları uygulamada iki ana başlık altında toplanır: anlaşmalı boşanma ve çekişmeli boşanma. Anlaşmalı boşanmada eşler, evliliğin sona ermesi ve bunun sonuçları üzerinde anlaşmıştır; çekişmeli boşanmada ise boşanmanın kendisi ya da sonuçlarından en az biri tartışmalıdır. Bu ayrım yalnızca usule ilişkin değildir; sürecin uzunluğunu, dinlenecek delilleri ve tarafların yükünü doğrudan belirler.",
+          "Çekişmeli boşanma, kanunda düzenlenen özel sebeplere (zina, hayata kast, pek kötü davranış, suç işleme ve haysiyetsiz hayat sürme, terk, akıl hastalığı) veya genel sebep olan evlilik birliğinin temelinden sarsılmasına dayanabilir. Uygulamada dosyaların çoğunluğu genel sebebe dayanır. Hangi sebebe dayanıldığı, ispat yükünü ve toplanacak delilleri değiştirdiğinden dava dilekçesinin hazırlanması teknik bir çalışmadır.",
+          "Anlaşmalı boşanma için kanun, evliliğin en az bir yıl sürmüş olmasını, eşlerin birlikte başvurmasını veya bir eşin diğerinin davasını kabul etmesini ve hâkimin tarafları bizzat dinleyerek iradelerinin serbestçe açıklandığına kanaat getirmesini arar. Bu koşullar sağlanmadığında dosya kendiliğinden çekişmeli şekilde yürür.",
+        ],
+        list: [
+          "Anlaşmalı boşanma: taraflar boşanma ve tüm sonuçlarında uzlaşmıştır",
+          "Çekişmeli boşanma (genel sebep): evlilik birliğinin temelinden sarsılması",
+          "Çekişmeli boşanma (özel sebepler): kanunda sayılan belirli hâller",
+          "Ayrılık davası: boşanma yerine belirli süreli ayrılığa karar verilmesi",
+        ],
+      },
+      {
+        id: "anlasmali-bosanma-sureci",
+        heading: "Anlaşmalı Boşanma Süreci Nasıl İlerler?",
+        level: 2,
+        paragraphs: [
+          "Anlaşmalı boşanmanın omurgası protokoldür. Protokol; boşanma iradesini, varsa nafaka ve tazminat düzenlemesini, çocuklar bakımından velayet ve kişisel ilişki takvimini, mal paylaşımına ilişkin beyanları ve yargılama giderlerinin paylaşımını içerir. Protokolde eksik ya da çelişkili bırakılan her başlık, ileride yeni bir dava sebebi hâline gelebilir.",
+          "Dosya açıldıktan sonra mahkeme duruşma günü verir. Hâkim, eşleri bizzat dinler ve protokolü inceler. Protokolde çocuğun üstün yararına aykırı gördüğü noktalar bulunursa değişiklik önerebilir; taraflar bu değişikliği kabul etmezse dosya anlaşmalı olarak sonuçlanmaz. Bu nedenle anlaşmalı boşanmanın her koşulda tek duruşmada biteceği söylenemez; duruşma sayısı ve süre, mahkemenin iş yoğunluğuna ve dosyanın içeriğine göre değişir.",
+          "Kararın kesinleşmesi ayrı bir aşamadır. Gerekçeli kararın yazılması, taraflara tebliği ve kanun yolundan feragat ya da sürelerin geçmesiyle karar kesinleşir; nüfusa tescil bu aşamadan sonra yapılır. Yurt dışında yaşayan eşler bakımından tebligat süreleri farklı işleyebilir; bu konudaki ayrıntılar için [Bursa Gurbetçi Hukuk sayfamızı](/bursa-gurbetci-hukuk) inceleyebilirsiniz.",
+        ],
+      },
+      {
+        id: "cekismeli-bosanma-dikkat",
+        heading: "Çekişmeli Boşanma Davasında Nelere Dikkat Edilir?",
+        level: 2,
+        paragraphs: [
+          "Çekişmeli dosyada belirleyici olan, iddiaların somut olaylara bağlanması ve bu olayların hukuken kabul edilebilir delillerle desteklenmesidir. Genel nitelemeler yerine tarih, yer ve olay içeren anlatım tercih edilir. Tanık beyanları, mesaj ve yazışma kayıtları, banka hareketleri, hastane kayıtları ve resmî belgeler sık başvurulan delil türleridir.",
+          "Delil elde etme yönteminin hukuka uygun olması gerekir. Hukuka aykırı yolla elde edilen kayıtlar dosyaya sunulduğunda değerlendirme dışı bırakılabileceği gibi ayrı bir sorumluluk da doğurabilir. Bu nedenle delil toplanmasına başlanmadan önce hukuki değerlendirme yapılması yerinde olur.",
+          "Usul süreleri de en az deliller kadar önemlidir. Cevap dilekçesi süresi, delil listesi sunma süresi ve ön inceleme aşamasındaki beyanlar kaçırıldığında telafisi güç sonuçlar doğabilir. Dava boyunca tedbir nafakası, çocukla kişisel ilişki ve aile konutu gibi geçici düzenlemeler de talep edilebilir.",
+        ],
+        list: [
+          "İddiaların tarih ve olay bazında somutlaştırılması",
+          "Delillerin hukuka uygun yolla toplanması",
+          "Cevap ve delil sunma sürelerinin takibi",
+          "Yargılama sırasında geçici (tedbir) taleplerin değerlendirilmesi",
+        ],
+      },
+      {
+        id: "velayet",
+        heading: "Çocuğun Velayeti Nasıl Belirlenir?",
+        level: 2,
+        paragraphs: [
+          "Velayette tek ölçüt çocuğun üstün yararıdır. Mahkeme; çocuğun yaşı, alıştığı çevre, okul düzeni, kardeşlerinden ayrılıp ayrılmayacağı, ebeveynlerin çocukla kurduğu ilişki ve bakım için ayırabildikleri zaman gibi unsurları birlikte değerlendirir. Ekonomik güç tek başına belirleyici değildir; maddi eksiklik nafaka ile giderilebilecek bir konu olarak görülür.",
+          "Uygulamada sosyal inceleme raporu, pedagog görüşü ve idrak çağındaki çocuğun dinlenmesi sıkça başvurulan yöntemlerdir. Bursa velayet avukatı desteği alan taraflar bakımından hazırlık, çoğu zaman çocuğun günlük düzenine ilişkin somut bilgilerin (okul, sağlık, bakım paylaşımı) derlenmesiyle başlar.",
+          "Velayet kararı değişmez bir karar değildir. Koşullar esaslı biçimde değiştiğinde velayetin değiştirilmesi veya kişisel ilişkinin yeniden düzenlenmesi talep edilebilir. Kişisel ilişki takviminin gerçekçi kurulması, sonraki uyuşmazlıkları azaltan en pratik önlemlerden biridir.",
+        ],
+      },
+      {
+        id: "nafaka-turleri",
+        heading: "Nafaka Türleri Nelerdir?",
+        level: 2,
+        paragraphs: [
+          "Nafaka, uygulamada birden çok türü olan ve çoğu zaman birbiriyle karıştırılan bir kavramdır. Tedbir nafakası, dava sürerken ihtiyaç içindeki eş veya çocuk için hükmedilir. İştirak nafakası, velayeti kendisinde olmayan ebeveynin çocuğun bakım ve eğitim giderlerine katılmasıdır. Yoksulluk nafakası ise boşanma yüzünden yoksulluğa düşecek eş lehine, kusur durumu da gözetilerek talep edilebilir. Yardım nafakası ise eşler dışındaki altsoy, üstsoy ve kardeşler arasında gündeme gelir.",
+          "Nafaka miktarı belirlenirken tarafların geliri, çocuğun yaşı ve ihtiyaçları, tarafların yaşam standardı ve hakkaniyet gözetilir. Sabit bir tarife bulunmaz. Koşullar değiştiğinde nafakanın artırılması, azaltılması veya kaldırılması ayrı bir dava ile istenebilir. Bursa nafaka avukatı desteğiyle yürütülen dosyalarda hazırlık, gelir ve gider kalemlerinin belgelenmesi üzerine kurulur.",
+        ],
+        list: [
+          "Tedbir nafakası: yargılama sürerken geçici olarak hükmedilir",
+          "İştirak nafakası: çocuğun giderlerine katılım",
+          "Yoksulluk nafakası: boşanma nedeniyle yoksulluğa düşecek eş için",
+          "Yardım nafakası: yakın hısımlar arasında",
+        ],
+      },
+      {
+        id: "mal-paylasimi",
+        heading: "Boşanmada Mal Paylaşımı Nasıl Yapılır?",
+        level: 2,
+        paragraphs: [
+          "1 Ocak 2002'den sonra kurulan evliliklerde, aksi kararlaştırılmadıkça edinilmiş mallara katılma rejimi uygulanır. Bu rejimde kural olarak evlilik içinde emekle edinilen değerler paylaşıma konu olur; miras veya bağış yoluyla gelen mallar ile kişisel kullanım eşyaları kişisel mal sayılır. Bu ayrım, hangi malın hangi tarihte ve hangi kaynakla edinildiğinin belgelenmesini önemli kılar.",
+          "Mal rejiminin tasfiyesi, boşanma davasından ayrı bir dava olarak görülür ve kural olarak boşanma kararının kesinleşmesiyle istenebilir hâle gelir. Tapu kayıtları, kredi ödemeleri, banka dekontları ve satış sözleşmeleri bu dosyalarda en çok başvurulan belgelerdir. Bursa mal paylaşımı avukatı desteği alan taraflar için ilk adım genellikle taşınmaz ve hesap araştırmasıdır.",
+          "Değer artış payı, katılma alacağı ve katkı payı gibi kavramlar farklı hukuki temellere dayanır. Hangi talebin ileri sürüleceği, malın edinme biçimine ve ödemelerin kaynağına göre belirlenir.",
+        ],
+      },
+      {
+        id: "avukat-destegi",
+        heading: "Bursa Aile Hukuku Avukatı Desteği Neden Önemlidir?",
+        level: 2,
+        paragraphs: [
+          "Aile hukuku dosyalarında hata, çoğu zaman hukuki bilgi eksikliğinden değil, sürelerin kaçırılmasından ve taleplerin eksik ileri sürülmesinden doğar. Dava dilekçesinde istenmeyen bir talebin sonradan eklenmesi her zaman mümkün olmaz; delil listesinin zamanında sunulmaması ise ispatı güçleştirir. Bir Bursa hukuk bürosu ile çalışmanın pratik faydası, sürecin bu teknik iskeletinin baştan kurulmasıdır.",
+          "Bunun yanında aile dosyaları yüksek duygusal yük taşır. Tarafın kendi anlatımını hukuki çerçeveye oturtmak, hangi bilginin dosyaya girmesinin yararlı olduğunu ayırt etmek ve uzlaşma imkânını değerlendirmek profesyonel bir bakış gerektirir. Hiçbir avukat sonuç ya da süre garantisi veremez; verilebilecek olan, dosyanın usulüne uygun ve eksiksiz yürütülmesidir.",
+          "Süreç hakkında görüşmek isterseniz [iletişim sayfamızdan](/iletisim) randevu talebi oluşturabilirsiniz.",
+        ],
+      },
+      {
+        id: "osmangazi-yildirim",
+        heading: "Osmangazi ve Yıldırım İlçelerinde Aile Hukuku Süreçleri",
+        level: 2,
+        paragraphs: [
+          "Boşanma davalarında yetkili mahkeme, kural olarak eşlerden birinin yerleşim yeri ya da davadan önce son defa altı aydan beri birlikte oturdukları yer aile mahkemesidir. Bursa'da aile mahkemeleri merkez adliyede toplandığından, Osmangazi'de veya Yıldırım'da ikamet eden taraflar için dosya çoğunlukla aynı adliyede görülür. Bu nedenle Osmangazi avukat ya da Yıldırım avukat arayışında olan kişilerin pratikte dikkate alması gereken ölçüt, büronun bulunduğu mahalle değil, dosyayı hangi kapsamda takip edebildiğidir.",
+          "İlçe farkının hissedildiği başlıklar daha çok idari işlemlerdir: nüfus müdürlüğü işlemleri, tapu müdürlüğü başvuruları ve tebligat adresleri ilçeye göre değişir. Yerleşim yeri değişikliği, davanın yetkisini de etkileyebileceğinden taşınma durumunda kaydın güncel tutulması yerinde olur.",
+          "Büromuz Osmangazi'de, Kıbrıs Şehitleri Caddesi üzerindeki Avukatlar İşhanı'nda bulunmaktadır; bu konum hem adliyeye hem de tapu ve nüfus işlemlerinin yürütüldüğü kurumlara yakınlık bakımından dosya takibini kolaylaştırır.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Bursa'da boşanma davası ne kadar sürer?",
+        answer:
+          "Kesin bir süre söylemek mümkün değildir. Anlaşmalı dosyalarda süreç genellikle daha kısadır; ancak duruşma günü, mahkemenin iş yoğunluğu, tebligatın tamamlanması ve gerekçeli kararın yazılması gibi aşamalar süreyi etkiler. Çekişmeli dosyalarda tanık sayısı, bilirkişi incelemesi ve kanun yolu aşaması süreyi uzatabilir. Her dosya kendi koşulları içinde değerlendirilmelidir.",
+      },
+      {
+        question: "Anlaşmalı boşanmada mutlaka duruşmaya katılmam gerekir mi?",
+        answer:
+          "Anlaşmalı boşanmada hâkimin tarafları bizzat dinlemesi kural olarak aranır; bu nedenle eşlerin duruşmada hazır bulunması beklenir. Yurt dışında yaşıyorsanız duruşma gününün planlanması ve gerekli belgelerin önceden hazırlanması önem taşır. Katılım zorunluluğunun kapsamı dosyanın türüne ve mahkemenin değerlendirmesine göre farklılık gösterebilir.",
+      },
+      {
+        question: "Velayet her zaman anneye mi verilir?",
+        answer:
+          "Hayır. Kanunda anneye ya da babaya öncelik tanıyan bir kural yoktur; ölçüt çocuğun üstün yararıdır. Küçük yaştaki çocuklar bakımından uygulamada anne bakımına ağırlık verildiği görülse de bu bir kesinlik değildir. Mahkeme, çocuğun düzeni, ebeveynlerin bakım imkânı ve sosyal inceleme raporu gibi unsurları birlikte değerlendirir.",
+      },
+      {
+        question: "Nafaka miktarı neye göre belirlenir?",
+        answer:
+          "Nafakada sabit bir tarife yoktur. Tarafların geliri ve mal varlığı, çocuğun yaşı ve ihtiyaçları, tarafların evlilik sırasındaki yaşam standardı ile hakkaniyet birlikte gözetilir. Koşullar sonradan esaslı şekilde değişirse nafakanın artırılması, azaltılması veya kaldırılması ayrıca talep edilebilir.",
+      },
+      {
+        question: "Mal paylaşımı davası boşanma davasıyla birlikte açılabilir mi?",
+        answer:
+          "Mal rejiminin tasfiyesi ayrı bir davadır ve kural olarak boşanma kararı kesinleştikten sonra karara bağlanır. Dava boşanma sürerken açılsa bile mahkeme çoğunlukla boşanmanın kesinleşmesini bekletici mesele yapar. Bu nedenle taşınmaz ve hesap araştırmasının erken başlatılması pratik bir avantaj sağlar.",
+      },
+      {
+        question: "Yurt dışında yaşıyorum, Bursa'daki aile hukuku dosyamı takip ettirebilir miyim?",
+        answer:
+          "Usulüne uygun düzenlenmiş bir vekâletname ile dosyanın açılması, dilekçelerin sunulması ve duruşmaların takibi vekil aracılığıyla yürütülebilir. Ancak bazı işlemlerde ilgilinin bizzat dinlenmesi gerekebilir. Ayrıntılar için Bursa Gurbetçi Hukuk sayfamızdaki açıklamaları inceleyebilirsiniz.",
+      },
+    ],
+    sources: [
+      "4721 sayılı Türk Medeni Kanunu",
+      "6100 sayılı Hukuk Muhakemeleri Kanunu",
+      "4787 sayılı Aile Mahkemelerinin Kuruluş, Görev ve Yargılama Usullerine Dair Kanun",
+    ],
+    closingNote:
+      "Bu yazı genel bilgilendirme amacıyla hazırlanmıştır; hukuki tavsiye niteliği taşımaz, sonuç veya süre garantisi içermez. Her dosya kendi koşulları içinde değerlendirilmelidir. Boşanma, velayet, nafaka veya mal paylaşımı sürecinizle ilgili görüşmek için iletişim sayfamızdan randevu talebi oluşturabilirsiniz.",
+  },
+  {
+    slug: "bursa-anlasmali-cekismeli-bosanma-davasi",
+    title: "Bursa'da Anlaşmalı ve Çekişmeli Boşanma Davası Arasındaki Farklar",
+    excerpt:
+      "Anlaşmalı ve çekişmeli boşanma davaları arasındaki usul, süre, delil ve masraf farkları; boşanma protokolünün içeriği ve Bursa'da Osmangazi ile Yıldırım'da dosyaların pratik işleyişi.",
+    categorySlug: "aile-hukuku",
+    author: "Av. Kutay Onat Akdağ",
+    publishedAt: "2026-08-03",
+    readingMinutes: 9,
+    relatedAreaSlug: "aile-hukuku",
+    metaTitle: "Bursa Boşanma Avukatı | Anlaşmalı ve Çekişmeli Boşanma",
+    metaDescription:
+      "Bursa anlaşmalı ve çekişmeli boşanma davalarının farklarını öğrenin. Osmangazi ve Yıldırım boşanma avukatı desteği hakkında bilgi alın.",
+    status: "published",
+    sections: [
+      {
+        id: "anlasmali-bosanma-nedir",
+        heading: "Anlaşmalı Boşanma Davası Nedir?",
+        level: 2,
+        paragraphs: [
+          "Bursa boşanma avukatı desteği arayan kişilerin ilk sorduğu şey genellikle şudur: dosya anlaşmalı mı yürüsün, çekişmeli mi? Bu tercih sürecin uzunluğunu, tarafların yükünü ve sonuçların ne kadar kendi kontrollerinde kalacağını belirlediği için yalnızca bir usul seçimi değildir. Anlaşmalı boşanma, eşlerin hem evliliğin sona ermesi hem de bunun sonuçları üzerinde uzlaşarak mahkemeye başvurmasıdır.",
+          "Kanun bu yol için üç koşul arar: evliliğin en az bir yıl sürmüş olması, eşlerin birlikte başvurması veya bir eşin diğerinin davasını kabul etmesi ve hâkimin tarafları bizzat dinleyerek iradelerinin serbestçe açıklandığına kanaat getirmesi. Hâkim ayrıca tarafların çocuklar ve mali sonuçlar bakımından yaptığı düzenlemeyi uygun bulmalıdır; gerekli görürse değişiklik önerebilir.",
+          "Anlaşmalı yolun avantajı, tarafların sonuçları kendi aralarında belirlemesidir. Nafaka, tazminat, velayet ve kişisel ilişki takvimi mahkemenin takdirine bırakılmak yerine protokolle düzenlenir. Bunun karşılığında her başlıkta gerçek bir uzlaşma bulunması gerekir; tek bir konuda dahi anlaşma sağlanmazsa dosya çekişmeli olarak devam eder.",
+        ],
+      },
+      {
+        id: "cekismeli-bosanma-nedir",
+        heading: "Çekişmeli Boşanma Davası Nedir?",
+        level: 2,
+        paragraphs: [
+          "Çekişmeli boşanma, tarafların boşanma iradesinde ya da boşanmanın sonuçlarından en az birinde anlaşamadığı dosyalardır. Uyuşmazlık kimi zaman boşanmanın kendisine, kimi zaman yalnızca nafaka miktarına, velayete veya tazminata ilişkindir. Her iki hâlde de mahkeme, iddiaları delillerle inceleyerek karar verir.",
+          "Dava genel sebep olan evlilik birliğinin temelinden sarsılmasına ya da kanunda sayılan özel sebeplere dayanabilir. Genel sebebe dayanan dosyalarda ortak yaşamın çekilmez hâle geldiğinin ve bunda karşı tarafın kusurunun bulunduğunun ortaya konulması beklenir. Kusur değerlendirmesi, tazminat ve yoksulluk nafakası taleplerini de etkiler.",
+          "Çekişmeli süreç, dilekçeler aşaması, ön inceleme, tahkikat ve hüküm aşamalarından geçer. Tanık dinlenmesi, banka ve tapu araştırması, sosyal inceleme raporu ya da bilirkişi incelemesi gerektiğinde aşama sayısı artar. Bu nedenle çekişmeli boşanma için kesin bir bitiş tarihi vermek mümkün değildir.",
+        ],
+      },
+      {
+        id: "temel-farklar",
+        heading: "İki Dava Türü Arasındaki Temel Farklar",
+        level: 2,
+        paragraphs: [
+          "İki yol arasındaki farkı en iyi anlatan ölçüt, sonuçların kim tarafından belirlendiğidir. Anlaşmalı boşanmada sonuçları taraflar yazar, hâkim denetler; çekişmeli boşanmada sonuçları hâkim, sunulan deliller çerçevesinde belirler. Bu temel farktan usul, süre, masraf ve ispat yükü bakımından başka farklar doğar.",
+        ],
+        list: [
+          "İrade: anlaşmalıda ortak başvuru veya kabul, çekişmelide karşıt talepler",
+          "Delil: anlaşmalıda protokol esastır, çekişmelide tanık ve belge incelemesi yapılır",
+          "Süre: anlaşmalı dosyalar genellikle daha kısadır; ancak tek duruşmada biteceği garanti edilemez",
+          "Masraf: çekişmeli dosyalarda bilirkişi ve tanık giderleriyle birlikte masraf artabilir",
+          "Kesinleşme: her iki hâlde de karar kesinleşmeden nüfusa tescil yapılmaz",
+        ],
+      },
+      {
+        id: "bursa-aile-hukuku",
+        heading: "Bursa Aile Hukuku Çerçevesinde Boşanma",
+        level: 2,
+        paragraphs: [
+          "Bursa aile hukuku uygulamasında boşanma dosyaları tek başına ilerlemez; çoğu zaman nafaka, velayet, tazminat ve mal rejimi başlıklarıyla birlikte ele alınır. Bir Bursa aile hukuku avukatı ile yapılan ilk görüşmede genellikle bu başlıkların hangisinin dosyaya girip hangisinin ayrı bir davaya bırakılacağı belirlenir. Aile mahkemeleri özel görevli mahkemeler olduğundan, dosyanın doğru mahkemede açılması usul yönünden ilk şarttır.",
+          "Yetki bakımından kural, eşlerden birinin yerleşim yeri veya davadan önce son defa altı aydan beri birlikte oturdukları yer mahkemesidir. Bursa'da bu dosyalar merkez adliyedeki aile mahkemelerinde görülür.",
+          "Boşanmanın ötesindeki başlıkların kapsamını [Bursa aile hukuku hizmet sayfamızda](/calisma-alanlari/aile-hukuku) inceleyebilir; süreçlerin ayrıntısı için [Bursa aile hukuku avukatı rehberimize](/makaleler/bursa-aile-hukuku-avukati) bakabilirsiniz.",
+        ],
+      },
+      {
+        id: "bosanma-protokolu",
+        heading: "Anlaşmalı Boşanma Protokolünde Neler Bulunur?",
+        level: 2,
+        paragraphs: [
+          "Boşanma protokolü, anlaşmalı dosyanın belkemiğidir. Protokolde açık bırakılan her konu, ileride yeni bir davanın konusu olabilir. Bu nedenle metnin yalnızca 'anlaştık' beyanından değil, uygulanabilir ve ölçülebilir düzenlemelerden oluşması gerekir. Örneğin kişisel ilişki takviminin gün, saat ve teslim yeri belirtilerek yazılması, sonraki tartışmaları belirgin biçimde azaltır.",
+        ],
+        list: [
+          "Boşanma iradesinin açık beyanı",
+          "Velayet, kişisel ilişki takvimi ve tatil dönemlerine ilişkin düzenleme",
+          "İştirak ve varsa yoksulluk nafakası; miktar ve ödeme biçimi",
+          "Maddi ve manevi tazminat talepleri ya da bunlardan feragat",
+          "Mal rejimi ve taşınmazlara ilişkin beyanlar",
+          "Yargılama giderleri ve vekâlet ücretinin paylaşımı",
+        ],
+      },
+      {
+        id: "cekismeli-deliller",
+        heading: "Çekişmeli Boşanmada Delillerin Önemi",
+        level: 2,
+        paragraphs: [
+          "Çekişmeli dosyada iddia, ancak delille değer kazanır. Tanık beyanları, yazışma kayıtları, kamera görüntüleri, banka hareketleri, hastane ve kolluk kayıtları ile resmî yazışmalar sık kullanılan delillerdir. Delillerin dosyaya usulünce ve süresi içinde sunulması, içerikleri kadar önemlidir.",
+          "Delilin hukuka uygun yolla elde edilmiş olması gerekir. Karşı tarafın rızası olmadan yapılan bazı kayıtlar hem değerlendirme dışı bırakılabilir hem de ayrı bir sorumluluk doğurabilir. Bu nedenle delil toplama aşamasında önceden hukuki değerlendirme yapılması yerinde olur.",
+          "Ayrıca affedilen ya da hoşgörüyle karşılanan olaylara sonradan dayanılması güçleşir. Bu, dosyada hangi olayların ileri sürüleceğinin seçilmesini gerektiren teknik bir konudur.",
+        ],
+      },
+      {
+        id: "nafaka-velayet-tazminat",
+        heading: "Nafaka, Velayet ve Tazminat Talepleri",
+        level: 2,
+        paragraphs: [
+          "Nafakada tek bir tür yoktur: yargılama sürerken tedbir nafakası, çocuk için iştirak nafakası, boşanma nedeniyle yoksulluğa düşecek eş için yoksulluk nafakası gündeme gelebilir. Miktar belirlenirken tarafların geliri, çocuğun ihtiyaçları ve hakkaniyet gözetilir; sabit bir tarife bulunmaz. Bursa nafaka avukatı desteğiyle yürütülen dosyalarda hazırlık, gelir ve gider kalemlerinin belgelenmesiyle başlar.",
+          "Velayette ölçüt çocuğun üstün yararıdır. Çocuğun yaşı, alışkın olduğu çevre, okul düzeni ve ebeveynlerin bakım imkânı birlikte değerlendirilir; sosyal inceleme raporu ve idrak çağındaki çocuğun dinlenmesi sık başvurulan yöntemlerdir. Bursa velayet avukatı ile çalışan tarafların çoğu, çocuğun günlük düzenine ilişkin somut bilgileri derleyerek başlar.",
+          "Maddi ve manevi tazminat talepleri kusur değerlendirmesine bağlıdır. Kusuru daha ağır olan eşten, mevcut veya beklenen menfaatleri zedelenen eş lehine tazminat istenebilir; manevi tazminat ise kişilik haklarına saldırı bulunması hâlinde gündeme gelir.",
+        ],
+      },
+      {
+        id: "durusmaya-katilim",
+        heading: "Duruşmaya Katılmak Gerekir mi?",
+        level: 2,
+        paragraphs: [
+          "Anlaşmalı boşanmada hâkimin tarafları bizzat dinlemesi kural olarak arandığından eşlerin duruşmada hazır bulunması beklenir. Çekişmeli dosyalarda ise taraflar kural olarak vekilleri aracılığıyla temsil edilebilir; ancak mahkeme, tarafın beyanının alınmasını gerekli görürse bizzat katılım isteyebilir. Bu nedenle 'katılmak gerekmez' şeklinde kesin bir ifade kullanılamaz.",
+          "Yurt dışında yaşayan eşler bakımından duruşma planlaması, vekâletnamenin içeriği ve tebligat süreleri ayrı bir hazırlık gerektirir. Bu başlığın ayrıntıları için [Bursa Gurbetçi Hukuk sayfamıza](/bursa-gurbetci-hukuk) ve [yurt dışından boşanma davası yazımıza](/makaleler/yurt-disindan-bosanma-davasi) bakabilirsiniz.",
+        ],
+      },
+      {
+        id: "surec-takibi",
+        heading: "Bursa Boşanma Avukatı ile Süreç Takibi",
+        level: 2,
+        paragraphs: [
+          "Boşanma dosyalarında en sık rastlanan sorun, hukuki bilgi eksikliği değil, sürelerin ve taleplerin yönetilememesidir. Cevap dilekçesi süresi, delil listesi süresi, tedbir taleplerinin zamanlaması ve kanun yolu süreleri birbirini etkiler. Bir Bursa avukat ile çalışmanın pratik faydası, bu takvimin dosyanın başında kurulmasıdır.",
+          "Hiçbir avukat dava sonucunu ya da süresini taahhüt edemez; verilebilecek olan, dosyanın usulüne uygun, eksiksiz ve zamanında yürütülmesidir. Her dosya kendi delilleri ve koşulları içinde değerlendirilir. Görüşme için [iletişim sayfamızı](/iletisim) kullanabilirsiniz.",
+        ],
+      },
+      {
+        id: "osmangazi-yildirim-bosanma",
+        heading: "Osmangazi ve Yıldırım'da Boşanma Davaları",
+        level: 2,
+        paragraphs: [
+          "Bursa'da aile mahkemeleri merkez adliyede toplandığı için Osmangazi'de ya da Yıldırım'da ikamet eden tarafların dosyası çoğunlukla aynı adliyede görülür. Bu nedenle Osmangazi boşanma avukatı veya Yıldırım boşanma avukatı arayışındaki kişiler için belirleyici olan büronun semti değil, dosyanın hangi kapsamda takip edildiğidir.",
+          "İlçe farkı daha çok idari işlemlerde kendini gösterir: nüfus müdürlüğü işlemleri, tebligat adresleri ve tapu başvuruları ilçeye bağlıdır. Taşınma hâlinde adres kaydının güncellenmesi, tebligatın gecikmemesi bakımından önemlidir.",
+          "Büromuz Osmangazi'deki Avukatlar İşhanı'nda bulunmakta olup dosya takibi hem merkez adliye hem de ilgili kurumlar bakımından aynı çerçevede yürütülür.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Anlaşmalı boşanma tek duruşmada biter mi?",
+        answer:
+          "Çoğu dosyada süreç kısa sürer; ancak her koşulda tek duruşmada biteceği söylenemez. Hâkim protokolü çocuğun üstün yararı ve mali sonuçlar bakımından inceler, gerekirse değişiklik önerir. Tebligat, duruşma günü ve gerekçeli kararın yazılması gibi aşamalar da süreci etkiler.",
+      },
+      {
+        question: "Çekişmeli boşanma davası ne kadar sürer?",
+        answer:
+          "Kesin bir tarih verilemez. Tanık sayısı, bilirkişi veya sosyal inceleme gereksinimi, tebligatların tamamlanması ve mahkemenin iş yoğunluğu süreyi doğrudan etkiler. Karara karşı kanun yoluna başvurulması hâlinde süreç uzayabilir.",
+      },
+      {
+        question: "Anlaşmalı boşanma davası çekişmeliye dönebilir mi?",
+        answer:
+          "Evet. Eşlerden biri duruşmada iradesini geri alırsa ya da protokoldeki bir başlıkta anlaşma bozulursa dosya çekişmeli olarak yürür. Bu durumda dilekçeler, deliller ve talepler yeniden yapılandırılır.",
+      },
+      {
+        question: "Boşanma protokolünde belirlenen nafaka sonradan değişir mi?",
+        answer:
+          "Koşullar esaslı biçimde değişirse nafakanın artırılması, azaltılması veya kaldırılması ayrı bir dava ile istenebilir. Protokolde yazılı olması, miktarın sonsuza kadar sabit kalacağı anlamına gelmez.",
+      },
+      {
+        question: "Boşanma davasında hangi mahkeme yetkilidir?",
+        answer:
+          "Kural olarak eşlerden birinin yerleşim yeri ya da davadan önce son defa altı aydan beri birlikte oturdukları yer aile mahkemesi yetkilidir. Bursa'da bu dosyalar merkez adliyedeki aile mahkemelerinde görülür.",
+      },
+      {
+        question: "Vekâletname ile boşanma davası açılabilir mi?",
+        answer:
+          "Usulüne uygun düzenlenmiş bir vekâletname ile dava açılabilir ve takip edilebilir. Anlaşmalı boşanmada ise hâkimin tarafları bizzat dinlemesi kural olarak arandığından yalnızca vekâletname yeterli olmaz.",
+      },
+    ],
+    sources: [
+      "4721 sayılı Türk Medeni Kanunu m. 166",
+      "6100 sayılı Hukuk Muhakemeleri Kanunu",
+      "4787 sayılı Aile Mahkemelerinin Kuruluş, Görev ve Yargılama Usullerine Dair Kanun",
+    ],
+    closingNote:
+      "Bu yazı genel bilgilendirme amacıyla hazırlanmıştır; hukuki tavsiye niteliği taşımaz, dava sonucu veya süresi konusunda taahhüt içermez. Her dosya kendi koşulları içinde değerlendirilir. Dosyanızı görüşmek için WhatsApp üzerinden yazabilir ya da iletişim sayfamızdan randevu talebi oluşturabilirsiniz.",
+  },
+  {
+    slug: "bursa-ceza-avukati-sorusturma-kovusturma",
+    title: "Bursa Ceza Avukatı: Soruşturma ve Kovuşturma Süreci Nasıl İlerler?",
+    excerpt:
+      "Ceza soruşturmasının başlamasından kovuşturmanın sonuçlanmasına kadar sürecin aşamaları; ifade, gözaltı, tutuklama ve delil değerlendirmesi ile Bursa'da ceza dosyalarının pratik işleyişi.",
+    categorySlug: "ceza-hukuku",
+    author: "Av. Kutay Onat Akdağ",
+    publishedAt: "2026-08-03",
+    readingMinutes: 11,
+    relatedAreaSlug: "ceza-hukuku",
+    metaTitle: "Bursa Ceza Avukatı | Soruşturma ve Ceza Davası",
+    metaDescription:
+      "Bursa ceza avukatı desteği, soruşturma, ifade, gözaltı ve ceza davası süreçleri hakkında bilgi alın. Osmangazi ve Yıldırım ceza hukuku.",
+    status: "published",
+    sections: [
+      {
+        id: "sorusturma-nedir",
+        heading: "Ceza Soruşturması Nedir?",
+        level: 2,
+        paragraphs: [
+          "Bursa ceza avukatı desteği çoğunlukla, kişinin bir suç şüphesiyle karşılaştığı ilk anda gündeme gelir. Bursa ceza hukuku uygulamasında sürecin iki büyük aşaması vardır: soruşturma ve kovuşturma. Soruşturma, bir suç şüphesinin öğrenilmesiyle başlayan ve iddianamenin kabulüne kadar süren aşamadır. Bu aşamayı Cumhuriyet savcısı yürütür; kolluk birimleri savcının talimatıyla hareket eder.",
+          "Soruşturma bir şikâyet, ihbar, tutanak ya da savcılığın kendiliğinden öğrenmesiyle başlar. Amaç, maddi gerçeğin ortaya çıkarılmasıdır; yani şüphelinin lehine olan deliller de araştırılmak zorundadır. Soruşturma kural olarak gizlidir ve bu gizlilik dosyaya erişim bakımından belirli sınırlar getirir.",
+          "Soruşturmanın sonunda savcı iki yoldan birini seçer: yeterli şüphe bulunmadığı kanaatine varırsa kovuşturmaya yer olmadığına dair karar verir; yeterli şüphe bulunduğunu değerlendirirse iddianame düzenler. Bu ayrım nedeniyle soruşturma aşaması, dosyanın seyri bakımından belirleyici olabilir; bu aşamada yapılan eksik veya yanlış beyanların sonradan düzeltilmesi güçleşir. Bu yazı belirli bir kişinin suçlu ya da suçsuz olduğuna dair bir değerlendirme içermez; suçsuzluk karinesi gereği kesinleşmiş mahkûmiyet olmadıkça kimse suçlu sayılamaz.",
+        ],
+      },
+      {
+        id: "kovusturma-nedir",
+        heading: "Kovuşturma Aşaması Nedir?",
+        level: 2,
+        paragraphs: [
+          "Kovuşturma, iddianamenin mahkeme tarafından kabul edilmesiyle başlar ve hükmün verilmesine kadar sürer. Bu aşamada dosya artık savcının değil, mahkemenin yönetimindedir. Duruşmalar yapılır, tanıklar dinlenir, belgeler okunur ve taraflar beyanlarını sunar.",
+          "Kovuşturma aşamasında sanığın savunma hakkı en geniş biçimde kullanılır: tanık dinletme, bilirkişi incelemesi talep etme, delillerin toplanmasını isteme ve iddiaları çürütmeye yönelik belge sunma imkânı bulunur. Duruşmalar kural olarak açıktır; kanunda öngörülen hâllerde kapalı yapılabilir.",
+          "Yargılamanın sonunda mahkûmiyet, beraat, ceza verilmesine yer olmadığı, düşme veya güvenlik tedbirine hükmedilmesi gibi kararlar verilebilir. Hükme karşı istinaf ve koşulları varsa temyiz yolu açıktır. Sürecin sonucu ve süresi her dosyanın kendi delil durumuna, tanık sayısına ve mahkemenin iş yüküne göre değişir; bu nedenle önceden sonuç ya da süre söylenemez.",
+        ],
+      },
+      {
+        id: "kavramlar",
+        heading: "Şüpheli, Sanık, Müşteki ve Mağdur Kavramları",
+        level: 2,
+        paragraphs: [
+          "Ceza sürecinde kişilerin sıfatı aşamaya göre değişir ve bu sıfat, sahip olunan hakları belirler. Teknik terimlerin sade karşılıkları şu şekildedir:",
+        ],
+        list: [
+          "Şüpheli: soruşturma aşamasında suç işlediği şüphesiyle hakkında araştırma yapılan kişi",
+          "Sanık: iddianamenin kabulünden hükmün kesinleşmesine kadar yargılanan kişi",
+          "Müşteki (şikâyetçi): suçtan zarar gördüğünü belirterek şikâyette bulunan kişi",
+          "Mağdur: suçtan doğrudan zarar gören kişi",
+          "Katılan: kovuşturma aşamasında davaya katılma talebi kabul edilen mağdur veya şikâyetçi",
+        ],
+      },
+      {
+        id: "ifade-alma",
+        heading: "İfade Alma Sürecinde Nelere Dikkat Edilir?",
+        level: 2,
+        paragraphs: [
+          "İfade, dosyanın en kritik belgelerinden biridir; çünkü sonraki tüm aşamalarda dayanak olarak kullanılır. İfade alınmadan önce kişiye hangi suçtan dolayı işlem yapıldığı bildirilmeli, müdafi yardımından yararlanma hakkı hatırlatılmalı, susma hakkı ve şüpheden kurtulmak için somut delillerin toplanmasını isteme hakkı açıklanmalıdır.",
+          "Uygulamada en sık yapılan hata, hazırlıksız ve baskı hissiyle verilen beyanların sonradan düzeltilmeye çalışılmasıdır. İfade tutanağı imzalanmadan önce dikkatle okunmalı; beyanla uyuşmayan ifadeler düzeltilmeli, tutanağa geçmeyen açıklamaların eklenmesi istenmelidir. Bursa ifade avukatı desteği arayan kişiler bakımından en somut fayda, ifade öncesinde hukuki çerçevenin netleştirilmesidir.",
+          "Susma hakkının kullanılması bir suç ikrarı değildir ve aleyhe delil olarak değerlendirilemez. Aynı şekilde müdafi talebinin karşılanmasını beklemek de kişinin hakkıdır.",
+        ],
+        list: [
+          "Hangi suç şüphesiyle işlem yapıldığının öğrenilmesi",
+          "Müdafi yardımından yararlanma hakkının kullanılması",
+          "Susma hakkının bilinmesi ve baskı altında beyan verilmemesi",
+          "Tutanağın imza öncesinde okunması ve düzeltmelerin istenmesi",
+          "Lehe delillerin toplanmasının talep edilmesi",
+        ],
+      },
+      {
+        id: "gozalti-tutuklama",
+        heading: "Gözaltı ve Tutuklama Tedbirleri",
+        level: 2,
+        paragraphs: [
+          "Gözaltı, soruşturmanın gerektirdiği hâllerde kişinin özgürlüğünün geçici olarak kısıtlanmasıdır. Yakalanan kişinin yakınlarına bilgi verilmesi, sağlık kontrolünün yapılması ve müdafi ile görüşme imkânının sağlanması usulün parçasıdır. Gözaltı süresine ilişkin sınırlar kanunda düzenlenmiştir ve suç ile yakalama biçimine göre farklılaşabilir.",
+          "Tutuklama ise bir ceza değil, koruma tedbiridir. Hâkim; kuvvetli suç şüphesinin varlığını gösteren somut delillerin bulunmasını, kaçma ya da delilleri karartma şüphesi gibi bir tutuklama nedeninin olmasını ve tedbirin ölçülü olmasını değerlendirir. Adlî kontrol, tutuklamaya alternatif olarak uygulanabilir.",
+          "Tutuklama kararına itiraz edilebilir, tahliye talebinde bulunulabilir ve tutukluluk durumu belirli aralıklarla yeniden incelenir. Bu yazıda hiçbir dosya için tutuklama, tahliye ya da beraat sonucuna ilişkin bir öngörüde bulunulamaz; kararı yalnızca dosyayı inceleyen yargı mercii verir. Bursa gözaltı avukatı desteğinin işlevi, tedbirlere karşı kanun yollarının süresi içinde ve gerekçeli biçimde kullanılmasıdır.",
+        ],
+      },
+      {
+        id: "deliller",
+        heading: "Deliller Ceza Davasını Nasıl Etkiler?",
+        level: 2,
+        paragraphs: [
+          "Ceza yargılamasında hâkim, delilleri serbestçe değerlendirir; ancak bu serbestlik sınırsız değildir. Hukuka aykırı yolla elde edilen deliller hükme esas alınamaz. Bu ilke, arama, el koyma ve teknik takip gibi işlemlerin usulüne uygun yapılıp yapılmadığının incelenmesini gerektirir.",
+          "Uygulamada tanık beyanları, kamera görüntüleri, iletişim ve dijital kayıtlar, bilirkişi raporları, olay yeri inceleme tutanakları ve adli tıp raporları sık kullanılan delil türleridir. Dijital delillerde imaj alma ve inceleme usulünün doğruluğu ayrıca tartışma konusu olabilir.",
+          "Delil değerlendirmesi tümüyle dosyaya özgüdür. Benzer görünen iki dosyada, delillerin niteliği ve elde edilme biçimi farklı olduğu için sonuç da farklılaşabilir. Bu nedenle ceza yargılamasında genel tahminler yerine dosya bazlı inceleme esastır.",
+        ],
+      },
+      {
+        id: "agir-ceza",
+        heading: "Ağır Ceza Mahkemelerinde Görülen Davalar",
+        level: 2,
+        paragraphs: [
+          "Ağır ceza mahkemeleri, kanunda belirtilen ağırlıktaki suçlara ilişkin yargılamayı yapar. Kasten öldürme, nitelikli yağma, uyuşturucu madde imal ve ticareti, nitelikli dolandırıcılık ile örgütlü suçlar bu kapsamda değerlendirilebilir. Diğer dosyalar kural olarak asliye ceza mahkemesinde görülür.",
+          "Ağır ceza dosyalarının farkı yalnızca öngörülen ceza miktarında değildir; delil hacmi genellikle daha büyük, tanık sayısı daha fazla ve teknik rapor ihtiyacı daha yüksektir. Bu dosyalarda zorunlu müdafilik uygulaması da gündeme gelir. Bursa ağır ceza hukuku dosyalarında hazırlığın erken başlatılması, savunmanın delil düzeninde kurulmasını kolaylaştırır.",
+        ],
+      },
+      {
+        id: "avukat-destegi-kapsami",
+        heading: "Bursa Ceza Avukatı Desteğinin Kapsamı",
+        level: 2,
+        paragraphs: [
+          "Ceza dosyalarında avukatın işlevi, sürecin her aşamasında usulün ve savunma haklarının işletilmesidir. Bu; ifade öncesinde bilgilendirme, dosya inceleme, lehe delillerin toplanmasını talep etme, tedbirlere itiraz, iddianameye karşı savunma hazırlığı ve kanun yolu başvurularını kapsar. Müşteki ve mağdur bakımından da vekil desteği mümkündür; delil sunma ve davaya katılma talepleri bu kapsamda yürütülür.",
+          "Bir Bursa hukuk bürosu ile çalışmanın somut faydası süre yönetimidir. Şikâyet süresi, itiraz süresi ve kanun yolu süreleri kaçırıldığında hak kaybı doğar. Buna karşılık hiçbir avukat tutuklama, tahliye, beraat ya da ceza miktarı konusunda taahhüt veremez; verilebilecek olan dosyanın hukuka uygun ve eksiksiz takibidir.",
+          "Çalışma alanının kapsamını [Bursa ceza hukuku sayfamızda](/calisma-alanlari/ceza-hukuku) inceleyebilir, soruşturmada ifade ve haklar konusundaki ayrıntılar için [ilgili makalemize](/makaleler/sorusturmada-ifade-ve-temel-haklar) bakabilirsiniz. Görüşme için [iletişim sayfamızı](/iletisim) kullanabilirsiniz.",
+        ],
+      },
+      {
+        id: "osmangazi-yildirim-ceza",
+        heading: "Osmangazi ve Yıldırım'da Ceza Hukuku Süreçleri",
+        level: 2,
+        paragraphs: [
+          "Ceza yargılamasında yetkili mahkeme kural olarak suçun işlendiği yer mahkemesidir. Bursa'da asliye ve ağır ceza mahkemeleri merkez adliyede bulunduğundan, olay Osmangazi'de ya da Yıldırım'da gerçekleşse de dosya aynı adliyede görülür. Bu nedenle Osmangazi ceza avukatı veya Yıldırım ceza avukatı arayışındaki kişiler için belirleyici ölçüt, büronun semti değil dosyanın hangi aşamada ve hangi kapsamda takip edildiğidir.",
+          "İlçe farkının hissedildiği nokta soruşturmanın ilk aşamasıdır: ifade işlemleri çoğunlukla olayın gerçekleştiği yerdeki kolluk biriminde yapılır. İşlem yerinin bilinmesi, müdafi ile hızlı iletişim kurulması bakımından önemlidir.",
+          "Büromuz Osmangazi'deki Avukatlar İşhanı'nda bulunmakta; soruşturma ve kovuşturma aşamalarının takibi merkez adliye ve ilgili kolluk birimleri bakımından aynı çerçevede yürütülmektedir.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "İfadeye çağrıldım, avukat olmadan gitmem sorun olur mu?",
+        answer:
+          "İfade sırasında müdafi yardımından yararlanmak bir haktır ve kullanılması tavsiye edilir. Zorunlu müdafilik hâlleri dışında avukat olmadan ifade vermek mümkündür; ancak ifadenin sonraki aşamalarda dayanak olarak kullanılacağı düşünüldüğünde, hukuki çerçevenin önceden netleştirilmesi yararlıdır. Susma hakkınızı kullanmanız aleyhinize delil sayılmaz.",
+      },
+      {
+        question: "Soruşturma dosyasını inceleyebilir miyim?",
+        answer:
+          "Soruşturma kural olarak gizlidir; ancak müdafi, kanunda öngörülen sınırlar çerçevesinde dosya içeriğini inceleyebilir ve belgelerden örnek alabilir. Savcılığın talebi ve hâkim kararıyla bu yetki bazı hâllerde geçici olarak kısıtlanabilir.",
+      },
+      {
+        question: "Tutuklama kararına karşı ne yapılabilir?",
+        answer:
+          "Tutuklama kararına süresi içinde itiraz edilebilir, ayrıca tahliye talebinde bulunulabilir ve tutukluluk durumu belirli aralıklarla yeniden değerlendirilir. Sonuç, dosyadaki delil durumuna ve tutuklama nedenlerinin devam edip etmediğine göre yargı mercii tarafından belirlenir; önceden bir garanti verilemez.",
+      },
+      {
+        question: "Kovuşturmaya yer olmadığına dair karar kesin midir?",
+        answer:
+          "Bu karara karşı süresi içinde itiraz yolu bulunur. İtirazın kabulü hâlinde soruşturma genişletilebilir veya iddianame düzenlenmesi gündeme gelebilir. Ayrıca yeni delil ortaya çıkarsa soruşturmanın yeniden açılması mümkündür.",
+      },
+      {
+        question: "Ceza davası ne kadar sürer?",
+        answer:
+          "Kesin bir süre söylenemez. Tanık sayısı, bilirkişi raporu ihtiyacı, dosyanın hacmi, mahkemenin iş yoğunluğu ve kanun yoluna başvurulup başvurulmaması süreyi doğrudan etkiler. Her dosya kendi koşulları içinde değerlendirilir.",
+      },
+      {
+        question: "Şikâyetçi olarak da avukatla temsil edilebilir miyim?",
+        answer:
+          "Evet. Müşteki ve mağdur bakımından da vekil desteği mümkündür. Delil sunma, dosyayı takip etme, davaya katılma talebinde bulunma ve kanun yollarına başvurma bu kapsamda yürütülür.",
+      },
+    ],
+    sources: [
+      "5271 sayılı Ceza Muhakemesi Kanunu",
+      "5237 sayılı Türk Ceza Kanunu",
+      "Türkiye Cumhuriyeti Anayasası m. 38",
+    ],
+    closingNote:
+      "Bu yazı genel bilgilendirme amacıyla hazırlanmıştır; hukuki tavsiye niteliği taşımaz, herhangi bir kişinin suçlu veya suçsuz olduğuna dair değerlendirme içermez ve tutuklama, tahliye, beraat ya da ceza miktarı konusunda taahhüt sunmaz. Ceza yargılaması her dosyanın kendi delil durumuna göre değişir; kendi durumunuz için bir avukatla görüşmeniz gerekir.",
+  },
 ];
 
 export const publishedArticles = articles
