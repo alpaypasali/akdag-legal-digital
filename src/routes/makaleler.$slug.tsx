@@ -41,6 +41,11 @@ export const Route = createFileRoute("/makaleler/$slug")({
     }
     const { article } = loaderData;
     const url = `/makaleler/${params.slug}`;
+    const ogImage = absoluteUrl(
+      article.categorySlug === "gurbetci-hukuk"
+        ? "/og/bursa-gurbetci-hukuk.jpg"
+        : "/og/akdag-hukuk.jpg",
+    );
     return {
       meta: [
         { title: article.metaTitle },
@@ -49,6 +54,8 @@ export const Route = createFileRoute("/makaleler/$slug")({
         { property: "og:description", content: article.metaDescription },
         { property: "og:type", content: "article" },
         { property: "og:url", content: absoluteUrl(url) },
+        { property: "og:image", content: ogImage },
+        { name: "twitter:image", content: ogImage },
         ...(article.noindex
           ? [{ name: "robots", content: "noindex" }]
           : []),
