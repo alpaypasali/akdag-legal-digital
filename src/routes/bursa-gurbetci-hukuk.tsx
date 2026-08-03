@@ -247,6 +247,32 @@ function GurbetciHubPage() {
         </div>
       </section>
 
+      {guides.length > 0 ? (
+        <section
+          aria-labelledby="hub-rehberler"
+          className="border-t border-border bg-card py-14 md:py-20"
+        >
+          <div className="container-editorial">
+            <p className="eyebrow">Rehberler</p>
+            <h2
+              id="hub-rehberler"
+              className="mt-5 font-serif text-2xl leading-tight sm:text-3xl lg:text-4xl"
+            >
+              İlgili Makaleler
+            </h2>
+            <p className="measure mt-5 text-muted-foreground">
+              Konsolosluk vekâletnamesi, yurt dışından miras, boşanma ve
+              askerlik başlıklarını ayrıntılı biçimde ele alan yazılar.
+            </p>
+
+            <div className="mt-10">
+              <GuideCards articles={guides} />
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+
     </>
   );
 }
