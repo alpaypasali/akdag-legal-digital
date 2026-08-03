@@ -66,15 +66,29 @@ export const Route = createFileRoute("/makaleler/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article",
+            "@type": "BlogPosting",
+            "@id": `${absoluteUrl(url)}#article`,
             headline: article.title,
             description: article.excerpt,
+            image: ogImage,
             datePublished: article.publishedAt,
             dateModified: article.updatedAt ?? article.publishedAt,
             inLanguage: "tr-TR",
-            author: { "@type": "Person", name: article.author },
-            publisher: { "@type": "Organization", name: site.name },
-            mainEntityOfPage: url,
+            url: absoluteUrl(url),
+            author: {
+              "@type": "Person",
+              name: article.author,
+              url: absoluteUrl("/avukat-kutay-onat-akdag"),
+            },
+            publisher: {
+              "@type": "Organization",
+              name: site.name,
+              url: absoluteUrl("/"),
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": absoluteUrl(url),
+            },
           }),
         },
         {
