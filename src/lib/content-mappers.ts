@@ -81,8 +81,11 @@ export function mapArticle(row: ArticleRow): Article {
         )
       : undefined,
     closingNote: row.closing_note ?? undefined,
+    schemaType: row.schema_type ?? undefined,
+    ogImageUrl: row.og_image_url ?? undefined,
   };
 }
+
 
 export function mapCategory(row: CategoryRow): ArticleCategory {
   return { slug: row.slug, title: row.title, description: row.description };
