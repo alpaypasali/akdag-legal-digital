@@ -70,9 +70,22 @@ export const articleCategories: ArticleCategory[] = [
     description:
       "Soruşturma, kovuşturma ve kanun yollarına ilişkin genel bilgilendirme yazıları.",
   },
+  {
+    slug: "gayrimenkul-hukuku",
+    title: "Gayrimenkul Hukuku",
+    description:
+      "Tapu iptali ve tescil, ortaklığın giderilmesi ve taşınmaz devirlerine ilişkin genel bilgilendirme yazıları.",
+  },
+  {
+    slug: "icra-hukuku",
+    title: "İcra Hukuku",
+    description:
+      "İcra takibi türleri, ödeme emrine itiraz, haciz ve tahsil aşamalarına ilişkin yazılar.",
+  },
 ];
 
-export const articles: Article[] = [
+const coreArticles: Article[] = [
+
   {
     slug: "bursa-gurbetci-hukuk",
     title: "Bursa Gurbetçi Hukuk: Yurt Dışında Yaşayanlar İçin Hukuki Rehber",
