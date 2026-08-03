@@ -18,7 +18,11 @@ const icons: Record<HubSection["icon"], LucideIcon> = {
 
 export function HubQuickNav({ sections }: { sections: HubSection[] }) {
   return (
-    <nav aria-label="Hizmet bölümleri" className="container-editorial py-12 md:py-16">
+    <nav
+      id="hizmetler"
+      aria-label="Hizmet bölümleri"
+      className="container-editorial scroll-mt-28 py-12 md:py-16"
+    >
       <SectionLabel index="01">Hızlı Geçiş</SectionLabel>
       <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {sections.map((s) => {
