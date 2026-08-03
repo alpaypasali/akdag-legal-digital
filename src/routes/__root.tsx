@@ -16,7 +16,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ContactDock } from "@/components/contact-dock";
 import { CookieConsent } from "@/components/cookie-consent";
 import { AnalyticsTracker } from "@/components/analytics-tracker";
-import { absoluteUrl, site } from "@/data/site";
+import { absoluteUrl, setSiteUrlOverride, site } from "@/data/site";
 import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
 import faviconAsset from "@/assets/favicon.png";
 import logoFooterAsset from "@/assets/logo-footer.webp";
@@ -174,6 +174,11 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const settings = Route.useLoaderData();
+
+  // Panelde kayıtlı alan adı istemci tarafında da yürürlüğe girer.
+  useEffect(() => {
+    setSiteUrlOverride(settings?.[SETTING_KEYS.baseUrl]);
+  }, [settings]);
 
   return (
     <QueryClientProvider client={queryClient}>
