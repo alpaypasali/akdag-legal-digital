@@ -16,7 +16,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ContactDock } from "@/components/contact-dock";
 import { CookieConsent } from "@/components/cookie-consent";
 import { AnalyticsTracker } from "@/components/analytics-tracker";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
 import faviconAsset from "@/assets/favicon.png";
 import logoFooterAsset from "@/assets/logo-footer.webp";
@@ -141,9 +141,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LegalService",
+          "@id": `${absoluteUrl("/")}#legalservice`,
           name: site.name,
-          url: "/",
-          areaServed: "Bursa, Türkiye",
+          url: absoluteUrl("/"),
+          areaServed: ["Bursa", "Osmangazi", "Türkiye"],
           email: site.contact.email,
           telephone: site.contact.phoneHref,
           address: {
