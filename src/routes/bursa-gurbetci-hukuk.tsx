@@ -64,7 +64,7 @@ export const Route = createFileRoute("/bursa-gurbetci-hukuk")({
           "@context": "https://schema.org",
           "@type": "LegalService",
           name: `Bursa Gurbetçi Hukuk — ${site.name}`,
-          url: path,
+          url: canonical,
           areaServed: ["Bursa, Türkiye", "Avrupa"],
           email: site.contact.email,
           telephone: site.contact.phoneHref,
