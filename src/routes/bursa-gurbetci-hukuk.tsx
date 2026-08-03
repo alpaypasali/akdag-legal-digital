@@ -45,6 +45,14 @@ export const Route = createFileRoute("/bursa-gurbetci-hukuk")({
       { property: "og:description", content: ogDescription },
       { property: "og:url", content: canonical },
       { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content: absoluteUrl("/og/bursa-gurbetci-hukuk.jpg"),
+      },
+      {
+        name: "twitter:image",
+        content: absoluteUrl("/og/bursa-gurbetci-hukuk.jpg"),
+      },
     ],
     links: [{ rel: "canonical", href: canonical }],
     scripts: [
