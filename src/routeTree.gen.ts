@@ -34,6 +34,7 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
 import { Route as ApiPublicSeoCheckRouteImport } from './routes/api/public/seo-check'
+import { Route as AuthenticatedAdminYonlendirmelerRouteImport } from './routes/_authenticated/admin.yonlendirmeler'
 import { Route as AuthenticatedAdminMakalelerRouteImport } from './routes/_authenticated/admin.makaleler'
 import { Route as AuthenticatedAdminCalismaAlanlariRouteImport } from './routes/_authenticated/admin.calisma-alanlari'
 import { Route as AuthenticatedAdminAyarlarRouteImport } from './routes/_authenticated/admin.ayarlar'
@@ -163,6 +164,12 @@ const ApiPublicSeoCheckRoute = ApiPublicSeoCheckRouteImport.update({
   path: '/api/public/seo-check',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminYonlendirmelerRoute =
+  AuthenticatedAdminYonlendirmelerRouteImport.update({
+    id: '/yonlendirmeler',
+    path: '/yonlendirmeler',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 const AuthenticatedAdminMakalelerRoute =
   AuthenticatedAdminMakalelerRouteImport.update({
     id: '/makaleler',
@@ -214,6 +221,7 @@ export interface FileRoutesByFullPath {
   '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
+  '/admin/yonlendirmeler': typeof AuthenticatedAdminYonlendirmelerRoute
   '/api/public/seo-check': typeof ApiPublicSeoCheckRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
@@ -243,6 +251,7 @@ export interface FileRoutesByTo {
   '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
+  '/admin/yonlendirmeler': typeof AuthenticatedAdminYonlendirmelerRoute
   '/api/public/seo-check': typeof ApiPublicSeoCheckRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
@@ -275,6 +284,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/_authenticated/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/_authenticated/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
+  '/_authenticated/admin/yonlendirmeler': typeof AuthenticatedAdminYonlendirmelerRoute
   '/api/public/seo-check': typeof ApiPublicSeoCheckRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
@@ -307,6 +317,7 @@ export interface FileRouteTypes {
     | '/admin/ayarlar'
     | '/admin/calisma-alanlari'
     | '/admin/makaleler'
+    | '/admin/yonlendirmeler'
     | '/api/public/seo-check'
     | '/makaleler/kategori/$slug'
     | '/admin/'
@@ -336,6 +347,7 @@ export interface FileRouteTypes {
     | '/admin/ayarlar'
     | '/admin/calisma-alanlari'
     | '/admin/makaleler'
+    | '/admin/yonlendirmeler'
     | '/api/public/seo-check'
     | '/makaleler/kategori/$slug'
     | '/admin'
@@ -367,6 +379,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/ayarlar'
     | '/_authenticated/admin/calisma-alanlari'
     | '/_authenticated/admin/makaleler'
+    | '/_authenticated/admin/yonlendirmeler'
     | '/api/public/seo-check'
     | '/makaleler/kategori/$slug'
     | '/_authenticated/admin/'
@@ -575,6 +588,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicSeoCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin/yonlendirmeler': {
+      id: '/_authenticated/admin/yonlendirmeler'
+      path: '/yonlendirmeler'
+      fullPath: '/admin/yonlendirmeler'
+      preLoaderRoute: typeof AuthenticatedAdminYonlendirmelerRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
     '/_authenticated/admin/makaleler': {
       id: '/_authenticated/admin/makaleler'
       path: '/makaleler'
@@ -611,6 +631,7 @@ interface AuthenticatedAdminRouteChildren {
   AuthenticatedAdminAyarlarRoute: typeof AuthenticatedAdminAyarlarRoute
   AuthenticatedAdminCalismaAlanlariRoute: typeof AuthenticatedAdminCalismaAlanlariRoute
   AuthenticatedAdminMakalelerRoute: typeof AuthenticatedAdminMakalelerRoute
+  AuthenticatedAdminYonlendirmelerRoute: typeof AuthenticatedAdminYonlendirmelerRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
@@ -620,6 +641,7 @@ const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
   AuthenticatedAdminCalismaAlanlariRoute:
     AuthenticatedAdminCalismaAlanlariRoute,
   AuthenticatedAdminMakalelerRoute: AuthenticatedAdminMakalelerRoute,
+  AuthenticatedAdminYonlendirmelerRoute: AuthenticatedAdminYonlendirmelerRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
 
