@@ -160,6 +160,18 @@ export const articles: Article[] = [
           "Karar sonrası icra, tapu veya nüfus işlemlerinin tamamlanması",
         ],
       },
+      {
+        id: "ilgili-konular",
+        heading: "İlgili konular ve iç bağlantılar",
+        level: 2,
+        paragraphs: [
+          "Aşağıdaki başlıklar, bu rehberde özetlenen süreçlerin ayrıntılarını içerir. Dosyanızın konusuna göre ilgili bölümü inceleyebilirsiniz.",
+          "Vekâletname: [Konsolosluk vekâletnamesi süreci](/bursa-gurbetci-hukuk#vekaletname) bölümünde hangi yetkilerin gerektiği ve belge hazırlığının nasıl yürütüldüğü anlatılır.",
+          "Miras: [Yurt dışından miras ve tapu işlemleri](/bursa-gurbetci-hukuk#miras) bölümü ile [Bursa miras hukuku çalışma alanı](/calisma-alanlari/miras-hukuku) sayfasında veraset, intikal ve ortaklığın giderilmesi başlıkları ele alınır.",
+          "Boşanma: [Yurt dışından boşanma ve tanıma-tenfiz](/bursa-gurbetci-hukuk#bosanma) bölümü ile [Bursa aile hukuku çalışma alanı](/calisma-alanlari/aile-hukuku) sayfasında velayet, nafaka ve mal rejimi konuları bulunur.",
+          "Diğer makaleler için [makaleler bölümünü](/makaleler) inceleyebilirsiniz.",
+        ],
+      },
     ],
     faqs: [
       {
