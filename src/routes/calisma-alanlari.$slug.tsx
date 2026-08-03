@@ -199,6 +199,8 @@ function AreaDetail() {
                     src={heroImg.url}
                     alt=""
                     aria-hidden="true"
+                    width={1366}
+                    height={768}
                     loading="lazy"
                     decoding="async"
                     className="size-full object-cover transition-transform duration-700 hover:scale-105"
