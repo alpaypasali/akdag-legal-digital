@@ -4,6 +4,7 @@ import { absoluteUrl, site } from "@/data/site";
 import { featuredAreas } from "@/data/practice-areas";
 import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
 import { fetchSiteContent } from "@/lib/content.functions";
+import { GuideCards } from "@/components/gurbetci/guide-cards";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { ArchBackdrop } from "@/components/arch-backdrop";
