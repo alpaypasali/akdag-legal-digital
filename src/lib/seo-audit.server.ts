@@ -38,7 +38,7 @@ export type RedirectReport = {
   status: "ok" | "error";
 };
 
-async function resolveBaseUrl(): Promise<string> {
+async function resolveBaseUrl(fallbackOrigin?: string): Promise<string> {
   try {
     const { fetchSiteSettings, SETTING_KEYS } = await import("@/lib/settings.functions");
     const settings = await fetchSiteSettings();
@@ -47,15 +47,15 @@ async function resolveBaseUrl(): Promise<string> {
   } catch {
     // ayarlar okunamadıysa varsayılana düşülür
   }
-  return siteUrl.replace(/\/$/, "");
+  return normalizeSiteUrl(fallbackOrigin) ?? siteUrl.replace(/\/$/, "");
 }
 
 function statusToSeverity(ok: boolean): "error" | "warning" {
   return ok ? "warning" : "error";
 }
 
-export async function runRedirectReport(): Promise<RedirectReport> {
-  const baseUrl = await resolveBaseUrl();
+export async function runRedirectReport(fallbackOrigin?: string): Promise<RedirectReport> {
+  const baseUrl = await resolveBaseUrl(fallbackOrigin);
 
   const checks: RedirectCheck[] = await Promise.all(
     redirectRules.map(async (rule) => {
@@ -130,8 +130,8 @@ function schemaTypes(nodes: unknown[]): string[] {
   return out;
 }
 
-export async function runSeoAudit(limit = 40): Promise<SeoAuditResult> {
-  const baseUrl = await resolveBaseUrl();
+export async function runSeoAudit(limit = 40, fallbackOrigin?: string): Promise<SeoAuditResult> {
+  const baseUrl = await resolveBaseUrl(fallbackOrigin);
   const issues: SeoIssue[] = [];
 
   let locs: string[] = [];

@@ -8,9 +8,10 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 export const checkRedirects = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .handler(async () => {
+  .inputValidator((data: { origin?: string } | undefined) => data ?? {})
+  .handler(async ({ data }) => {
     const { runRedirectReport, storeAudit } = await import("@/lib/seo-audit.server");
-    const report = await runRedirectReport();
+    const report = await runRedirectReport(data.origin);
     await storeAudit("redirects", {
       baseUrl: report.baseUrl,
       checkedCount: report.checks.length,
@@ -23,9 +24,10 @@ export const checkRedirects = createServerFn({ method: "POST" })
 
 export const runAudit = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .handler(async () => {
+  .inputValidator((data: { origin?: string } | undefined) => data ?? {})
+  .handler(async ({ data }) => {
     const { runSeoAudit, storeAudit } = await import("@/lib/seo-audit.server");
-    const result = await runSeoAudit();
+    const result = await runSeoAudit(40, data.origin);
     await storeAudit("audit", {
       baseUrl: result.baseUrl,
       checkedCount: result.checkedCount,

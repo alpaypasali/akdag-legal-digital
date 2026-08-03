@@ -67,7 +67,7 @@ function AdminSeoChecks() {
   async function runNow() {
     setLoading(true);
     try {
-      const result = await run();
+      const result = await run({ data: { origin: window.location.origin } });
       if (result.status === "error") toast.error(`${result.issues.length} sorun bulundu.`);
       else if (result.status === "warning") toast.warning(`${result.issues.length} uyarı bulundu.`);
       else toast.success("Sitemap ve şemalar sorunsuz.");

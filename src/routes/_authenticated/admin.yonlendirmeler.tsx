@@ -29,7 +29,7 @@ function AdminRedirects() {
   async function test() {
     setLoading(true);
     try {
-      const report = await run();
+      const report = await run({ data: { origin: window.location.origin } });
       setChecks(report.checks);
       setBaseUrl(report.baseUrl);
       if (report.failed > 0) toast.error(`${report.failed} yönlendirme hatalı.`);
