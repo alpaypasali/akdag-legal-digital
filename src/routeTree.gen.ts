@@ -33,6 +33,7 @@ import { Route as AdminGirisRouteImport } from './routes/admin.giris'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as MakalelerKategoriSlugRouteImport } from './routes/makaleler.kategori.$slug'
+import { Route as ApiPublicSeoCheckRouteImport } from './routes/api/public/seo-check'
 import { Route as AuthenticatedAdminMakalelerRouteImport } from './routes/_authenticated/admin.makaleler'
 import { Route as AuthenticatedAdminCalismaAlanlariRouteImport } from './routes/_authenticated/admin.calisma-alanlari'
 import { Route as AuthenticatedAdminAyarlarRouteImport } from './routes/_authenticated/admin.ayarlar'
@@ -156,6 +157,11 @@ const MakalelerKategoriSlugRoute = MakalelerKategoriSlugRouteImport.update({
   path: '/makaleler/kategori/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicSeoCheckRoute = ApiPublicSeoCheckRouteImport.update({
+  id: '/api/public/seo-check',
+  path: '/api/public/seo-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminMakalelerRoute =
   AuthenticatedAdminMakalelerRouteImport.update({
     id: '/makaleler',
@@ -200,6 +206,7 @@ export interface FileRoutesByFullPath {
   '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
+  '/api/public/seo-check': typeof ApiPublicSeoCheckRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
 }
@@ -227,6 +234,7 @@ export interface FileRoutesByTo {
   '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
+  '/api/public/seo-check': typeof ApiPublicSeoCheckRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
 }
@@ -257,6 +265,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/_authenticated/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/_authenticated/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
+  '/api/public/seo-check': typeof ApiPublicSeoCheckRoute
   '/makaleler/kategori/$slug': typeof MakalelerKategoriSlugRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
 }
@@ -287,6 +296,7 @@ export interface FileRouteTypes {
     | '/admin/ayarlar'
     | '/admin/calisma-alanlari'
     | '/admin/makaleler'
+    | '/api/public/seo-check'
     | '/makaleler/kategori/$slug'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -314,6 +324,7 @@ export interface FileRouteTypes {
     | '/admin/ayarlar'
     | '/admin/calisma-alanlari'
     | '/admin/makaleler'
+    | '/api/public/seo-check'
     | '/makaleler/kategori/$slug'
     | '/admin'
   id:
@@ -343,6 +354,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/ayarlar'
     | '/_authenticated/admin/calisma-alanlari'
     | '/_authenticated/admin/makaleler'
+    | '/api/public/seo-check'
     | '/makaleler/kategori/$slug'
     | '/_authenticated/admin/'
   fileRoutesById: FileRoutesById
@@ -369,6 +381,7 @@ export interface RootRouteChildren {
   BlogIndexRoute: typeof BlogIndexRoute
   CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
   MakalelerIndexRoute: typeof MakalelerIndexRoute
+  ApiPublicSeoCheckRoute: typeof ApiPublicSeoCheckRoute
   MakalelerKategoriSlugRoute: typeof MakalelerKategoriSlugRoute
 }
 
@@ -542,6 +555,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MakalelerKategoriSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/seo-check': {
+      id: '/api/public/seo-check'
+      path: '/api/public/seo-check'
+      fullPath: '/api/public/seo-check'
+      preLoaderRoute: typeof ApiPublicSeoCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/admin/makaleler': {
       id: '/_authenticated/admin/makaleler'
       path: '/makaleler'
@@ -617,6 +637,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogIndexRoute: BlogIndexRoute,
   CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
   MakalelerIndexRoute: MakalelerIndexRoute,
+  ApiPublicSeoCheckRoute: ApiPublicSeoCheckRoute,
   MakalelerKategoriSlugRoute: MakalelerKategoriSlugRoute,
 }
 export const routeTree = rootRouteImport
