@@ -39,7 +39,12 @@ export interface Article {
   faqs?: ArticleFaq[];
   /** Makale sonundaki genel bilgilendirme notu. */
   closingNote?: string;
+  /** JSON-LD ana şema türü (varsayılan: BlogPosting). */
+  schemaType?: "BlogPosting" | "Article" | "NewsArticle";
+  /** Sosyal paylaşım görseli (mutlak URL). Boşsa varsayılan OG görseli kullanılır. */
+  ogImageUrl?: string;
 }
+
 
 export const articleCategories: ArticleCategory[] = [
   {
