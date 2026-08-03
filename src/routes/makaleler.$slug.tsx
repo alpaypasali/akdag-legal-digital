@@ -41,11 +41,15 @@ export const Route = createFileRoute("/makaleler/$slug")({
     }
     const { article } = loaderData;
     const url = `/makaleler/${params.slug}`;
-    const ogImage = absoluteUrl(
-      article.categorySlug === "gurbetci-hukuk"
-        ? "/og/bursa-gurbetci-hukuk.jpg"
-        : "/og/akdag-hukuk.jpg",
-    );
+    // Panelden özel bir paylaşım görseli girildiyse o kullanılır.
+    const ogImage = article.ogImageUrl?.trim()
+      ? article.ogImageUrl.trim()
+      : absoluteUrl(
+          article.categorySlug === "gurbetci-hukuk"
+            ? "/og/bursa-gurbetci-hukuk.jpg"
+            : "/og/akdag-hukuk.jpg",
+        );
+
     return {
       meta: [
         { title: article.metaTitle },
