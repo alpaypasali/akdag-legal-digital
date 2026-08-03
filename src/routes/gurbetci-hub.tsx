@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import { PageHeader, SectionLabel } from "@/components/section";
+import { PageHeader } from "@/components/section";
 import { faqJsonLd } from "@/data/faqs";
 import { site } from "@/data/site";
 import {
   hubFaqs,
-  hubNotice,
   hubSections,
   hubStartSteps,
   hubTrustPoints,
@@ -13,10 +12,8 @@ import {
 import {
   HubQuickNav,
   HubServiceSection,
-  HubSteps,
 } from "@/components/gurbetci/hub-sections";
 import { HubCtaButtons } from "@/components/gurbetci/hub-cta";
-import { HubAppointmentForm } from "@/components/gurbetci/hub-appointment-form";
 import heroImage from "@/assets/hero-books.webp";
 
 const title =
