@@ -79,7 +79,13 @@ function AdminSeoChecks() {
     }
   }
 
-  const latestFailing = rows.find((r) => r.status !== "ok");
+  // Uyarı kutusu yalnızca her kontrol türünün EN SON sonucuna bakar; geçmişte
+  // çözülmüş bir hata paneli kalıcı olarak kırmızı bırakmaz.
+  const latestPerKind = rows.filter(
+    (row, index) => rows.findIndex((r) => r.kind === row.kind) === index,
+  );
+  const latestFailing = latestPerKind.find((r) => r.status !== "ok");
+
 
   return (
     <div className="space-y-8">
