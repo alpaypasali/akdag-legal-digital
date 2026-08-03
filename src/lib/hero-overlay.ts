@@ -8,6 +8,7 @@ const OVERLAY_ROUTES = new Set([
   "/avukat-kutay-onat-akdag",
   "/calisma-alanlari",
   "/makaleler",
+  "/gurbetci-hub",
   "/iletisim",
 ]);
 

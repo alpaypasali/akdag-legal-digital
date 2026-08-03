@@ -43,7 +43,8 @@ export type AnalyticsEventName =
   | "form_submit_success"
   | "form_submit_error"
   | "file_download"
-  | "internal_search";
+  | "internal_search"
+  | "gurbetci_hub_whatsapp_click";
 
 export interface AnalyticsParams {
   page_type?: string;
