@@ -48,16 +48,20 @@ export type Database = {
         Row: {
           author: string
           category_slug: string
+          closing_note: string
           content_updated_at: string | null
           created_at: string
           excerpt: string
+          faqs: Json
           id: string
           meta_description: string
           meta_title: string
           noindex: boolean
+          og_image_url: string
           published_at: string
           reading_minutes: number
           related_area_slug: string | null
+          schema_type: string
           sections: Json
           slug: string
           sources: Json
@@ -68,16 +72,20 @@ export type Database = {
         Insert: {
           author?: string
           category_slug: string
+          closing_note?: string
           content_updated_at?: string | null
           created_at?: string
           excerpt?: string
+          faqs?: Json
           id?: string
           meta_description?: string
           meta_title?: string
           noindex?: boolean
+          og_image_url?: string
           published_at?: string
           reading_minutes?: number
           related_area_slug?: string | null
+          schema_type?: string
           sections?: Json
           slug: string
           sources?: Json
@@ -88,16 +96,20 @@ export type Database = {
         Update: {
           author?: string
           category_slug?: string
+          closing_note?: string
           content_updated_at?: string | null
           created_at?: string
           excerpt?: string
+          faqs?: Json
           id?: string
           meta_description?: string
           meta_title?: string
           noindex?: boolean
+          og_image_url?: string
           published_at?: string
           reading_minutes?: number
           related_area_slug?: string | null
+          schema_type?: string
           sections?: Json
           slug?: string
           sources?: Json
@@ -170,6 +182,39 @@ export type Database = {
           summary?: string
           title?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      seo_checks: {
+        Row: {
+          base_url: string
+          checked_count: number
+          created_at: string
+          id: string
+          issue_count: number
+          issues: Json
+          kind: string
+          status: string
+        }
+        Insert: {
+          base_url?: string
+          checked_count?: number
+          created_at?: string
+          id?: string
+          issue_count?: number
+          issues?: Json
+          kind?: string
+          status?: string
+        }
+        Update: {
+          base_url?: string
+          checked_count?: number
+          created_at?: string
+          id?: string
+          issue_count?: number
+          issues?: Json
+          kind?: string
+          status?: string
         }
         Relationships: []
       }

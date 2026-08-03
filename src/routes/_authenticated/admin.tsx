@@ -24,8 +24,12 @@ const nav = [
   { to: "/admin", label: "Genel bakış", exact: true },
   { to: "/admin/makaleler", label: "Makaleler", exact: false },
   { to: "/admin/calisma-alanlari", label: "Çalışma alanları", exact: false },
+  { to: "/admin/alan-adi", label: "Alan adı", exact: false },
+  { to: "/admin/yonlendirmeler", label: "Yönlendirmeler", exact: false },
+  { to: "/admin/seo", label: "SEO kontrolleri", exact: false },
   { to: "/admin/ayarlar", label: "Ayarlar", exact: false },
 ] as const;
+
 
 function AdminLayout() {
   const navigate = useNavigate();

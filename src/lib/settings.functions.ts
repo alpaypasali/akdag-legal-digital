@@ -2,6 +2,8 @@ import { createServerFn } from "@tanstack/react-start";
 import { createClient } from "@supabase/supabase-js";
 
 import type { Database } from "@/integrations/supabase/types";
+import { setSiteUrlOverride } from "@/data/site";
+
 
 /**
  * Yönetim panelinden girilen site ayarları (Google entegrasyonları vb.).
@@ -52,7 +54,11 @@ export const fetchSiteSettings = createServerFn({ method: "GET" }).handler(
         const value = (row.value ?? "").trim();
         if (value) out[row.key] = value;
       }
+      // Panelden kaydedilen alan adı, sunucu tarafında canonical/og:url
+      // üretimine anında yansıtılır.
+      setSiteUrlOverride(out[SETTING_KEYS.baseUrl]);
       return out;
+
     } catch {
       return {};
     }

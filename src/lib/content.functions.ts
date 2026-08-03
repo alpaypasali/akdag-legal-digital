@@ -50,8 +50,9 @@ export const fetchSiteContent = createServerFn({ method: "GET" }).handler(
         supabase
           .from("articles")
           .select(
-            "slug,title,excerpt,category_slug,author,published_at,content_updated_at,reading_minutes,related_area_slug,sections,sources,meta_title,meta_description,noindex,status",
+            "slug,title,excerpt,category_slug,author,published_at,content_updated_at,reading_minutes,related_area_slug,sections,sources,meta_title,meta_description,noindex,status,faqs,closing_note,schema_type,og_image_url",
           )
+
           .eq("status", "published")
           .order("published_at", { ascending: false }),
         supabase

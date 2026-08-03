@@ -18,6 +18,8 @@ export const Route = createFileRoute("/_authenticated/admin/makaleler")({
   component: AdminArticles,
 });
 
+type ArticleFaqRow = { question: string; answer: string };
+
 type ArticleRecord = {
   id: string;
   slug: string;
@@ -35,6 +37,10 @@ type ArticleRecord = {
   meta_description: string;
   noindex: boolean;
   status: string;
+  schema_type: string;
+  og_image_url: string;
+  faqs: unknown;
+  closing_note: string;
 };
 
 const emptyArticle = (): ArticleRecord => ({
@@ -54,7 +60,22 @@ const emptyArticle = (): ArticleRecord => ({
   meta_description: "",
   noindex: false,
   status: "draft",
+  schema_type: "BlogPosting",
+  og_image_url: "",
+  faqs: [],
+  closing_note: "",
 });
+
+function toFaqRows(value: unknown): ArticleFaqRow[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((item): item is ArticleFaqRow => !!item && typeof item === "object")
+    .map((item) => ({
+      question: String((item as ArticleFaqRow).question ?? ""),
+      answer: String((item as ArticleFaqRow).answer ?? ""),
+    }));
+}
+
 
 function AdminArticles() {
   const [rows, setRows] = useState<ArticleRecord[]>([]);
@@ -62,6 +83,7 @@ function AdminArticles() {
   const [areas, setAreas] = useState<{ slug: string; title: string }[]>([]);
   const [editing, setEditing] = useState<ArticleRecord | null>(null);
   const [sections, setSections] = useState<EditableSection[]>([]);
+  const [faqs, setFaqs] = useState<ArticleFaqRow[]>([]);
   const [saving, setSaving] = useState(false);
 
   const load = useCallback(async () => {
@@ -83,12 +105,15 @@ function AdminArticles() {
   function startEdit(record: ArticleRecord) {
     setEditing({ ...record });
     setSections(toEditableSections(record.sections));
+    setFaqs(toFaqRows(record.faqs));
   }
 
   async function save() {
     if (!editing) return;
     const sectionsPayload = fromEditableSections(sections);
-
+    const faqPayload = faqs
+      .map((f) => ({ question: f.question.trim(), answer: f.answer.trim() }))
+      .filter((f) => f.question && f.answer);
 
     const payload = {
       slug: editing.slug || slugify(editing.title),
@@ -106,7 +131,12 @@ function AdminArticles() {
       meta_description: editing.meta_description.trim(),
       noindex: editing.noindex,
       status: editing.status,
+      schema_type: editing.schema_type || "BlogPosting",
+      og_image_url: editing.og_image_url.trim(),
+      faqs: faqPayload,
+      closing_note: editing.closing_note.trim(),
     };
+
 
     if (!payload.title || !payload.slug || !payload.category_slug) {
       toast.error("Başlık, adres (slug) ve kategori zorunludur.");
@@ -269,36 +299,156 @@ function AdminArticles() {
           />
         </Field>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <Field label="SEO başlığı" htmlFor="metaTitle" hint="60 karakterin altında tutun.">
-            <Input
-              id="metaTitle"
-              value={editing.meta_title}
-              onChange={(e) => setEditing({ ...editing, meta_title: e.target.value })}
-            />
-          </Field>
+        <div className="space-y-6 rounded-lg border border-border bg-card p-6">
+          <div>
+            <h2 className="font-serif text-xl text-foreground">SEO ve şema</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Bu alanlar makalenin başlık, açıklama, paylaşım görseli ve
+              JSON-LD (BlogPosting / FAQPage) şemalarını doğrudan belirler.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <Field
+              label="SEO başlığı"
+              htmlFor="metaTitle"
+              hint={`${editing.meta_title.length}/60 karakter`}
+            >
+              <Input
+                id="metaTitle"
+                value={editing.meta_title}
+                onChange={(e) => setEditing({ ...editing, meta_title: e.target.value })}
+              />
+            </Field>
+            <Field
+              label="SEO açıklaması"
+              htmlFor="metaDescription"
+              hint={`${editing.meta_description.length}/160 karakter`}
+            >
+              <Textarea
+                id="metaDescription"
+                rows={3}
+                value={editing.meta_description}
+                onChange={(e) =>
+                  setEditing({ ...editing, meta_description: e.target.value })
+                }
+              />
+            </Field>
+            <Field label="Şema türü" htmlFor="schemaType" hint="Varsayılan: BlogPosting">
+              <select
+                id="schemaType"
+                className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm"
+                value={editing.schema_type}
+                onChange={(e) => setEditing({ ...editing, schema_type: e.target.value })}
+              >
+                <option value="BlogPosting">BlogPosting</option>
+                <option value="Article">Article</option>
+                <option value="NewsArticle">NewsArticle</option>
+              </select>
+            </Field>
+            <Field
+              label="Paylaşım görseli (og:image)"
+              htmlFor="ogImage"
+              hint="Tam adres girin. Boş bırakırsanız varsayılan marka görseli kullanılır."
+            >
+              <Input
+                id="ogImage"
+                value={editing.og_image_url}
+                placeholder="https://…/og/akdag-hukuk.jpg"
+                onChange={(e) => setEditing({ ...editing, og_image_url: e.target.value })}
+              />
+            </Field>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <h3 className="text-sm font-medium text-foreground">
+                  Sıkça sorulan sorular (FAQPage şeması)
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Eklediğiniz her soru hem sayfada gösterilir hem de FAQPage
+                  şemasına eklenir.
+                </p>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => setFaqs([...faqs, { question: "", answer: "" }])}
+              >
+                Soru ekle
+              </Button>
+            </div>
+
+            {faqs.map((faq, index) => (
+              <div key={index} className="space-y-3 rounded-md border border-border p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                    Soru {index + 1}
+                  </span>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setFaqs(faqs.filter((_, i) => i !== index))}
+                  >
+                    Kaldır
+                  </Button>
+                </div>
+                <Input
+                  aria-label={`Soru ${index + 1}`}
+                  value={faq.question}
+                  placeholder="Soru"
+                  onChange={(e) =>
+                    setFaqs(
+                      faqs.map((f, i) =>
+                        i === index ? { ...f, question: e.target.value } : f,
+                      ),
+                    )
+                  }
+                />
+                <Textarea
+                  aria-label={`Cevap ${index + 1}`}
+                  rows={3}
+                  value={faq.answer}
+                  placeholder="Cevap"
+                  onChange={(e) =>
+                    setFaqs(
+                      faqs.map((f, i) => (i === index ? { ...f, answer: e.target.value } : f)),
+                    )
+                  }
+                />
+              </div>
+            ))}
+            {faqs.length === 0 ? (
+              <p className="text-sm text-muted-foreground">Henüz soru eklenmedi.</p>
+            ) : null}
+          </div>
+
           <Field
-            label="SEO açıklaması"
-            htmlFor="metaDescription"
-            hint="160 karakterin altında tutun."
+            label="Kapanış / bilgilendirme notu"
+            htmlFor="closingNote"
+            hint="Makalenin sonunda gösterilir."
           >
             <Textarea
-              id="metaDescription"
+              id="closingNote"
               rows={3}
-              value={editing.meta_description}
-              onChange={(e) => setEditing({ ...editing, meta_description: e.target.value })}
+              value={editing.closing_note}
+              onChange={(e) => setEditing({ ...editing, closing_note: e.target.value })}
             />
           </Field>
+
+          <label className="flex items-center gap-2 text-sm text-muted-foreground">
+            <input
+              type="checkbox"
+              checked={editing.noindex}
+              onChange={(e) => setEditing({ ...editing, noindex: e.target.checked })}
+            />
+            Arama motorlarından gizle (noindex)
+          </label>
         </div>
 
-        <label className="flex items-center gap-2 text-sm text-muted-foreground">
-          <input
-            type="checkbox"
-            checked={editing.noindex}
-            onChange={(e) => setEditing({ ...editing, noindex: e.target.checked })}
-          />
-          Arama motorlarından gizle (noindex)
-        </label>
       </div>
     );
   }
