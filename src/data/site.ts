@@ -1,14 +1,41 @@
 /**
- * Merkezi site adresi. Gerçek özel alan adına geçildiğinde yalnızca burası
- * güncellenir; canonical ve og:url değerleri buradan üretilir.
+ * Merkezi site adresi. Yönetim panelindeki "Alan adı" ekranından bir adres
+ * kaydedildiğinde bu değer çalışma anında otomatik olarak güncellenir
+ * (canonical, og:url ve sitemap adresleri buradan üretilir).
  */
 export const siteUrl = "https://akdag-legal-digital.lovable.app";
 
-/** Göreli yolu merkezi site adresiyle mutlak URL'ye çevirir. */
+let siteUrlOverride: string | null = null;
+
+/** Panelden gelen alan adını normalize eder (sondaki eğik çizgi kaldırılır). */
+export function normalizeSiteUrl(value: string | undefined | null): string | null {
+  const trimmed = (value ?? "").trim();
+  if (!trimmed) return null;
+  const withProtocol = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+  try {
+    const url = new URL(withProtocol);
+    return `${url.protocol}//${url.host}`;
+  } catch {
+    return null;
+  }
+}
+
+/** Panelden okunan alan adını uygulama genelinde etkinleştirir. */
+export function setSiteUrlOverride(value: string | undefined | null) {
+  siteUrlOverride = normalizeSiteUrl(value);
+}
+
+/** Yürürlükteki site adresi (panel ayarı varsa o, yoksa varsayılan). */
+export function getSiteUrl() {
+  return siteUrlOverride ?? siteUrl;
+}
+
+/** Göreli yolu yürürlükteki site adresiyle mutlak URL'ye çevirir. */
 export function absoluteUrl(path: string) {
-  const base = siteUrl.replace(/\/$/, "");
+  const base = getSiteUrl().replace(/\/$/, "");
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
+
 
 export const site = {
   name: "Akdağ Hukuk ve Danışmanlık",
