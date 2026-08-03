@@ -1,3 +1,4 @@
+import { ProgressiveImage } from "@/components/progressive-image";
 import archAsset from "@/assets/arch-columns.webp";
 
 /**
@@ -11,13 +12,14 @@ import archAsset from "@/assets/arch-columns.webp";
 export function ArchBackdrop() {
   return (
     <div aria-hidden="true" className="arch-backdrop">
-      <img
+      <ProgressiveImage
         src={archAsset}
         alt=""
         width={1920}
         height={1280}
         loading="lazy"
         decoding="async"
+        sizes="100vw"
         className="arch-backdrop__img"
       />
       <span className="arch-backdrop__veil" />

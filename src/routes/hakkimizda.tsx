@@ -1,8 +1,10 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, SectionLabel } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { absoluteUrl, site } from "@/data/site";
 import headerAsset from "@/assets/hero-hakkimizda.webp";
+import { ProgressiveImage } from "@/components/progressive-image";
 import archAsset from "@/assets/arch-columns.webp";
 
 const title = "Hakkımızda | Akdağ Hukuk ve Danışmanlık";
@@ -20,12 +22,7 @@ export const Route = createFileRoute("/hakkimizda")({
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/hakkimizda") },
-      {
-        rel: "preload",
-        as: "image",
-        href: headerAsset,
-        fetchPriority: "high" as const,
-      },
+      ...imagePreloadLinks(headerAsset),
     ],
     scripts: [
       {
@@ -101,7 +98,7 @@ function AboutPage() {
         aria-labelledby="ilkeler"
         className="relative isolate overflow-hidden border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
       >
-        <img
+        <ProgressiveImage
           src={archAsset}
           alt=""
           aria-hidden="true"
@@ -109,6 +106,7 @@ function AboutPage() {
           height={1280}
           loading="lazy"
           decoding="async"
+          sizes="100vw"
           className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center opacity-45 [filter:grayscale(1)_contrast(1.05)_brightness(0.9)]"
         />
         <span

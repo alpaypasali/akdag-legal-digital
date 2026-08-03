@@ -1,3 +1,4 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { absoluteUrl, site } from "@/data/site";
@@ -11,6 +12,7 @@ import { ArchBackdrop } from "@/components/arch-backdrop";
 import heroBooksAsset from "@/assets/hero-books.webp";
 import heroScalesAsset from "@/assets/hero-scales.webp";
 import logoMarkAsset from "@/assets/logo-footer.webp";
+import { ProgressiveImage } from "@/components/progressive-image";
 import archAsset from "@/assets/arch-columns.webp";
 
 
@@ -45,18 +47,8 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/") },
-      {
-        rel: "preload",
-        as: "image",
-        href: heroBooksAsset,
-        fetchPriority: "high" as const,
-      },
-      {
-        rel: "preload",
-        as: "image",
-        href: heroScalesAsset,
-        fetchPriority: "high" as const,
-      },
+      ...imagePreloadLinks(heroBooksAsset),
+      ...imagePreloadLinks(heroScalesAsset),
     ],
     scripts: [
       {
@@ -536,7 +528,7 @@ function Home() {
         aria-labelledby="ilkeler-baslik"
         className="relative isolate overflow-hidden border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
       >
-        <img
+        <ProgressiveImage
           src={archAsset}
           alt=""
           aria-hidden="true"
@@ -544,6 +536,7 @@ function Home() {
           height={1280}
           loading="lazy"
           decoding="async"
+          sizes="100vw"
           className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center opacity-45 [filter:grayscale(1)_contrast(1.05)_brightness(0.9)]"
         />
         <span

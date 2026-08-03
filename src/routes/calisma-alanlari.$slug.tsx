@@ -1,9 +1,11 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { FaqList } from "@/components/faq-list";
 import { areaFaqs, faqJsonLd } from "@/data/faqs";
+import { ProgressiveImage } from "@/components/progressive-image";
 import { areaImages as staticAreaImages, type PracticeArea } from "@/data/practice-areas";
 import { articlesForArea, formatDate } from "@/data/articles";
 import { absoluteUrl, site } from "@/data/site";
@@ -46,16 +48,7 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
       ],
       links: [
         { rel: "canonical", href: absoluteUrl(url) },
-        ...(heroImg
-          ? [
-              {
-                rel: "preload",
-                as: "image",
-                href: heroImg.url,
-                fetchPriority: "high" as const,
-              },
-            ]
-          : []),
+        ...(heroImg ? imagePreloadLinks(heroImg.url, "(min-width: 1024px) 67vw, 100vw") : []),
       ],
       scripts: [
         {
@@ -98,7 +91,7 @@ function AreaDetail() {
         {heroImg ? (
           <>
             <div className="absolute inset-y-0 right-0 w-full lg:w-2/3">
-              <img
+              <ProgressiveImage
                 src={heroImg.url}
                 alt={heroImg.alt}
                 fetchPriority="high"
@@ -195,7 +188,7 @@ function AreaDetail() {
                   className="absolute inset-0 translate-x-5 translate-y-5 border border-gold/40"
                 />
                 <div className="relative aspect-[4/5] overflow-hidden bg-ink">
-                  <img
+                  <ProgressiveImage
                     src={heroImg.url}
                     alt=""
                     aria-hidden="true"
@@ -203,6 +196,7 @@ function AreaDetail() {
                     height={768}
                     loading="lazy"
                     decoding="async"
+                    sizes="(min-width: 1024px) 40vw, 100vw"
                     className="size-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
