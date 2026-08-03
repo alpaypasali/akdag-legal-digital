@@ -73,12 +73,27 @@ export const fetchSiteContent = createServerFn({ method: "GET" }).handler(
       // Görseller statiktir: veritabanından okunmaz.
       const areaImages: Record<string, { url: string; alt: string }> = { ...staticAreaImages };
 
+      const dbArticles = ((articlesRes.data ?? []) as ArticleRow[]).map(mapArticle);
+      const dbSlugs = new Set(dbArticles.map((a) => a.slug));
+      // Kod içinde tanımlı yayındaki makaleler, veritabanında yoksa korunur.
+      const mergedArticles = [
+        ...dbArticles,
+        ...staticArticles.filter((a) => a.status === "published" && !dbSlugs.has(a.slug)),
+      ].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
+
+      const dbCategories =
+        (categoriesRes.data ?? []).length > 0
+          ? ((categoriesRes.data ?? []) as CategoryRow[]).map(mapCategory)
+          : staticCategories;
+      const categorySlugs = new Set(dbCategories.map((c) => c.slug));
+      const mergedCategories = [
+        ...dbCategories,
+        ...staticCategories.filter((c) => !categorySlugs.has(c.slug)),
+      ].filter((c) => mergedArticles.some((a) => a.categorySlug === c.slug));
+
       return {
-        articles: ((articlesRes.data ?? []) as ArticleRow[]).map(mapArticle),
-        categories:
-          (categoriesRes.data ?? []).length > 0
-            ? ((categoriesRes.data ?? []) as CategoryRow[]).map(mapCategory)
-            : staticCategories,
+        articles: mergedArticles,
+        categories: mergedCategories,
         areas: areaRows.map(mapPracticeArea),
         areaImages,
       };

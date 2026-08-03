@@ -25,6 +25,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MakalelerIndexRouteImport } from './routes/makaleler.index'
 import { Route as CalismaAlanlariIndexRouteImport } from './routes/calisma-alanlari.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as MakalelerSlugRouteImport } from './routes/makaleler.$slug'
 import { Route as CalismaAlanlariSlugRouteImport } from './routes/calisma-alanlari.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -115,6 +116,11 @@ const CalismaAlanlariIndexRoute = CalismaAlanlariIndexRouteImport.update({
   path: '/calisma-alanlari/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MakalelerSlugRoute = MakalelerSlugRouteImport.update({
   id: '/makaleler/$slug',
   path: '/makaleler/$slug',
@@ -188,6 +194,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
   '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
@@ -214,6 +221,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
   '/makaleler': typeof MakalelerIndexRoute
   '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
@@ -243,6 +251,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
   '/_authenticated/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
@@ -272,6 +281,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
+    | '/blog/'
     | '/calisma-alanlari/'
     | '/makaleler/'
     | '/admin/ayarlar'
@@ -298,6 +308,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
+    | '/blog'
     | '/calisma-alanlari'
     | '/makaleler'
     | '/admin/ayarlar'
@@ -326,6 +337,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
+    | '/blog/'
     | '/calisma-alanlari/'
     | '/makaleler/'
     | '/_authenticated/admin/ayarlar'
@@ -354,6 +366,7 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   MakalelerSlugRoute: typeof MakalelerSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   CalismaAlanlariIndexRoute: typeof CalismaAlanlariIndexRoute
   MakalelerIndexRoute: typeof MakalelerIndexRoute
   MakalelerKategoriSlugRoute: typeof MakalelerKategoriSlugRoute
@@ -471,6 +484,13 @@ declare module '@tanstack/react-router' {
       path: '/calisma-alanlari'
       fullPath: '/calisma-alanlari/'
       preLoaderRoute: typeof CalismaAlanlariIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/makaleler/$slug': {
@@ -594,6 +614,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   MakalelerSlugRoute: MakalelerSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   CalismaAlanlariIndexRoute: CalismaAlanlariIndexRoute,
   MakalelerIndexRoute: MakalelerIndexRoute,
   MakalelerKategoriSlugRoute: MakalelerKategoriSlugRoute,

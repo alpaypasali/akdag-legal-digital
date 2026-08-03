@@ -1,4 +1,9 @@
-import type { Article, ArticleCategory, ArticleSection } from "@/data/articles";
+import type {
+  Article,
+  ArticleCategory,
+  ArticleFaq,
+  ArticleSection,
+} from "@/data/articles";
 import type { PracticeArea } from "@/data/practice-areas";
 
 /** Veritabanı satırı -> uygulama tipi dönüşümleri (istemci ve sunucuda güvenle kullanılır). */
@@ -19,6 +24,8 @@ export type ArticleRow = {
   meta_description: string;
   noindex: boolean;
   status: string;
+  faqs?: unknown;
+  closing_note?: string | null;
 };
 
 export type CategoryRow = {
@@ -65,6 +72,12 @@ export function mapArticle(row: ArticleRow): Article {
     metaDescription: row.meta_description,
     noindex: row.noindex,
     status: row.status === "published" ? "published" : "draft",
+    faqs: Array.isArray(row.faqs)
+      ? (row.faqs as ArticleFaq[]).filter(
+          (f) => f && typeof f.question === "string" && typeof f.answer === "string",
+        )
+      : undefined,
+    closingNote: row.closing_note ?? undefined,
   };
 }
 
