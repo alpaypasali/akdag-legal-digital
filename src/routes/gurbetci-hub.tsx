@@ -16,10 +16,9 @@ import {
 import { HubCtaButtons } from "@/components/gurbetci/hub-cta";
 import heroImage from "@/assets/hero-books.webp";
 
-const title =
-  "Yurt Dışında Yaşayan Türkler için Hukuki Danışmanlık | Akdağ Hukuk";
+const title = "Bursa Gurbetçi Hukuk | Akdağ Hukuk";
 const description =
-  "Avrupa'da yaşayan Türk vatandaşları için vekaletname, miras, boşanma ve askerlik konularında Türkiye'ye gelmeden hukuki destek. WhatsApp üzerinden ön görüşme.";
+  "Bursa Gurbetçi Hukuk: yurt dışında yaşayan Türk vatandaşları için vekâletname, miras, boşanma ve askerlik konularında Türkiye'ye gelmeden hukuki destek.";
 const path = "/gurbetci-hub";
 
 export const Route = createFileRoute("/gurbetci-hub")({
@@ -37,7 +36,7 @@ export const Route = createFileRoute("/gurbetci-hub")({
       {
         type: "application/ld+json",
         children: JSON.stringify(
-          breadcrumbJsonLd([{ name: "Gurbetçi Hub", item: path }]),
+          breadcrumbJsonLd([{ name: "Bursa Gurbetçi Hukuk", item: path }]),
         ),
       },
       {
@@ -49,7 +48,7 @@ export const Route = createFileRoute("/gurbetci-hub")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LegalService",
-          name: site.name,
+          name: `Bursa Gurbetçi Hukuk — ${site.name}`,
           url: path,
           areaServed: ["Bursa, Türkiye", "Avrupa"],
           email: site.contact.email,
@@ -73,13 +72,13 @@ function GurbetciHubPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Yurt Dışındaki Türk Vatandaşlarına Özel"
-        title="Yurt Dışında Yaşayan Türkler için Hukuki Danışmanlık"
+        eyebrow="Bursa Gurbetçi Hukuk"
+        title="Bursa Gurbetçi Hukuk ve Yurt Dışı Hukuki Danışmanlık"
         image={heroImage}
         imageAlt=""
         imagePosition="center 40%"
       >
-        <Breadcrumbs items={[{ label: "Gurbetçi Hub" }]} />
+        <Breadcrumbs items={[{ label: "Bursa Gurbetçi Hukuk" }]} />
       </PageHeader>
 
       <section
@@ -102,8 +101,8 @@ function GurbetciHubPage() {
               gelmeden bizimle birlikte yürütebilirsiniz.
             </p>
             <p className="measure mt-4 text-muted-foreground">
-              Süreç boyunca WhatsApp üzerinden düzenli olarak
-              bilgilendirilirsiniz.
+              Akdağ Hukuk Gurbetçi Hub hizmeti kapsamında süreç boyunca
+              WhatsApp üzerinden düzenli olarak bilgilendirilirsiniz.
             </p>
             <div className="mt-8">
               <HubCtaButtons location="hero" />

@@ -29,7 +29,7 @@ export const mainNav = [
   { label: "Ana Sayfa", to: "/" },
   { label: "Hakkımızda", to: "/hakkimizda" },
   { label: "Çalışma Alanları", to: "/calisma-alanlari" },
-  { label: "Gurbetçi Hub", to: "/gurbetci-hub" },
+  { label: "Bursa Gurbetçi Hukuk", to: "/gurbetci-hub" },
   { label: "Makaleler", to: "/makaleler" },
   { label: "İletişim", to: "/iletisim" },
 ] as const;
