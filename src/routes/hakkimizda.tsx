@@ -1,3 +1,4 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, SectionLabel } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
@@ -21,12 +22,7 @@ export const Route = createFileRoute("/hakkimizda")({
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/hakkimizda") },
-      {
-        rel: "preload",
-        as: "image",
-        href: headerAsset,
-        fetchPriority: "high" as const,
-      },
+      ...imagePreloadLinks(headerAsset),
     ],
     scripts: [
       {

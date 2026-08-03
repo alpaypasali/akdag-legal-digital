@@ -1,3 +1,4 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
@@ -47,16 +48,7 @@ export const Route = createFileRoute("/calisma-alanlari/$slug")({
       ],
       links: [
         { rel: "canonical", href: absoluteUrl(url) },
-        ...(heroImg
-          ? [
-              {
-                rel: "preload",
-                as: "image",
-                href: heroImg.url,
-                fetchPriority: "high" as const,
-              },
-            ]
-          : []),
+        ...(heroImg ? imagePreloadLinks(heroImg.url, "(min-width: 1024px) 67vw, 100vw") : []),
       ],
       scripts: [
         {

@@ -72,3 +72,27 @@ export function preloadFor(src: string, sizes: string) {
     type: "image/avif",
   };
 }
+
+/**
+ * `head().links` içinde kullanılan LCP ön yükleme etiketleri.
+ * Varyant varsa AVIF srcset ile mobilde yalnızca küçük dosya indirilir.
+ */
+export function imagePreloadLinks(src: string, sizes = "100vw") {
+  const preload = preloadFor(src, sizes);
+  if (!preload) {
+    return [
+      { rel: "preload", as: "image", href: src, fetchPriority: "high" as const },
+    ];
+  }
+  return [
+    {
+      rel: "preload",
+      as: "image",
+      href: preload.href,
+      imageSrcSet: preload.imageSrcSet,
+      imageSizes: preload.imageSizes,
+      type: preload.type,
+      fetchPriority: "high" as const,
+    },
+  ];
+}

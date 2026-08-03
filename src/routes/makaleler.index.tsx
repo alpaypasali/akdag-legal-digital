@@ -1,3 +1,4 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
@@ -27,12 +28,7 @@ export const Route = createFileRoute("/makaleler/")({
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/makaleler") },
-      {
-        rel: "preload",
-        as: "image",
-        href: headerAsset,
-        fetchPriority: "high" as const,
-      },
+      ...imagePreloadLinks(headerAsset),
     ],
     scripts: [
       {

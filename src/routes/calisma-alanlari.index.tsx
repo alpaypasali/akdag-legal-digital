@@ -1,3 +1,4 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/section";
@@ -25,12 +26,7 @@ export const Route = createFileRoute("/calisma-alanlari/")({
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/calisma-alanlari") },
-      {
-        rel: "preload",
-        as: "image",
-        href: headerAsset,
-        fetchPriority: "high" as const,
-      },
+      ...imagePreloadLinks(headerAsset),
     ],
     scripts: [
       {

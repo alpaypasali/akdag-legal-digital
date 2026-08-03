@@ -1,3 +1,4 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { absoluteUrl, site } from "@/data/site";
@@ -46,18 +47,8 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/") },
-      {
-        rel: "preload",
-        as: "image",
-        href: heroBooksAsset,
-        fetchPriority: "high" as const,
-      },
-      {
-        rel: "preload",
-        as: "image",
-        href: heroScalesAsset,
-        fetchPriority: "high" as const,
-      },
+      ...imagePreloadLinks(heroBooksAsset),
+      ...imagePreloadLinks(heroScalesAsset),
     ],
     scripts: [
       {

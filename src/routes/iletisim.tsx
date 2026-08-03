@@ -1,3 +1,4 @@
+import { imagePreloadLinks } from "@/lib/responsive-assets";
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { PageHeader } from "@/components/section";
@@ -24,12 +25,7 @@ export const Route = createFileRoute("/iletisim")({
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/iletisim") },
-      {
-        rel: "preload",
-        as: "image",
-        href: headerAsset,
-        fetchPriority: "high" as const,
-      },
+      ...imagePreloadLinks(headerAsset),
     ],
     scripts: [
       {
