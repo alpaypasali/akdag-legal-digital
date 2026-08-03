@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
+import { ProgressiveImage } from "@/components/progressive-image";
 import { site } from "@/data/site";
+
 
 export function SectionLabel({
   index,
@@ -58,19 +60,21 @@ export function PageHeader({
 
   return (
     <div className="relative flex min-h-[440px] flex-col justify-end overflow-hidden bg-ink pb-12 pt-28 text-ink-foreground md:min-h-[600px] md:pb-16 md:pt-40">
-      <img
+      <ProgressiveImage
         src={image}
         alt={imageAlt ?? ""}
         width={1600}
         height={854}
         fetchPriority="high"
         decoding="async"
+        sizes="100vw"
         className="absolute inset-0 size-full object-cover"
         style={{
           objectPosition: imagePosition,
           filter: "saturate(0.68) contrast(1.04) brightness(0.86) sepia(0.1)",
         }}
       />
+
       {/* Ortak grading + okunabilirlik katmanları */}
       <div
         aria-hidden="true"
