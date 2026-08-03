@@ -86,7 +86,7 @@ export const hubSections: HubSection[] = [
   },
   {
     id: "miras",
-    navLabel: "Yurt Dışından Miras",
+    navLabel: "Yurt Dışından Miras İşlemleri",
     icon: "scroll-text",
     title: "Yurt Dışından Miras İşlemleri",
     subtitle: "Türkiye'deki mirasınızı uzaktan takip edin",
@@ -138,7 +138,7 @@ export const hubSections: HubSection[] = [
   },
   {
     id: "bosanma",
-    navLabel: "Yurt Dışından Boşanma",
+    navLabel: "Yurt Dışından Boşanma Davası",
     icon: "heart-crack",
     title: "Yurt Dışından Boşanma Davası",
     subtitle: "Eşlerden biri Türkiye'de, diğeri Avrupa'da olsa bile",
@@ -190,9 +190,9 @@ export const hubSections: HubSection[] = [
   },
   {
     id: "askerlik",
-    navLabel: "Askerlik İşlemleri",
+    navLabel: "Askerlik ve Diğer İşlemler",
     icon: "shield-check",
-    title: "Askerlik Erteleme ve Muafiyet Danışmanlığı",
+    title: "Askerlik Erteleme ve Diğer İşlemler",
     subtitle: "Yurt dışında ikamet eden vatandaşlarımız için",
     description:
       "Yurt dışında yaşayan vatandaşlarımızın askerlik erteleme, dövizle askerlik, bedelli askerlik ve kişisel durumlarına göre gündeme gelebilecek diğer askerlik işlemlerine ilişkin başvuru şartları değerlendirilir. Şartlar güncel mevzuata ve kişisel duruma göre değişebildiği için bilgiler görüşmede dosyanıza özgü olarak ele alınır.",
