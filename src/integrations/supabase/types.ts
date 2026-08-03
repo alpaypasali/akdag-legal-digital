@@ -48,10 +48,11 @@ export type Database = {
         Row: {
           author: string
           category_slug: string
+          closing_note: string
           content_updated_at: string | null
           created_at: string
           excerpt: string
-          faq: Json
+          faqs: Json
           id: string
           meta_description: string
           meta_title: string
@@ -71,10 +72,11 @@ export type Database = {
         Insert: {
           author?: string
           category_slug: string
+          closing_note?: string
           content_updated_at?: string | null
           created_at?: string
           excerpt?: string
-          faq?: Json
+          faqs?: Json
           id?: string
           meta_description?: string
           meta_title?: string
@@ -94,10 +96,11 @@ export type Database = {
         Update: {
           author?: string
           category_slug?: string
+          closing_note?: string
           content_updated_at?: string | null
           created_at?: string
           excerpt?: string
-          faq?: Json
+          faqs?: Json
           id?: string
           meta_description?: string
           meta_title?: string
