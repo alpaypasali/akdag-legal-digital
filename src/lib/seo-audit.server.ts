@@ -163,7 +163,15 @@ export async function runSeoAudit(limit = 40, fallbackOrigin?: string): Promise<
     });
   }
 
-  const targets = locs.slice(0, limit);
+  // Sitemap içindeki adresler yayın alan adını taşır; tarama yürürlükteki
+  // adres üzerinden yapılır ki yayına alınmamış ortamlarda da çalışsın.
+  const targets = locs.slice(0, limit).map((loc) => {
+    try {
+      return `${baseUrl}${new URL(loc).pathname}`;
+    } catch {
+      return loc;
+    }
+  });
 
   await Promise.all(
     targets.map(async (loc) => {
@@ -198,7 +206,10 @@ export async function runSeoAudit(limit = 40, fallbackOrigin?: string): Promise<
         )?.[1];
         if (!canonical) {
           issues.push({ url: loc, severity: "error", message: "Canonical etiketi yok." });
-        } else if (canonical.replace(/\/$/, "") !== loc.replace(/\/$/, "")) {
+        } else if (
+          new URL(canonical, baseUrl).pathname.replace(/\/$/, "") !==
+          new URL(loc).pathname.replace(/\/$/, "")
+        ) {
           issues.push({
             url: loc,
             severity: "warning",
