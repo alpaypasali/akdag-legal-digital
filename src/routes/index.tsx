@@ -4,6 +4,7 @@ import { absoluteUrl, site } from "@/data/site";
 import { featuredAreas } from "@/data/practice-areas";
 import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
 import { fetchSiteContent } from "@/lib/content.functions";
+import { GuideCards } from "@/components/gurbetci/guide-cards";
 import { SectionLabel } from "@/components/section";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { ArchBackdrop } from "@/components/arch-backdrop";
@@ -39,6 +40,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:url", content: absoluteUrl("/") },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: absoluteUrl("/og/akdag-hukuk.jpg") },
+      { name: "twitter:image", content: absoluteUrl("/og/akdag-hukuk.jpg") },
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/") },
@@ -167,6 +170,9 @@ const approach = [
 function Home() {
   const { articles, categories } = Route.useLoaderData();
   const latest = articles.slice(0, 3);
+  const gurbetciGuides = articles
+    .filter((a: Article) => a.categorySlug === "gurbetci-hukuk")
+    .slice(0, 3);
   const getCategory = (slug: string) => categories.find((c: ArticleCategory) => c.slug === slug);
 
   return (
@@ -381,6 +387,46 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* 2c — Gurbetçi Hukuku Rehberleri */}
+      {gurbetciGuides.length > 0 ? (
+        <section
+          aria-labelledby="gurbetci-rehberleri"
+          className="border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-20"
+        >
+          <div className="container-editorial">
+            <div className="flex items-center gap-4">
+              <span aria-hidden="true" className="h-px w-8 bg-gold" />
+              <p className="eyebrow text-gold">Rehberler</p>
+            </div>
+            <h2
+              id="gurbetci-rehberleri"
+              className="mt-5 font-serif text-2xl sm:text-3xl lg:text-4xl"
+            >
+              Gurbetçi Hukuku Rehberleri
+            </h2>
+            <p className="measure mt-5 text-ink-foreground/75">
+              Vekâletname, miras, boşanma ve askerlik başlıklarında yurt
+              dışından yürütülebilen işlemleri anlatan güncel yazılar.
+            </p>
+
+            <div className="mt-10">
+              <GuideCards articles={gurbetciGuides} tone="dark" />
+            </div>
+
+            <Link
+              to="/makaleler/kategori/$slug"
+              params={{ slug: "gurbetci-hukuk" }}
+              className="link-underline mt-10 inline-flex text-sm"
+            >
+              Tüm gurbetçi hukuku yazıları
+              <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
+      ) : null}
+
+
 
       {/* 3 — Avukat tanıtımı */}
 

@@ -22,7 +22,7 @@ export interface HubSection {
 }
 
 export const hubTrustPoints = [
-  "Randevu ile ücretsiz ön görüşme",
+  "Randevu ile ön görüşme imkânı",
   "WhatsApp veya Zoom üzerinden iletişim",
   "Zaman farkına uygun görüşme planlaması",
   "Meslek sırrı ve gizlilik esası",

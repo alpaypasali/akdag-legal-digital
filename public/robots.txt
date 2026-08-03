@@ -18,4 +18,4 @@ Disallow: /login
 Disallow: /*?q=
 Disallow: /*?arama=
 
-Sitemap: https://akdag-legal-digital.vercel.app/sitemap.xml
+Sitemap: https://akdag-legal-digital.lovable.app/sitemap.xml

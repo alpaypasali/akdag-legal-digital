@@ -2,7 +2,7 @@
  * Merkezi site adresi. Gerçek özel alan adına geçildiğinde yalnızca burası
  * güncellenir; canonical ve og:url değerleri buradan üretilir.
  */
-export const siteUrl = "https://akdag-legal-digital.vercel.app";
+export const siteUrl = "https://akdag-legal-digital.lovable.app";
 
 /** Göreli yolu merkezi site adresiyle mutlak URL'ye çevirir. */
 export function absoluteUrl(path: string) {

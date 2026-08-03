@@ -4,6 +4,9 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { PageHeader } from "@/components/section";
 import { faqJsonLd } from "@/data/faqs";
 import { absoluteUrl, site } from "@/data/site";
+import { type Article } from "@/data/articles";
+import { fetchSiteContent } from "@/lib/content.functions";
+import { GuideCards } from "@/components/gurbetci/guide-cards";
 import { trackEvent } from "@/lib/analytics";
 import {
   hubFaqs,
@@ -45,6 +48,14 @@ export const Route = createFileRoute("/bursa-gurbetci-hukuk")({
       { property: "og:description", content: ogDescription },
       { property: "og:url", content: canonical },
       { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content: absoluteUrl("/og/bursa-gurbetci-hukuk.jpg"),
+      },
+      {
+        name: "twitter:image",
+        content: absoluteUrl("/og/bursa-gurbetci-hukuk.jpg"),
+      },
     ],
     links: [{ rel: "canonical", href: canonical }],
     scripts: [
@@ -90,10 +101,19 @@ export const Route = createFileRoute("/bursa-gurbetci-hukuk")({
       },
     ],
   }),
+  loader: async (): Promise<{ guides: Article[] }> => {
+    const content = await fetchSiteContent();
+    const guides = content.articles.filter(
+      (a) => a.categorySlug === "gurbetci-hukuk",
+    );
+    return { guides };
+  },
   component: GurbetciHubPage,
 });
 
 function GurbetciHubPage() {
+  const { guides } = Route.useLoaderData();
+
   return (
     <>
       <PageHeader
@@ -226,6 +246,32 @@ function GurbetciHubPage() {
           </div>
         </div>
       </section>
+
+      {guides.length > 0 ? (
+        <section
+          aria-labelledby="hub-rehberler"
+          className="border-t border-border bg-card py-14 md:py-20"
+        >
+          <div className="container-editorial">
+            <p className="eyebrow">Rehberler</p>
+            <h2
+              id="hub-rehberler"
+              className="mt-5 font-serif text-2xl leading-tight sm:text-3xl lg:text-4xl"
+            >
+              İlgili Makaleler
+            </h2>
+            <p className="measure mt-5 text-muted-foreground">
+              Konsolosluk vekâletnamesi, yurt dışından miras, boşanma ve
+              askerlik başlıklarını ayrıntılı biçimde ele alan yazılar.
+            </p>
+
+            <div className="mt-10">
+              <GuideCards articles={guides} />
+            </div>
+          </div>
+        </section>
+      ) : null}
+
 
     </>
   );
