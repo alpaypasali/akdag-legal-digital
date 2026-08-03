@@ -12,6 +12,11 @@ export interface ArticleSection {
   list?: string[];
 }
 
+export interface ArticleFaq {
+  question: string;
+  answer: string;
+}
+
 export interface Article {
   slug: string;
   title: string;
@@ -28,6 +33,10 @@ export interface Article {
   metaDescription: string;
   noindex?: boolean;
   status: "published" | "draft";
+  /** Makale sonunda gösterilen SSS (FAQPage şeması da bu listeden üretilir). */
+  faqs?: ArticleFaq[];
+  /** Makale sonundaki genel bilgilendirme notu. */
+  closingNote?: string;
 }
 
 export const articleCategories: ArticleCategory[] = [
