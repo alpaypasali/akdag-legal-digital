@@ -98,10 +98,19 @@ export const Route = createFileRoute("/bursa-gurbetci-hukuk")({
       },
     ],
   }),
+  loader: async (): Promise<{ guides: Article[] }> => {
+    const content = await fetchSiteContent();
+    const guides = content.articles.filter(
+      (a) => a.categorySlug === "gurbetci-hukuk",
+    );
+    return { guides };
+  },
   component: GurbetciHubPage,
 });
 
 function GurbetciHubPage() {
+  const { guides } = Route.useLoaderData();
+
   return (
     <>
       <PageHeader
