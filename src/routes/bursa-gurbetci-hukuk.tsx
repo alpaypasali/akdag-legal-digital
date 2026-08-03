@@ -1,20 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ArrowDown } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { PageHeader } from "@/components/section";
 import { faqJsonLd } from "@/data/faqs";
 import { site } from "@/data/site";
+import { trackEvent } from "@/lib/analytics";
 import {
   hubFaqs,
   hubSections,
   hubStartSteps,
-  hubTrustPoints,
 } from "@/data/gurbetci-hub";
 import {
   HubQuickNav,
   HubServiceSection,
 } from "@/components/gurbetci/hub-sections";
-import { HubCtaButtons } from "@/components/gurbetci/hub-cta";
+import { HubCtaButtons, whatsappHref } from "@/components/gurbetci/hub-cta";
 import heroImage from "@/assets/hero-books.webp";
+
+const heroTrustPoints: string[] = [
+  "WhatsApp üzerinden ilk iletişim",
+  "Zaman farkına uygun görüşme planlaması",
+  "Yazılı ve düzenli dosya bilgilendirmesi",
+  "Meslek sırrı ve gizlilik",
+  "Türkiye'ye gelmeden takip edilebilen işlemler",
+];
+
 
 const title = "Bursa Gurbetçi Hukuk | Akdağ Hukuk";
 const description =
