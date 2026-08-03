@@ -260,7 +260,7 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Ticari davaların büyük bölümünde konusu bir miktar paranın ödenmesi olan taleplerde arabuluculuk dava şartıdır.",
-    metaTitle: "Bursa Ticaret ve Şirketler Hukuku | Sözleşme ve Dava | Akdağ Hukuk",
+    metaTitle: "Bursa Ticaret Hukuku | Sözleşme ve Dava | Akdağ Hukuk",
     metaDescription:
       "Şirket kuruluşu, pay devri, ticari sözleşmeler ve alacak takibi hakkında genel bilgilendirme. Bursa'da ticaret hukuku alanında avukatlık hizmeti.",
   },
@@ -296,7 +296,7 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Mirasın reddi gibi taleplerde kanuni süreler kısadır; bu nedenle sürecin erken değerlendirilmesi gerekir.",
-    metaTitle: "Bursa Miras Hukuku | Tenkis, Paylaşım ve Mirasın Reddi | Akdağ Hukuk",
+    metaTitle: "Bursa Miras Hukuku | Paylaşım ve Mirasın Reddi | Akdağ Hukuk",
     metaDescription:
       "Mirasçılık belgesi, tenkis, muris muvazaası ve mirasın reddi süreçlerine ilişkin genel bilgilendirme. Bursa'da miras hukuku alanında hizmet.",
   },
@@ -476,7 +476,7 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "Bu alanda teknik bilirkişi raporları belirleyicidir; rapora karşı süresinde ve teknik gerekçeyle itiraz edilmesi önem taşır.",
-    metaTitle: "Bursa İnşaat Hukuku | Kat Karşılığı Sözleşme ve Ayıp | Akdağ Hukuk",
+    metaTitle: "Bursa İnşaat Hukuku | Kat Karşılığı Sözleşme | Akdağ Hukuk",
     metaDescription:
       "Kat karşılığı inşaat sözleşmeleri, gecikme tazminatı ve ayıplı imalat süreçlerine ilişkin genel bilgilendirme. Bursa'da inşaat hukuku hizmeti.",
   },
@@ -512,7 +512,7 @@ export const practiceAreas: PracticeArea[] = [
     ],
     processNote:
       "İdari kararlara karşı başvuru süreleri kısadır ve kararın tebliğ biçimine göre değişebilir.",
-    metaTitle: "Bursa Yabancılar Hukuku | İkamet İzni ve Vatandaşlık | Akdağ Hukuk",
+    metaTitle: "Bursa Yabancılar Hukuku | İkamet ve Vatandaşlık | Akdağ Hukuk",
     metaDescription:
       "İkamet izni, çalışma izni, vatandaşlık ve yabancıların taşınmaz edinimi süreçlerine ilişkin genel bilgilendirme. Bursa'da yabancılar hukuku hizmeti.",
   },
