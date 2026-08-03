@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { PageHeader } from "@/components/section";
 import { faqJsonLd } from "@/data/faqs";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import {
   hubFaqs,
