@@ -26,22 +26,27 @@ const heroTrustPoints: string[] = [
 ];
 
 
-const title = "Bursa Gurbetçi Hukuk | Akdağ Hukuk";
+const title = "Bursa Gurbetçi Hukuk ve Gurbetçi Avukat | Akdağ Hukuk";
 const description =
-  "Bursa Gurbetçi Hukuk: yurt dışında yaşayan Türk vatandaşları için vekâletname, miras, boşanma ve askerlik konularında Türkiye'ye gelmeden hukuki destek.";
+  "Bursa gurbetçi hukuk hizmetleri: Yurt dışından vekâletname, miras, boşanma, tapu ve dava takibi. Gurbetçi avukat Bursa hukuki danışmanlık.";
+const ogTitle = "Bursa Gurbetçi Hukuk | Akdağ Hukuk";
+const ogDescription =
+  "Yurt dışında yaşayan vatandaşların Türkiye'deki miras, boşanma, vekâletname, tapu ve dava işlemlerine yönelik hukuki danışmanlık.";
 const path = "/bursa-gurbetci-hukuk";
+/** Canonical, merkezi site adresinden (src/data/site.ts) üretilir. */
+const canonical = absoluteUrl(path);
 
 export const Route = createFileRoute("/bursa-gurbetci-hukuk")({
   head: () => ({
     meta: [
       { title },
       { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:url", content: path },
+      { property: "og:title", content: ogTitle },
+      { property: "og:description", content: ogDescription },
+      { property: "og:url", content: canonical },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: canonical }],
     scripts: [
       {
         type: "application/ld+json",
