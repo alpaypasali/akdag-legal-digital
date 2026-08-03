@@ -81,7 +81,11 @@ export function mapArticle(row: ArticleRow): Article {
         )
       : undefined,
     closingNote: row.closing_note ?? undefined,
-    schemaType: row.schema_type ?? undefined,
+    schemaType:
+      row.schema_type === "Article" || row.schema_type === "NewsArticle"
+        ? row.schema_type
+        : "BlogPosting",
+
     ogImageUrl: row.og_image_url ?? undefined,
   };
 }
