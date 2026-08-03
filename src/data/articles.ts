@@ -1390,7 +1390,7 @@ export const articles: Article[] = [
         paragraphs: [
           "Ceza dosyalarında avukatın işlevi, sürecin her aşamasında usulün ve savunma haklarının işletilmesidir. Bu; ifade öncesinde bilgilendirme, dosya inceleme, lehe delillerin toplanmasını talep etme, tedbirlere itiraz, iddianameye karşı savunma hazırlığı ve kanun yolu başvurularını kapsar. Müşteki ve mağdur bakımından da vekil desteği mümkündür; delil sunma ve davaya katılma talepleri bu kapsamda yürütülür.",
           "Bir Bursa hukuk bürosu ile çalışmanın somut faydası süre yönetimidir. Şikâyet süresi, itiraz süresi ve kanun yolu süreleri kaçırıldığında hak kaybı doğar. Buna karşılık hiçbir avukat tutuklama, tahliye, beraat ya da ceza miktarı konusunda taahhüt veremez; verilebilecek olan dosyanın hukuka uygun ve eksiksiz takibidir.",
-          "Çalışma alanının kapsamını [Bursa ceza hukuku sayfamızda](/calisma-alanlari/ceza-hukuku) inceleyebilir, soruşturmada ifade ve haklar konusundaki ayrıntılar için [ilgili makalemize](/makaleler/sorusturmada-ifade-ve-temel-haklar) bakabilirsiniz. Görüşme için [iletişim sayfamızı](/iletisim) kullanabilirsiniz.",
+          "Çalışma alanının kapsamını [Bursa ceza hukuku sayfamızda](/calisma-alanlari/ceza-hukuku) inceleyebilir, soruşturmada ifade ve haklar konusundaki ayrıntılar için [ilgili makalemize](/makaleler/sorusturma-asamasinda-ifade) bakabilirsiniz. Görüşme için [iletişim sayfamızı](/iletisim) kullanabilirsiniz.",
         ],
       },
       {
