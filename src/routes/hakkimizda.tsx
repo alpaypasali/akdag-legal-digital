@@ -3,6 +3,7 @@ import { PageHeader, SectionLabel } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { absoluteUrl, site } from "@/data/site";
 import headerAsset from "@/assets/hero-hakkimizda.webp";
+import { ProgressiveImage } from "@/components/progressive-image";
 import archAsset from "@/assets/arch-columns.webp";
 
 const title = "Hakkımızda | Akdağ Hukuk ve Danışmanlık";

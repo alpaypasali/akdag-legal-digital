@@ -11,6 +11,7 @@ import { ArchBackdrop } from "@/components/arch-backdrop";
 import heroBooksAsset from "@/assets/hero-books.webp";
 import heroScalesAsset from "@/assets/hero-scales.webp";
 import logoMarkAsset from "@/assets/logo-footer.webp";
+import { ProgressiveImage } from "@/components/progressive-image";
 import archAsset from "@/assets/arch-columns.webp";
 
 
