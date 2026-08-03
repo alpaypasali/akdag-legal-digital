@@ -83,6 +83,7 @@ function AdminArticles() {
   const [areas, setAreas] = useState<{ slug: string; title: string }[]>([]);
   const [editing, setEditing] = useState<ArticleRecord | null>(null);
   const [sections, setSections] = useState<EditableSection[]>([]);
+  const [faqs, setFaqs] = useState<ArticleFaqRow[]>([]);
   const [saving, setSaving] = useState(false);
 
   const load = useCallback(async () => {
@@ -104,12 +105,15 @@ function AdminArticles() {
   function startEdit(record: ArticleRecord) {
     setEditing({ ...record });
     setSections(toEditableSections(record.sections));
+    setFaqs(toFaqRows(record.faqs));
   }
 
   async function save() {
     if (!editing) return;
     const sectionsPayload = fromEditableSections(sections);
-
+    const faqPayload = faqs
+      .map((f) => ({ question: f.question.trim(), answer: f.answer.trim() }))
+      .filter((f) => f.question && f.answer);
 
     const payload = {
       slug: editing.slug || slugify(editing.title),
@@ -127,7 +131,12 @@ function AdminArticles() {
       meta_description: editing.meta_description.trim(),
       noindex: editing.noindex,
       status: editing.status,
+      schema_type: editing.schema_type || "BlogPosting",
+      og_image_url: editing.og_image_url.trim(),
+      faqs: faqPayload,
+      closing_note: editing.closing_note.trim(),
     };
+
 
     if (!payload.title || !payload.slug || !payload.category_slug) {
       toast.error("Başlık, adres (slug) ve kategori zorunludur.");
