@@ -39,6 +39,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:url", content: absoluteUrl("/") },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: absoluteUrl("/og/akdag-hukuk.jpg") },
+      { name: "twitter:image", content: absoluteUrl("/og/akdag-hukuk.jpg") },
     ],
     links: [
       { rel: "canonical", href: absoluteUrl("/") },
