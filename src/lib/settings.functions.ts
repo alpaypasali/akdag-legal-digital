@@ -52,7 +52,11 @@ export const fetchSiteSettings = createServerFn({ method: "GET" }).handler(
         const value = (row.value ?? "").trim();
         if (value) out[row.key] = value;
       }
+      // Panelden kaydedilen alan adı, sunucu tarafında canonical/og:url
+      // üretimine anında yansıtılır.
+      setSiteUrlOverride(out[SETTING_KEYS.baseUrl]);
       return out;
+
     } catch {
       return {};
     }
