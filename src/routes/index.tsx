@@ -250,7 +250,78 @@ function Home() {
         </div>
       </section>
 
+      {/* 2b — Bursa Gurbetçi Hukuk */}
+      <section
+        aria-labelledby="gurbetci-baslik"
+        className="border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"
+      >
+        <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
+            <p className="eyebrow text-gold">Yurt Dışında Yaşayanlar İçin</p>
+            <h2
+              id="gurbetci-baslik"
+              className="mt-6 font-serif text-2xl sm:text-3xl lg:text-4xl"
+            >
+              Bursa Gurbetçi Hukuk
+            </h2>
+            <span aria-hidden="true" className="rule-gold mt-6 block" />
+            <p className="measure mt-6 font-serif text-lg text-ink-foreground/85">
+              Yurt dışında yaşayan vatandaşlar için Türkiye'de hukuki takip
+            </p>
+            <p className="measure mt-5 text-ink-foreground/75">
+              Akdağ Hukuk, yurt dışında yaşayan vatandaşların Türkiye'deki
+              vekâletname, miras, boşanma, tapu, dava takibi ve diğer hukuki
+              işlemlerine ilişkin danışmanlık sunar. Bursa gurbetçi hukuk
+              hizmetimiz sayesinde birçok işlem, uygun vekâletname düzenlenerek
+              Türkiye'ye gelmeden takip edilebilir.
+            </p>
+            <p className="measure mt-4 text-sm text-ink-foreground/65">
+              Almanya, Hollanda, Fransa ve diğer ülkelerden gelen taleplerde
+              gurbetçi hukuk Bursa ölçeğinde tek merkezden yürütülür; Bursa
+              gurbetçi avukat desteğiyle süreç yazılı olarak raporlanır.
+            </p>
+
+            <Link
+              to="/bursa-gurbetci-hukuk"
+              className="mt-9 inline-flex min-h-12 items-center justify-center gap-3 border border-gold bg-gold px-7 text-sm text-ink transition-colors hover:bg-transparent hover:text-gold"
+            >
+              Bursa Gurbetçi Hukuk Hizmetini İncele
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="lg:col-span-5 lg:border-l lg:border-hairline-invert lg:pl-10">
+            <p className="eyebrow text-ink-foreground/55">Hizmet Başlıkları</p>
+            <ul className="mt-5">
+              {[
+                "Konsolosluk vekâletnamesi",
+                "Yurt dışından miras işlemleri",
+                "Yurt dışından boşanma",
+                "Tapu ve taşınmaz işlemleri",
+                "Dava ve dosya takibi",
+                "Askerlik işlemlerine ilişkin danışmanlık",
+              ].map((item, i) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-4 border-t border-hairline-invert py-3.5 last:border-b"
+                >
+                  <span className="rule-number">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-sm text-ink-foreground/80">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-ink-foreground/60">
+              Gurbetçi avukat Bursa aramalarında öne çıkan konularda ön
+              değerlendirme yapılır.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* 3 — Avukat tanıtımı */}
+
       <section
         aria-labelledby="avukat-baslik"
         className="border-b border-hairline-invert bg-ink py-16 text-ink-foreground md:py-24"

@@ -44,7 +44,7 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "monthly",
             priority: "0.8",
           })),
-          { path: "/gurbetci-hub", changefreq: "monthly", priority: "0.9" },
+          { path: "/bursa-gurbetci-hukuk", changefreq: "monthly", priority: "0.9" },
           { path: "/makaleler", changefreq: "weekly", priority: "0.8" },
           ...content.categories.map<SitemapEntry>((c) => ({
             path: `/makaleler/kategori/${c.slug}`,

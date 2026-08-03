@@ -9,14 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YurtdisiHukukRouteImport } from './routes/yurtdisi-hukuk'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SikcaSorulanSorularRouteImport } from './routes/sikca-sorulan-sorular'
 import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
+import { Route as GurbetciHukukRouteImport } from './routes/gurbetci-hukuk'
 import { Route as GurbetciHubRouteImport } from './routes/gurbetci-hub'
 import { Route as GizlilikRouteImport } from './routes/gizlilik'
 import { Route as CerezPolitikasiRouteImport } from './routes/cerez-politikasi'
+import { Route as BursaGurbetciHukukRouteImport } from './routes/bursa-gurbetci-hukuk'
 import { Route as AvukatKutayOnatAkdagRouteImport } from './routes/avukat-kutay-onat-akdag'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -32,6 +35,11 @@ import { Route as AuthenticatedAdminMakalelerRouteImport } from './routes/_authe
 import { Route as AuthenticatedAdminCalismaAlanlariRouteImport } from './routes/_authenticated/admin.calisma-alanlari'
 import { Route as AuthenticatedAdminAyarlarRouteImport } from './routes/_authenticated/admin.ayarlar'
 
+const YurtdisiHukukRoute = YurtdisiHukukRouteImport.update({
+  id: '/yurtdisi-hukuk',
+  path: '/yurtdisi-hukuk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -57,6 +65,11 @@ const HakkimizdaRoute = HakkimizdaRouteImport.update({
   path: '/hakkimizda',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GurbetciHukukRoute = GurbetciHukukRouteImport.update({
+  id: '/gurbetci-hukuk',
+  path: '/gurbetci-hukuk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GurbetciHubRoute = GurbetciHubRouteImport.update({
   id: '/gurbetci-hub',
   path: '/gurbetci-hub',
@@ -70,6 +83,11 @@ const GizlilikRoute = GizlilikRouteImport.update({
 const CerezPolitikasiRoute = CerezPolitikasiRouteImport.update({
   id: '/cerez-politikasi',
   path: '/cerez-politikasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BursaGurbetciHukukRoute = BursaGurbetciHukukRouteImport.update({
+  id: '/bursa-gurbetci-hukuk',
+  path: '/bursa-gurbetci-hukuk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AvukatKutayOnatAkdagRoute = AvukatKutayOnatAkdagRouteImport.update({
@@ -148,14 +166,17 @@ const AuthenticatedAdminAyarlarRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
   '/gurbetci-hub': typeof GurbetciHubRoute
+  '/gurbetci-hukuk': typeof GurbetciHukukRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yurtdisi-hukuk': typeof YurtdisiHukukRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
@@ -171,14 +192,17 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
   '/gurbetci-hub': typeof GurbetciHubRoute
+  '/gurbetci-hukuk': typeof GurbetciHukukRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yurtdisi-hukuk': typeof YurtdisiHukukRoute
   '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
   '/makaleler/$slug': typeof MakalelerSlugRoute
@@ -195,14 +219,17 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
   '/gurbetci-hub': typeof GurbetciHubRoute
+  '/gurbetci-hukuk': typeof GurbetciHukukRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
   '/sikca-sorulan-sorular': typeof SikcaSorulanSorularRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yurtdisi-hukuk': typeof YurtdisiHukukRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/admin/giris': typeof AdminGirisRoute
   '/calisma-alanlari/$slug': typeof CalismaAlanlariSlugRoute
@@ -220,14 +247,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/avukat-kutay-onat-akdag'
+    | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
     | '/gurbetci-hub'
+    | '/gurbetci-hukuk'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/yurtdisi-hukuk'
     | '/admin'
     | '/admin/giris'
     | '/calisma-alanlari/$slug'
@@ -243,14 +273,17 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/avukat-kutay-onat-akdag'
+    | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
     | '/gurbetci-hub'
+    | '/gurbetci-hukuk'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/yurtdisi-hukuk'
     | '/admin/giris'
     | '/calisma-alanlari/$slug'
     | '/makaleler/$slug'
@@ -266,14 +299,17 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/avukat-kutay-onat-akdag'
+    | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
     | '/gurbetci-hub'
+    | '/gurbetci-hukuk'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
     | '/sikca-sorulan-sorular'
     | '/sitemap.xml'
+    | '/yurtdisi-hukuk'
     | '/_authenticated/admin'
     | '/admin/giris'
     | '/calisma-alanlari/$slug'
@@ -291,14 +327,17 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AvukatKutayOnatAkdagRoute: typeof AvukatKutayOnatAkdagRoute
+  BursaGurbetciHukukRoute: typeof BursaGurbetciHukukRoute
   CerezPolitikasiRoute: typeof CerezPolitikasiRoute
   GizlilikRoute: typeof GizlilikRoute
   GurbetciHubRoute: typeof GurbetciHubRoute
+  GurbetciHukukRoute: typeof GurbetciHukukRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
   KvkkRoute: typeof KvkkRoute
   SikcaSorulanSorularRoute: typeof SikcaSorulanSorularRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  YurtdisiHukukRoute: typeof YurtdisiHukukRoute
   AdminGirisRoute: typeof AdminGirisRoute
   CalismaAlanlariSlugRoute: typeof CalismaAlanlariSlugRoute
   MakalelerSlugRoute: typeof MakalelerSlugRoute
@@ -309,6 +348,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yurtdisi-hukuk': {
+      id: '/yurtdisi-hukuk'
+      path: '/yurtdisi-hukuk'
+      fullPath: '/yurtdisi-hukuk'
+      preLoaderRoute: typeof YurtdisiHukukRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -344,6 +390,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HakkimizdaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gurbetci-hukuk': {
+      id: '/gurbetci-hukuk'
+      path: '/gurbetci-hukuk'
+      fullPath: '/gurbetci-hukuk'
+      preLoaderRoute: typeof GurbetciHukukRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gurbetci-hub': {
       id: '/gurbetci-hub'
       path: '/gurbetci-hub'
@@ -363,6 +416,13 @@ declare module '@tanstack/react-router' {
       path: '/cerez-politikasi'
       fullPath: '/cerez-politikasi'
       preLoaderRoute: typeof CerezPolitikasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bursa-gurbetci-hukuk': {
+      id: '/bursa-gurbetci-hukuk'
+      path: '/bursa-gurbetci-hukuk'
+      fullPath: '/bursa-gurbetci-hukuk'
+      preLoaderRoute: typeof BursaGurbetciHukukRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/avukat-kutay-onat-akdag': {
@@ -499,14 +559,17 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AvukatKutayOnatAkdagRoute: AvukatKutayOnatAkdagRoute,
+  BursaGurbetciHukukRoute: BursaGurbetciHukukRoute,
   CerezPolitikasiRoute: CerezPolitikasiRoute,
   GizlilikRoute: GizlilikRoute,
   GurbetciHubRoute: GurbetciHubRoute,
+  GurbetciHukukRoute: GurbetciHukukRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
   KvkkRoute: KvkkRoute,
   SikcaSorulanSorularRoute: SikcaSorulanSorularRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  YurtdisiHukukRoute: YurtdisiHukukRoute,
   AdminGirisRoute: AdminGirisRoute,
   CalismaAlanlariSlugRoute: CalismaAlanlariSlugRoute,
   MakalelerSlugRoute: MakalelerSlugRoute,
