@@ -15,6 +15,8 @@ export function HeroBackdrop() {
       <img
         src={booksAsset}
         alt=""
+        width={1600}
+        height={1060}
         fetchPriority="high"
         decoding="async"
         className="absolute inset-0 size-full object-cover object-left"
@@ -31,6 +33,8 @@ export function HeroBackdrop() {
       <img
         src={scalesAsset}
         alt=""
+        width={1600}
+        height={854}
         fetchPriority="high"
         decoding="async"
         className="absolute inset-0 size-full object-cover object-[72%_center]"

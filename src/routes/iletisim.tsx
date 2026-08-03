@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
 import { trackEvent } from "@/lib/analytics";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
 import headerAsset from "@/assets/hero-iletisim.webp";
 
@@ -20,10 +20,10 @@ export const Route = createFileRoute("/iletisim")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: "/iletisim" },
+      { property: "og:url", content: absoluteUrl("/iletisim") },
     ],
     links: [
-      { rel: "canonical", href: "/iletisim" },
+      { rel: "canonical", href: absoluteUrl("/iletisim") },
       {
         rel: "preload",
         as: "image",

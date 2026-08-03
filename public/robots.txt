@@ -17,3 +17,5 @@ Disallow: /admin/
 Disallow: /login
 Disallow: /*?q=
 Disallow: /*?arama=
+
+Sitemap: https://akdag-legal-digital.vercel.app/sitemap.xml

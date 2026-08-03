@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, SectionLabel } from "@/components/section";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import headerAsset from "@/assets/hero-hakkimizda.webp";
 import archAsset from "@/assets/arch-columns.webp";
 
@@ -16,10 +16,10 @@ export const Route = createFileRoute("/hakkimizda")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: "/hakkimizda" },
+      { property: "og:url", content: absoluteUrl("/hakkimizda") },
     ],
     links: [
-      { rel: "canonical", href: "/hakkimizda" },
+      { rel: "canonical", href: absoluteUrl("/hakkimizda") },
       {
         rel: "preload",
         as: "image",
@@ -105,6 +105,8 @@ function AboutPage() {
           src={archAsset}
           alt=""
           aria-hidden="true"
+          width={1920}
+          height={1280}
           loading="lazy"
           decoding="async"
           className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center opacity-45 [filter:grayscale(1)_contrast(1.05)_brightness(0.9)]"

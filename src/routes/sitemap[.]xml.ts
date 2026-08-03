@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { siteUrl } from "@/data/site";
 import { fetchSiteContent } from "@/lib/content.functions";
 import { fetchSiteSettings, SETTING_KEYS } from "@/lib/settings.functions";
 
@@ -28,7 +29,12 @@ export const Route = createFileRoute("/sitemap.xml")({
           fetchSiteContent(),
           fetchSiteSettings(),
         ]);
-        const BASE_URL = (settings[SETTING_KEYS.baseUrl] ?? "").replace(/\/$/, "");
+        // Panelde adres tanımlı değilse merkezi site adresi kullanılır;
+        // sitemap içindeki adresler her zaman mutlaktır.
+        const BASE_URL = (settings[SETTING_KEYS.baseUrl]?.trim() || siteUrl).replace(
+          /\/$/,
+          "",
+        );
 
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },

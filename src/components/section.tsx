@@ -61,6 +61,8 @@ export function PageHeader({
       <img
         src={image}
         alt={imageAlt ?? ""}
+        width={1600}
+        height={854}
         fetchPriority="high"
         decoding="async"
         className="absolute inset-0 size-full object-cover"

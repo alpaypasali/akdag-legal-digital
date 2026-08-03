@@ -1,9 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
+import { FaqList } from "@/components/faq-list";
+import { faqJsonLd } from "@/data/faqs";
 import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
 import { getArea, type PracticeArea } from "@/data/practice-areas";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import { fetchSiteContent } from "@/lib/content.functions";
 
 export const Route = createFileRoute("/makaleler/$slug")({
@@ -46,12 +48,12 @@ export const Route = createFileRoute("/makaleler/$slug")({
         { property: "og:title", content: article.metaTitle },
         { property: "og:description", content: article.metaDescription },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: url },
+        { property: "og:url", content: absoluteUrl(url) },
         ...(article.noindex
           ? [{ name: "robots", content: "noindex" }]
           : []),
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [{ rel: "canonical", href: absoluteUrl(url) }],
       scripts: [
         {
           type: "application/ld+json",
@@ -77,6 +79,14 @@ export const Route = createFileRoute("/makaleler/$slug")({
             ]),
           ),
         },
+        ...(article.faqs && article.faqs.length > 0
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify(faqJsonLd(article.faqs)),
+              },
+            ]
+          : []),
       ],
     };
   },
@@ -201,7 +211,7 @@ function ArticleDetail() {
                 </Heading>
                 {section.paragraphs.map((p: string) => (
                   <p key={p} className="measure mt-4 text-muted-foreground">
-                    {p}
+                    <RichText text={p} />
                   </p>
                 ))}
                 {section.list ? (
@@ -250,6 +260,48 @@ function ArticleDetail() {
               Avukat profili
               <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
             </Link>
+          </section>
+
+          {article.faqs && article.faqs.length > 0 ? (
+            <section aria-labelledby="makale-sss" className="mt-12 border-t border-border pt-8">
+              <h2 id="makale-sss" className="font-serif text-2xl sm:text-3xl">
+                Sıkça sorulan sorular
+              </h2>
+              <FaqList items={article.faqs} headingId="makale-sss" />
+            </section>
+          ) : null}
+
+          <section
+            aria-labelledby="makale-bilgilendirme"
+            className="mt-12 border border-border bg-secondary p-6"
+          >
+            <h2 id="makale-bilgilendirme" className="eyebrow">
+              Genel bilgilendirme
+            </h2>
+            <p className="measure mt-3 text-sm text-muted-foreground">
+              {article.closingNote ??
+                "Bu yazı genel bilgilendirme amacıyla hazırlanmıştır; hukuki tavsiye niteliği taşımaz ve belirli bir sonuç taahhüdü içermez. Mevzuat ve uygulama değişebileceğinden kendi dosyanız için güncel durumun bir avukatla değerlendirilmesi gerekir."}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <a
+                href={`https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(
+                  `Merhaba, "${article.title}" başlıklı yazınız hakkında bilgi almak istiyorum.`,
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-gold px-5 py-3 text-sm transition-colors hover:bg-gold hover:text-ink"
+              >
+                <MessageCircle className="size-4" aria-hidden="true" />
+                WhatsApp ile yazın
+              </a>
+              <Link
+                to="/iletisim"
+                className="inline-flex items-center gap-2 border border-border px-5 py-3 text-sm transition-colors hover:border-gold"
+              >
+                İletişim ve randevu
+                <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
+              </Link>
+            </div>
           </section>
 
         </article>
@@ -332,5 +384,27 @@ function ArticleNotFoundComponent() {
         <ArrowUpRight className="size-3.5 text-gold" aria-hidden="true" />
       </Link>
     </div>
+  );
+}
+
+/**
+ * Paragraf içindeki [metin](/yol) biçimindeki iç bağlantıları TanStack Link
+ * yerine <a> ile değil, aynı sekmede gezinen bağlantı olarak işler.
+ */
+function RichText({ text }: { text: string }) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const match = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(part);
+        if (!match) return <span key={i}>{part}</span>;
+        const [, label, href] = match;
+        return (
+          <a key={i} href={href} className="link-underline text-foreground">
+            {label}
+          </a>
+        );
+      })}
+    </>
   );
 }

@@ -494,6 +494,8 @@ function Home() {
           src={archAsset}
           alt=""
           aria-hidden="true"
+          width={1920}
+          height={1280}
           loading="lazy"
           decoding="async"
           className="pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center opacity-45 [filter:grayscale(1)_contrast(1.05)_brightness(0.9)]"
