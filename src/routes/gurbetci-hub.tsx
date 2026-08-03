@@ -16,10 +16,9 @@ import {
 import { HubCtaButtons } from "@/components/gurbetci/hub-cta";
 import heroImage from "@/assets/hero-books.webp";
 
-const title =
-  "Yurt Dışında Yaşayan Türkler için Hukuki Danışmanlık | Akdağ Hukuk";
+const title = "Bursa Gurbetçi Hukuk | Akdağ Hukuk";
 const description =
-  "Avrupa'da yaşayan Türk vatandaşları için vekaletname, miras, boşanma ve askerlik konularında Türkiye'ye gelmeden hukuki destek. WhatsApp üzerinden ön görüşme.";
+  "Bursa Gurbetçi Hukuk: yurt dışında yaşayan Türk vatandaşları için vekâletname, miras, boşanma ve askerlik konularında Türkiye'ye gelmeden hukuki destek.";
 const path = "/gurbetci-hub";
 
 export const Route = createFileRoute("/gurbetci-hub")({
