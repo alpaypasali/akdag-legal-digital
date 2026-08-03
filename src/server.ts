@@ -44,12 +44,56 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+/**
+ * Ön izleme / geçici adreslerin Google'da asıl site gibi indekslenmesini önler.
+ * Bu alan adlarında hem `X-Robots-Tag: noindex, nofollow` başlığı gönderilir
+ * hem de /robots.txt tüm tarayıcılara kapatılır. Asıl yayın adresi ve özel
+ * alan adları etkilenmez.
+ */
+const NON_CANONICAL_HOST_PATTERNS: RegExp[] = [
+  /^localhost(:\d+)?$/i,
+  /^127\.0\.0\.1(:\d+)?$/,
+  /\.vercel\.app$/i,
+  /\.netlify\.app$/i,
+  /^id-preview--/i,
+  /^preview--/i,
+  /-dev\.lovable\.app$/i,
+  /\.lovableproject\.com$/i,
+  /\.lovable\.dev$/i,
+];
+
+function isNonCanonicalHost(host: string): boolean {
+  return NON_CANONICAL_HOST_PATTERNS.some((pattern) => pattern.test(host));
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const url = new URL(request.url);
+    const previewHost = isNonCanonicalHost(url.host);
+
+    if (previewHost && url.pathname === "/robots.txt") {
+      return new Response("User-agent: *\nDisallow: /\n", {
+        headers: {
+          "content-type": "text/plain; charset=utf-8",
+          "x-robots-tag": "noindex, nofollow",
+        },
+      });
+    }
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalized = await normalizeCatastrophicSsrResponse(response);
+      if (previewHost) {
+        const headers = new Headers(normalized.headers);
+        headers.set("x-robots-tag", "noindex, nofollow");
+        return new Response(normalized.body, {
+          status: normalized.status,
+          statusText: normalized.statusText,
+          headers,
+        });
+      }
+      return normalized;
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {
@@ -58,4 +102,5 @@ export default {
       });
     }
   },
+
 };
