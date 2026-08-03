@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
-import { site } from "@/data/site";
+import { absoluteUrl, site } from "@/data/site";
 import { featuredAreas } from "@/data/practice-areas";
 import { formatDate, type Article, type ArticleCategory } from "@/data/articles";
 import { fetchSiteContent } from "@/lib/content.functions";
