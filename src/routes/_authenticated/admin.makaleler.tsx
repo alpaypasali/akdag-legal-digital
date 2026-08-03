@@ -18,6 +18,8 @@ export const Route = createFileRoute("/_authenticated/admin/makaleler")({
   component: AdminArticles,
 });
 
+type ArticleFaqRow = { question: string; answer: string };
+
 type ArticleRecord = {
   id: string;
   slug: string;
@@ -35,6 +37,10 @@ type ArticleRecord = {
   meta_description: string;
   noindex: boolean;
   status: string;
+  schema_type: string;
+  og_image_url: string;
+  faqs: unknown;
+  closing_note: string;
 };
 
 const emptyArticle = (): ArticleRecord => ({
@@ -54,7 +60,22 @@ const emptyArticle = (): ArticleRecord => ({
   meta_description: "",
   noindex: false,
   status: "draft",
+  schema_type: "BlogPosting",
+  og_image_url: "",
+  faqs: [],
+  closing_note: "",
 });
+
+function toFaqRows(value: unknown): ArticleFaqRow[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((item): item is ArticleFaqRow => !!item && typeof item === "object")
+    .map((item) => ({
+      question: String((item as ArticleFaqRow).question ?? ""),
+      answer: String((item as ArticleFaqRow).answer ?? ""),
+    }));
+}
+
 
 function AdminArticles() {
   const [rows, setRows] = useState<ArticleRecord[]>([]);
