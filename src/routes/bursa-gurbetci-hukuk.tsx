@@ -19,9 +19,9 @@ import heroImage from "@/assets/hero-books.webp";
 const title = "Bursa Gurbetçi Hukuk | Akdağ Hukuk";
 const description =
   "Bursa Gurbetçi Hukuk: yurt dışında yaşayan Türk vatandaşları için vekâletname, miras, boşanma ve askerlik konularında Türkiye'ye gelmeden hukuki destek.";
-const path = "/gurbetci-hub";
+const path = "/bursa-gurbetci-hukuk";
 
-export const Route = createFileRoute("/gurbetci-hub")({
+export const Route = createFileRoute("/bursa-gurbetci-hukuk")({
   head: () => ({
     meta: [
       { title },
