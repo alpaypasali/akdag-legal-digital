@@ -179,7 +179,43 @@ function AreasPage() {
                 </Link>
               );
             })}
+
+            <Link
+              to="/bursa-gurbetci-hukuk"
+              className="group flex flex-col transition-colors hover:bg-secondary"
+            >
+              <span className="relative block aspect-[16/9] overflow-hidden bg-ink">
+                <ProgressiveImage
+                  src={gurbetciAsset}
+                  alt="Bursa gurbetçi hukuk ve yurt dışı hukuki danışmanlık"
+                  loading="lazy"
+                  decoding="async"
+                  width={1366}
+                  height={768}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="size-full object-cover transition-transform duration-500 [filter:saturate(1.02)_contrast(1.02)_brightness(1)] group-hover:scale-[1.03]"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,color-mix(in_oklab,var(--color-ink)_28%,transparent))]"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gold/50"
+                />
+              </span>
+
+              <span className="block p-6">
+                <h3 className="font-serif text-xl">Bursa Gurbetçi Hukuk</h3>
+                <span className="mt-3 block text-sm text-muted-foreground">
+                  Yurt dışında yaşayan vatandaşların Türkiye'deki vekâletname,
+                  miras, boşanma, tapu ve dava takiplerine ilişkin hukuki
+                  danışmanlık.
+                </span>
+              </span>
+            </Link>
           </div>
+
 
 
         </div>
