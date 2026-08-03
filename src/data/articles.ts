@@ -1,3 +1,5 @@
+import { seoPackArticles } from "./articles-seo-pack";
+
 export interface ArticleCategory {
   slug: string;
   title: string;
