@@ -34,12 +34,12 @@ export const hubWhatsappMessage =
 export const hubSections: HubSection[] = [
   {
     id: "vekaletname",
-    navLabel: "Vekâletname İşlemleri",
+    navLabel: "Konsolosluk Vekâletnamesi",
     icon: "file-signature",
-    title: "Vekâletname Nasıl Çıkarılır?",
+    title: "Konsolosluk Vekâletnamesi Nasıl Çıkarılır?",
     subtitle: "Türkiye'ye gelmeden işlemlerinizi başlatın",
     description:
-      "Yurt dışında yaşayan birçok vatandaşımız; miras, tapu, boşanma veya dava takibi gibi işlemleri Türkiye'ye gelemediği için erteliyor. Oysa konsolosluktan düzenlenecek, yapılacak işleme uygun bir vekâletnameyle süreç Türkiye'de tarafımızca takip edilebilir.",
+      "Yurt dışında yaşayan birçok vatandaşımız; miras, tapu, boşanma veya dava takibi gibi işlemleri Türkiye'ye gelemediği için erteliyor. Oysa konsolosluk vekâletnamesi ile bu işlemler Türkiye'de tarafımızca takip edilebilir. Yurt dışında yaşayan Türkler için avukat desteğinin ilk adımı, yapılacak işleme uygun kapsamda düzenlenmiş bir vekâletnamedir.",
     stepsTitle: "Adım adım süreç",
     steps: [
       {
