@@ -70,7 +70,7 @@ export const Route = createFileRoute("/makaleler/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            "@type": article.schemaType ?? "BlogPosting",
             "@id": `${absoluteUrl(url)}#article`,
             headline: article.title,
             description: article.excerpt,
