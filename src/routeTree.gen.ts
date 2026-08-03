@@ -37,6 +37,7 @@ import { Route as ApiPublicSeoCheckRouteImport } from './routes/api/public/seo-c
 import { Route as AuthenticatedAdminMakalelerRouteImport } from './routes/_authenticated/admin.makaleler'
 import { Route as AuthenticatedAdminCalismaAlanlariRouteImport } from './routes/_authenticated/admin.calisma-alanlari'
 import { Route as AuthenticatedAdminAyarlarRouteImport } from './routes/_authenticated/admin.ayarlar'
+import { Route as AuthenticatedAdminAlanAdiRouteImport } from './routes/_authenticated/admin.alan-adi'
 
 const YurtdisiHukukRoute = YurtdisiHukukRouteImport.update({
   id: '/yurtdisi-hukuk',
@@ -180,6 +181,12 @@ const AuthenticatedAdminAyarlarRoute =
     path: '/ayarlar',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
+const AuthenticatedAdminAlanAdiRoute =
+  AuthenticatedAdminAlanAdiRouteImport.update({
+    id: '/alan-adi',
+    path: '/alan-adi',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -203,6 +210,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
+  '/admin/alan-adi': typeof AuthenticatedAdminAlanAdiRoute
   '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
@@ -231,6 +239,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/calisma-alanlari': typeof CalismaAlanlariIndexRoute
   '/makaleler': typeof MakalelerIndexRoute
+  '/admin/alan-adi': typeof AuthenticatedAdminAlanAdiRoute
   '/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
@@ -262,6 +271,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/calisma-alanlari/': typeof CalismaAlanlariIndexRoute
   '/makaleler/': typeof MakalelerIndexRoute
+  '/_authenticated/admin/alan-adi': typeof AuthenticatedAdminAlanAdiRoute
   '/_authenticated/admin/ayarlar': typeof AuthenticatedAdminAyarlarRoute
   '/_authenticated/admin/calisma-alanlari': typeof AuthenticatedAdminCalismaAlanlariRoute
   '/_authenticated/admin/makaleler': typeof AuthenticatedAdminMakalelerRoute
@@ -293,6 +303,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/calisma-alanlari/'
     | '/makaleler/'
+    | '/admin/alan-adi'
     | '/admin/ayarlar'
     | '/admin/calisma-alanlari'
     | '/admin/makaleler'
@@ -321,6 +332,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/calisma-alanlari'
     | '/makaleler'
+    | '/admin/alan-adi'
     | '/admin/ayarlar'
     | '/admin/calisma-alanlari'
     | '/admin/makaleler'
@@ -351,6 +363,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/calisma-alanlari/'
     | '/makaleler/'
+    | '/_authenticated/admin/alan-adi'
     | '/_authenticated/admin/ayarlar'
     | '/_authenticated/admin/calisma-alanlari'
     | '/_authenticated/admin/makaleler'
@@ -583,10 +596,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminAyarlarRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/_authenticated/admin/alan-adi': {
+      id: '/_authenticated/admin/alan-adi'
+      path: '/alan-adi'
+      fullPath: '/admin/alan-adi'
+      preLoaderRoute: typeof AuthenticatedAdminAlanAdiRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
   }
 }
 
 interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminAlanAdiRoute: typeof AuthenticatedAdminAlanAdiRoute
   AuthenticatedAdminAyarlarRoute: typeof AuthenticatedAdminAyarlarRoute
   AuthenticatedAdminCalismaAlanlariRoute: typeof AuthenticatedAdminCalismaAlanlariRoute
   AuthenticatedAdminMakalelerRoute: typeof AuthenticatedAdminMakalelerRoute
@@ -594,6 +615,7 @@ interface AuthenticatedAdminRouteChildren {
 }
 
 const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminAlanAdiRoute: AuthenticatedAdminAlanAdiRoute,
   AuthenticatedAdminAyarlarRoute: AuthenticatedAdminAyarlarRoute,
   AuthenticatedAdminCalismaAlanlariRoute:
     AuthenticatedAdminCalismaAlanlariRoute,
