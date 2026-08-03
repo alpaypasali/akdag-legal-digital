@@ -14,9 +14,9 @@ import { Route as SikcaSorulanSorularRouteImport } from './routes/sikca-sorulan-
 import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
-import { Route as GurbetciHubRouteImport } from './routes/gurbetci-hub'
 import { Route as GizlilikRouteImport } from './routes/gizlilik'
 import { Route as CerezPolitikasiRouteImport } from './routes/cerez-politikasi'
+import { Route as BursaGurbetciHukukRouteImport } from './routes/bursa-gurbetci-hukuk'
 import { Route as AvukatKutayOnatAkdagRouteImport } from './routes/avukat-kutay-onat-akdag'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -57,11 +57,6 @@ const HakkimizdaRoute = HakkimizdaRouteImport.update({
   path: '/hakkimizda',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GurbetciHubRoute = GurbetciHubRouteImport.update({
-  id: '/gurbetci-hub',
-  path: '/gurbetci-hub',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const GizlilikRoute = GizlilikRouteImport.update({
   id: '/gizlilik',
   path: '/gizlilik',
@@ -70,6 +65,11 @@ const GizlilikRoute = GizlilikRouteImport.update({
 const CerezPolitikasiRoute = CerezPolitikasiRouteImport.update({
   id: '/cerez-politikasi',
   path: '/cerez-politikasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BursaGurbetciHukukRoute = BursaGurbetciHukukRouteImport.update({
+  id: '/bursa-gurbetci-hukuk',
+  path: '/bursa-gurbetci-hukuk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AvukatKutayOnatAkdagRoute = AvukatKutayOnatAkdagRouteImport.update({
@@ -148,9 +148,9 @@ const AuthenticatedAdminAyarlarRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
-  '/gurbetci-hub': typeof GurbetciHubRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
@@ -171,9 +171,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
-  '/gurbetci-hub': typeof GurbetciHubRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
@@ -195,9 +195,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/avukat-kutay-onat-akdag': typeof AvukatKutayOnatAkdagRoute
+  '/bursa-gurbetci-hukuk': typeof BursaGurbetciHukukRoute
   '/cerez-politikasi': typeof CerezPolitikasiRoute
   '/gizlilik': typeof GizlilikRoute
-  '/gurbetci-hub': typeof GurbetciHubRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kvkk': typeof KvkkRoute
@@ -220,9 +220,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/avukat-kutay-onat-akdag'
+    | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
-    | '/gurbetci-hub'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
@@ -243,9 +243,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/avukat-kutay-onat-akdag'
+    | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
-    | '/gurbetci-hub'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
@@ -266,9 +266,9 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/avukat-kutay-onat-akdag'
+    | '/bursa-gurbetci-hukuk'
     | '/cerez-politikasi'
     | '/gizlilik'
-    | '/gurbetci-hub'
     | '/hakkimizda'
     | '/iletisim'
     | '/kvkk'
@@ -291,9 +291,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AvukatKutayOnatAkdagRoute: typeof AvukatKutayOnatAkdagRoute
+  BursaGurbetciHukukRoute: typeof BursaGurbetciHukukRoute
   CerezPolitikasiRoute: typeof CerezPolitikasiRoute
   GizlilikRoute: typeof GizlilikRoute
-  GurbetciHubRoute: typeof GurbetciHubRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
   KvkkRoute: typeof KvkkRoute
@@ -344,13 +344,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HakkimizdaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/gurbetci-hub': {
-      id: '/gurbetci-hub'
-      path: '/gurbetci-hub'
-      fullPath: '/gurbetci-hub'
-      preLoaderRoute: typeof GurbetciHubRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/gizlilik': {
       id: '/gizlilik'
       path: '/gizlilik'
@@ -363,6 +356,13 @@ declare module '@tanstack/react-router' {
       path: '/cerez-politikasi'
       fullPath: '/cerez-politikasi'
       preLoaderRoute: typeof CerezPolitikasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bursa-gurbetci-hukuk': {
+      id: '/bursa-gurbetci-hukuk'
+      path: '/bursa-gurbetci-hukuk'
+      fullPath: '/bursa-gurbetci-hukuk'
+      preLoaderRoute: typeof BursaGurbetciHukukRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/avukat-kutay-onat-akdag': {
@@ -499,9 +499,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AvukatKutayOnatAkdagRoute: AvukatKutayOnatAkdagRoute,
+  BursaGurbetciHukukRoute: BursaGurbetciHukukRoute,
   CerezPolitikasiRoute: CerezPolitikasiRoute,
   GizlilikRoute: GizlilikRoute,
-  GurbetciHubRoute: GurbetciHubRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
   KvkkRoute: KvkkRoute,
@@ -517,3 +517,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
