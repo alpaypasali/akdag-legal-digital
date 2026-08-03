@@ -26,7 +26,10 @@ export type ArticleRow = {
   status: string;
   faqs?: unknown;
   closing_note?: string | null;
+  schema_type?: string | null;
+  og_image_url?: string | null;
 };
+
 
 export type CategoryRow = {
   slug: string;
