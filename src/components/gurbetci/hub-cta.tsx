@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { site } from "@/data/site";
 import { hubWhatsappMessage } from "@/data/gurbetci-hub";
 import { trackEvent } from "@/lib/analytics";
@@ -29,8 +30,8 @@ export function HubCtaButtons({
       >
         WhatsApp'tan Yazın
       </a>
-      <a
-        href="#randevu"
+      <Link
+        to="/iletisim"
         onClick={() =>
           trackEvent("click_appointment", { button_location: location })
         }
@@ -41,7 +42,7 @@ export function HubCtaButtons({
         }`}
       >
         Randevu Talebi
-      </a>
+      </Link>
     </div>
   );
 }
