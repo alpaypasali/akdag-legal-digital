@@ -6,6 +6,7 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/breadcrumbs";
 import { fetchSiteContent } from "@/lib/content.functions";
 import type { SiteContent } from "@/lib/content-mappers";
 import headerAsset from "@/assets/calisma-header.webp";
+import gurbetciAsset from "@/assets/gurbetci-hukuk.jpg";
 
 const title = "Bursa Avukat Çalışma Alanları | Akdağ Hukuk ve Danışmanlık";
 const description =
@@ -92,11 +93,11 @@ function AreasPage() {
                           width={1366}
                           height={854}
                           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                          className="size-full object-cover opacity-90 transition-all duration-500 [filter:grayscale(0.85)_sepia(0.28)_saturate(0.85)_contrast(1.05)_brightness(0.82)] group-hover:scale-105 group-hover:opacity-100 group-hover:[filter:grayscale(0.6)_sepia(0.22)_saturate(1)_contrast(1.05)_brightness(0.9)]"
+                          className="size-full object-cover transition-transform duration-500 [filter:saturate(1.02)_contrast(1.02)_brightness(1)] group-hover:scale-[1.03]"
                         />
                         <span
                           aria-hidden="true"
-                          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-ink)_25%,transparent),color-mix(in_oklab,var(--color-ink)_62%,transparent))]"
+                          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,color-mix(in_oklab,var(--color-ink)_28%,transparent))]"
                         />
                         <span
                           aria-hidden="true"
@@ -156,11 +157,11 @@ function AreasPage() {
                         width={1366}
                         height={768}
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="size-full object-cover opacity-90 transition-all duration-500 [filter:grayscale(0.85)_sepia(0.28)_saturate(0.85)_contrast(1.05)_brightness(0.82)] group-hover:scale-105 group-hover:opacity-100 group-hover:[filter:grayscale(0.6)_sepia(0.22)_saturate(1)_contrast(1.05)_brightness(0.9)]"
+                        className="size-full object-cover transition-transform duration-500 [filter:saturate(1.02)_contrast(1.02)_brightness(1)] group-hover:scale-[1.03]"
                       />
                       <span
                         aria-hidden="true"
-                        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-ink)_25%,transparent),color-mix(in_oklab,var(--color-ink)_62%,transparent))]"
+                        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,color-mix(in_oklab,var(--color-ink)_28%,transparent))]"
                       />
                       <span
                         aria-hidden="true"
