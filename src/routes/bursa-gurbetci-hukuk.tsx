@@ -63,9 +63,19 @@ export const Route = createFileRoute("/bursa-gurbetci-hukuk")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LegalService",
+          "@id": `${canonical}#legalservice`,
           name: `Bursa Gurbetçi Hukuk — ${site.name}`,
+          description: ogDescription,
           url: canonical,
-          areaServed: ["Bursa, Türkiye", "Avrupa"],
+          areaServed: [
+            { "@type": "City", name: "Bursa" },
+            { "@type": "AdministrativeArea", name: "Osmangazi" },
+            { "@type": "Country", name: "Türkiye" },
+          ],
+          audience: {
+            "@type": "Audience",
+            audienceType: "Yurt dışında yaşayan Türk vatandaşları",
+          },
           email: site.contact.email,
           telephone: site.contact.phoneHref,
           address: {
