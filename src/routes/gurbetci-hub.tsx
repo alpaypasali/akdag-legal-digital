@@ -183,33 +183,6 @@ function GurbetciHubPage() {
         </div>
       </section>
 
-      <section
-        id="randevu"
-        aria-labelledby="hub-randevu"
-        className="scroll-mt-28 border-t border-border py-14 md:py-20"
-      >
-        <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <SectionLabel index="06">Randevu Talebi</SectionLabel>
-            <h2
-              id="hub-randevu"
-              className="mt-6 font-serif text-2xl leading-tight sm:text-3xl"
-            >
-              Ön görüşme talebi oluşturun
-            </h2>
-            <p className="measure mt-5 text-muted-foreground">
-              Formu doldurduğunuzda talebiniz özetlenir; ardından WhatsApp veya
-              e-posta üzerinden tarafımıza iletebilirsiniz.
-            </p>
-            <p className="measure mt-6 border-l-2 border-gold bg-muted px-5 py-4 text-sm text-muted-foreground">
-              {hubNotice}
-            </p>
-          </div>
-          <div className="lg:col-span-8">
-            <HubAppointmentForm />
-          </div>
-        </div>
-      </section>
     </>
   );
 }
