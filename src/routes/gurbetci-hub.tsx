@@ -17,7 +17,7 @@ import {
 } from "@/components/gurbetci/hub-sections";
 import { HubCtaButtons } from "@/components/gurbetci/hub-cta";
 import { HubAppointmentForm } from "@/components/gurbetci/hub-appointment-form";
-import heroImage from "@/assets/banner-inside-a.webp";
+import heroImage from "@/assets/hero-books.webp";
 
 const title =
   "Yurt Dışında Yaşayan Türkler için Hukuki Danışmanlık | Akdağ Hukuk";
